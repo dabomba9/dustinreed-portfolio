@@ -110,11 +110,16 @@
   }
 
   /* Display headings: tight, heavy, optically balanced at large sizes. */
+  /* Geist has no width axis and no second family behind it, so the display
+     has to earn its separation from the body with weight and tracking alone.
+     800 is the top of the axis; the tracking is pulled well past what the
+     body could take, which is the part that actually reads as a headline
+     rather than as large text. */
   .display {
     font-family: var(--font-display);
-    font-weight: 700;
-    letter-spacing: -0.028em;
-    line-height: 0.95;
+    font-weight: 800;
+    letter-spacing: -0.042em;
+    line-height: 0.93;
     text-wrap: balance;
   }
 
