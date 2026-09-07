@@ -19,9 +19,9 @@
   --color-solid: #c6ff00;
   --color-edge: #c6ff00;
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-inter-tight), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 /* ---------------------------------------------------------------
@@ -58,7 +58,14 @@
     background-color: var(--color-ground);
     color: var(--color-type);
     font-family: var(--font-sans);
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    /* Geist ships eleven stylistic sets - ss01 no-tail a, ss03 alt l,
+       ss06 alt G, ss09 alt numbers and so on. None are switched on: they
+       change the character of every glyph they touch and that is a taste
+       call, not a default. Try them one at a time here.
+       Light type on a dark ground blooms and reads heavier than it measures.
+       Geist has no optical size axis, so weight is the only lever - the body
+       sits a touch under regular to compensate. */
+    font-weight: 380;
   }
 
   ::selection {
@@ -96,16 +103,17 @@
   .label {
     font-family: var(--font-mono);
     font-size: 0.6875rem;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 450;
+    font-variant-numeric: tabular-nums;
   }
 
   /* Display headings: tight, heavy, optically balanced at large sizes. */
   .display {
     font-family: var(--font-display);
-    font-weight: 800;
-    letter-spacing: -0.035em;
+    font-weight: 700;
+    letter-spacing: -0.028em;
     line-height: 0.95;
     text-wrap: balance;
   }

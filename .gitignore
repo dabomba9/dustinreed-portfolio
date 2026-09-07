@@ -45,3 +45,6 @@ _transfer.tgz
 
 # transfer scratch
 _*.tgz
+
+# Local scratch: previews and specimens, never shipped
+.scratch/
