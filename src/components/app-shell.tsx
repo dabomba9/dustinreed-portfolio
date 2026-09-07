@@ -25,7 +25,6 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
   const current = pages.find((p) => p.href === pathname);
   /* Direction C hides the chrome on the landing page only. Everything below
      still renders, so the two directions differ by exactly one variable. */
-  const chromeless = pathname === "/alt";
 
   /* ---- keyboard ---------------------------------------------------- */
   const isTyping = () => {
@@ -151,7 +150,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       {/* ---- mobile bar ---- */}
-      {chromeless ? null : (
+      {(
       <nav
         aria-label="Mobile"
         className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-rule bg-ground/90 px-2 backdrop-blur-md lg:hidden"
@@ -176,7 +175,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       )}
 
       {/* ---- rail ---- */}
-      {chromeless ? null : (
+      {(
       <aside
         className={`fixed inset-y-0 left-0 z-30 flex w-[17rem] flex-col border-r border-rule bg-ground transition-transform duration-200 lg:translate-x-0 ${
           railOpen ? "translate-x-0" : "-translate-x-full"
@@ -293,14 +292,14 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       ) : null}
 
       {/* ---- content ---- */}
-      <div className={chromeless ? "" : "lg:pl-[17rem]"}>
-        <main id="main" key={pathname} className={`page-in min-h-screen ${chromeless ? "pb-0" : "pb-24"}`}>
+      <div className="lg:pl-[17rem]">
+        <main id="main" key={pathname} className="page-in min-h-screen pb-24">
           {children}
         </main>
       </div>
 
       {/* ---- status bar ---- */}
-      {chromeless ? null : (
+      {(
       <section
         aria-label="Reading progress"
         className="fixed inset-x-0 bottom-0 z-20 border-t border-rule bg-ground/90 backdrop-blur-md lg:pl-[17rem]"

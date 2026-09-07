@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import AppShell from "@/components/app-shell";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 /* Fonts are self-hosted variable woff2. No third-party request on load. */
@@ -25,9 +26,7 @@ const jetbrains = localFont({
   weight: "100 800",
 });
 
-/* Set NEXT_PUBLIC_SITE_URL at deploy time. Until then this stays local, so
-   nothing hardcodes a domain that isn't yours yet. */
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
