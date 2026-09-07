@@ -81,8 +81,9 @@ export default function Coqui() {
 
           <Figure
             wide
-            alt="Coqui Cardboard, cards displayed at full resolution"
-            caption="Add: a few actual cards at full resolution. The entire premise is that they are worth looking at."
+            src="/media/coqui-vault.png"
+            alt="The Jordan Vault: 1,998 cards with images, sorted by year"
+            caption="The Vault, filtered to cards with scans. Nearly two thousand of them, ranked by nothing."
           />
 
           <H2>Four vaults, four reasons</H2>
@@ -157,8 +158,9 @@ export default function Coqui() {
 
           <Figure
             wide
-            alt="Hierarchy and Vault side by side"
-            caption="Add: Hierarchy and Vault side by side. This is the design decision made visible."
+            src="/media/coqui-hierarchy.png"
+            alt="The MJ Hierarchy: 378 cards sorted into four rarity tiers"
+            caption="The Hierarchy is an opinion — 378 cards, four tiers, Tier 1 first. The Vault above is the same cards with the opinion removed. Same data, two headspaces."
           />
 
           <H2>The look is the argument</H2>
@@ -193,8 +195,9 @@ export default function Coqui() {
           </P>
 
           <Figure
-            alt="Command palette open, and a tier with its completion bar partly filled"
-            caption="Add: the command palette open, and a tier with the completion bar partly filled."
+            src="/media/coqui-palette.png"
+            alt="The command palette open over the Hierarchy, listing cards by set and tier"
+            caption="For people who come back often enough to already know what they are looking for."
           />
 
           <H2>The parts that were hard</H2>

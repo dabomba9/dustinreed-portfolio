@@ -26,6 +26,7 @@ export const caseStudies: CaseStudy[] = [
       "500+ hosts with published listings",
     ],
     live: { label: "curbnturf.com", href: "https://www.curbnturf.com" },
+    image: "/media/curbnturf-v1-home.png",
     imageAlt: "CurbNTurf marketplace, host onboarding and listing pages",
   },
   {
@@ -37,6 +38,7 @@ export const caseStudies: CaseStudy[] = [
       "Twelve thousand basketball cards, catalogued and designed the way the objects deserve. No client, no brief, no revenue. Designed and built end to end in Next.js.",
     facts: ["Sole designer and developer", "12,000+ cards", "Command palette search"],
     live: { label: "coquicardboard.com", href: "https://www.coquicardboard.com" },
+    image: "/media/coqui-hierarchy.png",
     imageAlt: "Coqui Cardboard catalog and command palette search",
   },
   {
@@ -52,6 +54,7 @@ export const caseStudies: CaseStudy[] = [
       "Readers losing their sight",
     ],
     live: { label: "largeprintbooks.com", href: "https://www.largeprintbooks.com" },
+    image: "/media/lpb-lrs-paired.png",
     imageAlt: "Large Print Books and LRS identities side by side",
   },
 ];

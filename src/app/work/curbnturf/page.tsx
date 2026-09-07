@@ -60,8 +60,9 @@ export default function CurbNTurf() {
 
           <Figure
             wide
-            alt="CurbNTurf brand and product, built from nothing in 2018"
-            caption="Add: the original brand system and the first product screens."
+            src="/media/curbnturf-v1-home.png"
+            alt="CurbNTurf v1 homepage: a headline and an empty search box"
+            caption="V1, still live. A headline, an empty box, and several paragraphs explaining what a two sided marketplace is. V2 opens with a working query instead."
           />
 
           <H2>One decision shaped every screen after it</H2>
@@ -190,7 +191,9 @@ export default function CurbNTurf() {
 
 
           <Figure
-            alt="Multisite listing structure: one host, many sites"
+            src="/media/curbnturf-explore.png"
+            alt="The explore map with a listing card: amenities and a nightly price range"
+            caption="A listing carries its own amenities and price range. The fix was letting one host hold several of these."
           />
 
           <H2>What the numbers actually say</H2>

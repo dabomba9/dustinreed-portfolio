@@ -128,8 +128,9 @@ export default function LargePrintBooks() {
           </P>
 
           <Figure
-            alt="The Made to Order configuration screen"
-            caption="Add: the Made to Order configuration. This is the accessibility story made visible, so lead with it."
+            src="/media/lpb-made-to-order.png"
+            alt="The Made to Order section: type size, binding, format and paper"
+            caption="Four production decisions, made per student. This is the accessibility work — it lives in the manufacturing spec, not in an interface widget."
           />
 
           <H2>The decision: two brands, on purpose</H2>
@@ -203,8 +204,9 @@ export default function LargePrintBooks() {
 
           <Figure
             wide
-            alt="Both logos and both homepages side by side"
-            caption="Add: both logos side by side, then the two homepages paired so the postural difference is obvious."
+            src="/media/lpb-lrs-paired.png"
+            alt="The two homepages side by side: Large Print Books in yellow, LRS in white"
+            caption="Same catalogue, same buyers, two postures. Yellow and serif sells speed; white and condensed sells the system. That difference is the reason we kept both."
           />
 
           <H2>The part that isn’t a website</H2>
