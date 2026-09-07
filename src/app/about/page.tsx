@@ -14,7 +14,7 @@ export default function About() {
       <section className="border-b border-rule">
         <Wrap className="py-20 md:py-28">
           <p className="label text-accent">About</p>
-          <h1 className="display mt-7 max-w-4xl text-[2rem] sm:text-5xl md:text-[4rem]">
+          <h1 className="display mt-7 max-w-4xl text-[2.75rem] sm:text-6xl md:text-7xl">
             Most designers never find out what their decisions cost.
           </h1>
         </Wrap>

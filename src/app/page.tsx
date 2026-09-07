@@ -15,7 +15,7 @@ export default function Home() {
             Founding designer &middot; 7 years on one product
           </p>
 
-          <h1 className="display mt-8 text-[1.875rem] sm:text-5xl md:text-[4.5rem] lg:text-[5.25rem]">
+          <h1 className="display mt-8 text-[3rem] leading-[0.92] sm:text-6xl md:text-[5rem] lg:text-[5.75rem]">
             I design products
             <br />
             and <Mark>ship the code</Mark>.
@@ -104,7 +104,7 @@ export default function Home() {
         <Wrap>
           <div className="border-t border-type pt-14">
             <p className="label text-accent">What I&rsquo;m looking for</p>
-            <p className="display mt-6 max-w-3xl text-2xl md:text-[2.75rem]">
+            <p className="display mt-6 max-w-3xl text-3xl md:text-[3.25rem]">
               A team that needs one person to take something from brand all the way
               through to shipped code.
             </p>

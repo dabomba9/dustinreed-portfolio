@@ -110,20 +110,11 @@
   }
 
   /* Display headings: tight, heavy, optically balanced at large sizes. */
-  /* The big voice is monospaced. The labels were already the most
-     distinctive thing on the site, so the display makes that the argument
-     rather than a detail. Mono runs ~12% wider than Geist sans per
-     character, so every .display size below is set against the measure it
-     has to fit, not scaled from the old sans values.
-
-     Tracking is nearly neutral: a monospaced face is drawn on a fixed
-     advance and negative tracking fights it. Line height opens from 0.95
-     to 1.02 for the same reason - mono ascenders and descenders are longer. */
   .display {
-    font-family: var(--font-mono);
-    font-weight: 600;
-    letter-spacing: -0.012em;
-    line-height: 1.02;
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.028em;
+    line-height: 0.95;
     text-wrap: balance;
   }
 

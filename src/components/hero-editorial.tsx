@@ -31,7 +31,7 @@ export default function HeroEditorial() {
 
       <Wrap className="flex flex-1 flex-col justify-center py-20">
         <p className="label text-accent">Founding designer &middot; San Juan, Puerto Rico</p>
-        <h1 className="display mt-7 max-w-[18ch] text-[1.875rem] sm:text-5xl md:text-[4.75rem] lg:text-[5.5rem]">
+        <h1 className="display mt-7 max-w-[13ch] text-[3.5rem] sm:text-7xl md:text-[7rem] lg:text-[7.75rem]">
           I design products and ship the code.
         </h1>
         <p className="mt-9 max-w-[52ch] text-lg leading-[1.65] text-soft md:text-xl">
