@@ -280,9 +280,9 @@ export default function LargePrintBooks() {
             <a href="https://www.largeprintbooks.com" target="_blank" rel="noreferrer" className="draw-link text-ink">largeprintbooks.com</a>{" "}
             and{" "}
             <a href="https://www.lrsbooks.com" target="_blank" rel="noreferrer" className="draw-link text-ink">lrsbooks.com</a>.
-            Open both and the postural difference is the whole case study. Growth has doubled, and this
-            year’s numbers look closer to triple. It’s been the busiest year the company has
-            ever had in production, more books manufactured than any year before it.
+            Open both and the postural difference is the whole case study. Business has gone
+            up every single year since, and 2026 is turning into the biggest year the company
+            has had in production.
           </P>
 
           <P>
@@ -301,7 +301,10 @@ export default function LargePrintBooks() {
             name: "Dustin Reed",
             role: "Brand and identity for both, design, all front end",
           },
-          { name: "Developer", role: "Backend and integration, worked closely throughout" },
+          {
+            name: "Jed Smith",
+            role: "Backend and integration — the same developer I build CurbNTurf with",
+          },
           {
             name: "Owner",
             role: "Domain expertise, market knowledge, final call on brand architecture",
