@@ -34,6 +34,27 @@
    and fold the winner back into @theme before shipping.
    --------------------------------------------------------------- */
 
+/* A2 - the same structure, pushed to a true highlighter brightness.
+   At this luminance the yellow is nearly identical in VALUE to the cream,
+   so what you see is hue, not contrast. Ink on top still reads at 16:1. */
+:root[data-accent="acid"] {
+  --color-accent: #16191b;
+  --color-accent-lift: #f6f627;
+  --color-mark: #f6f627;
+  --color-solid: #f6f627;
+  --color-edge: #9c9000;   /* 3.04:1 on cream */
+}
+
+/* A3 - highlighter green. The biggest hue jump from a warm cream, so it
+   pops hardest of the three even though its contrast is no better. */
+:root[data-accent="lime"] {
+  --color-accent: #16191b;
+  --color-accent-lift: #c6ff00;
+  --color-mark: #c6ff00;
+  --color-solid: #c6ff00;
+  --color-edge: #6f8a00;   /* 3.66:1 on cream */
+}
+
 /* B - yellow as the accent colour, darkened until it passes contrast.
    Reads mustard, not highlighter. That is the honest cost. */
 :root[data-accent="mustard"] {
