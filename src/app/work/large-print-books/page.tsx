@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import CaseHero, { CaseFooter } from "@/components/case-hero";
 import { SpecBlock, Compare } from "@/components/blocks";
-import { Wrap, Column, H2, H3, P, Lead, Pull, Figure, Bullets } from "@/components/prose";
+import Band from "@/components/band";
+import WrongBlock from "@/components/wrong-block";
+import { Wrap, Column, H2, P, Lead, Pull, Figure, Bullets } from "@/components/prose";
 
 export const metadata: Metadata = {
   title: "Large Print Books + LRS — Why we didn’t merge them",
@@ -77,7 +79,15 @@ export default function LargePrintBooks() {
             the interface.
           </P>
 
-          <Pull>The books have to be readable. The website has to be orderable.</Pull>
+        </Column>
+      </Wrap>
+
+      <Band kicker="The distinction that shaped everything" size="md">
+        The books have to be readable. The website has to be orderable.
+      </Band>
+
+      <Wrap className="py-4">
+        <Column>
 
           <P>
             That one distinction shaped everything downstream. It’s why both sites lead
@@ -246,26 +256,31 @@ export default function LargePrintBooks() {
             stayed.
           </P>
 
-          <H3>What I’d say about it now</H3>
-
-          <P>
-            I still think I was right about the design cost. I’m a lot less sure I was right
-            about the customer cost. I was reasoning from what looked awkward in the
-            interface. He was reasoning from twenty years of support calls. Those aren’t the
-            same quality of evidence and mine was the weaker one.
-          </P>
-
-          <P>
-            What I’d do differently is show up with numbers instead of an opinion. Drop off
-            on the steps I thought were painful, or time to complete a quote. I made a
-            design argument to somebody who makes business decisions and I never translated
-            it.
-          </P>
+          <WrongBlock
+            label="What I’d say now"
+            claim="Those aren’t the same quality of evidence, and mine was the weaker one."
+          >
+            <p>
+              I still think I was right about the design cost. I’m a lot less sure I was
+              right about the customer cost. I was reasoning from what looked awkward in the
+              interface. He was reasoning from twenty years of support calls.
+            </p>
+            <p>
+              What I’d do differently is show up with numbers instead of an opinion. Drop
+              off on the steps I thought were painful, or time to complete a quote. I made a
+              design argument to somebody who makes business decisions and I never
+              translated it.
+            </p>
+          </WrongBlock>
 
           <H2>Where it stands</H2>
 
           <P>
-            Both brands are live and running independently. Growth has doubled, and this
+            Both brands are live and running independently —{" "}
+            <a href="https://www.largeprintbooks.com" target="_blank" rel="noreferrer" className="draw-link text-ink">largeprintbooks.com</a>{" "}
+            and{" "}
+            <a href="https://www.lrsbooks.com" target="_blank" rel="noreferrer" className="draw-link text-ink">lrsbooks.com</a>.
+            Open both and the postural difference is the whole case study. Growth has doubled, and this
             year’s numbers look closer to triple. It’s been the busiest year the company has
             ever had in production, more books manufactured than any year before it.
           </P>

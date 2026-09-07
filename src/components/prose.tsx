@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 
 /* ---------------------------------------------------------------
    Shared building blocks. Every page on the site is assembled from
@@ -107,21 +108,20 @@ export function Figure({
   caption?: string;
   wide?: boolean;
 }) {
+  // Until there is an image, the figure does not exist. A dashed "add image
+  // here" box reads as unfinished; absence reads as a deliberate text layout.
+  if (!src) return null;
+
   return (
     <figure className={`my-14 ${wide ? "md:-mx-24 lg:-mx-40" : ""}`}>
-      {src ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={src}
-          alt={alt}
-          className="w-full rounded-sm border border-rule bg-paper"
-          loading="lazy"
-        />
-      ) : (
-        <div className="flex aspect-[16/10] w-full items-center justify-center rounded-sm border border-dashed border-rule bg-paper">
-          <span className="label px-6 text-center text-mute">{alt}</span>
-        </div>
-      )}
+      <Image
+        src={src}
+        alt={alt}
+        width={1600}
+        height={1000}
+        sizes="(min-width: 1024px) 900px, 100vw"
+        className="h-auto w-full rounded-sm border border-rule bg-paper"
+      />
       {caption ? (
         <figcaption className="mt-3 text-sm leading-relaxed text-mute">
           {caption}

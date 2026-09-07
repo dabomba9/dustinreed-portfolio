@@ -1,6 +1,7 @@
 "use client";
 
 import { useLayoutEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { gsap, EASE, T, dur } from "@/lib/motion";
 import Link from "next/link";
 import type { CaseStudy } from "@/content/projects";
@@ -87,10 +88,12 @@ export default function WorkIndex({ studies }: { studies: CaseStudy[] }) {
           <div className="sticky top-10">
             <div key={active.slug} ref={paneRef}>
               {active.image ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
+                <Image
                   src={active.image}
                   alt=""
+                  width={880}
+                  height={660}
+                  sizes="320px"
                   className="aspect-[4/3] w-full border border-rule bg-paper object-cover"
                 />
               ) : (

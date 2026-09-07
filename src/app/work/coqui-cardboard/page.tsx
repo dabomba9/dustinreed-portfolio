@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import CaseHero, { CaseFooter } from "@/components/case-hero";
 import { CardGrid, NumberedList } from "@/components/blocks";
-import { Wrap, Column, H2, H3, P, Lead, Pull, Figure } from "@/components/prose";
+import Band from "@/components/band";
+import WrongBlock from "@/components/wrong-block";
+import { Wrap, Column, H2, P, Lead, Pull, Figure } from "@/components/prose";
 
 export const metadata: Metadata = {
   title: "Coqui Cardboard — The one nobody asked me to build",
@@ -66,10 +68,15 @@ export default function Coqui() {
             hands you a spreadsheet. Rows. Text. Maybe a thumbnail the size of a stamp.
           </P>
 
-          <Pull>
-            These things are gorgeous objects and we look at them in tables.
-          </Pull>
+        </Column>
+      </Wrap>
 
+      <Band kicker="The whole premise">
+        These things are gorgeous objects and we look at them in tables.
+      </Band>
+
+      <Wrap className="py-4">
+        <Column>
           <P>So that was the whole premise. Build the place where they look like what they are.</P>
 
           <Figure
@@ -208,21 +215,22 @@ export default function Coqui() {
             nineties direction was not obvious at the start.
           </P>
 
-          <H3>What I’d do differently</H3>
-
-          <P>
-            Build one vault all the way through before designing four of them. I designed
-            the system wide and then had to make it survive contact with four different
-            players’ data, and Clemente’s fifties run behaves nothing like Kobe’s twenty
-            year sprawl. I figured that out later than I should have.
-          </P>
-
-          <P>
-            And the honest one. I’ve never promoted this. There are probably a few hundred
-            users sitting there for the cost of one post in a collecting forum, and I
-            haven’t made the post. It’s been enough that the thing exists and works, which
-            is a real answer but probably not the right one.
-          </P>
+          <WrongBlock
+            label="What I’d do differently"
+            claim="I designed the system wide before a single vault survived contact with real data."
+          >
+            <p>
+              Build one vault all the way through before designing four of them.
+              Clemente’s fifties run behaves nothing like Kobe’s twenty year sprawl, and I
+              figured that out later than I should have.
+            </p>
+            <p>
+              And the honest one. I’ve never promoted this. There are probably a few hundred
+              users sitting there for the cost of one post in a collecting forum, and I
+              haven’t made the post. It’s been enough that the thing exists and works, which
+              is a real answer but probably not the right one.
+            </p>
+          </WrongBlock>
 
           <H2>What it was part of</H2>
 

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import CaseHero, { CaseFooter } from "@/components/case-hero";
-import Funnel from "@/components/funnel";
-import { Wrap, Column, H2, H3, P, Lead, Pull, Figure, Results } from "@/components/prose";
+import Scoreboard from "@/components/scoreboard";
+import Band from "@/components/band";
+import WrongBlock from "@/components/wrong-block";
+import { Wrap, Column, H2, H3, P, Lead, Figure, Results } from "@/components/prose";
 
 export const metadata: Metadata = {
   title: "CurbNTurf — Onboarding a farmer without a salesperson",
@@ -98,14 +100,27 @@ export default function CurbNTurf() {
             doing.
           </P>
 
-          <Pull>Self serve onboarding was the bet the whole business sat on.</Pull>
-
           <Figure
             wide
+            src={undefined}
             alt="The host onboarding flow, start to published listing"
-            caption="Add: the onboarding flow at real size. This is the image that carries the argument, so it goes first."
           />
+        </Column>
+      </Wrap>
 
+      <Band
+        kicker="The bet the business sat on"
+        facts={[
+          { label: "No subscription", value: "so no sales floor to pay for" },
+          { label: "Which means", value: "every landowner signs himself up" },
+          { label: "Alone", value: "with nobody on the phone" },
+        ]}
+      >
+        Self serve onboarding, or no business.
+      </Band>
+
+      <Wrap className="py-4">
+        <Column>
           <H2>Designing inside the thing we shipped</H2>
 
           <P>
@@ -141,13 +156,24 @@ export default function CurbNTurf() {
             had modeled one host, one site.
           </P>
 
-          <P>
-            Here’s why it took a while to see: it never actually broke. Hosts could
-            duplicate a listing and edit it, so a multi spot property was possible. It was
-            just tedious. And in a product with no salespeople, tedious is the thing that
-            kills you. Every extra step is one more rancher deciding this isn’t worth his
-            afternoon.
-          </P>
+          <WrongBlock
+            label="What it cost"
+            claim="I modelled one host, one site. A ranch is five or six."
+          >
+            <p>
+              Here’s why it took a while to see: it never actually broke. Hosts could
+              duplicate a listing and edit it, so a multi spot property was possible. It was
+              just tedious — and in a product with no salespeople, tedious is the thing that
+              kills you. Every extra step is one more rancher deciding this isn’t worth his
+              afternoon.
+            </p>
+            <p>
+              Borrowing a proven model and then finding exactly where it breaks is a better
+              story than never having thought about it. Airbnb’s model was the right place to
+              start. Land is not lodging, and the seam between those two things is a real
+              insight that I paid for.
+            </p>
+          </WrongBlock>
 
           <P>
             We found it the way you find things when the team is small and honest. Support
@@ -162,14 +188,9 @@ export default function CurbNTurf() {
             reps could use it too, which mattered more than we expected.
           </P>
 
-          <Pull>
-            Borrowing a proven model and then finding exactly where it breaks is a better
-            story than never having thought about it.
-          </Pull>
 
           <Figure
             alt="Multisite listing structure: one host, many sites"
-            caption="Add: the multisite listing structure, before and after."
           />
 
           <H2>What the numbers actually say</H2>
@@ -178,14 +199,19 @@ export default function CurbNTurf() {
             This is the part I’d rather not publish, which is exactly why it’s here.
           </P>
 
-          <Funnel
-            caption="Host onboarding, current, per week"
-            steps={[
-              { label: "Start the process", value: 25, note: "Landowners who begin signing up" },
-              { label: "Publish a listing", value: 5, note: "Live inside the same week, no help from anyone" },
-            ]}
-          />
+        </Column>
+      </Wrap>
 
+      <Scoreboard
+        lit={5}
+        total={25}
+        headline="landowners who start the process publish a listing that week"
+        litLabel="Published, unaided"
+        restLabel="Stalled somewhere — every one an interested landowner"
+      />
+
+      <Wrap className="py-4">
+        <Column>
           <P>
             About twenty five hosts start the process every week. About five of them
             publish a listing inside that week. So the self serve bet is roughly one fifth

@@ -25,7 +25,9 @@ const jetbrains = localFont({
   weight: "100 800",
 });
 
-const SITE_URL = "https://dustinreed.design";
+/* Set NEXT_PUBLIC_SITE_URL at deploy time. Until then this stays local, so
+   nothing hardcodes a domain that isn't yours yet. */
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -42,12 +44,15 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: "Dustin Reed",
     type: "website",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Dustin Reed — I design products and ship the code" }],
   },
+  alternates: { canonical: "/" },
   twitter: {
     card: "summary_large_image",
     title: "Dustin Reed — I design products and ship the code",
     description:
       "Founding designer at CurbNTurf. Brand, product, web and native apps, front end.",
+    images: ["/og.png"],
   },
 };
 
