@@ -49,9 +49,9 @@ export const pages: Page[] = [
     ],
   },
   {
-    href: "/work/large-print-books",
+    href: "/work/infocon-lrs",
     number: "03",
-    label: "Large Print Books + LRS",
+    label: "InfoCon + LRS",
     kind: "case",
     sections: [
       { id: "a-website-from-2003-and-an-owner-who-knew-exactly-what-he-wa", title: "A website from 2003 and an owner who knew exactly what he was doing" },

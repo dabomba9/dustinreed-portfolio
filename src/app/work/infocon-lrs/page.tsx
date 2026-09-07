@@ -6,7 +6,7 @@ import WrongBlock from "@/components/wrong-block";
 import { Wrap, Column, H2, P, Lead, Pull, Figure, Bullets } from "@/components/prose";
 
 export const metadata: Metadata = {
-  title: "Large Print Books + LRS — Why we didn’t merge them",
+  title: "InfoCon + LRS — Why we didn’t merge them",
   description:
     "Two large print brands, one owner, the same customers. Everyone would tell you to consolidate. We built two of everything instead.",
 };
@@ -16,7 +16,7 @@ export default function LargePrintBooks() {
     <>
       <CaseHero
         number="03"
-        client="Large Print Books + LRS"
+        client="InfoCon + LRS"
         title="Why we didn’t merge them"
         dek="Two large print brands, one owner, the same customers. Everyone would tell you to consolidate. We built two of everything instead, and I can tell you exactly why."
         live={{ label: "largeprintbooks.com", href: "https://www.largeprintbooks.com" }}
@@ -46,7 +46,9 @@ export default function LargePrintBooks() {
             Convincing him to rebuild wasn’t hard. The case was simple. A real brand makes
             you memorable, and a real website can carry articles and content that bring in
             leads instead of just sitting there being a phone number. I built the logo, the
-            identity and the site, and Latiker became Large Print Books.
+            identity and the site, and Latiker became InfoCon — still trading on
+            largeprintbooks.com, because the domain says what it sells better than the
+            company name does.
           </P>
 
           <P>
@@ -160,7 +162,7 @@ export default function LargePrintBooks() {
           <Compare
             items={[
               {
-                name: "Large Print Books",
+                name: "InfoCon",
                 claim: "Sells speed",
                 body: (
                   <>
@@ -205,7 +207,7 @@ export default function LargePrintBooks() {
           <Figure
             wide
             src="/media/lpb-lrs-paired.png"
-            alt="The two homepages side by side: Large Print Books in yellow, LRS in white"
+            alt="The two homepages side by side: InfoCon in yellow, LRS in white"
             caption="Same catalogue, same buyers, two postures. Yellow and serif sells speed; white and condensed sells the system. That difference is the reason we kept both."
           />
 

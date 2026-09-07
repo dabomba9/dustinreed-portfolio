@@ -275,8 +275,8 @@ export default function Coqui() {
           },
         ]}
         next={{
-          slug: "large-print-books",
-          client: "Large Print Books + LRS",
+          slug: "infocon-lrs",
+          client: "InfoCon + LRS",
           title: "Why we didn’t merge them.",
         }}
       />

@@ -42,9 +42,9 @@ export const caseStudies: CaseStudy[] = [
     imageAlt: "Coqui Cardboard catalog and command palette search",
   },
   {
-    slug: "large-print-books",
+    slug: "infocon-lrs",
     number: "03",
-    client: "Large Print Books + LRS",
+    client: "InfoCon + LRS",
     title: "Why we didn’t merge them.",
     blurb:
       "One owner bought a competitor selling large print books to the same readers. Everyone would tell you to consolidate. I built two identities and two checkouts instead.",
@@ -55,7 +55,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     live: { label: "largeprintbooks.com", href: "https://www.largeprintbooks.com" },
     image: "/media/lpb-lrs-paired.png",
-    imageAlt: "Large Print Books and LRS identities side by side",
+    imageAlt: "InfoCon and LRS identities side by side",
   },
 ];
 
