@@ -3,22 +3,26 @@ import localFont from "next/font/local";
 import AppShell from "@/components/app-shell";
 import "./globals.css";
 
-/* Fonts are self-hosted variable woff2. No third-party request on load.
-   Geist and Geist Mono, SIL OFL - see src/fonts/GEIST-LICENSE.txt.
-   Both carry a weight axis only; there is no optical size axis, so the one
-   lever available for the dark ground is weight. */
-const geist = localFont({
-  src: "../fonts/geist-var.woff2",
-  variable: "--font-geist",
+/* Fonts are self-hosted variable woff2. No third-party request on load. */
+const inter = localFont({
+  src: "../fonts/inter-var.woff2",
+  variable: "--font-inter",
   display: "swap",
   weight: "100 900",
 });
 
-const geistMono = localFont({
-  src: "../fonts/geist-mono-var.woff2",
-  variable: "--font-geist-mono",
+const interTight = localFont({
+  src: "../fonts/inter-tight-var.woff2",
+  variable: "--font-inter-tight",
   display: "swap",
   weight: "100 900",
+});
+
+const jetbrains = localFont({
+  src: "../fonts/jetbrains-mono-var.woff2",
+  variable: "--font-jetbrains",
+  display: "swap",
+  weight: "100 800",
 });
 
 /* Set NEXT_PUBLIC_SITE_URL at deploy time. Until then this stays local, so
@@ -61,7 +65,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${interTight.variable} ${jetbrains.variable}`}>
       <body className="min-h-screen">
         <a
           href="#main"
