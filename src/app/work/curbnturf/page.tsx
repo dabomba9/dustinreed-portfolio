@@ -62,7 +62,7 @@ export default function CurbNTurf() {
             wide
             src="/media/curbnturf-v1-home.png"
             alt="CurbNTurf v1 homepage: a headline and an empty search box"
-            caption="V1, still live. A headline, an empty box, and several paragraphs explaining what a two sided marketplace is. V2 opens with a working query instead."
+            caption="V1, captured September 2026. A headline, an empty box, and several paragraphs explaining what a two sided marketplace is."
           />
 
           <H2>One decision shaped every screen after it</H2>
@@ -256,8 +256,9 @@ export default function CurbNTurf() {
 
           <Figure
             wide
-            alt="CurbNTurf v1 next to v2, homepage"
-            caption="Add: v1 beside v2. The scroll recording of the new landing page goes here."
+            src="/media/curbnturf-v1-v2.png"
+            alt="CurbNTurf v1 beside v2: an empty search box, then a working query"
+            caption="v1 left, v2 right, both captured September 2026. Same company, seven years apart: a headline and an empty box, next to a query you can actually run — destination, dates, your rig, and three ways in depending on how you are thinking about the trip."
           />
 
           <P>
