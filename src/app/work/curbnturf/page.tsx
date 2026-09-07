@@ -103,8 +103,9 @@ export default function CurbNTurf() {
 
           <Figure
             wide
-            src={undefined}
-            alt="The host onboarding flow, start to published listing"
+            src="/media/curbnturf-onboarding.png"
+            alt="Four steps of the host onboarding flow: the phase overview, the property type grid, the address step with a map pin, and the amenities picker"
+            caption="Onboarding, captured September 2026. The flow is cut into three phases and named in plain language, so a landowner always knows how much is left. Property type does the teaching — winery, orchard, ranch, woodlands — because the fastest way to explain what CurbNTurf wants is to show him his own land in the list. Amenities ships with presets, since a rancher does not know that “potable water” and “dump station” are the two things an RVer searches on."
           />
         </Column>
       </Wrap>
