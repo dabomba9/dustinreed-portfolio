@@ -25,7 +25,7 @@ export default function WrongBlock({
       <div className="grid gap-6 md:grid-cols-[10rem_1fr] md:gap-8">
         <p className="label leading-relaxed text-accent">{label}</p>
         <div>
-          <p className="display max-w-[24ch] text-2xl leading-[1.15] md:text-[2rem]">
+          <p className="display max-w-[32ch] text-xl md:text-[1.75rem]">
             {claim}
           </p>
           <div className="mt-6 space-y-4 text-[1.0625rem] leading-[1.7] text-soft">

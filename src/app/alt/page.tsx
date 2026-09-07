@@ -71,7 +71,7 @@ export default function AltHome() {
         <Wrap>
           <div className="border-t border-type pt-14">
             <p className="label text-accent">What I&rsquo;m looking for</p>
-            <p className="display mt-6 max-w-3xl text-3xl md:text-[3.25rem]">
+            <p className="display mt-6 max-w-3xl text-2xl md:text-[2.75rem]">
               A team that needs one person to take something from brand all the way
               through to shipped code.
             </p>

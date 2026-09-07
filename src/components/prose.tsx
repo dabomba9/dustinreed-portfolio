@@ -42,7 +42,7 @@ export function H2({ children }: { children: ReactNode }) {
     <h2
       id={id}
       data-section={id}
-      className="display mt-20 scroll-mt-28 text-3xl md:text-[2.5rem]"
+      className="display mt-20 scroll-mt-28 text-2xl md:text-[2.25rem]"
     >
       {children}
     </h2>
