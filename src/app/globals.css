@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme {
+  /* Paper and ink. One committed light palette, no dark mode. */
+  --color-cream: #faf6ec;
+  --color-paper: #fffdf8;
+  --color-ink: #16191b;
+  --color-soft: #41474c;
+  --color-mute: #6b7277;      /* 4.53:1 on cream (was #767d82 at 3.87) */
+  --color-mute-lift: #7b8287; /* 4.53:1 on ink, for the dark spec panels */
+  --color-rule: #e4ddcb;
+  --color-flame: #c9430e;     /* 4.53:1 on cream (was #d9531e at 3.73) */
+  --color-flame-lift: #dc5621; /* 4.54:1 on ink, for dark bands */
+  --color-ember: #ab3d13;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-inter-tight), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  ::selection {
+    background-color: var(--color-flame);
+    color: var(--color-paper);
+  }
+
+  a {
+    text-underline-offset: 3px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-flame);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+@layer utilities {
+  /* One hover language. The underline draws from the left over the same
+     curve the case-study titles use, so every link on the site agrees. */
+  .draw-link {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 1px;
+    transition: background-size 480ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .draw-link:hover,
+  .draw-link:focus-visible {
+    background-size: 100% 1px;
+  }
+
+  /* The label style used for every piece of metadata on the site. */
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* Display headings: tight, heavy, optically balanced at large sizes. */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 0.95;
+    text-wrap: balance;
+  }
+
+  .measure {
+    max-width: 34rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------------------------------------------------------------
+   App chrome: page transitions and overlay entrances.
+   --------------------------------------------------------------- */
+@layer utilities {
+  .page-in {
+    animation: page-in 320ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .palette-in {
+    animation: palette-in 160ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes palette-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@layer utilities {
+  .detail-in {
+    animation: detail-in 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+
+@keyframes detail-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
