@@ -1,7 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import AppShell from "@/components/app-shell";
-import AccentSwitch from "@/components/accent-switch"; // TEMP: palette compare
 import "./globals.css";
 
 /* Fonts are self-hosted variable woff2. No third-party request on load. */
@@ -57,6 +56,11 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#131512",
+  colorScheme: "dark",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -65,12 +69,11 @@ export default function RootLayout({
       <body className="min-h-screen">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:text-cream"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:text-ground"
         >
           Skip to content
         </a>
         <AppShell>{children}</AppShell>
-        <AccentSwitch />
       </body>
     </html>
   );

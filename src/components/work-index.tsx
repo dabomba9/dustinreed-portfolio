@@ -39,7 +39,7 @@ export default function WorkIndex({ studies }: { studies: CaseStudy[] }) {
 
   return (
     <div className="grid gap-10 lg:grid-cols-[1fr_20rem] lg:gap-14">
-      <ul className="border-t border-ink">
+      <ul className="border-t border-type">
         {studies.map((study) => {
           const on = study.slug === active?.slug;
           return (
@@ -60,7 +60,7 @@ export default function WorkIndex({ studies }: { studies: CaseStudy[] }) {
 
                 <span>
                   <span className="label block text-mute">{study.client}</span>
-                  <span className="mt-2 block font-display text-xl font-bold leading-tight tracking-tight text-ink transition-colors group-hover:text-accent md:text-[1.65rem]">
+                  <span className="mt-2 block font-display text-xl font-bold leading-tight tracking-tight text-type transition-colors group-hover:text-accent md:text-[1.65rem]">
                     {study.title}
                   </span>
                   <span className="mt-3 block max-w-md text-[0.95rem] leading-relaxed text-soft lg:hidden">
@@ -94,10 +94,10 @@ export default function WorkIndex({ studies }: { studies: CaseStudy[] }) {
                   width={880}
                   height={660}
                   sizes="320px"
-                  className="aspect-[4/3] w-full border border-rule bg-paper object-cover"
+                  className="aspect-[4/3] w-full border border-rule bg-raised object-cover"
                 />
               ) : (
-                <div className="flex aspect-[4/3] w-full items-center justify-center border border-dashed border-rule bg-paper px-5">
+                <div className="flex aspect-[4/3] w-full items-center justify-center border border-dashed border-rule bg-raised px-5">
                   <span className="label text-center text-mute">{active.imageAlt}</span>
                 </div>
               )}

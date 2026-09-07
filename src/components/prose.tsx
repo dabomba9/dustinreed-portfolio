@@ -66,7 +66,7 @@ export function P({ children }: { children: ReactNode }) {
 /** Opening paragraph. Larger, darker, sets the stakes. */
 export function Lead({ children }: { children: ReactNode }) {
   return (
-    <p className="mt-8 text-xl leading-[1.6] text-ink md:text-[1.375rem]">
+    <p className="mt-8 text-xl leading-[1.6] text-type md:text-[1.375rem]">
       {children}
     </p>
   );
@@ -81,7 +81,7 @@ export function Mark({ children }: { children: ReactNode }) {
 export function Pull({ children }: { children: ReactNode }) {
   return (
     <blockquote className="my-14 border-l-4 border-edge pl-6">
-      <p className="font-display text-2xl font-bold leading-[1.25] tracking-tight text-ink md:text-[1.75rem]">
+      <p className="font-display text-2xl font-bold leading-[1.25] tracking-tight text-type md:text-[1.75rem]">
         {children}
       </p>
     </blockquote>
@@ -119,14 +119,16 @@ export function Figure({
 
   return (
     <figure className={`my-14 ${wide ? "md:-mx-24 lg:-mx-40" : ""}`}>
+      <div className="rounded-sm border border-rule bg-raised p-2">
       <Image
         src={src}
         alt={alt}
         width={1600}
         height={1000}
         sizes="(min-width: 1024px) 900px, 100vw"
-        className="h-auto w-full rounded-sm border border-rule bg-paper"
+        className="h-auto w-full rounded-[2px]"
       />
+      </div>
       {caption ? (
         <figcaption className="mt-3 text-sm leading-relaxed text-mute">
           {caption}
@@ -147,7 +149,7 @@ export function MetaGrid({
       {items.map((item) => (
         <div key={item.label}>
           <dt className="label text-mute">{item.label}</dt>
-          <dd className="mt-2 text-[0.95rem] leading-snug text-ink">{item.value}</dd>
+          <dd className="mt-2 text-[0.95rem] leading-snug text-type">{item.value}</dd>
         </div>
       ))}
     </dl>
@@ -163,7 +165,7 @@ export function Results({
   return (
     <div className="my-16 grid gap-px overflow-hidden rounded-sm border border-rule bg-rule sm:grid-cols-2 lg:grid-cols-4">
       {items.map((item) => (
-        <div key={item.label} className="bg-paper px-6 py-8">
+        <div key={item.label} className="bg-raised px-6 py-8">
           <p className="font-display text-4xl font-extrabold tracking-tight text-accent">
             {item.value}
           </p>

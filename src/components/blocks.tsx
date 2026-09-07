@@ -11,16 +11,16 @@ export function SpecBlock({
   rows: { key: string; value: string }[];
 }) {
   return (
-    <div className="my-12 overflow-x-auto rounded-sm border border-rule bg-ink p-7 md:p-9">
-      <p className="label text-accent-lift">
+    <div className="plate my-12 overflow-x-auto rounded-sm border border-rule bg-ground p-7 md:p-9">
+      <p className="label text-accent">
         {title}
-        {note ? <span className="ml-3 text-mute-lift">{note}</span> : null}
+        {note ? <span className="ml-3 text-mute">{note}</span> : null}
       </p>
       <dl className="mt-6 space-y-3.5">
         {rows.map((row) => (
           <div key={row.key} className="grid gap-1 sm:grid-cols-[11rem_1fr] sm:gap-4">
-            <dt className="font-mono text-sm text-cream">{row.key}</dt>
-            <dd className="font-mono text-sm leading-relaxed text-mute-lift">{row.value}</dd>
+            <dt className="font-mono text-sm text-type">{row.key}</dt>
+            <dd className="font-mono text-sm leading-relaxed text-mute">{row.value}</dd>
           </div>
         ))}
       </dl>
@@ -37,8 +37,8 @@ export function CardGrid({
   return (
     <div className="my-12 grid gap-px overflow-hidden rounded-sm border border-rule bg-rule sm:grid-cols-2">
       {items.map((item) => (
-        <div key={item.title} className="bg-paper p-7">
-          <h3 className="font-display text-lg font-bold tracking-tight text-ink">
+        <div key={item.title} className="bg-raised p-7">
+          <h3 className="font-display text-lg font-bold tracking-tight text-type">
             {item.title}
           </h3>
           <p className="label mt-2 text-accent">{item.stat}</p>
@@ -58,8 +58,8 @@ export function Compare({
   return (
     <div className="my-12 grid gap-px overflow-hidden rounded-sm border border-rule bg-rule md:grid-cols-2">
       {items.map((item) => (
-        <div key={item.name} className="bg-paper p-7 md:p-8">
-          <h3 className="font-display text-xl font-bold tracking-tight text-ink">
+        <div key={item.name} className="bg-raised p-7 md:p-8">
+          <h3 className="font-display text-xl font-bold tracking-tight text-type">
             {item.name}
           </h3>
           <p className="label mt-2 text-accent">{item.claim}</p>
@@ -88,7 +88,7 @@ export function NumberedList({
           <span className="label text-accent">
             {String(i + 1).padStart(2, "0")}
           </span>
-          <span className="font-display text-base font-bold tracking-tight text-ink">
+          <span className="font-display text-base font-bold tracking-tight text-type">
             {item.name}
           </span>
           <span className="text-[0.95rem] leading-relaxed text-soft">{item.body}</span>

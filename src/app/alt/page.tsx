@@ -29,7 +29,7 @@ export default function AltHome() {
           --------------------------------------------------------------- */}
       <section className="mt-24">
         <Wrap>
-          <div className="flex items-baseline justify-between gap-6 border-b border-ink pb-5">
+          <div className="flex items-baseline justify-between gap-6 border-b border-type pb-5">
             <h2 className="display text-2xl md:text-3xl">Selected work</h2>
             <p className="label text-mute">All live</p>
           </div>
@@ -44,7 +44,7 @@ export default function AltHome() {
                   className="group grid gap-2 py-7 no-underline md:grid-cols-[14rem_1fr] md:gap-10"
                 >
                   <span className="flex items-center gap-2">
-                    <span className="draw-link font-display text-lg font-bold tracking-tight text-ink transition-colors group-hover:text-accent">
+                    <span className="draw-link font-display text-lg font-bold tracking-tight text-type transition-colors group-hover:text-accent">
                       {item.name}
                     </span>
                     <span
@@ -69,7 +69,7 @@ export default function AltHome() {
           --------------------------------------------------------------- */}
       <section className="mt-28">
         <Wrap>
-          <div className="border-t border-ink pt-14">
+          <div className="border-t border-type pt-14">
             <p className="label text-accent">What I&rsquo;m looking for</p>
             <p className="display mt-6 max-w-3xl text-3xl md:text-[3.25rem]">
               A team that needs one person to take something from brand all the way

@@ -154,16 +154,16 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       {chromeless ? null : (
       <nav
         aria-label="Mobile"
-        className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-rule bg-cream/90 px-2 backdrop-blur-md lg:hidden"
+        className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-rule bg-ground/90 px-2 backdrop-blur-md lg:hidden"
       >
         <button
           onClick={() => setRailOpen((v) => !v)}
-          className="label flex min-h-11 min-w-11 items-center gap-2 px-3 text-ink"
+          className="label flex min-h-11 min-w-11 items-center gap-2 px-3 text-type"
           aria-expanded={railOpen}
         >
           <span aria-hidden>{railOpen ? "\u00d7" : "\u2261"}</span> Index
         </button>
-        <Link href="/" className="label flex min-h-11 items-center px-3 text-ink no-underline">
+        <Link href="/" className="label flex min-h-11 items-center px-3 text-type no-underline">
           Dustin Reed
         </Link>
         <button
@@ -178,13 +178,13 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       {/* ---- rail ---- */}
       {chromeless ? null : (
       <aside
-        className={`fixed inset-y-0 left-0 z-30 flex w-[17rem] flex-col border-r border-rule bg-cream transition-transform duration-200 lg:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-30 flex w-[17rem] flex-col border-r border-rule bg-ground transition-transform duration-200 lg:translate-x-0 ${
           railOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="flex items-start justify-between gap-4 border-b border-rule px-6 py-6">
           <Link href="/" className="block no-underline">
-            <p className="font-display text-base font-extrabold tracking-tight text-ink">
+            <p className="font-display text-base font-extrabold tracking-tight text-type">
               Dustin Reed
             </p>
             <p className="label mt-1.5 text-mute">Designer · San Juan, PR</p>
@@ -247,7 +247,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
                         data-rail={s.id}
                         onClick={() => setRailOpen(false)}
                         className={`flex gap-2.5 px-3 py-1.5 text-[0.8rem] leading-snug no-underline transition-colors ${
-                          on ? "text-accent" : "text-mute hover:text-ink"
+                          on ? "text-accent" : "text-mute hover:text-type"
                         }`}
                       >
                         <span
@@ -269,14 +269,14 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         <div className="border-t border-rule p-3">
           <button
             onClick={() => setPaletteOpen(true)}
-            className="flex w-full items-center justify-between border border-rule bg-paper px-3 py-2.5 text-left transition-colors hover:border-edge"
+            className="flex w-full items-center justify-between border border-rule bg-raised px-3 py-2.5 text-left transition-colors hover:border-edge"
           >
             <span className="label text-mute">Search</span>
             <kbd className="label hidden border border-rule px-1.5 py-0.5 text-mute lg:block">⌘K</kbd>
           </button>
           <a
             href="mailto:dr33d9@gmail.com"
-            className="label mt-2 block border border-ink bg-ink px-3 py-2.5 text-center text-cream no-underline transition-colors hover:border-edge hover:bg-solid"
+            className="plate label mt-2 block border border-type bg-ground px-3 py-2.5 text-center no-underline transition-colors hover:border-edge hover:bg-solid"
           >
             Email
           </a>
@@ -288,7 +288,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         <button
           aria-label="Close index"
           onClick={() => setRailOpen(false)}
-          className="fixed inset-0 z-20 bg-ink/25 lg:hidden"
+          className="fixed inset-0 z-20 bg-black/60 lg:hidden"
         />
       ) : null}
 
@@ -303,7 +303,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       {chromeless ? null : (
       <section
         aria-label="Reading progress"
-        className="fixed inset-x-0 bottom-0 z-20 border-t border-rule bg-cream/90 backdrop-blur-md lg:pl-[17rem]"
+        className="fixed inset-x-0 bottom-0 z-20 border-t border-rule bg-ground/90 backdrop-blur-md lg:pl-[17rem]"
       >
         <div
           ref={progressRef}
@@ -312,7 +312,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           style={{ transform: "scaleX(0)" }}
         />
         <div className="flex h-9 items-center gap-4 px-5 lg:px-8">
-          <span className="label shrink-0 text-ink">
+          <span className="label shrink-0 text-type">
             {pathname === "/" ? "~/index" : `~${pathname}`}
           </span>
           {activeTitle ? (
@@ -353,10 +353,10 @@ function RailLink({
       href={href}
       onClick={onNavigate}
       className={`flex min-h-11 items-center gap-3 px-3 py-2 no-underline transition-colors ${
-        active ? "bg-ink text-cream" : "text-soft hover:bg-paper hover:text-ink"
+        active ? "plate bg-ground" : "text-soft hover:bg-raised hover:text-type"
       }`}
     >
-      <span className={`label shrink-0 ${active ? "text-cream" : "text-accent"}`}>
+      <span className={`label shrink-0 ${active ? "text-type" : "text-accent"}`}>
         {number}
       </span>
       <span className="truncate text-[0.9rem]">{label}</span>
@@ -378,16 +378,16 @@ function Shortcuts({ onClose }: { onClose: () => void }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
       <button
         aria-label="Close"
-        className="absolute inset-0 cursor-default bg-ink/25 backdrop-blur-[2px]"
+        className="absolute inset-0 cursor-default bg-black/60 backdrop-blur-[2px]"
         onClick={onClose}
       />
-      <div className="palette-in relative w-full max-w-sm border border-ink bg-paper p-6 shadow-[0_24px_70px_-20px_rgba(22,25,27,0.45)]">
+      <div className="palette-in relative w-full max-w-sm border border-type bg-raised p-6 shadow-[0_24px_70px_-20px_rgba(22,25,27,0.45)]">
         <p className="label text-accent">Keyboard</p>
         <ul className="mt-5 space-y-2.5">
           {rows.map((r) => (
             <li key={r.keys} className="flex items-center justify-between gap-6">
               <span className="text-[0.9rem] text-soft">{r.label}</span>
-              <kbd className="label shrink-0 border border-rule px-2 py-1 text-ink">
+              <kbd className="label shrink-0 border border-rule px-2 py-1 text-type">
                 {r.keys}
               </kbd>
             </li>

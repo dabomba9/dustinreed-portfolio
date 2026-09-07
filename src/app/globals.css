@@ -1,27 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  /* Paper and ink. One committed light palette, no dark mode. */
-  --color-cream: #faf6ec;
-  --color-paper: #fffdf8;
-  --color-ink: #16191b;
-  --color-soft: #41474c;
-  --color-mute: #6b7277;      /* 4.53:1 on cream (was #767d82 at 3.87) */
-  --color-mute-lift: #7b8287; /* 4.53:1 on ink, for the dark spec panels */
-  --color-rule: #e4ddcb;
-  /* Accent, split by ROLE rather than hue, so the palette can be swapped.
-     accent      - accent TEXT on cream. Must clear 4.5:1.
-     accent-lift - accent TEXT on ink grounds. Must clear 4.5:1 there.
-     mark        - a highlighter GROUND that ink text sits on top of.
-     solid       - solid bars, cells and fills.
-     edge        - hairlines, rules and borders, deep enough to survive at 2px.
-     Defaults below are the yellow scheme. See the swap blocks under @theme. */
-  --color-accent: #16191b;
-  --color-accent-lift: #f6e04a;
-  --color-mark: #f6e04a;
-  --color-solid: #f6e04a;
-  --color-edge: #a88600;   /* 3.20:1 on cream - the deepest a yellow goes
-                              before it stops reading as highlighter */
+  /* One committed dark palette. Ground is a warm near-black so the lime
+     reads as ink on paper rather than neon on a screen. */
+  --color-ground: #131512;   /* page */
+  --color-raised: #1c1f1a;   /* cards, panels, hover */
+  --color-type: #f1efe3;     /* 15.91:1 on ground */
+  --color-soft: #c2c6b9;     /* 10.56:1 */
+  --color-mute: #868c80;     /*  5.31:1 on ground, 4.82:1 on raised */
+  --color-rule: #2f342c;
+
+  /* Accent, split by role. On a dark ground the lime finally clears 4.5:1,
+     so it can be text as well as a fill - the thing it could never do on
+     cream. Inside .plate these are overridden with an olive that passes
+     against light. */
+  --color-accent: #c6ff00;   /* 15.48:1 on ground */
+  --color-mark: #c6ff00;     /* highlighter ground; dark type sits on it */
+  --color-solid: #c6ff00;
+  --color-edge: #c6ff00;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-inter-tight), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -29,54 +25,27 @@
 }
 
 /* ---------------------------------------------------------------
-   Accent schemes. Temporary: three palettes so the yellow can be
-   judged against the orange it would replace. Delete the losers
-   and fold the winner back into @theme before shipping.
+   .plate - a region that flips to light. The bands, the spec panels
+   and the active chrome. Every utility inside resolves against these
+   values instead, so components need no light/dark branching.
    --------------------------------------------------------------- */
-
-/* A2 - the same structure, pushed to a true highlighter brightness.
-   At this luminance the yellow is nearly identical in VALUE to the cream,
-   so what you see is hue, not contrast. Ink on top still reads at 16:1. */
-:root[data-accent="acid"] {
-  --color-accent: #16191b;
-  --color-accent-lift: #f6f627;
-  --color-mark: #f6f627;
-  --color-solid: #f6f627;
-  --color-edge: #9c9000;   /* 3.04:1 on cream */
+.plate {
+  --color-ground: #f1efe3;
+  --color-raised: #ffffff;
+  --color-type: #131512;
+  --color-soft: #41474c;
+  --color-mute: #5c625a;   /* 5.43:1 on plate */
+  --color-rule: #d9d5c4;
+  --color-accent: #566f00; /* 4.96:1 on plate - the lime, darkened until
+                              it passes against light */
+  --color-edge: #566f00;
+  color: var(--color-type);
 }
-
-/* A3 - highlighter green. The biggest hue jump from a warm cream, so it
-   pops hardest of the three even though its contrast is no better. */
-:root[data-accent="lime"] {
-  --color-accent: #16191b;
-  --color-accent-lift: #c6ff00;
-  --color-mark: #c6ff00;
-  --color-solid: #c6ff00;
-  --color-edge: #6f8a00;   /* 3.66:1 on cream */
-}
-
-/* B - yellow as the accent colour, darkened until it passes contrast.
-   Reads mustard, not highlighter. That is the honest cost. */
-:root[data-accent="mustard"] {
-  --color-accent: #857000;      /* 4.55:1 on cream */
-  --color-accent-lift: #b89a12; /* 6.45:1 on ink   */
-  --color-mark: #efe6bd;
-  --color-solid: #857000;
-  --color-edge: #857000;
-}
-
-/* C - the orange the site ships with today, for reference. */
-:root[data-accent="orange"] {
-  --color-accent: #c9430e;
-  --color-accent-lift: #dc5621;
-  --color-mark: #f8dccb;
-  --color-solid: #c9430e;
-  --color-edge: #c9430e;
-}
-
+.plate ::selection { background-color: var(--color-mark); color: #131512; }
+.plate :focus-visible { outline-color: var(--color-type); }
 @layer base {
   :root {
-    color-scheme: light;
+    color-scheme: dark;
   }
 
   html {
@@ -86,15 +55,15 @@
   }
 
   body {
-    background-color: var(--color-cream);
-    color: var(--color-ink);
+    background-color: var(--color-ground);
+    color: var(--color-type);
     font-family: var(--font-sans);
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
   ::selection {
     background-color: var(--color-mark);
-    color: var(--color-ink);
+    color: #131512;
   }
 
   a {
@@ -102,7 +71,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-ink);
+    outline: 2px solid var(--color-accent);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -149,10 +118,9 @@
      only ever a ground beneath it, which is the one thing a colour this
      light can do honestly. */
   .mark {
-    background-image: linear-gradient(transparent 56%, var(--color-mark) 56%);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    padding-inline: 0.12em;
+    background-color: var(--color-mark);
+    color: #131512;
+    padding-inline: 0.16em;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }

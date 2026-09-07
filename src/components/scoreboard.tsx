@@ -69,7 +69,7 @@ export default function Scoreboard({
           <div
             key={i}
             data-cell
-            className={`h-24 flex-1 md:h-28 ${i < lit ? "bg-solid ring-1 ring-inset ring-ink/25" : "bg-rule"}`}
+            className={`h-24 flex-1 md:h-28 ${i < lit ? "bg-solid" : "bg-rule"}`}
           />
         ))}
       </div>

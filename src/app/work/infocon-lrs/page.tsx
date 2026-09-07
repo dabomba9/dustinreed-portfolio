@@ -281,9 +281,9 @@ export default function LargePrintBooks() {
 
           <P>
             Both brands are live and running independently —{" "}
-            <a href="https://www.largeprintbooks.com" target="_blank" rel="noreferrer" className="draw-link text-ink">largeprintbooks.com</a>{" "}
+            <a href="https://www.largeprintbooks.com" target="_blank" rel="noreferrer" className="draw-link text-type">largeprintbooks.com</a>{" "}
             and{" "}
-            <a href="https://www.lrsbooks.com" target="_blank" rel="noreferrer" className="draw-link text-ink">lrsbooks.com</a>.
+            <a href="https://www.lrsbooks.com" target="_blank" rel="noreferrer" className="draw-link text-type">lrsbooks.com</a>.
             Open both and the postural difference is the whole case study. Business has gone
             up every single year since, and 2026 is turning into the biggest year the company
             has had in production.

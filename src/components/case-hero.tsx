@@ -35,7 +35,7 @@ export default function CaseHero({
             href={live.href}
             target="_blank"
             rel="noreferrer"
-            className="label mt-8 inline-flex items-center gap-2 text-ink no-underline transition-colors hover:text-accent"
+            className="label mt-8 inline-flex items-center gap-2 text-type no-underline transition-colors hover:text-accent"
           >
             {live.label}
             <span aria-hidden>&#8599;</span>
@@ -62,7 +62,7 @@ export function CaseFooter({
         <ul className="mt-5 space-y-2.5">
           {credits.map((c) => (
             <li key={c.name} className="text-[1.0625rem] leading-relaxed text-soft">
-              <span className="font-medium text-ink">{c.name}</span> &mdash; {c.role}
+              <span className="font-medium text-type">{c.name}</span> &mdash; {c.role}
             </li>
           ))}
         </ul>
@@ -70,7 +70,7 @@ export function CaseFooter({
 
       <Link
         href={`/work/${next.slug}`}
-        className="group mt-20 block border-t border-ink pt-10 no-underline"
+        className="group mt-20 block border-t border-type pt-10 no-underline"
       >
         <p className="label text-mute">Next case study</p>
         <p className="label mt-4 text-accent">{next.client}</p>

@@ -130,7 +130,7 @@ export default function Coqui() {
           </P>
 
           <P>
-            A <strong className="font-semibold text-ink">Hierarchy</strong> is an opinion.
+            A <strong className="font-semibold text-type">Hierarchy</strong> is an opinion.
             The MJ Hierarchy is 378 cards sorted into four rarity tiers. The Mamba
             Hierarchy sorts 76 Kobe cards into grails, elite, and foundation. Somebody sat
             down and decided which cards matter and in what order. That somebody wasn’t me.
@@ -139,7 +139,7 @@ export default function Coqui() {
           </P>
 
           <P>
-            A <strong className="font-semibold text-ink">Vault</strong> is the opposite of
+            A <strong className="font-semibold text-type">Vault</strong> is the opposite of
             an opinion. Every card that exists for a player, searchable, ranked by nothing.
             Twelve thousand Jordans just sitting there waiting for you to find the one
             you’re after.
@@ -203,7 +203,7 @@ export default function Coqui() {
           <H2>The parts that were hard</H2>
 
           <P>
-            <strong className="font-semibold text-ink">Getting the data.</strong> Nobody
+            <strong className="font-semibold text-type">Getting the data.</strong> Nobody
             publishes a clean feed of twelve thousand Michael Jordan cards. I built a
             scraper to pull card information and images, and writing the scraper wasn’t the
             hard part. Doing it for an amount of money a personal project can absorb was
@@ -212,7 +212,7 @@ export default function Coqui() {
           </P>
 
           <P>
-            <strong className="font-semibold text-ink">Finding the look.</strong> I went
+            <strong className="font-semibold text-type">Finding the look.</strong> I went
             through a pile of iterations before I landed on something I’d defend. The early
             ones were more conventionally modern and had no particular reason to exist. The
             nineties direction was not obvious at the start.

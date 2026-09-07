@@ -18,11 +18,11 @@ export default function Band({
   facts?: { label: string; value: string }[];
 }) {
   return (
-    <section className="my-14 bg-ink px-6 py-16 md:my-16 md:px-10 md:py-20 lg:px-14">
+    <section className="plate my-14 bg-ground px-6 py-16 md:my-16 md:px-10 md:py-20 lg:px-14">
       <div className="mx-auto max-w-5xl">
-        <p className="label text-accent-lift">{kicker}</p>
+        <p className="label text-accent">{kicker}</p>
         <p
-          className={`display mt-6 text-cream ${
+          className={`display mt-6 text-type ${
             size === "lg"
               ? "max-w-[19ch] text-4xl md:text-6xl"
               : "max-w-[24ch] text-3xl md:text-5xl"
@@ -32,11 +32,11 @@ export default function Band({
         </p>
 
         {facts ? (
-          <dl className="mt-12 grid max-w-3xl grid-cols-1 gap-8 border-t border-soft pt-6 sm:grid-cols-3">
+          <dl className="mt-12 grid max-w-3xl grid-cols-1 gap-8 border-t border-rule pt-6 sm:grid-cols-3">
             {facts.map((f) => (
               <div key={f.label}>
-                <dt className="label text-mute-lift">{f.label}</dt>
-                <dd className="mt-2 text-[0.95rem] leading-snug text-cream">{f.value}</dd>
+                <dt className="label text-mute">{f.label}</dt>
+                <dd className="mt-2 text-[0.95rem] leading-snug text-type">{f.value}</dd>
               </div>
             ))}
           </dl>

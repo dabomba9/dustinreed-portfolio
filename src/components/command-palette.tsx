@@ -196,14 +196,14 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
       <button
         ref={scrimRef}
         aria-label="Close"
-        className="absolute inset-0 cursor-default bg-ink/25 backdrop-blur-[2px]"
+        className="absolute inset-0 cursor-default bg-black/60 backdrop-blur-[2px]"
         onClick={onClose}
         tabIndex={-1}
       />
 
       <div
         ref={panelRef}
-        className="relative w-full max-w-xl overflow-hidden border border-ink bg-paper shadow-[0_24px_70px_-20px_rgba(22,25,27,0.45)]"
+        className="relative w-full max-w-xl overflow-hidden border border-type bg-raised shadow-[0_24px_70px_-20px_rgba(22,25,27,0.45)]"
       >
         <div className="flex items-center gap-3 border-b border-rule px-4">
           <span className="label text-accent">&gt;</span>
@@ -231,7 +231,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
               }
             }}
             placeholder="Search work, sections, sites"
-            className="w-full bg-transparent py-4 font-mono text-sm text-ink outline-none placeholder:text-mute"
+            className="w-full bg-transparent py-4 font-mono text-sm text-type outline-none placeholder:text-mute"
             aria-label="Search"
           />
           <kbd className="label shrink-0 border border-rule px-1.5 py-1 text-mute">esc</kbd>
@@ -264,7 +264,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
                         onClose();
                       }}
                       className={`relative flex w-full items-baseline justify-between gap-4 px-4 py-2.5 text-left transition-colors duration-150 ${
-                        isActive ? "text-paper" : "text-ink"
+                        isActive ? "text-ground" : "text-type"
                       }`}
                     >
                       <span className="min-w-0 flex-1 truncate text-[0.9rem]">
@@ -272,7 +272,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
                         {item.subtitle ? (
                           <span
                             className={
-                              isActive ? "text-paper/75" : "text-mute"
+                              isActive ? "text-ground/75" : "text-mute"
                             }
                           >
                             {" · "}
@@ -288,7 +288,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
                       {item.hint ? (
                         <span
                           className={`shrink-0 font-mono text-[0.7rem] ${
-                            isActive ? "text-paper/70" : "text-mute"
+                            isActive ? "text-ground/70" : "text-mute"
                           }`}
                         >
                           {item.hint}

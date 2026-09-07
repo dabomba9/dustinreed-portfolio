@@ -22,7 +22,7 @@ export default function HeroEditorial() {
           </Link>
           <a
             href="mailto:dr33d9@gmail.com"
-            className="label border border-ink px-3 py-2 no-underline transition-colors hover:border-edge hover:text-accent"
+            className="label border border-type px-3 py-2 no-underline transition-colors hover:border-edge hover:text-accent"
           >
             Email
           </a>
