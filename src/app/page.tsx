@@ -1,6 +1,6 @@
 import WorkIndex from "@/components/work-index";
 import CopyEmail from "@/components/copy-email";
-import { Wrap } from "@/components/prose";
+import { Mark, Wrap } from "@/components/prose";
 import { caseStudies, selectedWork } from "@/content/projects";
 
 export default function Home() {
@@ -11,14 +11,14 @@ export default function Home() {
           --------------------------------------------------------------- */}
       <section className="border-b border-rule">
         <Wrap className="py-20 md:py-32">
-          <p className="label text-flame">
+          <p className="label text-accent">
             Founding designer &middot; 7 years on one product
           </p>
 
           <h1 className="display mt-8 text-[3rem] leading-[0.92] sm:text-6xl md:text-[5rem] lg:text-[5.75rem]">
             I design products
             <br />
-            and ship the code.
+            and <Mark>ship the code</Mark>.
           </h1>
 
           <p className="mt-10 max-w-2xl text-lg leading-[1.65] text-soft md:text-xl">
@@ -27,7 +27,7 @@ export default function Home() {
               href="https://www.curbnturf.com"
               target="_blank"
               rel="noreferrer"
-              className="text-ink underline decoration-flame/40 decoration-2 transition-colors hover:decoration-flame"
+              className="text-ink underline decoration-edge/40 decoration-2 transition-colors hover:decoration-edge"
             >
               CurbNTurf
             </a>
@@ -77,7 +77,7 @@ export default function Home() {
                   className="group grid gap-2 py-7 no-underline md:grid-cols-[14rem_1fr] md:gap-10"
                 >
                   <span className="flex items-center gap-2">
-                    <span className="draw-link font-display text-lg font-bold tracking-tight text-ink transition-colors group-hover:text-flame">
+                    <span className="draw-link font-display text-lg font-bold tracking-tight text-ink transition-colors group-hover:text-accent">
                       {item.name}
                     </span>
                     <span
@@ -103,7 +103,7 @@ export default function Home() {
       <section className="mt-28">
         <Wrap>
           <div className="border-t border-ink pt-14">
-            <p className="label text-flame">What I&rsquo;m looking for</p>
+            <p className="label text-accent">What I&rsquo;m looking for</p>
             <p className="display mt-6 max-w-3xl text-3xl md:text-[3.25rem]">
               A team that needs one person to take something from brand all the way
               through to shipped code.
@@ -115,12 +115,12 @@ export default function Home() {
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-              <CopyEmail className="font-display text-2xl font-extrabold tracking-tight text-flame underline decoration-flame/30 decoration-2 underline-offset-[6px] transition-colors hover:decoration-flame md:text-4xl" />
+              <CopyEmail className="font-display text-2xl font-extrabold tracking-tight text-accent underline decoration-edge/30 decoration-2 underline-offset-[6px] transition-colors hover:decoration-edge md:text-4xl" />
               <a
                 href="https://www.linkedin.com/in/dreeddesign/"
                 target="_blank"
                 rel="noreferrer"
-                className="draw-link label text-soft no-underline transition-colors hover:text-flame"
+                className="draw-link label text-soft no-underline transition-colors hover:text-accent"
               >
                 LinkedIn &#8599;
               </a>
@@ -128,7 +128,7 @@ export default function Home() {
                 href="https://thetinktank.com"
                 target="_blank"
                 rel="noreferrer"
-                className="draw-link label text-soft no-underline transition-colors hover:text-flame"
+                className="draw-link label text-soft no-underline transition-colors hover:text-accent"
               >
                 The Tink Tank &#8599;
               </a>

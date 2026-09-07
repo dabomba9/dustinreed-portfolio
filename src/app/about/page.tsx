@@ -13,7 +13,7 @@ export default function About() {
     <>
       <section className="border-b border-rule">
         <Wrap className="py-20 md:py-28">
-          <p className="label text-flame">About</p>
+          <p className="label text-accent">About</p>
           <h1 className="display mt-7 max-w-4xl text-[2.75rem] sm:text-6xl md:text-7xl">
             Most designers never find out what their decisions cost.
           </h1>
@@ -100,7 +100,7 @@ export default function About() {
 
           <div className="mt-16 border-t border-rule pt-10">
             <p className="label text-mute">Get in touch</p>
-            <CopyEmail className="mt-4 inline-block font-display text-2xl font-extrabold tracking-tight text-flame underline decoration-flame/30 decoration-2 underline-offset-[6px] transition-colors hover:decoration-flame md:text-3xl" />
+            <CopyEmail className="mt-4 inline-block font-display text-2xl font-extrabold tracking-tight text-accent underline decoration-edge/30 decoration-2 underline-offset-[6px] transition-colors hover:decoration-edge md:text-3xl" />
           </div>
         </Column>
       </Wrap>

@@ -20,10 +20,10 @@ export default function WrongBlock({
   return (
     <aside
       aria-label={label}
-      className="my-14 border-t-[3px] border-flame pt-6"
+      className="my-14 border-t-4 border-edge pt-6"
     >
       <div className="grid gap-6 md:grid-cols-[10rem_1fr] md:gap-8">
-        <p className="label leading-relaxed text-flame">{label}</p>
+        <p className="label leading-relaxed text-accent">{label}</p>
         <div>
           <p className="display max-w-[24ch] text-2xl leading-[1.15] md:text-[2rem]">
             {claim}

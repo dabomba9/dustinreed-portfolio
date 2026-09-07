@@ -56,7 +56,7 @@ export default function Scoreboard({
     <div ref={ref} className="my-16">
       <div className="mx-auto max-w-5xl px-6 md:px-10 lg:px-14">
         <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
-          <span className="display text-6xl text-flame md:text-8xl">{lit}</span>
+          <span className="display text-6xl text-accent md:text-8xl">{lit}</span>
           <span className="display text-3xl text-mute md:text-4xl">of</span>
           <span className="display text-6xl md:text-8xl">{total}</span>
           <span className="label ml-2 max-w-[26ch] leading-relaxed text-mute">{headline}</span>
@@ -69,13 +69,13 @@ export default function Scoreboard({
           <div
             key={i}
             data-cell
-            className={`h-24 flex-1 md:h-28 ${i < lit ? "bg-flame" : "bg-rule"}`}
+            className={`h-24 flex-1 md:h-28 ${i < lit ? "bg-solid ring-1 ring-inset ring-ink/25" : "bg-rule"}`}
           />
         ))}
       </div>
 
       <div className="mx-auto mt-4 flex max-w-5xl flex-wrap justify-between gap-3 px-6 md:px-10 lg:px-14">
-        <span className="label text-flame">{litLabel}</span>
+        <span className="label text-accent">{litLabel}</span>
         <span className="label text-right text-mute">{restLabel}</span>
       </div>
     </div>

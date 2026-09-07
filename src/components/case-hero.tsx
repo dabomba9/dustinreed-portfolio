@@ -20,7 +20,7 @@ export default function CaseHero({
     <section className="border-b border-rule">
       <Wrap className="py-16 md:py-24">
         <div className="flex items-baseline gap-4">
-          <span className="label text-flame">{number}</span>
+          <span className="label text-accent">{number}</span>
           <span className="label text-mute">{client}</span>
         </div>
 
@@ -35,7 +35,7 @@ export default function CaseHero({
             href={live.href}
             target="_blank"
             rel="noreferrer"
-            className="label mt-8 inline-flex items-center gap-2 text-ink no-underline transition-colors hover:text-flame"
+            className="label mt-8 inline-flex items-center gap-2 text-ink no-underline transition-colors hover:text-accent"
           >
             {live.label}
             <span aria-hidden>&#8599;</span>
@@ -73,8 +73,8 @@ export function CaseFooter({
         className="group mt-20 block border-t border-ink pt-10 no-underline"
       >
         <p className="label text-mute">Next case study</p>
-        <p className="label mt-4 text-flame">{next.client}</p>
-        <p className="display mt-3 max-w-3xl text-3xl transition-colors group-hover:text-flame md:text-5xl">
+        <p className="label mt-4 text-accent">{next.client}</p>
+        <p className="display mt-3 max-w-3xl text-3xl transition-colors group-hover:bg-mark md:text-5xl">
           {next.title}
         </p>
       </Link>

@@ -22,7 +22,7 @@ export default function HeroEditorial() {
           </Link>
           <a
             href="mailto:dr33d9@gmail.com"
-            className="label border border-ink px-3 py-2 no-underline transition-colors hover:border-flame hover:text-flame"
+            className="label border border-ink px-3 py-2 no-underline transition-colors hover:border-edge hover:text-accent"
           >
             Email
           </a>
@@ -30,7 +30,7 @@ export default function HeroEditorial() {
       </div>
 
       <Wrap className="flex flex-1 flex-col justify-center py-20">
-        <p className="label text-flame">Founding designer &middot; San Juan, Puerto Rico</p>
+        <p className="label text-accent">Founding designer &middot; San Juan, Puerto Rico</p>
         <h1 className="display mt-7 max-w-[13ch] text-[3.5rem] sm:text-7xl md:text-[7rem] lg:text-[7.75rem]">
           I design products and ship the code.
         </h1>

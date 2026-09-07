@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import AppShell from "@/components/app-shell";
+import AccentSwitch from "@/components/accent-switch"; // TEMP: palette compare
 import "./globals.css";
 
 /* Fonts are self-hosted variable woff2. No third-party request on load. */
@@ -69,6 +70,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <AppShell>{children}</AppShell>
+        <AccentSwitch />
       </body>
     </html>
   );

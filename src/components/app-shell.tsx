@@ -168,7 +168,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         </Link>
         <button
           onClick={() => setPaletteOpen(true)}
-          className="label flex min-h-11 min-w-11 items-center justify-center px-3 text-flame"
+          className="label flex min-h-11 min-w-11 items-center justify-center px-3 text-accent"
         >
           Search
         </button>
@@ -236,7 +236,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
                 <span
                   ref={railMarkRef}
                   aria-hidden
-                  className="pointer-events-none absolute left-3 top-0 h-px w-5 bg-flame opacity-0"
+                  className="pointer-events-none absolute left-3 top-0 h-0.5 w-5 bg-edge opacity-0"
                 />
                 {current.sections.map((s) => {
                   const on = s.id === activeSection;
@@ -247,7 +247,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
                         data-rail={s.id}
                         onClick={() => setRailOpen(false)}
                         className={`flex gap-2.5 px-3 py-1.5 text-[0.8rem] leading-snug no-underline transition-colors ${
-                          on ? "text-flame" : "text-mute hover:text-ink"
+                          on ? "text-accent" : "text-mute hover:text-ink"
                         }`}
                       >
                         <span
@@ -269,14 +269,14 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         <div className="border-t border-rule p-3">
           <button
             onClick={() => setPaletteOpen(true)}
-            className="flex w-full items-center justify-between border border-rule bg-paper px-3 py-2.5 text-left transition-colors hover:border-flame"
+            className="flex w-full items-center justify-between border border-rule bg-paper px-3 py-2.5 text-left transition-colors hover:border-edge"
           >
             <span className="label text-mute">Search</span>
             <kbd className="label hidden border border-rule px-1.5 py-0.5 text-mute lg:block">⌘K</kbd>
           </button>
           <a
             href="mailto:dr33d9@gmail.com"
-            className="label mt-2 block border border-ink bg-ink px-3 py-2.5 text-center text-cream no-underline transition-colors hover:border-flame hover:bg-flame"
+            className="label mt-2 block border border-ink bg-ink px-3 py-2.5 text-center text-cream no-underline transition-colors hover:border-edge hover:bg-solid"
           >
             Email
           </a>
@@ -308,7 +308,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         <div
           ref={progressRef}
           aria-hidden
-          className="h-px w-full origin-left bg-flame"
+          className="h-0.5 w-full origin-left bg-edge"
           style={{ transform: "scaleX(0)" }}
         />
         <div className="flex h-9 items-center gap-4 px-5 lg:px-8">
@@ -321,7 +321,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           <span className="label ml-auto shrink-0 text-mute">{progress}%</span>
           <button
             onClick={() => setShortcutsOpen(true)}
-            className="label hidden shrink-0 text-mute transition-colors hover:text-flame sm:block"
+            className="label hidden shrink-0 text-mute transition-colors hover:text-accent sm:block"
           >
             ? shortcuts
           </button>
@@ -356,7 +356,7 @@ function RailLink({
         active ? "bg-ink text-cream" : "text-soft hover:bg-paper hover:text-ink"
       }`}
     >
-      <span className={`label shrink-0 ${active ? "text-cream" : "text-flame"}`}>
+      <span className={`label shrink-0 ${active ? "text-cream" : "text-accent"}`}>
         {number}
       </span>
       <span className="truncate text-[0.9rem]">{label}</span>
@@ -382,7 +382,7 @@ function Shortcuts({ onClose }: { onClose: () => void }) {
         onClick={onClose}
       />
       <div className="palette-in relative w-full max-w-sm border border-ink bg-paper p-6 shadow-[0_24px_70px_-20px_rgba(22,25,27,0.45)]">
-        <p className="label text-flame">Keyboard</p>
+        <p className="label text-accent">Keyboard</p>
         <ul className="mt-5 space-y-2.5">
           {rows.map((r) => (
             <li key={r.keys} className="flex items-center justify-between gap-6">

@@ -9,13 +9,48 @@
   --color-mute: #6b7277;      /* 4.53:1 on cream (was #767d82 at 3.87) */
   --color-mute-lift: #7b8287; /* 4.53:1 on ink, for the dark spec panels */
   --color-rule: #e4ddcb;
-  --color-flame: #c9430e;     /* 4.53:1 on cream (was #d9531e at 3.73) */
-  --color-flame-lift: #dc5621; /* 4.54:1 on ink, for dark bands */
-  --color-ember: #ab3d13;
+  /* Accent, split by ROLE rather than hue, so the palette can be swapped.
+     accent      - accent TEXT on cream. Must clear 4.5:1.
+     accent-lift - accent TEXT on ink grounds. Must clear 4.5:1 there.
+     mark        - a highlighter GROUND that ink text sits on top of.
+     solid       - solid bars, cells and fills.
+     edge        - hairlines, rules and borders, deep enough to survive at 2px.
+     Defaults below are the yellow scheme. See the swap blocks under @theme. */
+  --color-accent: #16191b;
+  --color-accent-lift: #f6e04a;
+  --color-mark: #f6e04a;
+  --color-solid: #f6e04a;
+  --color-edge: #a88600;   /* 3.20:1 on cream - the deepest a yellow goes
+                              before it stops reading as highlighter */
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-inter-tight), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ---------------------------------------------------------------
+   Accent schemes. Temporary: three palettes so the yellow can be
+   judged against the orange it would replace. Delete the losers
+   and fold the winner back into @theme before shipping.
+   --------------------------------------------------------------- */
+
+/* B - yellow as the accent colour, darkened until it passes contrast.
+   Reads mustard, not highlighter. That is the honest cost. */
+:root[data-accent="mustard"] {
+  --color-accent: #857000;      /* 4.55:1 on cream */
+  --color-accent-lift: #b89a12; /* 6.45:1 on ink   */
+  --color-mark: #efe6bd;
+  --color-solid: #857000;
+  --color-edge: #857000;
+}
+
+/* C - the orange the site ships with today, for reference. */
+:root[data-accent="orange"] {
+  --color-accent: #c9430e;
+  --color-accent-lift: #dc5621;
+  --color-mark: #f8dccb;
+  --color-solid: #c9430e;
+  --color-edge: #c9430e;
 }
 
 @layer base {
@@ -37,8 +72,8 @@
   }
 
   ::selection {
-    background-color: var(--color-flame);
-    color: var(--color-paper);
+    background-color: var(--color-mark);
+    color: var(--color-ink);
   }
 
   a {
@@ -46,7 +81,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-flame);
+    outline: 2px solid var(--color-ink);
     outline-offset: 3px;
     border-radius: 2px;
   }
@@ -88,6 +123,19 @@
   .measure {
     max-width: 34rem;
   }
+
+  /* A highlighter swipe. Ink text keeps its own contrast; the yellow is
+     only ever a ground beneath it, which is the one thing a colour this
+     light can do honestly. */
+  .mark {
+    background-image: linear-gradient(transparent 56%, var(--color-mark) 56%);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding-inline: 0.12em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
 }
 
 @media (prefers-reduced-motion: reduce) {

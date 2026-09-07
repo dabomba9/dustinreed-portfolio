@@ -20,7 +20,7 @@ export default function Band({
   return (
     <section className="my-14 bg-ink px-6 py-16 md:my-16 md:px-10 md:py-20 lg:px-14">
       <div className="mx-auto max-w-5xl">
-        <p className="label text-flame-lift">{kicker}</p>
+        <p className="label text-accent-lift">{kicker}</p>
         <p
           className={`display mt-6 text-cream ${
             size === "lg"

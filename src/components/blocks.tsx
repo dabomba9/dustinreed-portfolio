@@ -12,7 +12,7 @@ export function SpecBlock({
 }) {
   return (
     <div className="my-12 overflow-x-auto rounded-sm border border-rule bg-ink p-7 md:p-9">
-      <p className="label text-flame-lift">
+      <p className="label text-accent-lift">
         {title}
         {note ? <span className="ml-3 text-mute-lift">{note}</span> : null}
       </p>
@@ -41,7 +41,7 @@ export function CardGrid({
           <h3 className="font-display text-lg font-bold tracking-tight text-ink">
             {item.title}
           </h3>
-          <p className="label mt-2 text-flame">{item.stat}</p>
+          <p className="label mt-2 text-accent">{item.stat}</p>
           <p className="mt-3 text-[0.95rem] leading-relaxed text-soft">{item.body}</p>
         </div>
       ))}
@@ -62,7 +62,7 @@ export function Compare({
           <h3 className="font-display text-xl font-bold tracking-tight text-ink">
             {item.name}
           </h3>
-          <p className="label mt-2 text-flame">{item.claim}</p>
+          <p className="label mt-2 text-accent">{item.claim}</p>
           <div className="mt-4 space-y-3 text-[0.95rem] leading-relaxed text-soft">
             {item.body}
           </div>
@@ -85,7 +85,7 @@ export function NumberedList({
           key={item.name}
           className="grid gap-1 border-t border-rule py-5 sm:grid-cols-[3rem_12rem_1fr] sm:gap-6 last:border-b"
         >
-          <span className="label text-flame">
+          <span className="label text-accent">
             {String(i + 1).padStart(2, "0")}
           </span>
           <span className="font-display text-base font-bold tracking-tight text-ink">

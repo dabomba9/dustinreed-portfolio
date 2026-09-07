@@ -17,13 +17,13 @@ export default function Funnel({
               <span className="font-display text-base font-bold tracking-tight text-ink">
                 {step.label}
               </span>
-              <span className="font-display text-3xl font-extrabold tracking-tight text-flame">
+              <span className="font-display text-3xl font-extrabold tracking-tight text-accent">
                 {step.value}
               </span>
             </div>
             <div className="mt-2 h-2 w-full bg-rule/60">
               <div
-                className="h-2 bg-flame"
+                className="h-2 bg-solid ring-1 ring-inset ring-ink/25"
                 style={{ width: `${(step.value / max) * 100}%` }}
               />
             </div>

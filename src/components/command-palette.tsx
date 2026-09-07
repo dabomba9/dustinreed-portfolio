@@ -206,7 +206,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
         className="relative w-full max-w-xl overflow-hidden border border-ink bg-paper shadow-[0_24px_70px_-20px_rgba(22,25,27,0.45)]"
       >
         <div className="flex items-center gap-3 border-b border-rule px-4">
-          <span className="label text-flame">&gt;</span>
+          <span className="label text-accent">&gt;</span>
           <input
             autoFocus
             value={query}
@@ -241,7 +241,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
           <div
             ref={markerRef}
             aria-hidden
-            className="pointer-events-none absolute inset-x-0 top-0 bg-flame opacity-0"
+            className="pointer-events-none absolute inset-x-0 top-0 bg-edge opacity-0"
           />
           {flat.length === 0 ? (
             <p className="px-4 py-8 text-center font-mono text-sm text-mute">

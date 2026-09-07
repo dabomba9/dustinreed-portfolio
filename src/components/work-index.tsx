@@ -52,7 +52,7 @@ export default function WorkIndex({ studies }: { studies: CaseStudy[] }) {
               >
                 <span
                   className={`label transition-colors ${
-                    on ? "text-flame" : "text-mute"
+                    on ? "text-accent" : "text-mute"
                   }`}
                 >
                   {study.number}
@@ -60,7 +60,7 @@ export default function WorkIndex({ studies }: { studies: CaseStudy[] }) {
 
                 <span>
                   <span className="label block text-mute">{study.client}</span>
-                  <span className="mt-2 block font-display text-xl font-bold leading-tight tracking-tight text-ink transition-colors group-hover:text-flame md:text-[1.65rem]">
+                  <span className="mt-2 block font-display text-xl font-bold leading-tight tracking-tight text-ink transition-colors group-hover:text-accent md:text-[1.65rem]">
                     {study.title}
                   </span>
                   <span className="mt-3 block max-w-md text-[0.95rem] leading-relaxed text-soft lg:hidden">
@@ -71,7 +71,7 @@ export default function WorkIndex({ studies }: { studies: CaseStudy[] }) {
                 <span
                   aria-hidden
                   className={`label hidden self-center transition-all md:block ${
-                    on ? "translate-x-1 text-flame" : "text-mute"
+                    on ? "translate-x-1 text-accent" : "text-mute"
                   }`}
                 >
                   &rarr;

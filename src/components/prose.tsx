@@ -72,10 +72,15 @@ export function Lead({ children }: { children: ReactNode }) {
   );
 }
 
+/** A highlighter swipe on a phrase that carries the point. */
+export function Mark({ children }: { children: ReactNode }) {
+  return <span className="mark">{children}</span>;
+}
+
 /** A line worth stopping on. Used sparingly, two or three per case study. */
 export function Pull({ children }: { children: ReactNode }) {
   return (
-    <blockquote className="my-14 border-l-2 border-flame pl-6">
+    <blockquote className="my-14 border-l-4 border-edge pl-6">
       <p className="font-display text-2xl font-bold leading-[1.25] tracking-tight text-ink md:text-[1.75rem]">
         {children}
       </p>
@@ -88,7 +93,7 @@ export function Bullets({ items }: { items: ReactNode[] }) {
     <ul className="mt-6 space-y-3">
       {items.map((item, i) => (
         <li key={i} className="flex gap-3.5 text-[1.0625rem] leading-[1.7] text-soft">
-          <span aria-hidden className="mt-[0.6em] h-px w-4 shrink-0 bg-flame" />
+          <span aria-hidden className="mt-[0.55em] h-0.5 w-4 shrink-0 bg-edge" />
           <span>{item}</span>
         </li>
       ))}
@@ -159,7 +164,7 @@ export function Results({
     <div className="my-16 grid gap-px overflow-hidden rounded-sm border border-rule bg-rule sm:grid-cols-2 lg:grid-cols-4">
       {items.map((item) => (
         <div key={item.label} className="bg-paper px-6 py-8">
-          <p className="font-display text-4xl font-extrabold tracking-tight text-flame">
+          <p className="font-display text-4xl font-extrabold tracking-tight text-accent">
             {item.value}
           </p>
           <p className="mt-2 text-sm leading-snug text-soft">{item.label}</p>
@@ -171,5 +176,5 @@ export function Results({
 
 /** Section label used above headings, e.g. "The decision". */
 export function Eyebrow({ children }: { children: ReactNode }) {
-  return <p className="label mt-24 text-flame">{children}</p>;
+  return <p className="label mt-24 text-accent">{children}</p>;
 }

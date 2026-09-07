@@ -44,7 +44,7 @@ export default function AltHome() {
                   className="group grid gap-2 py-7 no-underline md:grid-cols-[14rem_1fr] md:gap-10"
                 >
                   <span className="flex items-center gap-2">
-                    <span className="draw-link font-display text-lg font-bold tracking-tight text-ink transition-colors group-hover:text-flame">
+                    <span className="draw-link font-display text-lg font-bold tracking-tight text-ink transition-colors group-hover:text-accent">
                       {item.name}
                     </span>
                     <span
@@ -70,7 +70,7 @@ export default function AltHome() {
       <section className="mt-28">
         <Wrap>
           <div className="border-t border-ink pt-14">
-            <p className="label text-flame">What I&rsquo;m looking for</p>
+            <p className="label text-accent">What I&rsquo;m looking for</p>
             <p className="display mt-6 max-w-3xl text-3xl md:text-[3.25rem]">
               A team that needs one person to take something from brand all the way
               through to shipped code.
@@ -82,12 +82,12 @@ export default function AltHome() {
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-              <CopyEmail className="font-display text-2xl font-extrabold tracking-tight text-flame underline decoration-flame/30 decoration-2 underline-offset-[6px] transition-colors hover:decoration-flame md:text-4xl" />
+              <CopyEmail className="font-display text-2xl font-extrabold tracking-tight text-accent underline decoration-edge/30 decoration-2 underline-offset-[6px] transition-colors hover:decoration-edge md:text-4xl" />
               <a
                 href="https://www.linkedin.com/in/dreeddesign/"
                 target="_blank"
                 rel="noreferrer"
-                className="draw-link label text-soft no-underline transition-colors hover:text-flame"
+                className="draw-link label text-soft no-underline transition-colors hover:text-accent"
               >
                 LinkedIn &#8599;
               </a>
@@ -95,7 +95,7 @@ export default function AltHome() {
                 href="https://thetinktank.com"
                 target="_blank"
                 rel="noreferrer"
-                className="draw-link label text-soft no-underline transition-colors hover:text-flame"
+                className="draw-link label text-soft no-underline transition-colors hover:text-accent"
               >
                 The Tink Tank &#8599;
               </a>
