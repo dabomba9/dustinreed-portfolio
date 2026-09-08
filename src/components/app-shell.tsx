@@ -179,34 +179,42 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       {/* ---- rail ---- */}
       {(
       <aside
-        className={`fixed inset-y-0 left-0 z-30 flex w-[17rem] flex-col border-r border-rule bg-ground transition-transform duration-200 lg:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-30 flex w-[21rem] flex-col border-r border-rule bg-ground transition-transform duration-200 lg:translate-x-0 ${
           railOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="flex items-start justify-between gap-4 border-b border-rule px-6 py-6">
-          <Link href="/" className="block min-w-0 flex-1 no-underline">
-            {/* The sticker shares the name's line, not the whole header, so the
-                location beneath it keeps the full width of the rail. */}
-            <div className="flex items-start justify-between gap-3">
-              <p className="font-display text-base font-extrabold tracking-tight text-type">
-                Dustin Reed
-              </p>
+        {/* Identity block. Two columns divided by a hairline: who, and where.
+            The face is the largest thing in the chrome on purpose, so the
+            rail is 20rem rather than 17 to give the second column room. */}
+        <div className="flex items-start justify-between gap-3 border-b border-rule px-4 py-6">
+          <Link
+            href="/"
+            className="flex min-w-0 flex-1 items-stretch gap-4 no-underline"
+          >
+            <div className="flex min-w-0 flex-col items-center gap-3">
               <Image
-                src="/media/dustin-sticker.png"
+                src="/media/dustin-sticker-white.png"
                 alt=""
-                width={485}
-                height={512}
+                width={606}
+                height={640}
                 priority
-                className="-mt-1.5 h-14 w-auto shrink-0"
+                className="h-[10.5rem] w-auto"
               />
+              <p className="label text-center text-type">Dustin Reed</p>
             </div>
-            {/* The island says Puerto Rico, so the text does not have to. The
-                full name stays in the SVG's label for anyone not looking. */}
-            <p className="label mt-2 flex items-center gap-2 text-mute">
-              <PuertoRico className="h-3.5 w-auto shrink-0 text-accent" />
-              Designer · San Juan
-            </p>
+
+            <span aria-hidden className="w-px shrink-0 self-stretch bg-rule" />
+
+            <div className="flex min-w-0 flex-1 flex-col items-center gap-3 self-center">
+              <PuertoRico className="h-7 w-auto text-accent" />
+              <p className="label whitespace-nowrap text-center leading-relaxed text-mute">
+                San Juan,
+                <br />
+                Puerto Rico
+              </p>
+            </div>
           </Link>
+
           <button
             onClick={() => setRailOpen(false)}
             className="label -mr-2 -mt-2 flex min-h-11 min-w-11 shrink-0 items-center justify-center text-lg text-mute lg:hidden"
@@ -311,7 +319,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       ) : null}
 
       {/* ---- content ---- */}
-      <div className="lg:pl-[17rem]">
+      <div className="lg:pl-[21rem]">
         <main id="main" key={pathname} className="page-in min-h-screen pb-24">
           {children}
         </main>
@@ -321,7 +329,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       {(
       <section
         aria-label="Reading progress"
-        className="fixed inset-x-0 bottom-0 z-20 border-t border-rule bg-ground/90 backdrop-blur-md lg:pl-[17rem]"
+        className="fixed inset-x-0 bottom-0 z-20 border-t border-rule bg-ground/90 backdrop-blur-md lg:pl-[21rem]"
       >
         <div
           ref={progressRef}
