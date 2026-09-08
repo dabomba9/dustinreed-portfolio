@@ -115,6 +115,14 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
       run: () =>
         window.open("https://www.linkedin.com/in/dreeddesign/", "_blank", "noreferrer"),
     });
+    out.push({
+      id: "act:github",
+      group: "Actions",
+      title: "Open GitHub",
+      hint: "dabomba9",
+      external: true,
+      run: () => window.open("https://github.com/dabomba9", "_blank", "noreferrer"),
+    });
 
     return out;
   }, [router]);

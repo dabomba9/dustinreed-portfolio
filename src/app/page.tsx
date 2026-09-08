@@ -107,6 +107,14 @@ export default function Home() {
                 LinkedIn &#8599;
               </a>
               <a
+                href="https://github.com/dabomba9"
+                target="_blank"
+                rel="noreferrer"
+                className="draw-link label inline-flex items-center py-3 -my-3 text-soft no-underline transition-colors hover:text-accent"
+              >
+                GitHub &#8599;
+              </a>
+              <a
                 href="https://thetinktank.com"
                 target="_blank"
                 rel="noreferrer"
