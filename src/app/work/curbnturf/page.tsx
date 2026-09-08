@@ -262,14 +262,7 @@ export default function CurbNTurf() {
             src="/media/curbnturf-scroll"
             poster="/media/curbnturf-scroll-poster.jpg"
             label="The CurbNTurf v2 homepage scrolled end to end: the search bar with destination, dates and rig, then the listings, the community map, the reviews and the footer"
-            caption="V2 end to end, captured September 2026. The still below makes the v1 comparison; this is the argument playing out over a whole page — a working query first, then everything the query leads to."
-          />
-
-          <Figure tilt={0.9}
-            wide
-            src="/media/curbnturf-v1-v2.png"
-            alt="CurbNTurf v1 beside v2: an empty search box, then a working query"
-            caption="v1 left, v2 right, both captured September 2026. Same company, seven years apart: a headline and an empty box, next to a query you can actually run — destination, dates, your rig, and three ways in depending on how you are thinking about the trip."
+            caption="V2 end to end, captured September 2026. Compare it to the v1 homepage at the top of this page: there, a headline and an empty box; here, a query you can actually run, and everything it leads to."
           />
 
           <P>
