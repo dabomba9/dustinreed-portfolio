@@ -1,4 +1,5 @@
 import WorkIndex from "@/components/work-index";
+import SelectedWorkList from "@/components/selected-work";
 import CopyEmail from "@/components/copy-email";
 import { Mark, Wrap } from "@/components/prose";
 import { caseStudies, selectedWork } from "@/content/projects";
@@ -74,48 +75,7 @@ export default function Home() {
               not got around to writing up. The names now carry the same
               weight as a case study title, and what I did on each one is
               structured instead of buried in the sentence. */}
-          <ul>
-            {selectedWork.map((item) => (
-              <li key={item.name} className="border-b border-rule">
-                <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group grid gap-x-10 gap-y-4 py-9 no-underline md:grid-cols-[1fr_1.05fr] md:py-11"
-                >
-                  <span className="min-w-0">
-                    <span className="display block text-[2rem] text-type transition-colors group-hover:text-accent md:text-[2.75rem]">
-                      {item.name}
-                    </span>
-                    <span className="label mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-mute">
-                      <span className="text-type">{item.when}</span>
-                      {item.role.map((r) => (
-                        <span key={r} className="flex items-center gap-2">
-                          <span aria-hidden className="text-rule">
-                            /
-                          </span>
-                          {r}
-                        </span>
-                      ))}
-                    </span>
-                    <span className="label mt-5 flex items-center gap-2 text-type transition-colors group-hover:text-accent">
-                      <span className="draw-link">{item.domain}</span>
-                      <span
-                        aria-hidden
-                        className="transition-transform group-hover:translate-x-0.5"
-                      >
-                        &#8599;
-                      </span>
-                    </span>
-                  </span>
-
-                  <span className="max-w-xl text-[1.0625rem] leading-relaxed text-soft">
-                    {item.line}
-                  </span>
-                </a>
-              </li>
-            ))}
-          </ul>
+          <SelectedWorkList items={selectedWork} />
         </Wrap>
       </section>
 

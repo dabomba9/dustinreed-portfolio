@@ -75,6 +75,14 @@ export type SelectedWork = {
   /** Shown as the link. Deriving it from href would be fragile with www. */
   domain: string;
   line: string;
+  /* A capture of the live site, revealed on hover. Base path with no
+     extension; .webm and .mp4 must both exist beside it. Optional, and the
+     row renders exactly as it always did without one. */
+  clip?: string;
+  /* The still, held while the clip is paused. Paired explicitly rather than
+     derived from `clip`, the way a case study pairs `image` with `clip`. */
+  poster?: string;
+  clipAlt?: string;
 };
 
 export const selectedWork: SelectedWork[] = [
@@ -85,6 +93,9 @@ export const selectedWork: SelectedWork[] = [
     role: ["Brand", "Site", "Front end"],
     domain: "stickyflow.com",
     line: "Launched early spring 2026. Their whole pitch is that a founder owns the automation outright instead of renting it, so the site could not look like a brochure. It is built as machinery: terminal typography, live telemetry ticking in the header, Next.js and GSAP underneath.",
+    clip: "/media/stickyflow-clip",
+    poster: "/media/stickyflow-clip-poster.jpg",
+    clipAlt: "The StickyFlow homepage scrolled: terminal typography on a dark ground, telemetry counting in the header",
   },
   {
     name: "New Smile Dentures",
@@ -93,6 +104,9 @@ export const selectedWork: SelectedWork[] = [
     role: ["Brand", "Site", "SEO", "Google Ads"],
     domain: "newsmiledentures.com",
     line: "A family denture practice in Idaho: three generations, two clinics, an in house lab, and patients who arrive embarrassed. The identity and the site were built for a business that had outgrown both. I rebuilt them in 2022 and then ran the brand for four years, SEO and Google Ads included. Buying the traffic yourself is how you find out whether the rebrand actually worked.",
+    clip: "/media/newsmiledentures-clip",
+    poster: "/media/newsmiledentures-clip-poster.jpg",
+    clipAlt: "The New Smile Dentures homepage scrolled: the clinic photography, the treatment cards and the booking path",
   },
   {
     name: "The Tink Tank",
@@ -101,5 +115,8 @@ export const selectedWork: SelectedWork[] = [
     role: ["Brand", "Product", "Front end"],
     domain: "thetinktank.com",
     line: "Started in Idaho in May 2018, because almost nobody there was doing this kind of work. Brand, product and front end for clients across SaaS, healthcare and commerce, usually all three phases: name it, design it, ship it. The studio is older than its own website, which went up in spring 2026.",
+    clip: "/media/tinktank-clip",
+    poster: "/media/tinktank-clip-poster.jpg",
+    clipAlt: "The Tink Tank homepage scrolled: the studio wordmark, the client work grid and the three phase pitch",
   },
 ];
