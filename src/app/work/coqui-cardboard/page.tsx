@@ -79,7 +79,7 @@ export default function Coqui() {
         <Column>
           <P>So that was the whole premise. Build the place where they look like what they are.</P>
 
-          <Figure
+          <Figure tilt={-1}
             wide
             src="/media/coqui-vault.png"
             alt="The Jordan Vault: 1,998 cards with images, sorted by year"
@@ -156,7 +156,7 @@ export default function Coqui() {
             them. So the nav splits by player, and every player gives you both doors.
           </P>
 
-          <Figure
+          <Figure tilt={1.2}
             wide
             src="/media/coqui-hierarchy.png"
             alt="The MJ Hierarchy: 378 cards sorted into four rarity tiers"
@@ -194,7 +194,7 @@ export default function Coqui() {
             come back often enough to already know what they’re looking for.
           </P>
 
-          <Figure
+          <Figure tilt={-0.7}
             src="/media/coqui-palette.png"
             alt="The command palette open over the Hierarchy, listing cards by set and tier"
             caption="For people who come back often enough to already know what they are looking for."

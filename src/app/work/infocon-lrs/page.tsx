@@ -129,7 +129,7 @@ export default function LargePrintBooks() {
             possible for a librarian to specify all four without needing training.
           </P>
 
-          <Figure
+          <Figure tilt={-1}
             src="/media/lpb-made-to-order.png"
             alt="The Made to Order section: type size, binding, format and paper"
             caption="Four production decisions, made per student. This is the accessibility work — it lives in the manufacturing spec, not in an interface widget."
@@ -204,7 +204,7 @@ export default function LargePrintBooks() {
             both brands let each one talk to its own.
           </P>
 
-          <Figure
+          <Figure tilt={1.2}
             wide
             src="/media/lpb-lrs-paired.png"
             alt="The two homepages side by side: InfoCon in yellow, LRS in white"

@@ -101,17 +101,29 @@ export function Bullets({ items }: { items: ReactNode[] }) {
   );
 }
 
-/** Image slot. Drop a file in /public/media and point at it. */
+/**
+ * Image slot. Drop a file in /public/media and point at it.
+ *
+ * Screenshots are treated as stickers: a cream die cut edge, a small tilt and
+ * a shadow, so they read as objects placed on the page rather than holes cut
+ * into it. Same treatment as the portrait mark in the rail, which is the
+ * point - one idea, used twice, instead of two ideas.
+ *
+ * `tilt` is in degrees. Alternate the sign down a page so a run of figures
+ * looks handled rather than skewed.
+ */
 export function Figure({
   src,
   alt,
   caption,
   wide = false,
+  tilt = -1,
 }: {
   src?: string;
   alt: string;
   caption?: string;
   wide?: boolean;
+  tilt?: number;
 }) {
   // Until there is an image, the figure does not exist. A dashed "add image
   // here" box reads as unfinished; absence reads as a deliberate text layout.
@@ -119,15 +131,18 @@ export function Figure({
 
   return (
     <figure className={`my-14 ${wide ? "md:-mx-24 lg:-mx-40" : ""}`}>
-      <div className="rounded-sm border border-rule bg-raised p-2">
-      <Image
-        src={src}
-        alt={alt}
-        width={1600}
-        height={1000}
-        sizes="(min-width: 1024px) 900px, 100vw"
-        className="h-auto w-full rounded-[2px]"
-      />
+      <div
+        className="rounded-xl bg-type p-4 shadow-[0_22px_50px_-16px_rgba(0,0,0,0.9)] transition-transform duration-500 ease-out hover:rotate-0 md:rounded-2xl md:p-6"
+        style={{ transform: `rotate(${tilt}deg)` }}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          width={1600}
+          height={1000}
+          sizes="(min-width: 1024px) 900px, 100vw"
+          className="h-auto w-full rounded-[4px]"
+        />
       </div>
       {caption ? (
         <figcaption className="mt-3 text-sm leading-relaxed text-mute">

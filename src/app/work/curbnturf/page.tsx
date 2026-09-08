@@ -58,7 +58,7 @@ export default function CurbNTurf() {
             three people and no plan to hire a sales floor.
           </P>
 
-          <Figure
+          <Figure tilt={-1}
             wide
             src="/media/curbnturf-v1-home.png"
             alt="CurbNTurf v1 homepage: a headline and an empty search box"
@@ -101,7 +101,7 @@ export default function CurbNTurf() {
             doing.
           </P>
 
-          <Figure
+          <Figure tilt={1.2}
             wide
             src="/media/curbnturf-onboarding.png"
             alt="Four steps of the host onboarding flow: the phase overview, the property type grid, the address step with a map pin, and the amenities picker"
@@ -191,7 +191,7 @@ export default function CurbNTurf() {
           </P>
 
 
-          <Figure
+          <Figure tilt={-0.7}
             src="/media/curbnturf-explore.png"
             alt="The explore map with a listing card: amenities and a nightly price range"
             caption="A listing carries its own amenities and price range. The fix was letting one host hold several of these."
@@ -255,7 +255,7 @@ export default function CurbNTurf() {
             going, you’re traveling between places, or you’re just looking at the map.
           </P>
 
-          <Figure
+          <Figure tilt={0.9}
             wide
             src="/media/curbnturf-v1-v2.png"
             alt="CurbNTurf v1 beside v2: an empty search box, then a working query"
@@ -299,7 +299,7 @@ export default function CurbNTurf() {
             instead of layout.
           </P>
 
-          <Figure
+          <Figure tilt={-1.1}
             alt="CurbNTurf iOS and Android app screens"
             caption="Add: the app screens that have no web equivalent."
           />
