@@ -67,6 +67,10 @@ export const caseStudies: CaseStudy[] = [
 export type SelectedWork = {
   name: string;
   href: string;
+  /** What I did, as separate pieces rather than a sentence. */
+  role: string[];
+  /** Shown as the link. Derived from href would be fragile with www. */
+  domain: string;
   line: string;
 };
 
@@ -74,16 +78,22 @@ export const selectedWork: SelectedWork[] = [
   {
     name: "StickyFlow",
     href: "https://www.stickyflow.com",
-    line: "Brand and site for an AI operations agency. Next.js, GSAP, terminal inspired UI, live telemetry in the header.",
+    role: ["Brand", "Site", "Front end"],
+    domain: "stickyflow.com",
+    line: "An AI operations agency with no identity and a launch date. Terminal inspired UI, live telemetry running in the header, built in Next.js with GSAP.",
   },
   {
     name: "New Smile Dentures",
     href: "https://www.newsmiledentures.com",
-    line: "Logo, identity and site for a family denture practice in Idaho. Three generations, two clinics, an in house lab, and patients who show up embarrassed.",
+    role: ["Logo", "Identity", "Site"],
+    domain: "newsmiledentures.com",
+    line: "A family denture practice in Idaho. Three generations, two clinics, an in house lab, and patients who arrive embarrassed. The whole brief was to make the front door feel unembarrassing.",
   },
   {
     name: "The Tink Tank",
     href: "https://thetinktank.com",
-    line: "My studio. Brand, product and front end for clients across SaaS, healthcare and commerce.",
+    role: ["Brand", "Product", "Front end"],
+    domain: "thetinktank.com",
+    line: "My studio, and where the client work above lives. SaaS, healthcare and commerce, usually all three phases: name it, design it, ship it.",
   },
 ];

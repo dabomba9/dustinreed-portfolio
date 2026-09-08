@@ -69,6 +69,11 @@ export default function Home() {
             <p className="label text-mute">All live</p>
           </div>
 
+          {/* This used to be three lines of 18px text under a section that
+              carries a playing video, which made it read as the work I had
+              not got around to writing up. The names now carry the same
+              weight as a case study title, and what I did on each one is
+              structured instead of buried in the sentence. */}
           <ul>
             {selectedWork.map((item) => (
               <li key={item.name} className="border-b border-rule">
@@ -76,20 +81,36 @@ export default function Home() {
                   href={item.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="group grid gap-2 py-7 no-underline md:grid-cols-[14rem_1fr] md:gap-10"
+                  className="group grid gap-x-10 gap-y-4 py-9 no-underline md:grid-cols-[1fr_1.05fr] md:py-11"
                 >
-                  <span className="flex items-center gap-2">
-                    <span className="draw-link font-display text-lg font-bold tracking-tight text-type transition-colors group-hover:text-accent">
+                  <span className="min-w-0">
+                    <span className="display block text-[2rem] text-type transition-colors group-hover:text-accent md:text-[2.75rem]">
                       {item.name}
                     </span>
-                    <span
-                      aria-hidden
-                      className="text-mute opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100"
-                    >
-                      &#8599;
+                    <span className="label mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-mute">
+                      {item.role.map((r, i) => (
+                        <span key={r} className="flex items-center gap-2">
+                          {i > 0 ? (
+                            <span aria-hidden className="text-rule">
+                              /
+                            </span>
+                          ) : null}
+                          {r}
+                        </span>
+                      ))}
+                    </span>
+                    <span className="label mt-5 flex items-center gap-2 text-type transition-colors group-hover:text-accent">
+                      <span className="draw-link">{item.domain}</span>
+                      <span
+                        aria-hidden
+                        className="transition-transform group-hover:translate-x-0.5"
+                      >
+                        &#8599;
+                      </span>
                     </span>
                   </span>
-                  <span className="max-w-2xl text-[1.0625rem] leading-relaxed text-soft">
+
+                  <span className="max-w-xl text-[1.0625rem] leading-relaxed text-soft">
                     {item.line}
                   </span>
                 </a>
