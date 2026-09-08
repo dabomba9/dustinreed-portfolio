@@ -15,7 +15,7 @@ export const metadata: Metadata = pageMeta({
   image: "/og-infocon.jpg",
 });
 
-export default function LargePrintBooks() {
+export default function InfoConLRS() {
   return (
     <>
       <CaseHero

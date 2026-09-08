@@ -29,7 +29,7 @@ Then open http://localhost:3000
     src/app/about/page.tsx                    about
     src/app/work/curbnturf/page.tsx           case study 01
     src/app/work/coqui-cardboard/page.tsx     case study 02
-    src/app/work/large-print-books/page.tsx   case study 03
+    src/app/work/infocon-lrs/page.tsx         case study 03
 
     src/content/projects.ts     card copy, metrics and links
     src/content/nav.ts          the index the rail and palette read from
@@ -63,4 +63,11 @@ Self-hosted variable woff2 in src/fonts. No Google Fonts request at runtime.
 
     npx vercel
 
-Set the real domain in `SITE_URL` at the top of src/app/layout.tsx first.
+Nothing to set first. The canonical origin resolves itself in src/lib/site.ts:
+the real domain on Vercel production, the deployment's own URL on previews,
+localhost in development. Everything that names the site by its full URL reads
+it — canonical tags, share cards, the sitemap, robots.txt.
+
+To point at a different domain, set `NEXT_PUBLIC_SITE_URL` (see .env.example).
+It wins over everything and needs no code change. The production domain itself
+is the one constant in that file.
