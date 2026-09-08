@@ -80,7 +80,7 @@ export const selectedWork: SelectedWork[] = [
     href: "https://www.stickyflow.com",
     role: ["Brand", "Site", "Front end"],
     domain: "stickyflow.com",
-    line: "An AI operations agency with no identity and a launch date. Terminal inspired UI, live telemetry running in the header, built in Next.js with GSAP.",
+    line: "Launched early spring 2026. Their whole pitch is that a founder owns the automation outright instead of renting it, so the site could not look like a brochure. It is built as machinery: terminal typography, live telemetry ticking in the header, Next.js and GSAP underneath.",
   },
   {
     name: "New Smile Dentures",
