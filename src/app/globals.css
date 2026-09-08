@@ -112,7 +112,14 @@
     font-family: var(--font-display);
     font-weight: 800;
     letter-spacing: -0.008em;
-    line-height: 0.9;
+    /* Big Shoulders draws 1.0em of ink per line: caps sit 0.8em above the
+       baseline and the descenders drop 0.2em below it. Any leading under
+       1.0 therefore overlaps the ink of the line above, not just its
+       whitespace. 0.9 was doing exactly that - at 108px the descenders of
+       line one were landing 32px inside line two. 1.05 is the tightest
+       honest setting: against this cap height it reads like 0.95 would on
+       a normally proportioned face. */
+    line-height: 1.1;
     font-optical-sizing: auto;
     text-wrap: balance;
   }
@@ -124,10 +131,25 @@
   /* A highlighter swipe. Ink text keeps its own contrast; the yellow is
      only ever a ground beneath it, which is the one thing a colour this
      light can do honestly. */
+  /* Drawn as a gradient rather than a background colour so it can be sized
+     to the ink instead of to the font's em box. The em box is 1.2em tall
+     and the letters only occupy the middle 1.0em of it, so a plain
+     background-color paints 0.185em of dead colour above every cap. A
+     swipe hugs what it is marking. Sizing it this way also keeps
+     box-decoration-break working, which absolute positioning would not. */
   .mark {
-    background-color: var(--color-mark);
+    background-image: linear-gradient(var(--color-mark), var(--color-mark));
+    background-repeat: no-repeat;
+    background-size: 100% 1.1em;
+    background-position: 0 0.2em;
     color: #131512;
     padding-inline: 0.16em;
+    /* Vertical padding on an inline box does not move the lines apart, it
+       only grows the area the background is allowed to paint. The font's
+       own descent metric clears its descenders by 1.6px at hero size, so
+       without this the swipe would end flush with the tail of the p and
+       read as a crop. */
+    padding-block: 0.05em;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
