@@ -3,7 +3,6 @@ import CaseHero, { CaseFooter } from "@/components/case-hero";
 import Scoreboard from "@/components/scoreboard";
 import Band from "@/components/band";
 import WrongBlock from "@/components/wrong-block";
-import Annotated from "@/components/annotated";
 import { Wrap, Column, H2, H3, P, Lead, Figure, Results } from "@/components/prose";
 
 export const metadata: Metadata = {
@@ -59,20 +58,10 @@ export default function CurbNTurf() {
             three people and no plan to hire a sales floor.
           </P>
 
-          <Annotated
+          <Figure
             wide
             src="/media/curbnturf-v1-home.png"
             alt="CurbNTurf v1 homepage: a headline and an empty search box"
-            width={1459}
-            height={812}
-            marks={[
-              { kind: "ring", x: 26, y: 27.5, w: 46, h: 9.5 },
-              { kind: "arrow", from: [85, 19], to: [80.5, 8.4], bend: -0.26 },
-            ]}
-            notes={[
-              { at: [49, 45], text: "No dates. No rig. Nowhere to start.", align: "center" },
-              { at: [86.5, 21], text: "The supply side of the marketplace, filed as a nav item" },
-            ]}
             caption="V1, captured September 2026. A headline, an empty box, and several paragraphs explaining what a two sided marketplace is."
           />
 
