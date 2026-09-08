@@ -261,7 +261,7 @@ export default function CurbNTurf() {
             tilt={0.9}
             src="/media/curbnturf-scroll"
             poster="/media/curbnturf-scroll-poster.jpg"
-            label="Scrolling the CurbNTurf v2 homepage: the search bar, the three ways in, and the map"
+            label="The CurbNTurf v2 homepage scrolling: a working search bar with destination, dates and rig, then the three ways in"
             caption="V2 moving, captured September 2026, at half speed. The still below makes the comparison; this is what the first screen actually does when you land on it."
           />
 
