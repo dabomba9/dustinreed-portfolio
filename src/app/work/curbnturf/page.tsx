@@ -113,7 +113,7 @@ export default function CurbNTurf() {
             wide
             src="/media/curbnturf-onboarding.png"
             alt="Four steps of the host onboarding flow: the phase overview, the property type grid, the address step with a map pin, and the amenities picker"
-            caption="Onboarding, captured September 2026. The flow is cut into three phases and named in plain language, so a landowner always knows how much is left. Property type does the teaching — winery, orchard, ranch, woodlands — because the fastest way to explain what CurbNTurf wants is to show him his own land in the list. Amenities ships with presets, since a rancher does not know that “potable water” and “dump station” are the two things an RVer searches on."
+            caption="Onboarding, captured September 2026. The flow is cut into three phases and named in plain language, so a landowner always knows how much is left. Property type does the teaching. Winery, orchard, ranch, woodlands: the fastest way to explain what CurbNTurf wants is to show a landowner his own land in the list. Amenities ships with presets, since a rancher does not know that “potable water” and “dump station” are the two things an RVer searches on."
           />
         </Column>
       </Wrap>
@@ -173,7 +173,7 @@ export default function CurbNTurf() {
             <p>
               Here’s why it took a while to see: it never actually broke. Hosts could
               duplicate a listing and edit it, so a multi spot property was possible. It was
-              just tedious — and in a product with no salespeople, tedious is the thing that
+              just tedious, and in a product with no salespeople, tedious is the thing that
               kills you. Every extra step is one more rancher deciding this isn’t worth his
               afternoon.
             </p>
@@ -220,7 +220,7 @@ export default function CurbNTurf() {
         total={25}
         headline="landowners who start the process publish a listing that week"
         litLabel="Published, unaided"
-        restLabel="Stalled somewhere — every one an interested landowner"
+        restLabel="Stalled somewhere, every one an interested landowner"
       />
 
       <Wrap className="py-4">

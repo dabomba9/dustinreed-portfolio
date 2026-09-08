@@ -164,7 +164,7 @@ export default function Coqui() {
             wide
             src="/media/coqui-hierarchy.png"
             alt="The MJ Hierarchy: 378 cards sorted into four rarity tiers"
-            caption="The Hierarchy is an opinion — 378 cards, four tiers, Tier 1 first. The Vault above is the same cards with the opinion removed. Same data, two headspaces."
+            caption="The Hierarchy is an opinion. 378 cards, four tiers, Tier 1 first. The Vault above is the same cards with the opinion removed. Same data, two headspaces."
           />
 
           <H2>The look is the argument</H2>

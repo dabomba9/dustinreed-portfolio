@@ -50,8 +50,8 @@ export default function LargePrintBooks() {
             Convincing him to rebuild wasn’t hard. The case was simple. A real brand makes
             you memorable, and a real website can carry articles and content that bring in
             leads instead of just sitting there being a phone number. I built the logo, the
-            identity and the site, and Latiker became InfoCon — still trading on
-            largeprintbooks.com, because the domain says what it sells better than the
+            identity and the site, and Latiker became InfoCon, still trading on
+            largeprintbooks.com because the domain says what it sells better than the
             company name does.
           </P>
 
@@ -137,7 +137,7 @@ export default function LargePrintBooks() {
             wide
             src="/media/lpb-made-to-order.png"
             alt="The Made to Order section: type size, binding, format and paper"
-            caption="Four production decisions, made per student. This is the accessibility work — it lives in the manufacturing spec, not in an interface widget."
+            caption="Four production decisions, made per student. This is the accessibility work, and it lives in the manufacturing spec rather than in an interface widget."
           />
 
           <H2>The decision: two brands, on purpose</H2>
@@ -299,7 +299,7 @@ export default function LargePrintBooks() {
           <H2>Where it stands</H2>
 
           <P>
-            Both brands are live and running independently —{" "}
+            Both brands are live and running independently:{" "}
             <a href="https://www.largeprintbooks.com" target="_blank" rel="noreferrer" className="draw-link text-type">largeprintbooks.com</a>{" "}
             and{" "}
             <a href="https://www.lrsbooks.com" target="_blank" rel="noreferrer" className="draw-link text-type">lrsbooks.com</a>.
@@ -326,7 +326,7 @@ export default function LargePrintBooks() {
           },
           {
             name: "Jed Smith",
-            role: "Backend and integration — the same developer I build CurbNTurf with",
+            role: "Backend and integration, the same developer I build CurbNTurf with",
           },
           {
             name: "Owner",

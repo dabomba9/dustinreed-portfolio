@@ -36,7 +36,9 @@ export default function Home() {
             writing backend too.
           </p>
 
-          <p className="label mt-10 text-mute">
+          {/* Keyboard only. On a phone this is the third thing a visitor reads
+              and it describes something they cannot do. */}
+          <p className="label mt-10 hidden text-mute md:block">
             Press <Key>&#8984;K</Key> to search, <Key>j</Key> and <Key>k</Key> to move
             through the work
           </p>
