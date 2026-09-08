@@ -193,6 +193,7 @@ export default function CurbNTurf() {
 
 
           <Figure tilt={-0.7}
+            wide
             src="/media/curbnturf-explore.png"
             alt="The explore map with a listing card: amenities and a nightly price range"
             caption="A listing carries its own amenities and price range. The fix was letting one host hold several of these."

@@ -130,6 +130,7 @@ export default function LargePrintBooks() {
           </P>
 
           <Figure tilt={-1}
+            wide
             src="/media/lpb-made-to-order.png"
             alt="The Made to Order section: type size, binding, format and paper"
             caption="Four production decisions, made per student. This is the accessibility work — it lives in the manufacturing spec, not in an interface widget."

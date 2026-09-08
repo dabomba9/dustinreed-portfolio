@@ -196,6 +196,7 @@ export default function Coqui() {
           </P>
 
           <Clip
+            wide
             tilt={-0.7}
             src="/media/coqui-clip"
             poster="/media/coqui-clip-poster.jpg"
