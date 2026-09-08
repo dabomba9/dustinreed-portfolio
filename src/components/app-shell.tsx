@@ -193,44 +193,39 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           railOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        {/* Identity block. Four ranks, loudest first: face, name, what I do,
-            whether I am available. Location is deliberately last.
+        {/* Identity block. Two equal halves either side of a hairline: who,
+            and where. Both columns are flex-1 basis-0 so they split the rail
+            evenly rather than the face taking whatever it wants and the
+            island living in the remainder.
 
-            The role and the availability line are the whole point of this
-            block existing in chrome rather than on the homepage. The rail is
-            on every page, so a reader who lands on a case study from a link
-            is told who wrote it and that he can be hired, without scrolling. */}
-        <div className="border-b border-rule px-5 pb-5 pt-7">
+            The role and the availability line sit full width underneath. In
+            a 135px column "FOUNDING DESIGNER" wraps to four lines; across the
+            whole rail it is one. Splitting the block this way is what lets
+            the columns be equal without the type paying for it. */}
+        <div className="border-b border-rule px-4 pb-5 pt-7">
           <div className="flex items-start justify-between gap-2">
             <Link
               href="/"
-              className="group flex min-w-0 flex-1 items-end gap-5 no-underline"
+              className="group flex min-w-0 flex-1 items-end gap-4 no-underline"
             >
-              <span className="flex min-w-0 flex-col items-center gap-3.5">
+              <span className="flex min-w-0 flex-1 basis-0 flex-col items-center gap-3">
                 <Image
                   src="/media/dustin-sticker-white.png"
                   alt=""
                   width={606}
                   height={640}
                   priority
-                  className="h-[10.5rem] w-auto transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-[1.03]"
+                  className="w-full max-w-[9rem] transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-[1.03]"
                 />
-                <span className="flex flex-col items-center gap-1.5">
-                  <span className="font-display text-[1.0625rem] font-extrabold leading-none tracking-tight text-type">
-                    Dustin Reed
-                  </span>
-                  <span className="label -mr-[0.13em] text-center leading-[1.5] text-mute">
-                    Founding Designer
-                    <br />
-                    &amp; Design Engineer
-                  </span>
+                <span className="label -mr-[0.13em] text-center leading-none text-type">
+                  Dustin Reed
                 </span>
               </span>
 
               <span aria-hidden className="w-px shrink-0 self-stretch bg-rule" />
 
-              <span className="flex min-w-0 flex-1 flex-col items-center gap-3.5">
-                <PuertoRico className="h-9 w-auto text-accent" />
+              <span className="flex min-w-0 flex-1 basis-0 flex-col items-center gap-3">
+                <PuertoRico className="w-full max-w-[8rem] text-accent" />
                 <span className="label -mr-[0.13em] whitespace-nowrap text-center leading-[1.5] text-mute">
                   San Juan,
                   <br />
@@ -248,7 +243,11 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             </button>
           </div>
 
-          <p className="label mt-5 flex items-center gap-2 border-t border-rule pt-4 text-type">
+          <p className="label -mr-[0.13em] mt-5 border-t border-rule pt-4 text-center text-mute">
+            Founding Designer &amp; Design Engineer
+          </p>
+
+          <p className="label mt-3 flex items-center justify-center gap-2 text-type">
             <span aria-hidden className="size-2 shrink-0 rounded-full bg-solid" />
             Open to work
           </p>
