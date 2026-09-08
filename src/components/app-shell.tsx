@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { gsap, EASE, T, dur } from "@/lib/motion";
+import PuertoRico from "@/components/puerto-rico";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import CommandPalette from "@/components/command-palette";
@@ -182,11 +184,28 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         }`}
       >
         <div className="flex items-start justify-between gap-4 border-b border-rule px-6 py-6">
-          <Link href="/" className="block no-underline">
-            <p className="font-display text-base font-extrabold tracking-tight text-type">
-              Dustin Reed
+          <Link href="/" className="block min-w-0 flex-1 no-underline">
+            {/* The sticker shares the name's line, not the whole header, so the
+                location beneath it keeps the full width of the rail. */}
+            <div className="flex items-start justify-between gap-3">
+              <p className="font-display text-base font-extrabold tracking-tight text-type">
+                Dustin Reed
+              </p>
+              <Image
+                src="/media/dustin-sticker.png"
+                alt=""
+                width={485}
+                height={512}
+                priority
+                className="-mt-1.5 h-14 w-auto shrink-0"
+              />
+            </div>
+            {/* The island says Puerto Rico, so the text does not have to. The
+                full name stays in the SVG's label for anyone not looking. */}
+            <p className="label mt-2 flex items-center gap-2 text-mute">
+              <PuertoRico className="h-3.5 w-auto shrink-0 text-accent" />
+              Designer · San Juan
             </p>
-            <p className="label mt-1.5 text-mute">Designer · San Juan, PR</p>
           </Link>
           <button
             onClick={() => setRailOpen(false)}

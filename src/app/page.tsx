@@ -1,6 +1,4 @@
-import Image from "next/image";
 import WorkIndex from "@/components/work-index";
-import PuertoRico from "@/components/puerto-rico";
 import CopyEmail from "@/components/copy-email";
 import { Mark, Wrap } from "@/components/prose";
 import { caseStudies, selectedWork } from "@/content/projects";
@@ -13,35 +11,11 @@ export default function Home() {
           --------------------------------------------------------------- */}
       <section className="border-b border-rule">
         <Wrap className="py-20 md:py-32">
-          {/* Identity sits on the eyebrow line, right aligned, so the headline
-              below keeps the full measure. Putting the portrait in a column
-              beside the h1 cost it 250px and broke the two line break. */}
-          <div className="flex flex-col-reverse items-start justify-between gap-8 sm:flex-row sm:items-start">
-            <p className="label text-accent sm:pt-2">
-              Founding designer &middot; 7 years on one product
-            </p>
+          <p className="label text-accent">
+            Founding designer &middot; 7 years on one product
+          </p>
 
-            {/* The drawing is black ink on transparency, so the lime reads
-                through the face as its own negative space. */}
-            <figure className="flex shrink-0 flex-col items-start gap-3 sm:items-end">
-              <div className="size-28 overflow-hidden rounded-full bg-solid sm:size-32 lg:size-36">
-                <Image
-                  src="/media/dustin-portrait.png"
-                  alt="Illustrated portrait of Dustin Reed in a flat brim cap"
-                  width={512}
-                  height={512}
-                  priority
-                  className="size-full object-contain"
-                />
-              </div>
-              <figcaption className="label flex items-center gap-2 text-mute">
-                <PuertoRico className="h-6 w-auto shrink-0 text-accent" />
-                San Juan, Puerto Rico
-              </figcaption>
-            </figure>
-          </div>
-
-          <h1 className="display mt-10 text-[3rem] leading-[0.92] sm:text-6xl md:text-[5rem] lg:text-[5.75rem]">
+          <h1 className="display mt-8 text-[3rem] leading-[0.92] sm:text-6xl md:text-[5rem] lg:text-[5.75rem]">
             I design products
             <br />
             and <Mark>ship the code.</Mark>
