@@ -169,7 +169,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           className="label flex min-h-11 items-center gap-2 px-3 text-type no-underline"
         >
           <Image
-            src="/media/dustin-line.png"
+            src="/media/dustin-portrait-line.png"
             alt=""
             width={606}
             height={640}
@@ -210,7 +210,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             >
               <span className="flex min-w-0 flex-1 basis-0 flex-col items-center gap-3">
                 <Image
-                  src="/media/dustin-line.png"
+                  src="/media/dustin-portrait-line.png"
                   alt=""
                   width={606}
                   height={640}
