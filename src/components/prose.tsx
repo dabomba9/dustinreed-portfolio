@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
+import StickerFrame from "@/components/sticker-frame";
 
 /* ---------------------------------------------------------------
    Shared building blocks. Every page on the site is assembled from
@@ -131,10 +132,7 @@ export function Figure({
 
   return (
     <figure className={`my-14 ${wide ? "md:-mx-24 lg:-mx-40" : ""}`}>
-      <div
-        className="rounded-xl bg-type p-4 shadow-[0_22px_50px_-16px_rgba(0,0,0,0.9)] transition-transform duration-500 ease-out hover:rotate-0 md:rounded-2xl md:p-6"
-        style={{ transform: `rotate(${tilt}deg)` }}
-      >
+      <StickerFrame tilt={tilt}>
         <Image
           src={src}
           alt={alt}
@@ -143,7 +141,7 @@ export function Figure({
           sizes="(min-width: 1024px) 900px, 100vw"
           className="h-auto w-full rounded-[4px]"
         />
-      </div>
+      </StickerFrame>
       {caption ? (
         <figcaption className="mt-3 text-sm leading-relaxed text-mute">
           {caption}
