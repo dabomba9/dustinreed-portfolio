@@ -261,8 +261,8 @@ export default function CurbNTurf() {
             tilt={0.9}
             src="/media/curbnturf-scroll"
             poster="/media/curbnturf-scroll-poster.jpg"
-            label="The CurbNTurf v2 homepage scrolling: a working search bar with destination, dates and rig, then the three ways in"
-            caption="V2 moving, captured September 2026, at half speed. The still below makes the comparison; this is what the first screen actually does when you land on it."
+            label="The CurbNTurf v2 homepage scrolled end to end: the search bar with destination, dates and rig, then the listings, the community map, the reviews and the footer"
+            caption="V2 end to end, captured September 2026. The still below makes the v1 comparison; this is the argument playing out over a whole page — a working query first, then everything the query leads to."
           />
 
           <Figure tilt={0.9}
