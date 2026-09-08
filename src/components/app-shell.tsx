@@ -164,7 +164,17 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         >
           <span aria-hidden>{railOpen ? "\u00d7" : "\u2261"}</span> Index
         </button>
-        <Link href="/" className="label flex min-h-11 items-center px-3 text-type no-underline">
+        <Link
+          href="/"
+          className="label flex min-h-11 items-center gap-2 px-3 text-type no-underline"
+        >
+          <Image
+            src="/media/dustin-sticker-white.png"
+            alt=""
+            width={606}
+            height={640}
+            className="h-7 w-auto"
+          />
           Dustin Reed
         </Link>
         <button
@@ -183,49 +193,65 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           railOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        {/* Identity block: who on the left, where on the right, split by a
-            hairline. Both columns are bottom aligned so the two captions
-            share a baseline instead of floating at their own heights.
-            -mr on the labels cancels the trailing letter-space that centred
-            uppercase tracking otherwise pushes to the right. */}
-        <div className="flex items-start justify-between gap-2 border-b border-rule px-5 pb-6 pt-7">
-          <Link
-            href="/"
-            className="group flex min-w-0 flex-1 items-end gap-5 no-underline"
-          >
-            <span className="flex min-w-0 flex-col items-center gap-3.5">
-              <Image
-                src="/media/dustin-sticker-white.png"
-                alt=""
-                width={606}
-                height={640}
-                priority
-                className="h-[10.5rem] w-auto transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-[1.03]"
-              />
-              <span className="label -mr-[0.13em] text-center text-type">
-                Dustin Reed
+        {/* Identity block. Four ranks, loudest first: face, name, what I do,
+            whether I am available. Location is deliberately last.
+
+            The role and the availability line are the whole point of this
+            block existing in chrome rather than on the homepage. The rail is
+            on every page, so a reader who lands on a case study from a link
+            is told who wrote it and that he can be hired, without scrolling. */}
+        <div className="border-b border-rule px-5 pb-5 pt-7">
+          <div className="flex items-start justify-between gap-2">
+            <Link
+              href="/"
+              className="group flex min-w-0 flex-1 items-end gap-5 no-underline"
+            >
+              <span className="flex min-w-0 flex-col items-center gap-3.5">
+                <Image
+                  src="/media/dustin-sticker-white.png"
+                  alt=""
+                  width={606}
+                  height={640}
+                  priority
+                  className="h-[10.5rem] w-auto transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-[1.03]"
+                />
+                <span className="flex flex-col items-center gap-1.5">
+                  <span className="font-display text-[1.0625rem] font-extrabold leading-none tracking-tight text-type">
+                    Dustin Reed
+                  </span>
+                  <span className="label -mr-[0.13em] text-center leading-[1.5] text-mute">
+                    Founding Designer
+                    <br />
+                    &amp; Design Engineer
+                  </span>
+                </span>
               </span>
-            </span>
 
-            <span aria-hidden className="w-px shrink-0 self-stretch bg-rule" />
+              <span aria-hidden className="w-px shrink-0 self-stretch bg-rule" />
 
-            <span className="flex min-w-0 flex-1 flex-col items-center gap-3.5">
-              <PuertoRico className="h-9 w-auto text-accent" />
-              <span className="label -mr-[0.13em] whitespace-nowrap text-center leading-[1.5] text-mute">
-                San Juan,
-                <br />
-                Puerto Rico
+              <span className="flex min-w-0 flex-1 flex-col items-center gap-3.5">
+                <PuertoRico className="h-9 w-auto text-accent" />
+                <span className="label -mr-[0.13em] whitespace-nowrap text-center leading-[1.5] text-mute">
+                  San Juan,
+                  <br />
+                  Puerto Rico
+                </span>
               </span>
-            </span>
-          </Link>
+            </Link>
 
-          <button
-            onClick={() => setRailOpen(false)}
-            className="label -mr-2 -mt-3 flex min-h-11 min-w-11 shrink-0 items-center justify-center text-lg text-mute lg:hidden"
-            aria-label="Close index"
-          >
-            ×
-          </button>
+            <button
+              onClick={() => setRailOpen(false)}
+              className="label -mr-2 -mt-3 flex min-h-11 min-w-11 shrink-0 items-center justify-center text-lg text-mute lg:hidden"
+              aria-label="Close index"
+            >
+              ×
+            </button>
+          </div>
+
+          <p className="label mt-5 flex items-center gap-2 border-t border-rule pt-4 text-type">
+            <span aria-hidden className="size-2 shrink-0 rounded-full bg-solid" />
+            Open to work
+          </p>
         </div>
 
         <nav className="flex-1 overflow-y-auto px-3 py-5">
