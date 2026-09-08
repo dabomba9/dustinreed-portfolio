@@ -34,6 +34,15 @@ OUTPUTS = [
     ("src/app/apple-icon.png", 180),
 ]
 
+# The .ico is a separate ask from the PNGs, and not a redundant one. Next
+# only emits the icon files it finds, so without this there is nothing at
+# /favicon.ico - and that root path is what the Vercel dashboard, Google
+# and the link unfurlers in Slack and iMessage reach for before they parse
+# a single <link> tag. A 404 there is a generic globe no matter how many
+# PNGs the markup offers. 48 joins 16 and 32 because Windows asks for it.
+ICO = "src/app/favicon.ico"
+ICO_SIZES = (16, 32, 48)
+
 
 def render(head, size):
     h = round(size * (FILL_16 if size <= 16 else FILL))
@@ -52,6 +61,18 @@ def main():
     for path, size in OUTPUTS:
         render(head, size).save(path, optimize=True)
         print(f"{path}  {size}x{size}")
+
+    # Render every .ico frame at its own size rather than letting Pillow
+    # shrink one. It reuses a supplied frame whose size matches exactly and
+    # only downscales when none does, so handing it all three is what keeps
+    # the 16px crop that FILL_16 exists for. The largest is the base image
+    # because Pillow skips any requested size larger than it.
+    # RGBA rather than the RGB the PNGs use: Next decodes the .ico at build
+    # time and rejects a PNG frame that is not RGBA. The ground is opaque,
+    # so the added channel is a full alpha and changes nothing on screen.
+    frames = [render(head, size).convert("RGBA") for size in ICO_SIZES]
+    frames[-1].save(ICO, sizes=[(s, s) for s in ICO_SIZES], append_images=frames[:-1])
+    print(f"{ICO}  {' '.join(f'{s}x{s}' for s in ICO_SIZES)}")
 
 
 if __name__ == "__main__":
