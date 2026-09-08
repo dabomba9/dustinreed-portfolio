@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/meta";
 import CaseHero, { CaseFooter } from "@/components/case-hero";
 import Scoreboard from "@/components/scoreboard";
 import Band from "@/components/band";
@@ -6,11 +7,13 @@ import Clip from "@/components/clip";
 import WrongBlock from "@/components/wrong-block";
 import { Wrap, Column, H2, H3, P, Lead, Figure, Results } from "@/components/prose";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "CurbNTurf — Onboarding a farmer without a salesperson",
   description:
     "Building a two sided RV marketplace out of nothing, and living with the one decision that made the whole thing possible.",
-};
+  path: "/work/curbnturf",
+  image: "/og-curbnturf.jpg",
+});
 
 export default function CurbNTurf() {
   return (
@@ -59,8 +62,12 @@ export default function CurbNTurf() {
             three people and no plan to hire a sales floor.
           </P>
 
+          {/* A full bleed photographic screenshot from 2018, shown to make a
+              before and after point. At the default quality it lands at 875KB,
+              six times any other image on the site, so it carries its own. */}
           <Figure tilt={-1}
             wide
+            quality={55}
             src="/media/curbnturf-v1-home.png"
             alt="CurbNTurf v1 homepage: a headline and an empty search box"
             caption="V1, captured September 2026. A headline, an empty box, and several paragraphs explaining what a two sided marketplace is."

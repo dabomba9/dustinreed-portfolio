@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/meta";
 import CaseHero, { CaseFooter } from "@/components/case-hero";
 import Clip from "@/components/clip";
 import { CardGrid, NumberedList } from "@/components/blocks";
@@ -6,11 +7,13 @@ import Band from "@/components/band";
 import WrongBlock from "@/components/wrong-block";
 import { Wrap, Column, H2, P, Lead, Pull, Figure } from "@/components/prose";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "Coqui Cardboard — The one nobody asked me to build",
   description:
     "A catalog for 1990s basketball cards, twelve thousand of them, designed and built end to end. No client, no brief, no revenue.",
-};
+  path: "/work/coqui-cardboard",
+  image: "/og-coqui.jpg",
+});
 
 export default function Coqui() {
   return (

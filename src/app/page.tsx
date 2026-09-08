@@ -100,7 +100,7 @@ export default function Home() {
       {/* ---------------------------------------------------------------
           Close. One ask, stated plainly.
           --------------------------------------------------------------- */}
-      <section className="mt-28">
+      <footer className="mt-28">
         <Wrap>
           <div className="border-t border-type pt-14">
             <p className="label text-accent">What I&rsquo;m looking for</p>
@@ -120,7 +120,7 @@ export default function Home() {
                 href="https://www.linkedin.com/in/dreeddesign/"
                 target="_blank"
                 rel="noreferrer"
-                className="draw-link label text-soft no-underline transition-colors hover:text-accent"
+                className="draw-link label inline-flex items-center py-3 -my-3 text-soft no-underline transition-colors hover:text-accent"
               >
                 LinkedIn &#8599;
               </a>
@@ -128,7 +128,7 @@ export default function Home() {
                 href="https://thetinktank.com"
                 target="_blank"
                 rel="noreferrer"
-                className="draw-link label text-soft no-underline transition-colors hover:text-accent"
+                className="draw-link label inline-flex items-center py-3 -my-3 text-soft no-underline transition-colors hover:text-accent"
               >
                 The Tink Tank &#8599;
               </a>
@@ -139,7 +139,7 @@ export default function Home() {
             </p>
           </div>
         </Wrap>
-      </section>
+      </footer>
     </>
   );
 }

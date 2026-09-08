@@ -154,7 +154,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       {/* ---- mobile bar ---- */}
       {(
       <nav
-        aria-label="Mobile"
+        aria-label="Page header"
         className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-rule bg-ground/90 px-2 backdrop-blur-md lg:hidden"
       >
         <button
@@ -253,7 +253,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           </p>
         </div>
 
-        <nav className="flex-1 overflow-y-auto px-3 py-5">
+        <nav aria-label="Work and site" className="flex-1 overflow-y-auto px-3 py-5">
           <p className="label px-3 pb-2 text-mute">Work</p>
           {pages
             .filter((p) => p.kind === "case")
@@ -376,7 +376,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           <span className="label ml-auto shrink-0 text-mute">{progress}%</span>
           <button
             onClick={() => setShortcutsOpen(true)}
-            className="label hidden shrink-0 text-mute transition-colors hover:text-accent sm:block"
+            className="label hidden h-9 shrink-0 items-center px-1 text-mute transition-colors hover:text-accent sm:flex"
           >
             ? shortcuts
           </button>

@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/meta";
 import { Wrap, Column, P, Lead, Pull } from "@/components/prose";
 import CopyEmail from "@/components/copy-email";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "About",
   description:
     "Founding designer. Brand, product and front end. Seven years on the same product, now working into the backend.",
-};
+  path: "/about",
+});
 
 export default function About() {
   return (
@@ -98,10 +100,10 @@ export default function About() {
             raise the bar, I&rsquo;d like to talk.
           </P>
 
-          <div className="mt-16 border-t border-rule pt-10">
+          <footer className="mt-16 border-t border-rule pt-10">
             <p className="label text-mute">Get in touch</p>
             <CopyEmail className="mt-4 inline-block font-display text-2xl font-extrabold tracking-tight text-accent underline decoration-edge/30 decoration-2 underline-offset-[6px] transition-colors hover:decoration-edge md:text-3xl" />
-          </div>
+          </footer>
         </Column>
       </Wrap>
     </>

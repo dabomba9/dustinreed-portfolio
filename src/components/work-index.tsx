@@ -123,6 +123,7 @@ export default function WorkIndex({ studies }: { studies: CaseStudy[] }) {
                   loop
                   playsInline
                   preload="none"
+                  aria-label={active.imageAlt}
                   className="aspect-[4/3] w-full border border-rule bg-raised object-cover"
                 >
                   <source src={`${active.clip}.webm`} type="video/webm" />

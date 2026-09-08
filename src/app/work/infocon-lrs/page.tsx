@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/meta";
 import Clip from "@/components/clip";
 import CaseHero, { CaseFooter } from "@/components/case-hero";
 import { SpecBlock, Compare } from "@/components/blocks";
@@ -6,11 +7,13 @@ import Band from "@/components/band";
 import WrongBlock from "@/components/wrong-block";
 import { Wrap, Column, H2, P, Lead, Pull, Figure, Bullets } from "@/components/prose";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   title: "InfoCon + LRS — Why we didn’t merge them",
   description:
     "Two large print brands, one owner, the same customers. Everyone would tell you to consolidate. We built two of everything instead.",
-};
+  path: "/work/infocon-lrs",
+  image: "/og-infocon.jpg",
+});
 
 export default function LargePrintBooks() {
   return (

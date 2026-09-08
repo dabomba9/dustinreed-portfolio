@@ -35,7 +35,7 @@ export default function CaseHero({
             href={live.href}
             target="_blank"
             rel="noreferrer"
-            className="label mt-8 inline-flex items-center gap-2 text-type no-underline transition-colors hover:text-accent"
+            className="label mt-8 -my-3 inline-flex items-center gap-2 py-3 text-type no-underline transition-colors hover:text-accent"
           >
             {live.label}
             <span aria-hidden>&#8599;</span>
@@ -57,31 +57,35 @@ export function CaseFooter({
 }) {
   return (
     <Wrap className="mt-24">
-      <div className="border-t border-rule pt-10">
-        <p className="label text-mute">Team</p>
-        <ul className="mt-5 space-y-2.5">
-          {credits.map((c) => (
-            <li key={c.name} className="text-[1.0625rem] leading-relaxed text-soft">
-              <span className="font-medium text-type">{c.name}</span> &mdash; {c.role}
-            </li>
-          ))}
-        </ul>
-      </div>
+      {/* A landmark, not a div. Without it a case study has a header, a main,
+          and then nothing at the end for a reader to jump to. */}
+      <footer>
+        <div className="border-t border-rule pt-10">
+          <p className="label text-mute">Team</p>
+          <ul className="mt-5 space-y-2.5">
+            {credits.map((c) => (
+              <li key={c.name} className="text-[1.0625rem] leading-relaxed text-soft">
+                <span className="font-medium text-type">{c.name}</span> &mdash; {c.role}
+              </li>
+            ))}
+          </ul>
+        </div>
 
-      <Link
-        href={`/work/${next.slug}`}
-        className="group mt-20 block border-t border-type pt-10 no-underline"
-      >
-        <p className="label text-mute">Next case study</p>
-        <p className="label mt-4 text-accent">{next.client}</p>
-        {/* The hover fills the block with the accent, so the type has to
-            change with it. Cream on lime is 1.15:1, which is not a colour
-            choice, it is an invisible link. The ground green on lime is
-            14.2:1 and is the same pairing the highlighter uses. */}
-        <p className="display -mx-3 mt-3 max-w-3xl px-3 text-[2.25rem] transition-colors group-hover:bg-mark group-hover:text-ground md:text-[3.75rem]">
-          {next.title}
-        </p>
-      </Link>
+        <Link
+          href={`/work/${next.slug}`}
+          className="group mt-20 block border-t border-type pt-10 no-underline"
+        >
+          <p className="label text-mute">Next case study</p>
+          <p className="label mt-4 text-accent">{next.client}</p>
+          {/* The hover fills the block with the accent, so the type has to
+              change with it. Cream on lime is 1.15:1, which is not a colour
+              choice, it is an invisible link. The ground green on lime is
+              14.2:1 and is the same pairing the highlighter uses. */}
+          <p className="display -mx-3 mt-3 max-w-3xl px-3 text-[2.25rem] transition-colors group-hover:bg-mark group-hover:text-ground md:text-[3.75rem]">
+            {next.title}
+          </p>
+        </Link>
+      </footer>
     </Wrap>
   );
 }

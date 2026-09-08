@@ -119,12 +119,15 @@ export function Figure({
   caption,
   wide = false,
   tilt = -1,
+  quality,
 }: {
   src?: string;
   alt: string;
   caption?: string;
   wide?: boolean;
   tilt?: number;
+  /** Override the default of 75, for an image that resists compression. */
+  quality?: number;
 }) {
   // Until there is an image, the figure does not exist. A dashed "add image
   // here" box reads as unfinished; absence reads as a deliberate text layout.
@@ -138,6 +141,7 @@ export function Figure({
           alt={alt}
           width={1600}
           height={1000}
+          quality={quality}
           sizes="(min-width: 1024px) 900px, 100vw"
           className="h-auto w-full rounded-[4px]"
         />
