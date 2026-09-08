@@ -1,8 +1,8 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { gsap, EASE, T, dur } from "@/lib/motion";
+import { gsap, EASE, T, dur, prefersReducedMotion } from "@/lib/motion";
 import Link from "next/link";
 import type { CaseStudy } from "@/content/projects";
 
@@ -16,7 +16,31 @@ export default function WorkIndex({ studies }: { studies: CaseStudy[] }) {
   const [activeSlug, setActiveSlug] = useState(studies[0]?.slug);
   const active = studies.find((s) => s.slug === activeSlug) ?? studies[0];
   const paneRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const firstPaint = useRef(true);
+
+  /* Play only the clip belonging to the row the pointer is on, and only once
+     the reader has actually pointed at one. The first row is active on load,
+     so playing on mount would pull a megabyte of video at every visitor
+     whether they engaged with the index or not - preload="none" plus this is
+     what keeps the homepage costing nothing until someone reaches for it.
+
+     Never under reduced motion, where the poster is the whole story. React
+     remounts the element on a slug change because of the key, so this
+     restarts from the first frame each time. */
+  const touched = useRef(false);
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v || !touched.current || prefersReducedMotion()) return;
+    v.currentTime = 0;
+    v.play().catch(() => {});
+    return () => v.pause();
+  }, [activeSlug]);
+
+  function point(slug: string) {
+    touched.current = true;
+    setActiveSlug(slug);
+  }
 
   /* The pane is one surface whose contents change, not two panes swapping.
      A short rise plus fade reads as that; an instant replace does not. */
@@ -46,8 +70,8 @@ export default function WorkIndex({ studies }: { studies: CaseStudy[] }) {
             <li key={study.slug} className="border-b border-rule">
               <Link
                 href={`/work/${study.slug}`}
-                onMouseEnter={() => setActiveSlug(study.slug)}
-                onFocus={() => setActiveSlug(study.slug)}
+                onMouseEnter={() => point(study.slug)}
+                onFocus={() => point(study.slug)}
                 className="group grid grid-cols-[2.5rem_1fr] items-baseline gap-x-4 gap-y-2 py-7 no-underline md:grid-cols-[3rem_1fr_auto] md:gap-x-8 md:py-8"
               >
                 <span
@@ -87,7 +111,24 @@ export default function WorkIndex({ studies }: { studies: CaseStudy[] }) {
         {active ? (
           <div className="sticky top-10">
             <div key={active.slug} ref={paneRef}>
-              {active.image ? (
+              {active.clip ? (
+                /* The still is the poster, so the pane never flashes empty
+                   while the video loads. Muted, looping, inline; it only
+                   exists for the row the pointer is already on. */
+                <video
+                  key={active.clip}
+                  ref={videoRef}
+                  poster={active.image}
+                  muted
+                  loop
+                  playsInline
+                  preload="none"
+                  className="aspect-[4/3] w-full border border-rule bg-raised object-cover"
+                >
+                  <source src={`${active.clip}.webm`} type="video/webm" />
+                  <source src={`${active.clip}.mp4`} type="video/mp4" />
+                </video>
+              ) : active.image ? (
                 <Image
                   src={active.image}
                   alt=""

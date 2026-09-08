@@ -6,8 +6,11 @@ export type CaseStudy = {
   blurb: string;
   facts: string[];
   live?: { label: string; href: string };
-  /* Drop a file in /public/media and set this to e.g. "/media/curbnturf-card.gif" */
+  /* Drop a file in /public/media and set this to e.g. "/media/curbnturf-card.png" */
   image?: string;
+  /* Optional upgrade. Base path with no extension; .webm and .mp4 must both
+     exist beside it, and `image` is the poster while it is paused. */
+  clip?: string;
   imageAlt: string;
 };
 
@@ -26,7 +29,8 @@ export const caseStudies: CaseStudy[] = [
       "500+ hosts with published listings",
     ],
     live: { label: "curbnturf.com", href: "https://www.curbnturf.com" },
-    image: "/media/curbnturf-v1-home.png",
+    image: "/media/curbnturf-index-poster.jpg",
+    clip: "/media/curbnturf-index",
     imageAlt: "CurbNTurf marketplace, host onboarding and listing pages",
   },
   {
@@ -38,7 +42,8 @@ export const caseStudies: CaseStudy[] = [
       "Twelve thousand basketball cards, catalogued and designed the way the objects deserve. No client, no brief, no revenue. Designed and built end to end in Next.js.",
     facts: ["Sole designer and developer", "12,000+ cards", "Command palette search"],
     live: { label: "coquicardboard.com", href: "https://www.coquicardboard.com" },
-    image: "/media/coqui-hierarchy.png",
+    image: "/media/coqui-clip-poster.jpg",
+    clip: "/media/coqui-clip",
     imageAlt: "Coqui Cardboard catalog and command palette search",
   },
   {
