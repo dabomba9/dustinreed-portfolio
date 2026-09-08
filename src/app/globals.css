@@ -20,7 +20,7 @@
   --color-edge: #c6ff00;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-inter-tight), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-big-shoulders), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
@@ -102,11 +102,18 @@
   }
 
   /* Display headings: tight, heavy, optically balanced at large sizes. */
+  /* Big Shoulders is condensed: 81% of Inter Tight's width at the same size
+     and weight. That buys size rather than costing it, so the display scale
+     goes UP. It also means the old tracking would crush it - a condensed face
+     is already tight, and -0.035em closed the counters. Optical sizing is on,
+     so the 10-72 axis tracks the rendered size and the hairlines thicken as
+     the type gets smaller, which is the lever a dark ground wants. */
   .display {
     font-family: var(--font-display);
     font-weight: 800;
-    letter-spacing: -0.035em;
-    line-height: 0.95;
+    letter-spacing: -0.008em;
+    line-height: 0.9;
+    font-optical-sizing: auto;
     text-wrap: balance;
   }
 

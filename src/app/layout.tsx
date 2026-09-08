@@ -12,9 +12,12 @@ const inter = localFont({
   weight: "100 900",
 });
 
-const interTight = localFont({
-  src: "../fonts/inter-tight-var.woff2",
-  variable: "--font-inter-tight",
+/* Big Shoulders: XO Type Co, drawn for the Chicago Design System. Two axes,
+   weight 100-900 and optical size 10-72, so the display can actually be tuned
+   for a dark ground instead of only made heavier. */
+const bigShoulders = localFont({
+  src: "../fonts/big-shoulders-var.woff2",
+  variable: "--font-big-shoulders",
   display: "swap",
   weight: "100 900",
 });
@@ -64,7 +67,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${interTight.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${inter.variable} ${bigShoulders.variable} ${jetbrains.variable}`}>
       <body className="min-h-screen">
         <a
           href="#main"

@@ -24,7 +24,7 @@ export default function CaseHero({
           <span className="label text-mute">{client}</span>
         </div>
 
-        <h1 className="display mt-7 max-w-5xl text-[2.5rem] leading-[0.95] sm:text-6xl md:text-[4.5rem]">
+        <h1 className="display mt-7 max-w-5xl text-[3rem] sm:text-7xl md:text-[5.5rem]">
           {title}
         </h1>
 
@@ -74,7 +74,7 @@ export function CaseFooter({
       >
         <p className="label text-mute">Next case study</p>
         <p className="label mt-4 text-accent">{next.client}</p>
-        <p className="display mt-3 max-w-3xl text-3xl transition-colors group-hover:bg-mark md:text-5xl">
+        <p className="display mt-3 max-w-3xl text-[2.25rem] transition-colors group-hover:bg-mark md:text-[3.75rem]">
           {next.title}
         </p>
       </Link>

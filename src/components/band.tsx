@@ -24,8 +24,8 @@ export default function Band({
         <p
           className={`display mt-6 text-type ${
             size === "lg"
-              ? "max-w-[19ch] text-4xl md:text-6xl"
-              : "max-w-[24ch] text-3xl md:text-5xl"
+              ? "max-w-[24ch] text-[2.5rem] md:text-[4.5rem]"
+              : "max-w-[30ch] text-[2rem] md:text-[3.5rem]"
           }`}
         >
           {children}
