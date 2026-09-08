@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Clip from "@/components/clip";
 import CaseHero, { CaseFooter } from "@/components/case-hero";
 import { SpecBlock, Compare } from "@/components/blocks";
 import Band from "@/components/band";
@@ -205,11 +206,25 @@ export default function LargePrintBooks() {
             both brands let each one talk to its own.
           </P>
 
-          <Figure tilt={1.2}
+          {/* The two brands, running. A still of each homepage made the
+              argument; watching them move makes it harder to argue with,
+              because the posture is in the motion as much as the palette. */}
+          <Clip
             wide
-            src="/media/lpb-lrs-paired.png"
-            alt="The two homepages side by side: InfoCon in yellow, LRS in white"
-            caption="Same catalogue, same buyers, two postures. Yellow and serif sells speed; white and condensed sells the system. That difference is the reason we kept both."
+            tilt={1.2}
+            src="/media/infocon-clip"
+            poster="/media/infocon-clip-poster.jpg"
+            label="The InfoCon homepage scrolled end to end: the yellow ground, the serif headline, the hexagon photo crops and the quote path"
+            caption="InfoCon. Yellow and serif, and a hexagon lifted out of the logo. This one sells speed. Captured September 2026."
+          />
+
+          <Clip
+            wide
+            tilt={-0.9}
+            src="/media/lrs-clip"
+            poster="/media/lrs-clip-poster.jpg"
+            label="The LRS homepage scrolled end to end: the black search bar, the yellow rule, the online features panel and the newly added books shelf"
+            caption="LRS. Black, condensed and built around search. Same catalogue, same buyers, the opposite posture. That difference is the reason we kept both."
           />
 
           <H2>The part that isn’t a website</H2>

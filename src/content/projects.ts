@@ -59,8 +59,8 @@ export const caseStudies: CaseStudy[] = [
       "Readers losing their sight",
     ],
     live: { label: "largeprintbooks.com", href: "https://www.largeprintbooks.com" },
-    image: "/media/lpb-lrs-paired.png",
-    imageAlt: "InfoCon and LRS identities side by side",
+    image: "/media/infocon-hero.jpg",
+    imageAlt: "The InfoCon homepage: a yellow ground, a serif headline and a hexagon photo crop",
   },
 ];
 
