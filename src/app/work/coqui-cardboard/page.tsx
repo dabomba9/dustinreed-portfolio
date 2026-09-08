@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CaseHero, { CaseFooter } from "@/components/case-hero";
+import Clip from "@/components/clip";
 import { CardGrid, NumberedList } from "@/components/blocks";
 import Band from "@/components/band";
 import WrongBlock from "@/components/wrong-block";
@@ -194,10 +195,12 @@ export default function Coqui() {
             come back often enough to already know what they’re looking for.
           </P>
 
-          <Figure tilt={-0.7}
-            src="/media/coqui-palette.png"
-            alt="The command palette open over the Hierarchy, listing cards by set and tier"
-            caption="For people who come back often enough to already know what they are looking for."
+          <Clip
+            tilt={-0.7}
+            src="/media/coqui-clip"
+            poster="/media/coqui-clip-poster.jpg"
+            label="Coqui Cardboard: the four legends on the home screen, then into the Jordan hierarchy"
+            caption="For people who come back often enough to already know what they are looking for. Captured September 2026."
           />
 
           <H2>The parts that were hard</H2>

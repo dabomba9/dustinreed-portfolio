@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import CaseHero, { CaseFooter } from "@/components/case-hero";
 import Scoreboard from "@/components/scoreboard";
 import Band from "@/components/band";
+import Clip from "@/components/clip";
 import WrongBlock from "@/components/wrong-block";
 import { Wrap, Column, H2, H3, P, Lead, Figure, Results } from "@/components/prose";
 
@@ -254,6 +255,15 @@ export default function CurbNTurf() {
             to start depending on how you’re thinking about it: you know where you’re
             going, you’re traveling between places, or you’re just looking at the map.
           </P>
+
+          <Clip
+            wide
+            tilt={0.9}
+            src="/media/curbnturf-scroll"
+            poster="/media/curbnturf-scroll-poster.jpg"
+            label="Scrolling the CurbNTurf v2 homepage: the search bar, the three ways in, and the map"
+            caption="V2 moving, captured September 2026. The still below makes the comparison; this is what the first screen actually does when you land on it."
+          />
 
           <Figure tilt={0.9}
             wide
