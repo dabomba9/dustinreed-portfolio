@@ -67,9 +67,11 @@ export const caseStudies: CaseStudy[] = [
 export type SelectedWork = {
   name: string;
   href: string;
+  /** When the work ran. Leads the meta line, because these span seven years. */
+  when: string;
   /** What I did, as separate pieces rather than a sentence. */
   role: string[];
-  /** Shown as the link. Derived from href would be fragile with www. */
+  /** Shown as the link. Deriving it from href would be fragile with www. */
   domain: string;
   line: string;
 };
@@ -78,6 +80,7 @@ export const selectedWork: SelectedWork[] = [
   {
     name: "StickyFlow",
     href: "https://www.stickyflow.com",
+    when: "2026",
     role: ["Brand", "Site", "Front end"],
     domain: "stickyflow.com",
     line: "Launched early spring 2026. Their whole pitch is that a founder owns the automation outright instead of renting it, so the site could not look like a brochure. It is built as machinery: terminal typography, live telemetry ticking in the header, Next.js and GSAP underneath.",
@@ -85,15 +88,17 @@ export const selectedWork: SelectedWork[] = [
   {
     name: "New Smile Dentures",
     href: "https://www.newsmiledentures.com",
-    role: ["Logo", "Identity", "Site"],
+    when: "2022 to 2026",
+    role: ["Brand", "Site", "SEO", "Google Ads"],
     domain: "newsmiledentures.com",
-    line: "A family denture practice in Idaho. Three generations, two clinics, an in house lab, and patients who arrive embarrassed. The whole brief was to make the front door feel unembarrassing.",
+    line: "A family denture practice in Idaho: three generations, two clinics, an in house lab, and patients who arrive embarrassed. The identity and the site were built for a business that had outgrown both. I rebuilt them in 2022 and then ran the brand for four years, SEO and Google Ads included. Buying the traffic yourself is how you find out whether the rebrand actually worked.",
   },
   {
     name: "The Tink Tank",
     href: "https://thetinktank.com",
+    when: "Since 2018",
     role: ["Brand", "Product", "Front end"],
     domain: "thetinktank.com",
-    line: "My studio, and where the client work above lives. SaaS, healthcare and commerce, usually all three phases: name it, design it, ship it.",
+    line: "Started in Idaho in December 2018, because almost nobody there was doing this kind of work. Brand, product and front end for clients across SaaS, healthcare and commerce, usually all three phases: name it, design it, ship it. The studio is older than its own website, which went up in spring 2026.",
   },
 ];

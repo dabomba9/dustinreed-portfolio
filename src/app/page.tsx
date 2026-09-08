@@ -88,13 +88,12 @@ export default function Home() {
                       {item.name}
                     </span>
                     <span className="label mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-mute">
-                      {item.role.map((r, i) => (
+                      <span className="text-type">{item.when}</span>
+                      {item.role.map((r) => (
                         <span key={r} className="flex items-center gap-2">
-                          {i > 0 ? (
-                            <span aria-hidden className="text-rule">
-                              /
-                            </span>
-                          ) : null}
+                          <span aria-hidden className="text-rule">
+                            /
+                          </span>
                           {r}
                         </span>
                       ))}
