@@ -183,41 +183,45 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           railOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        {/* Identity block. Two columns divided by a hairline: who, and where.
-            The face is the largest thing in the chrome on purpose, so the
-            rail is 20rem rather than 17 to give the second column room. */}
-        <div className="flex items-start justify-between gap-3 border-b border-rule px-4 py-6">
+        {/* Identity block: who on the left, where on the right, split by a
+            hairline. Both columns are bottom aligned so the two captions
+            share a baseline instead of floating at their own heights.
+            -mr on the labels cancels the trailing letter-space that centred
+            uppercase tracking otherwise pushes to the right. */}
+        <div className="flex items-start justify-between gap-2 border-b border-rule px-5 pb-6 pt-7">
           <Link
             href="/"
-            className="flex min-w-0 flex-1 items-stretch gap-4 no-underline"
+            className="group flex min-w-0 flex-1 items-end gap-5 no-underline"
           >
-            <div className="flex min-w-0 flex-col items-center gap-3">
+            <span className="flex min-w-0 flex-col items-center gap-3.5">
               <Image
                 src="/media/dustin-sticker-white.png"
                 alt=""
                 width={606}
                 height={640}
                 priority
-                className="h-[10.5rem] w-auto"
+                className="h-[10.5rem] w-auto transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-[1.03]"
               />
-              <p className="label text-center text-type">Dustin Reed</p>
-            </div>
+              <span className="label -mr-[0.13em] text-center text-type">
+                Dustin Reed
+              </span>
+            </span>
 
             <span aria-hidden className="w-px shrink-0 self-stretch bg-rule" />
 
-            <div className="flex min-w-0 flex-1 flex-col items-center gap-3 self-center">
-              <PuertoRico className="h-7 w-auto text-accent" />
-              <p className="label whitespace-nowrap text-center leading-relaxed text-mute">
+            <span className="flex min-w-0 flex-1 flex-col items-center gap-3.5">
+              <PuertoRico className="h-9 w-auto text-accent" />
+              <span className="label -mr-[0.13em] whitespace-nowrap text-center leading-[1.5] text-mute">
                 San Juan,
                 <br />
                 Puerto Rico
-              </p>
-            </div>
+              </span>
+            </span>
           </Link>
 
           <button
             onClick={() => setRailOpen(false)}
-            className="label -mr-2 -mt-2 flex min-h-11 min-w-11 shrink-0 items-center justify-center text-lg text-mute lg:hidden"
+            className="label -mr-2 -mt-3 flex min-h-11 min-w-11 shrink-0 items-center justify-center text-lg text-mute lg:hidden"
             aria-label="Close index"
           >
             ×
