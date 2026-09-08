@@ -99,6 +99,6 @@ export const selectedWork: SelectedWork[] = [
     when: "Since 2018",
     role: ["Brand", "Product", "Front end"],
     domain: "thetinktank.com",
-    line: "Started in Idaho in December 2018, because almost nobody there was doing this kind of work. Brand, product and front end for clients across SaaS, healthcare and commerce, usually all three phases: name it, design it, ship it. The studio is older than its own website, which went up in spring 2026.",
+    line: "Started in Idaho in May 2018, because almost nobody there was doing this kind of work. Brand, product and front end for clients across SaaS, healthcare and commerce, usually all three phases: name it, design it, ship it. The studio is older than its own website, which went up in spring 2026.",
   },
 ];
