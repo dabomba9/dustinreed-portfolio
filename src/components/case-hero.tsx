@@ -74,7 +74,11 @@ export function CaseFooter({
       >
         <p className="label text-mute">Next case study</p>
         <p className="label mt-4 text-accent">{next.client}</p>
-        <p className="display mt-3 max-w-3xl text-[2.25rem] transition-colors group-hover:bg-mark md:text-[3.75rem]">
+        {/* The hover fills the block with the accent, so the type has to
+            change with it. Cream on lime is 1.15:1, which is not a colour
+            choice, it is an invisible link. The ground green on lime is
+            14.2:1 and is the same pairing the highlighter uses. */}
+        <p className="display -mx-3 mt-3 max-w-3xl px-3 text-[2.25rem] transition-colors group-hover:bg-mark group-hover:text-ground md:text-[3.75rem]">
           {next.title}
         </p>
       </Link>
