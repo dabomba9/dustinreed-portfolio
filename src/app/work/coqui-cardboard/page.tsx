@@ -183,7 +183,7 @@ export default function Coqui() {
             <InlineSticker
               src="/media/coqui-taino.png"
               width={760}
-              height={747}
+              height={797}
               size="8rem"
               tilt={-4}
             >
