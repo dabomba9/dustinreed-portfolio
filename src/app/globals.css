@@ -265,3 +265,106 @@
 @layer utilities {
 }
 
+/* ---------------------------------------------------------------
+   Drawn cursor. Four glyphs stacked in one box; `data-state` on the
+   container decides which is visible. See components/custom-cursor.tsx
+   for the pointer tracking and the state machine.
+   --------------------------------------------------------------- */
+.cnt-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  /* Above everything. The rail and status bar sit at 30, modals at 50,
+     the skip link at 60 — a pointer that renders underneath any of them
+     is a pointer you lose exactly when you need it. */
+  z-index: 100;
+  /* The drawn cursor must never be a hit target, or it swallows every
+     click by sitting under the real pointer. */
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  /* Hotspot offset, overridden per state below. The arrow reads from its
+     tip; the bar and the hand read from their middle. */
+  --tip-x: -4px;
+  --tip-y: -2px;
+}
+
+.cnt-cursor__svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: scale(0.85);
+  /* Scale from the arrow tip, so a glyph swap does not visually shift
+     the point the cursor is aimed at. */
+  transform-origin: 6px 6px;
+  transition: opacity 120ms ease, transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.cnt-cursor[data-state="default"] .cnt-cursor__svg--pointer,
+.cnt-cursor[data-state="link"] .cnt-cursor__svg--link,
+.cnt-cursor[data-state="text"] .cnt-cursor__svg--text,
+.cnt-cursor[data-state="grab"] .cnt-cursor__svg--grab {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Centre-weighted glyphs need the box centred on the pointer instead of
+   hung off its top-left corner. */
+.cnt-cursor[data-state="grab"],
+.cnt-cursor[data-state="text"] {
+  --tip-x: -16px;
+  --tip-y: -16px;
+}
+
+/* Set on <body> while the pointer is outside the document, so the glyph
+   does not sit parked at the last known coordinate. */
+.cursor-hidden .cnt-cursor {
+  opacity: 0;
+}
+
+/* Everything below only applies where a fine pointer actually exists.
+   Gating the whole block this way means a touch device never has its
+   native cursor behaviour suppressed for a cursor it will never draw —
+   and a tablet that later gets a mouse picks both up together.
+
+   The `[data-drawn-cursor]` gate is the other half, and it is the one
+   that matters: this CSS is static and always applies, while the thing
+   replacing the pointer is a React component. Suppress the native cursor
+   from the stylesheet and any reader whose JavaScript is blocked, slow or
+   broken gets an invisible pointer across the whole site, with no way out
+   short of disabling CSS. The attribute is set by custom-cursor.tsx once
+   it has actually mounted and decided it is going to draw, so the native
+   cursor is only ever taken away after its replacement exists. */
+@media (hover: hover) and (pointer: fine) {
+  html[data-drawn-cursor],
+  html[data-drawn-cursor] body {
+    cursor: none;
+  }
+
+  /* Blanket, and it has to be. The UA stylesheet sets `pointer` on links
+     and buttons, and Tailwind's cursor-* utilities outrank any element
+     selector — without !important on every node you get the drawn cursor
+     AND the native one on exactly the elements people click most.
+
+     The cost is real and worth naming: this also overrides OS pointer
+     settings (enlarged, high-contrast, shake-to-locate) and the semantic
+     cursors for text and disabled state. The `text` and `grab` states in
+     custom-cursor.tsx carry the first two back; OS-level pointer
+     accessibility is not recoverable, which is the standing argument for
+     putting an off switch beside the shortcuts toggle. */
+  html[data-drawn-cursor] *,
+  html[data-drawn-cursor] *::before,
+  html[data-drawn-cursor] *::after {
+    cursor: none !important;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cnt-cursor {
+    display: none;
+  }
+}
+

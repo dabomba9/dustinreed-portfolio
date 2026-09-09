@@ -8,44 +8,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import CommandPalette from "@/components/command-palette";
 import { pages, caseOrder } from "@/content/nav";
-
-/**
- * The single-key shortcut preference, kept outside React because
- * localStorage is not reactive and an effect that calls setState to catch
- * up is both a lint error and a flash of the wrong state.
- *
- * Default on: the keys are the point of the site. `storage` covers other
- * tabs; the local listener set covers this one.
- */
-const SHORTCUT_KEY = "shortcuts";
-let shortcutListeners: Array<() => void> = [];
-
-function subscribeShortcuts(cb: () => void) {
-  shortcutListeners.push(cb);
-  window.addEventListener("storage", cb);
-  return () => {
-    shortcutListeners = shortcutListeners.filter((l) => l !== cb);
-    window.removeEventListener("storage", cb);
-  };
-}
-
-function readShortcuts(): boolean {
-  try {
-    return localStorage.getItem(SHORTCUT_KEY) !== "off";
-  } catch {
-    /* Private mode and blocked storage both throw. Keys stay on. */
-    return true;
-  }
-}
-
-function writeShortcuts(on: boolean) {
-  try {
-    localStorage.setItem(SHORTCUT_KEY, on ? "on" : "off");
-  } catch {
-    /* Nothing to remember it with; the session still honours the flip. */
-  }
-  shortcutListeners.forEach((l) => l());
-}
+import { shortcutsPref, cursorPref } from "@/lib/preference";
 
 /** Whether the rail is docked rather than a drawer. Matches `lg:` in the
     class list; false on the server, which is the safe answer - a drawer
@@ -79,8 +42,10 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
    * a preference you have to set on every page is not a preference. Read
    * after mount so the server and the first client render agree.
    */
-  const shortcutsOn = useSyncExternalStore(subscribeShortcuts, readShortcuts, () => true);
-  const toggleShortcuts = useCallback(() => writeShortcuts(!readShortcuts()), []);
+  const shortcutsOn = useSyncExternalStore(shortcutsPref.subscribe, shortcutsPref.read, () => true);
+  const toggleShortcuts = useCallback(() => shortcutsPref.write(!shortcutsPref.read()), []);
+  const cursorOn = useSyncExternalStore(cursorPref.subscribe, cursorPref.read, () => true);
+  const toggleCursor = useCallback(() => cursorPref.write(!cursorPref.read()), []);
   /* Tagged with the path it came from, so a stale value from the previous
      page is simply ignored rather than cleared by an effect. */
   const [spy, setSpy] = useState<{ path: string; id: string } | null>(null);
@@ -485,6 +450,8 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           onClose={() => setShortcutsOpen(false)}
           shortcutsOn={shortcutsOn}
           onToggle={toggleShortcuts}
+          cursorOn={cursorOn}
+          onToggleCursor={toggleCursor}
         />
       ) : null}
     </>
@@ -534,10 +501,14 @@ function Shortcuts({
   onClose,
   shortcutsOn,
   onToggle,
+  cursorOn,
+  onToggleCursor,
 }: {
   onClose: () => void;
   shortcutsOn: boolean;
   onToggle: () => void;
+  cursorOn: boolean;
+  onToggleCursor: () => void;
 }) {
   const panelRef = useRef<HTMLDivElement>(null);
 
@@ -597,21 +568,49 @@ function Shortcuts({
           ))}
         </ul>
 
-        <div className="mt-6 flex items-center justify-between gap-4 border-t border-rule pt-4">
-          <span className="text-[0.9rem] text-soft">
-            Single-key shortcuts
-            <span className="label mt-1 block text-mute">
-              {shortcutsOn ? "On" : "Off — ⌘K and esc still work"}
+        {/* Both switches exist for the same reason: the interface does
+            something the reader may need to take back. Kept together so
+            there is one place to look, and the panel that documents the
+            behaviour is the panel that turns it off. */}
+        <div className="mt-6 space-y-4 border-t border-rule pt-4">
+          <div className="flex items-center justify-between gap-4">
+            <span className="text-[0.9rem] text-soft">
+              Single-key shortcuts
+              <span className="label mt-1 block text-mute">
+                {shortcutsOn ? "On" : "Off — ⌘K and esc still work"}
+              </span>
             </span>
-          </span>
-          <button
-            type="button"
-            onClick={onToggle}
-            aria-pressed={shortcutsOn}
-            className="label min-h-11 shrink-0 border border-edge px-3 text-type transition-colors hover:bg-raised"
-          >
-            {shortcutsOn ? "Turn off" : "Turn on"}
-          </button>
+            <button
+              type="button"
+              onClick={onToggle}
+              aria-pressed={shortcutsOn}
+              /* Named in full. Both switches read "Turn off", and a button
+                 list that offers the same word twice tells you nothing
+                 about which is which. */
+              aria-label={`${shortcutsOn ? "Turn off" : "Turn on"} single-key shortcuts`}
+              className="label min-h-11 shrink-0 border border-edge px-3 text-type transition-colors hover:bg-raised"
+            >
+              {shortcutsOn ? "Turn off" : "Turn on"}
+            </button>
+          </div>
+
+          <div className="flex items-center justify-between gap-4">
+            <span className="text-[0.9rem] text-soft">
+              Drawn cursor
+              <span className="label mt-1 block text-mute">
+                {cursorOn ? "On" : "Off — your system pointer is back"}
+              </span>
+            </span>
+            <button
+              type="button"
+              onClick={onToggleCursor}
+              aria-pressed={cursorOn}
+              aria-label={`${cursorOn ? "Turn off" : "Turn on"} the drawn cursor`}
+              className="label min-h-11 shrink-0 border border-edge px-3 text-type transition-colors hover:bg-raised"
+            >
+              {cursorOn ? "Turn off" : "Turn on"}
+            </button>
+          </div>
         </div>
       </div>
     </div>

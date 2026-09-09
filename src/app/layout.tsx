@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import AppShell from "@/components/app-shell";
+import CustomCursor from "@/components/custom-cursor";
 import { SITE_URL, PROFILES, EMAIL, HOME_DESCRIPTION } from "@/lib/site";
 import "./globals.css";
 
@@ -111,6 +112,9 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON) }}
         />
+        {/* Site chrome, and deliberately outside AppShell: the drawn cursor
+            belongs to the document, not to the nav and rail AppShell owns. */}
+        <CustomCursor />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:text-ground"
