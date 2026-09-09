@@ -6,6 +6,7 @@ import { CardGrid, NumberedList } from "@/components/blocks";
 import Band from "@/components/band";
 import WrongBlock from "@/components/wrong-block";
 import { Wrap, Column, H2, P, Lead, Pull, Figure } from "@/components/prose";
+import InlineSticker from "@/components/inline-sticker";
 
 export const metadata: Metadata = pageMeta({
   title: "Coqui Cardboard — The one nobody asked me to build",
@@ -178,7 +179,16 @@ export default function Coqui() {
             So: near black background with a soft green glow, so scans read like objects
             under glass instead of thumbnails in a grid. Pixel type for the headings, clean
             sans for anything you have to read for more than a second. The mark is a pixel
-            art coquí, the tree frog you hear all night in Puerto Rico. And there’s sound,
+            art coquí, the tree frog you hear all night in{" "}
+            <InlineSticker
+              src="/media/coqui-taino.png"
+              width={760}
+              height={747}
+              size="8rem"
+              tilt={-4}
+            >
+              Puerto Rico
+            </InlineSticker>. And there’s sound,
             which almost nothing on the web bothers with anymore, and which every card shop
             and arcade I ever stood in had running constantly.
           </P>

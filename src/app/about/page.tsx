@@ -139,7 +139,16 @@ export default function About() {
           </P>
 
           <P>
-            Puerto Rico is a US territory, so there is no visa or sponsorship question. I
+            <InlineSticker
+              src="/media/coqui-taino.png"
+              width={760}
+              height={747}
+              size="8rem"
+              tilt={-3}
+            >
+              Puerto Rico
+            </InlineSticker> is a US territory, so there is no visa or sponsorship
+            question. I
             am bilingual in English and Spanish, I have worked remotely for years, and I
             am looking for fully remote roles with US companies.
           </P>

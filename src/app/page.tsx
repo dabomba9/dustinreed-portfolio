@@ -2,6 +2,7 @@ import WorkIndex from "@/components/work-index";
 import SelectedWorkList from "@/components/selected-work";
 import CopyEmail from "@/components/copy-email";
 import { Mark, Wrap } from "@/components/prose";
+import InlineSticker from "@/components/inline-sticker";
 import { caseStudies, selectedWork } from "@/content/projects";
 
 export default function Home() {
@@ -92,8 +93,17 @@ export default function Home() {
             </p>
             <p className="mt-8 max-w-xl text-[1.0625rem] leading-relaxed text-soft">
               Product design, design leadership and design engineering roles, at any size
-              company. Fully remote with US companies. I&rsquo;m in Puerto Rico, which is a
-              US territory, so there&rsquo;s no visa or sponsorship involved.
+              company. Fully remote with US companies. I&rsquo;m in{" "}
+              <InlineSticker
+                src="/media/coqui-taino.png"
+                width={760}
+                height={747}
+                size="8rem"
+                tilt={3.5}
+              >
+                Puerto Rico
+              </InlineSticker>, which is a US
+              territory, so there&rsquo;s no visa or sponsorship involved.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
