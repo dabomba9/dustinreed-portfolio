@@ -414,7 +414,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         <div className="border-t border-rule p-3">
           <button
             onClick={() => setPaletteOpen(true)}
-            className="flex w-full items-center justify-between border border-rule bg-raised px-3 py-2.5 text-left transition-colors hover:border-edge"
+            className="flex w-full items-center justify-between border border-control bg-raised px-3 py-2.5 text-left transition-colors hover:border-edge"
           >
             <span className="label text-mute">Search</span>
             <kbd className="label hidden border border-rule px-1.5 py-0.5 text-mute lg:block">⌘K</kbd>

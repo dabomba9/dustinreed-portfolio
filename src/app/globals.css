@@ -4,15 +4,27 @@
   /* One committed dark palette. The ground is a deep green rather than a
      near-black, which puts it in the same family as the lime instead of
      underneath it: the accent now reads as the light end of one colour
-     rather than a neon sticker on black. It is dark enough that every
-     text role still clears WCAG AA, and the ceiling is close - much
-     lighter and --color-mute drops under 4.5:1. */
+     rather than a neon sticker on black. Every text role clears WCAG AA
+     against BOTH ground and raised - that second surface is the one this
+     comment used to overlook, and where the only failure was hiding. */
   --color-ground: #0d2117;   /* page */
   --color-raised: #152c21;   /* cards, panels, hover */
   --color-type: #f1efe3;     /* 14.59:1 on ground */
   --color-soft: #c2c6b9;     /*  9.68:1 */
-  --color-mute: #868c80;     /*  4.87:1 on ground, 4.53:1 on raised */
+  /* Measured, not estimated. The previous #868c80 was noted here as 4.53:1
+     on raised; it was actually 4.30:1, and that one wrong figure is why a
+     failing pair sat in the palette unnoticed - almost every supporting
+     string in the command palette is text-mute on bg-raised, set in .label
+     at 11px uppercase with 0.14em tracking, which is the hardest possible
+     way to read a colour that close to the floor. */
+  --color-mute: #8d9387;     /*  5.34:1 on ground, 4.71:1 on raised */
   --color-rule: #21402f;
+  /* A rule is a hairline between things and 1.47:1 is fine for that. A
+     control is different: WCAG 1.4.11 wants 3:1 for anything you have to
+     see to know it is operable, and the rail's Search button - the way in
+     to the whole palette - had a 1.47:1 border on a 1.13:1 fill and read
+     as a floating label with no button around it. 4.32:1 here. */
+  --color-control: #4d7a5f;
 
   /* Accent, split by role. On a dark ground the lime finally clears 4.5:1,
      so it can be text as well as a fill - the thing it could never do on
@@ -43,6 +55,7 @@
   --color-accent: #566f00; /* 4.96:1 on plate - the lime, darkened until
                               it passes against light */
   --color-edge: #566f00;
+  --color-control: #7c8a72;  /* 3.05:1 on the light ground */
   color: var(--color-type);
 }
 .plate ::selection { background-color: var(--color-mark); color: #0d2117; }

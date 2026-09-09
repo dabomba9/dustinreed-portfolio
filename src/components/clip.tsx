@@ -56,15 +56,8 @@ export default function Clip({
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
-          if (e.isIntersecting) {
-            v.play().then(
-              () => setPlaying(true),
-              () => setPlaying(false),
-            );
-          } else {
-            v.pause();
-            setPlaying(false);
-          }
+          if (e.isIntersecting) v.play().catch(() => {});
+          else v.pause();
         }
       },
       { threshold: 0.35 },
@@ -73,18 +66,30 @@ export default function Clip({
     return () => io.disconnect();
   }, []);
 
+  /* The video is the source of truth for whether it is playing, not the
+     call that asked it to. iOS Low Power Mode, a media policy or a decode
+     failure can all stop it after play() has already resolved, and the
+     button would go on claiming "Pause" over a still frame. */
+  useEffect(() => {
+    const v = ref.current;
+    if (!v) return;
+    const on = () => setPlaying(true);
+    const off = () => setPlaying(false);
+    v.addEventListener("play", on);
+    v.addEventListener("pause", off);
+    v.addEventListener("ended", off);
+    return () => {
+      v.removeEventListener("play", on);
+      v.removeEventListener("pause", off);
+      v.removeEventListener("ended", off);
+    };
+  }, []);
+
   function toggle() {
     const v = ref.current;
     if (!v) return;
-    if (v.paused) {
-      v.play().then(
-        () => setPlaying(true),
-        () => setPlaying(false),
-      );
-    } else {
-      v.pause();
-      setPlaying(false);
-    }
+    if (v.paused) v.play().catch(() => {});
+    else v.pause();
   }
 
   return (
@@ -97,6 +102,12 @@ export default function Clip({
           loop
           playsInline
           preload="none"
+          /* A <video> with no controls is exposed inconsistently, and in
+             several engines an aria-label on it is never announced at all -
+             so a reader is not told a clip is here. role="img" forces the
+             name into the tree, which is the right shape anyway: these are
+             silent, looping, video-only content. */
+          role="img"
           aria-label={label}
           className="h-auto w-full rounded-[4px]"
         >
@@ -107,8 +118,11 @@ export default function Clip({
         <button
           type="button"
           onClick={toggle}
-          aria-pressed={playing}
-          className="label absolute bottom-6 right-6 min-h-11 rounded-full border border-ink/15 bg-ground/85 px-4 text-cream backdrop-blur-sm transition-colors hover:bg-ground md:bottom-9 md:right-9"
+          /* No aria-pressed. A toggle takes either a static name plus that
+             attribute or a changing name without it; with both, NVDA reads
+             "Pause, toggle button, pressed" - which says the pause is
+             applied, the opposite of what is happening. */
+          className="label absolute bottom-6 right-6 min-h-11 rounded-full border border-control bg-ground/85 px-4 text-type backdrop-blur-sm transition-colors hover:bg-ground md:bottom-9 md:right-9"
         >
           {playing ? "Pause" : reduced ? "Play clip" : "Play"}
         </button>
