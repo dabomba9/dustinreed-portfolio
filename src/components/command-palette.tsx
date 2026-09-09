@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { gsap, EASE, T, dur } from "@/lib/motion";
 import { useRouter } from "next/navigation";
 import { pages } from "@/content/nav";
@@ -45,6 +45,8 @@ function fuzzy(query: string, text: string): number | null {
 
 export default function CommandPalette({ onClose }: { onClose: () => void }) {
   const router = useRouter();
+  const listId = useId();
+  const inputRef = useRef<HTMLInputElement>(null);
   /* One state object: typing resets the cursor in the same update, so no
      effect has to reach in afterwards. The component is mounted only while
      the palette is open, so it always starts empty. */
@@ -55,7 +57,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
   const listRef = useRef<HTMLDivElement>(null);
   const rootRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
-  const scrimRef = useRef<HTMLButtonElement>(null);
+  const scrimRef = useRef<HTMLDivElement>(null);
   const markerRef = useRef<HTMLDivElement>(null);
 
   const items = useMemo<Item[]>(() => {
@@ -157,6 +159,59 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
     return { flat: grouped.flatMap((g) => g.items), groups: grouped };
   }, [items, query]);
 
+  /**
+   * A dialog owes the keyboard three things, and this had none of them.
+   *
+   *   trap     Tab used to walk out of an aria-modal dialog and onto the
+   *            page behind the scrim, where the focus ring is invisible.
+   *   escape   was bound to the input alone, so one Tab and there was no
+   *            way out at all - the scrim is tabIndex={-1} and unreachable.
+   *   restore  focus fell to <body> on close and the next Tab restarted
+   *            from the top of the document.
+   *
+   * Handled here on the root rather than on the input, so it holds wherever
+   * focus happens to be inside the panel.
+   */
+  useEffect(() => {
+    /* Captured before the input is focused, not after - which is why the
+       input is focused here rather than with autoFocus. autoFocus lands
+       during commit, so by the time an effect runs the "previously focused
+       element" is already the input, and closing would restore focus to a
+       node that no longer exists. */
+    const restoreTo = document.activeElement as HTMLElement | null;
+    const root = rootRef.current;
+    if (!root) return;
+    inputRef.current?.focus();
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        onClose();
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const focusable = root.querySelectorAll<HTMLElement>(
+        'input, button:not([tabindex="-1"]), [href], [tabindex]:not([tabindex="-1"])',
+      );
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+
+    root.addEventListener("keydown", onKey);
+    return () => {
+      root.removeEventListener("keydown", onKey);
+      restoreTo?.focus?.();
+    };
+  }, [onClose]);
+
   /* Entrance. The panel is the object; the scrim is atmosphere behind it. */
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -201,12 +256,14 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
       aria-modal="true"
       aria-label="Command palette"
     >
-      <button
+      {/* Not a button. A full-viewport "Close, button" is something iOS
+          VoiceOver lands on while swiping, and Escape at the dialog level
+          is the real affordance. */}
+      <div
         ref={scrimRef}
-        aria-label="Close"
+        aria-hidden
         className="absolute inset-0 cursor-default bg-black/60 backdrop-blur-[2px]"
         onClick={onClose}
-        tabIndex={-1}
       />
 
       <div
@@ -216,7 +273,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
         <div className="flex items-center gap-3 border-b border-rule px-4">
           <span className="label text-accent">&gt;</span>
           <input
-            autoFocus
+            ref={inputRef}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={(e) => {
@@ -233,19 +290,30 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
                   item.run();
                   onClose();
                 }
-              } else if (e.key === "Escape") {
-                e.preventDefault();
-                onClose();
               }
             }}
             placeholder="Search work, sections, sites"
             className="w-full bg-transparent py-4 font-mono text-sm text-type outline-none placeholder:text-mute"
             aria-label="Search"
+            /* The arrow keys move a highlight, never DOM focus - so without
+               these the row a reader is on is announced by nothing at all,
+               and Enter navigates somewhere they were never told about. */
+            role="combobox"
+            aria-expanded="true"
+            aria-controls={listId}
+            aria-autocomplete="list"
+            aria-activedescendant={flat[active] ? `${listId}-${active}` : undefined}
           />
           <kbd className="label shrink-0 border border-rule px-1.5 py-1 text-mute">esc</kbd>
         </div>
 
-        <div ref={listRef} className="relative max-h-[52vh] overflow-y-auto py-2">
+        <div
+          ref={listRef}
+          id={listId}
+          role="listbox"
+          aria-label="Results"
+          className="relative max-h-[52vh] overflow-y-auto py-2"
+        >
           <div
             ref={markerRef}
             aria-hidden
@@ -265,6 +333,14 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
                   return (
                     <button
                       key={item.id}
+                      id={`${listId}-${myIndex}`}
+                      role="option"
+                      aria-selected={isActive}
+                      /* The input keeps focus and drives the list through
+                         aria-activedescendant, so rows are not tab stops -
+                         that is what stops the visible highlight and the
+                         real focus position from drifting apart. */
+                      tabIndex={-1}
                       data-active={isActive}
                       onMouseMove={() => setActive(() => myIndex)}
                       onClick={() => {
@@ -314,7 +390,11 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
           <Hint keys="↑↓" label="navigate" />
           <Hint keys="↵" label="open" />
           <Hint keys="esc" label="close" />
-          <span className="label ml-auto text-mute">{flat.length} results</span>
+          {/* Live, so typing reports what it found. Without this a reader
+              filters the list and is told nothing changed. */}
+          <span role="status" aria-live="polite" className="label ml-auto text-mute">
+            {flat.length} results
+          </span>
         </div>
       </div>
     </div>
