@@ -97,8 +97,9 @@ export default function About() {
           <P>
             Architecture was the second one. I studied architecture, then civil
             engineering, and took longer than I should have to notice that the part I
-            liked was the same part in both. Mid century is still where I go first. Paul
-            Rand, Charles and Ray Eames, Saul Bass, Massimo Vignelli, Milton Glaser. There
+            liked was the same part in both. Mid century houses are still my favorite thing
+            to look at, and the same period pulled me toward its designers. Paul Rand,
+            Charles and Ray Eames, Saul Bass, Massimo Vignelli, Milton Glaser. There
             are{" "}
             <InlineSticker
               src="/media/eames-elephant.png"
