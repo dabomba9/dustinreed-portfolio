@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+import InlineSticker from "@/components/inline-sticker";
+
 /** Monospace spec panel. Used where the content really is a spec. */
 export function SpecBlock({
   title,
@@ -28,18 +30,36 @@ export function SpecBlock({
   );
 }
 
-/** Four small cards. Used for the Coqui vaults. */
+/**
+ * Four small cards. Used for the Coqui vaults.
+ *
+ * A card can carry a sticker, which pops out of its title on hover the same
+ * way the ones on the About page do. Note the grid does NOT clip: the sticker
+ * sits above the card it belongs to and would be cut in half by the
+ * overflow-hidden that used to round these corners. The 2px radius is now
+ * carried by the border alone, which nobody will ever notice, and the sticker
+ * gets to leave the box.
+ */
 export function CardGrid({
   items,
 }: {
-  items: { title: string; stat: string; body: string }[];
+  items: {
+    title: string;
+    stat: string;
+    body: string;
+    sticker?: { src: string; width: number; height: number; size?: string; tilt?: number };
+  }[];
 }) {
   return (
-    <div className="my-12 grid gap-px overflow-hidden rounded-sm border border-rule bg-rule sm:grid-cols-2">
+    <div className="my-12 grid gap-px rounded-sm border border-rule bg-rule sm:grid-cols-2">
       {items.map((item) => (
         <div key={item.title} className="bg-raised p-7">
           <h3 className="font-display text-lg font-bold tracking-tight text-type">
-            {item.title}
+            {item.sticker ? (
+              <InlineSticker {...item.sticker}>{item.title}</InlineSticker>
+            ) : (
+              item.title
+            )}
           </h3>
           <p className="label mt-2 text-accent">{item.stat}</p>
           <p className="mt-3 text-[0.95rem] leading-relaxed text-soft">{item.body}</p>

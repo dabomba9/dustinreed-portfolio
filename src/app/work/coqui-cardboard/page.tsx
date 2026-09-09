@@ -99,21 +99,25 @@ export default function Coqui() {
             items={[
               {
                 title: "Michael Jordan",
+                sticker: { src: "/media/mj-sticker.png", width: 516, height: 900, size: "7rem", tilt: -4 },
                 stat: "12,000+ cards, every issue",
                 body: "The reason I started collecting at all, and still the deepest catalog anyone has.",
               },
               {
                 title: "Kobe Bryant",
+                sticker: { src: "/media/kobe-sticker.png", width: 520, height: 827, size: "7.5rem", tilt: 3.5 },
                 stat: "11,800+ cards, 1996 to now",
                 body: "The other one. His rookie year alone runs 143 cards across 25 different brands, which tells you everything about how that decade operated.",
               },
               {
                 title: "Roberto Clemente",
+                sticker: { src: "/media/clemente-sticker.png", width: 520, height: 832, size: "7.5rem", tilt: -3 },
                 stat: "256 cards, complete playing-era run",
                 body: "Best Puerto Rican ballplayer who ever lived. My wife is Puerto Rican, and the coquí in the logo is as much hers as mine.",
               },
               {
                 title: "Harmon Killebrew",
+                sticker: { src: "/media/killebrew-sticker.png", width: 520, height: 790, size: "7.5rem", tilt: 4 },
                 stat: "252 cards, complete playing-era run",
                 body: "From Payette, Idaho, which is where I’m from. He’s also a relative.",
               },
