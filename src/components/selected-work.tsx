@@ -68,12 +68,6 @@ function Row({ item, mode }: { item: Item; mode: "hover" | "inline" | null }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const stickerRef = useRef<HTMLDivElement>(null);
 
-  /* Nothing is fetched until the reader reaches for it. preload="none" is half
-     of that; this is the other half, and the reason play() is never called on
-     mount. Three clips at a megabyte each would otherwise land on every
-     visitor who scrolled past without stopping. */
-  const wanted = useRef(false);
-
   const hasClip = Boolean(item.clip && item.poster);
   const showClip = hasClip && mode !== null;
 
@@ -85,7 +79,6 @@ function Row({ item, mode }: { item: Item; mode: "hover" | "inline" | null }) {
     const v = videoRef.current;
     if (!el) return;
 
-    wanted.current = true;
     gsap.to(el, {
       autoAlpha: on ? 1 : 0,
       y: on ? 0 : 10,
@@ -173,6 +166,13 @@ function Row({ item, mode }: { item: Item; mode: "hover" | "inline" | null }) {
         onMouseLeave={() => reveal(false)}
         onFocus={() => reveal(true)}
         onBlur={() => reveal(false)}
+        /* Named explicitly, because name-from-content here is the project
+           name plus the date plus every role plus the domain plus the whole
+           paragraph - about forty words - and on touch the clip's own label
+           joins it. Three of those in a row make the VoiceOver rotor
+           unusable. The sentence is still read as content; it just is not
+           the name of the link any more. */
+        aria-label={`${item.name} — ${item.domain}`}
         className="group grid gap-x-10 gap-y-4 py-9 no-underline md:grid-cols-[1fr_1.05fr] md:py-11"
       >
         <span className="min-w-0">

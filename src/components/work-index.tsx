@@ -90,6 +90,19 @@ export default function WorkIndex({ studies }: { studies: CaseStudy[] }) {
                   <span className="mt-3 block max-w-md text-[0.95rem] leading-relaxed text-soft lg:hidden">
                     {study.blurb}
                   </span>
+
+                  {/* The detail pane beside this list is aria-hidden, and it
+                      is the only place the blurb, the facts and the live
+                      site are rendered at lg and up - so a screen reader on
+                      a desktop got the number, the client and the title and
+                      nothing else, while a sighted reader got all of it.
+                      Visually hidden rather than absent: the pane still does
+                      the showing, this does the saying. */}
+                  <span className="sr-only hidden lg:block">
+                    {study.blurb}
+                    {study.facts.map((f) => ` ${f}.`)}
+                    {study.live ? ` Live at ${study.live.label}.` : null}
+                  </span>
                 </span>
 
                 <span
