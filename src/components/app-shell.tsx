@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { gsap, EASE, T, dur } from "@/lib/motion";
 import PuertoRico from "@/components/puerto-rico";
 import Image from "next/image";
@@ -9,12 +9,78 @@ import { usePathname, useRouter } from "next/navigation";
 import CommandPalette from "@/components/command-palette";
 import { pages, caseOrder } from "@/content/nav";
 
+/**
+ * The single-key shortcut preference, kept outside React because
+ * localStorage is not reactive and an effect that calls setState to catch
+ * up is both a lint error and a flash of the wrong state.
+ *
+ * Default on: the keys are the point of the site. `storage` covers other
+ * tabs; the local listener set covers this one.
+ */
+const SHORTCUT_KEY = "shortcuts";
+let shortcutListeners: Array<() => void> = [];
+
+function subscribeShortcuts(cb: () => void) {
+  shortcutListeners.push(cb);
+  window.addEventListener("storage", cb);
+  return () => {
+    shortcutListeners = shortcutListeners.filter((l) => l !== cb);
+    window.removeEventListener("storage", cb);
+  };
+}
+
+function readShortcuts(): boolean {
+  try {
+    return localStorage.getItem(SHORTCUT_KEY) !== "off";
+  } catch {
+    /* Private mode and blocked storage both throw. Keys stay on. */
+    return true;
+  }
+}
+
+function writeShortcuts(on: boolean) {
+  try {
+    localStorage.setItem(SHORTCUT_KEY, on ? "on" : "off");
+  } catch {
+    /* Nothing to remember it with; the session still honours the flip. */
+  }
+  shortcutListeners.forEach((l) => l());
+}
+
+/** Whether the rail is docked rather than a drawer. Matches `lg:` in the
+    class list; false on the server, which is the safe answer - a drawer
+    that is inert until proven otherwise never traps anyone. */
+function useIsDesktop(): boolean {
+  return useSyncExternalStore(
+    (onChange) => {
+      const mq = window.matchMedia("(min-width: 1024px)");
+      mq.addEventListener("change", onChange);
+      return () => mq.removeEventListener("change", onChange);
+    },
+    () => window.matchMedia("(min-width: 1024px)").matches,
+    () => false,
+  );
+}
+
 export default function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [shortcutsOpen, setShortcutsOpen] = useState(false);
   const [railOpen, setRailOpen] = useState(false);
+  const isDesktop = useIsDesktop();
+  /**
+   * Single-character shortcuts need an off switch to satisfy WCAG 2.1.4.
+   * They are the reason a speech-input user cannot dictate on this page
+   * without being navigated away by a misheard syllable, and j/k/g collide
+   * with NVDA and JAWS quick-navigation keys in browse mode.
+   *
+   * Default on, because they are the point of the site; remembered, because
+   * a preference you have to set on every page is not a preference. Read
+   * after mount so the server and the first client render agree.
+   */
+  const shortcutsOn = useSyncExternalStore(subscribeShortcuts, readShortcuts, () => true);
+  const toggleShortcuts = useCallback(() => writeShortcuts(!readShortcuts()), []);
   /* Tagged with the path it came from, so a stale value from the previous
      page is simply ignored rather than cleared by an effect. */
   const [spy, setSpy] = useState<{ path: string; id: string } | null>(null);
@@ -59,15 +125,30 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       }
       if (paletteOpen || isTyping()) return;
 
+      /* Escape is not a single character and stays available even with the
+         shortcuts switched off - it is how you get out of things. */
+      if (e.key === "Escape") {
+        setShortcutsOpen(false);
+        setRailOpen(false);
+        return;
+      }
+
+      /* WCAG 2.1.4 asks for one of: an off switch, remapping, or focus
+         scoping. This is the off switch, and it is why the ? panel that
+         documents these keys is also where you turn them off.
+
+         Modifier chords belong to the browser and to assistive tech, not
+         to us: Ctrl+J opens Downloads and Ctrl+G is Find Again, and both
+         were being swallowed here. */
+      if (!shortcutsOn) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+
       if (e.key === "/") {
         e.preventDefault();
         setPaletteOpen(true);
       } else if (e.key === "?") {
         e.preventDefault();
         setShortcutsOpen((v) => !v);
-      } else if (e.key === "Escape") {
-        setShortcutsOpen(false);
-        setRailOpen(false);
       } else if (e.key === "j") {
         e.preventDefault();
         step(1);
@@ -81,7 +162,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [paletteOpen, step, router]);
+  }, [paletteOpen, shortcutsOn, step, router]);
 
   /* ---- scroll spy + progress --------------------------------------- */
   useEffect(() => {
@@ -161,6 +242,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           onClick={() => setRailOpen((v) => !v)}
           className="label flex min-h-11 min-w-11 items-center gap-2 px-3 text-type"
           aria-expanded={railOpen}
+          aria-controls="index-rail"
         >
           <span aria-hidden>{railOpen ? "\u00d7" : "\u2261"}</span> Index
         </button>
@@ -189,6 +271,14 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       {/* ---- rail ---- */}
       {(
       <aside
+        id="index-rail"
+        aria-label="Index"
+        /* Offscreen is not gone. Translated out of view the rail kept every
+           one of its nine controls in the tab order and in the accessibility
+           tree, so on a phone with the index closed you tabbed through a
+           drawer you could not see, with no focus ring anywhere on screen.
+           Only below lg, where it is actually hidden. */
+        inert={!railOpen && !isDesktop}
         className={`fixed inset-y-0 left-0 z-30 flex w-[21rem] flex-col border-r border-rule bg-ground transition-transform duration-200 lg:translate-x-0 ${
           railOpen ? "translate-x-0" : "-translate-x-full"
         }`}
@@ -385,7 +475,13 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       )}
 
       {paletteOpen ? <CommandPalette onClose={() => setPaletteOpen(false)} /> : null}
-      {shortcutsOpen ? <Shortcuts onClose={() => setShortcutsOpen(false)} /> : null}
+      {shortcutsOpen ? (
+        <Shortcuts
+          onClose={() => setShortcutsOpen(false)}
+          shortcutsOn={shortcutsOn}
+          onToggle={toggleShortcuts}
+        />
+      ) : null}
     </>
   );
 }
@@ -419,35 +515,99 @@ function RailLink({
   );
 }
 
-function Shortcuts({ onClose }: { onClose: () => void }) {
+/**
+ * The panel that documents the keyboard is also where the keyboard is
+ * turned off. That is not a coincidence: WCAG 2.1.4 wants the off switch
+ * discoverable, and the one place a reader has already gone looking for
+ * these keys is the list of them.
+ *
+ * It was a modal in appearance only - no role, no name, no focus moved in,
+ * nothing to return focus to. Opening it announced nothing at all, on the
+ * one panel whose entire job is explaining access.
+ */
+function Shortcuts({
+  onClose,
+  shortcutsOn,
+  onToggle,
+}: {
+  onClose: () => void;
+  shortcutsOn: boolean;
+  onToggle: () => void;
+}) {
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const restoreTo = document.activeElement as HTMLElement | null;
+    panelRef.current?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    const node = panelRef.current;
+    node?.addEventListener("keydown", onKey);
+    return () => {
+      node?.removeEventListener("keydown", onKey);
+      restoreTo?.focus?.();
+    };
+  }, [onClose]);
+
   const rows = [
-    { keys: "⌘K", label: "Open the command palette" },
-    { keys: "/", label: "Search" },
-    { keys: "j", label: "Next case study" },
-    { keys: "k", label: "Previous case study" },
-    { keys: "g", label: "Go to the index" },
-    { keys: "?", label: "This panel" },
-    { keys: "esc", label: "Close" },
+    { keys: "⌘K", label: "Open the command palette", always: true },
+    { keys: "/", label: "Search", always: false },
+    { keys: "j", label: "Next case study", always: false },
+    { keys: "k", label: "Previous case study", always: false },
+    { keys: "g", label: "Go to the index", always: false },
+    { keys: "?", label: "This panel", always: false },
+    { keys: "esc", label: "Close", always: true },
   ];
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
-      <button
-        aria-label="Close"
+      <div
+        aria-hidden
         className="absolute inset-0 cursor-default bg-black/60 backdrop-blur-[2px]"
         onClick={onClose}
       />
-      <div className="palette-in relative w-full max-w-sm border border-type bg-raised p-6 shadow-[0_24px_70px_-20px_rgba(22,25,27,0.45)]">
+      <div
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Keyboard shortcuts"
+        tabIndex={-1}
+        className="palette-in relative w-full max-w-sm border border-type bg-raised p-6 shadow-[0_24px_70px_-20px_rgba(22,25,27,0.45)] outline-none"
+      >
         <p className="label text-accent">Keyboard</p>
         <ul className="mt-5 space-y-2.5">
           {rows.map((r) => (
             <li key={r.keys} className="flex items-center justify-between gap-6">
-              <span className="text-[0.9rem] text-soft">{r.label}</span>
+              <span
+                className={`text-[0.9rem] ${
+                  shortcutsOn || r.always ? "text-soft" : "text-mute line-through"
+                }`}
+              >
+                {r.label}
+              </span>
               <kbd className="label shrink-0 border border-rule px-2 py-1 text-type">
                 {r.keys}
               </kbd>
             </li>
           ))}
         </ul>
+
+        <div className="mt-6 flex items-center justify-between gap-4 border-t border-rule pt-4">
+          <span className="text-[0.9rem] text-soft">
+            Single-key shortcuts
+            <span className="label mt-1 block text-mute">
+              {shortcutsOn ? "On" : "Off — ⌘K and esc still work"}
+            </span>
+          </span>
+          <button
+            type="button"
+            onClick={onToggle}
+            aria-pressed={shortcutsOn}
+            className="label min-h-11 shrink-0 border border-edge px-3 text-type transition-colors hover:bg-raised"
+          >
+            {shortcutsOn ? "Turn off" : "Turn on"}
+          </button>
+        </div>
       </div>
     </div>
   );
