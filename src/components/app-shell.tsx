@@ -181,6 +181,10 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
     );
     headings.forEach((h) => observer.observe(h));
 
+    /* AppShell survives navigation, so this is the same DOM node every
+       time and the effect re-runs on every pathname change. Without the
+       kill in the cleanup below, each navigation left another live tween
+       attached to the one progress bar. */
     const bar = progressRef.current;
     const setScale = bar
       ? gsap.quickTo(bar, "scaleX", { duration: dur(0.25), ease: "power2.out" })
@@ -202,6 +206,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
     return () => {
       observer.disconnect();
       window.removeEventListener("scroll", onScroll);
+      if (bar) gsap.killTweensOf(bar);
     };
   }, [pathname]);
 

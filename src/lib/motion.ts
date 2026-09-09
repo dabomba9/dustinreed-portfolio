@@ -14,8 +14,6 @@ import { gsap } from "gsap";
 export const EASE = {
   /** Default: fast out, long settle. Matches the CSS page transition. */
   out: "power3.out",
-  /** For anything that should feel physical — panels, indicators. */
-  spring: "elastic.out(1, 0.85)",
   /** Short, flat, for hover states that must not feel laggy. */
   snap: "power2.out",
 } as const;

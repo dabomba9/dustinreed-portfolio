@@ -141,10 +141,6 @@
     text-wrap: balance;
   }
 
-  .measure {
-    max-width: 34rem;
-  }
-
   /* A highlighter swipe. Ink text keeps its own contrast; the yellow is
      only ever a ground beneath it, which is the one thing a colour this
      light can do honestly. */
@@ -267,18 +263,5 @@
 }
 
 @layer utilities {
-  .detail-in {
-    animation: detail-in 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
-  }
 }
 
-@keyframes detail-in {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}

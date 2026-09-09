@@ -193,7 +193,3 @@ export function Results({
   );
 }
 
-/** Section label used above headings, e.g. "The decision". */
-export function Eyebrow({ children }: { children: ReactNode }) {
-  return <p className="label mt-24 text-accent">{children}</p>;
-}

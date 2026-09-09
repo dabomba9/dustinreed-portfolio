@@ -65,6 +65,11 @@ export default function StickerFrame({
               autoAlpha: 1,
               duration: dur(0.72),
               ease: "back.out(1.4)",
+              /* The hover quickTos below write rotation and y as well.
+                 Hovering a figure while it is still settling - easy at
+                 threshold 0.2 on a fast scroll - put both on the same tick
+                 and the card jittered. */
+              overwrite: "auto",
             },
           );
           io.disconnect();
