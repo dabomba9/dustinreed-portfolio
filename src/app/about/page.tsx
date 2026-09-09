@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { pageMeta } from "@/lib/meta";
 import { Wrap, Column, P, Lead, Pull } from "@/components/prose";
 import CopyEmail from "@/components/copy-email";
+import InlineSticker from "@/components/inline-sticker";
 
 export const metadata: Metadata = pageMeta({
   title: "About",
@@ -25,8 +26,8 @@ export default function About() {
       <Wrap className="py-20 md:py-24">
         <Column>
           <Lead>
-            I&rsquo;m a founding designer. I build the brand, design the product, and write
-            the front end code.
+            Founding designer, which in practice means I build the brand, design the
+            product, and then write the front end that ships it.
           </Lead>
 
           <P>
@@ -59,12 +60,12 @@ export default function About() {
           </P>
 
           <P>
-            I also run The Tink Tank, a studio where I do brand, product and front end for
+            The Tink Tank is my studio. It has run since 2018, alongside the day job, for
             clients across SaaS, healthcare, retail and commerce, from Fortune 500
-            companies down to two person startups. That work includes two separate brand
-            identities and a custom quoting and checkout system for one of the largest
-            independent large print book manufacturers in the country, selling into school
-            districts and state contracts, where growth has doubled since launch.
+            companies down to two person startups. The one I would show you first is a
+            large print book manufacturer: two brand identities, and a quoting and
+            checkout system that sells into school districts and state contracts. Growth
+            has doubled since it launched.
           </P>
 
           <Pull>
@@ -80,24 +81,62 @@ export default function About() {
             it after the fact, which is usually how the real ones show up.
           </P>
 
+          <Pull>
+            The first design I ever paid attention to was printed on cardboard and sold
+            in a foil pack.
+          </Pull>
+
           <P>
-            I design in Figma and ship in Next.js and React. I&rsquo;ve worked in design
-            systems, built with Webflow, shipped iOS and Android, and I use AI tooling
-            daily as part of how I work rather than as a novelty.
+            I collected Michael Jordan in the nineties, which is when the card companies
+            got strange. Foil, die cuts, printing on plastic, techniques nobody needed for
+            a photograph of a basketball player. I did not have the word design yet. I
+            knew some of them were better than the others and I wanted to know why. Coqui
+            Cardboard is that question again, with a build pipeline.
           </P>
 
           <P>
-            I live in San Juan, Puerto Rico, which is a US territory, so no visa or
-            sponsorship is needed. Bilingual in English and Spanish. I&rsquo;ve worked
-            remotely for years and I&rsquo;m looking for fully remote roles with US
+            Architecture was the second one. I studied architecture, then civil
+            engineering, and took longer than I should have to notice that the part I
+            liked was the same part in both. Mid century is still where I go first. Paul
+            Rand,{" "}
+            <InlineSticker
+              src="/media/eames-elephant.png"
+              width={880}
+              height={662}
+            >
+              Charles and Ray Eames
+            </InlineSticker>
+            , Saul Bass, Massimo Vignelli, Milton Glaser. There are Eames pieces in this
+            apartment I probably should not have bought.
+          </P>
+
+          <P>
+            Figma to design, Next.js and React to ship. Design systems, Webflow, iOS and
+            Android along the way. AI tooling is part of the working day now, not a
+            novelty I am trying out.
+          </P>
+
+          <P>
+            I live in San Juan because my wife Lorena is Boricua and her parents are
+            getting older. We wanted to be close enough to help, and we are looking for a
+            house here while we settle in. Puerto Rico is a US territory, so there is no
+            visa or sponsorship question, and I am bilingual in English and Spanish. I
+            have worked remotely for years and I am looking for fully remote roles with US
             companies.
           </P>
 
           <P>
-            I&rsquo;m open to product design, design leadership, and design engineering
-            roles at any size company. If you need someone who can take something from
-            brand all the way through to shipped code, or step into an existing team and
-            raise the bar, I&rsquo;d like to talk.
+            Away from a screen: basketball, the mountains, drawing. Lately I want to make
+            physical things again, objects rather than interfaces. Same instinct as the
+            cards, probably. Something you can hold, that somebody had to decide every
+            part of.
+          </P>
+
+          <P>
+            Product design, design leadership, design engineering. Any size company. If
+            you need one person who can take something from brand all the way through to
+            shipped code, or someone who can step into a team and raise the bar, I would
+            like to talk.
           </P>
 
           <footer className="mt-16 border-t border-rule pt-10">
