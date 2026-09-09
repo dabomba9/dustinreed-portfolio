@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { gsap, dur, prefersReducedMotion } from "@/lib/motion";
 
 /**
@@ -16,11 +16,25 @@ import { gsap, dur, prefersReducedMotion } from "@/lib/motion";
  *
  *   keyboard   the trigger is a real button, so tab and focus reveal it too.
  *              An easter egg only mouse users can find is a smaller easter egg.
- *   touch      tap toggles, because there is no hover on a phone.
+ *   touch      tap toggles, because there is no hover on a phone. On a device
+ *              that does hover, a click is ignored - the pointer already
+ *              governs the sticker, and letting click toggle as well means a
+ *              click while hovering hides it under your own cursor.
  *   reduced    honoured. It appears and disappears without the overshoot.
  *              motion
  *   readers    the image is decorative and hidden. The sentence already says
  *              the name; the picture adds nothing a screen reader needs.
+ *
+ * Two things make it disappear reliably, both learned the hard way:
+ *
+ *   overwrite  every tween kills the one before it. Without this, leaving
+ *              quickly starts a 0.22s hide while the 0.5s show is still
+ *              running; the hide finishes first and the show keeps writing
+ *              opacity back up, parking the sticker on screen for good.
+ *   two flags  hover and focus are tracked separately and the sticker is
+ *              shown when either is true. One boolean gets out of step the
+ *              moment a click, a tab-away or a scroll interleaves with a
+ *              pointer event.
  *
  * The sticker is `pointer-events-none` so it can never sit between the reader
  * and the text underneath it.
@@ -44,6 +58,29 @@ export default function InlineSticker({
 }) {
   const [shown, setShown] = useState(false);
   const card = useRef<HTMLSpanElement | null>(null);
+  const hovering = useRef(false);
+  const focused = useRef(false);
+  /** Set by a tap on a device with no hover, where click is the only input. */
+  const tapped = useRef(false);
+  /**
+   * True between pointerdown and the focus it causes. A click focuses the
+   * button, and that focus would otherwise outlive the pointer and strand
+   * the sticker on screen. Asking the button whether it matches
+   * :focus-visible does not work here - Chromium has not applied it yet
+   * when the focus handler runs, so keyboard users would lose the sticker.
+   */
+  const focusFromPointer = useRef(false);
+
+  const sync = useCallback(() => {
+    setShown(hovering.current || focused.current || tapped.current);
+  }, []);
+
+  const hide = useCallback(() => {
+    hovering.current = false;
+    focused.current = false;
+    tapped.current = false;
+    setShown(false);
+  }, []);
 
   useEffect(() => {
     const el = card.current;
@@ -66,6 +103,7 @@ export default function InlineSticker({
           y: 0,
           duration: dur(0.5),
           ease: "back.out(2.2)",
+          overwrite: true,
         },
       );
     } else {
@@ -77,19 +115,80 @@ export default function InlineSticker({
         y: 10,
         duration: dur(0.22),
         ease: "power2.in",
+        overwrite: true,
       });
     }
   }, [shown, tilt]);
 
+  /**
+   * Backstops for the leave the browser never sends: the tab going to the
+   * background, or the window losing focus, while the pointer sits on the
+   * word. Deliberately NOT scroll - the browser already fires pointerleave
+   * when the word slides out from under the cursor, and hiding on every
+   * scroll event means a stray trackpad nudge kills a sticker you are still
+   * pointing at.
+   */
+  useEffect(() => {
+    if (!shown) return;
+    const onHidden = () => {
+      if (document.visibilityState === "hidden") hide();
+    };
+    window.addEventListener("blur", hide);
+    document.addEventListener("visibilitychange", onHidden);
+    return () => {
+      window.removeEventListener("blur", hide);
+      document.removeEventListener("visibilitychange", onHidden);
+    };
+  }, [shown, hide]);
+
+  /** Unmounting mid-hover must not leave a tween running on a dead node. */
+  useEffect(() => {
+    const el = card.current;
+    return () => {
+      if (el) gsap.killTweensOf(el);
+    };
+  }, []);
+
   return (
-    <span className="relative inline-block">
+    <span className="relative inline-block" onPointerLeave={hide}>
       <button
         type="button"
-        onMouseEnter={() => setShown(true)}
-        onMouseLeave={() => setShown(false)}
-        onFocus={() => setShown(true)}
-        onBlur={() => setShown(false)}
-        onClick={() => setShown((v) => !v)}
+        onPointerEnter={(e) => {
+          if (e.pointerType === "touch") return;
+          hovering.current = true;
+          sync();
+        }}
+        onPointerLeave={() => {
+          hovering.current = false;
+          sync();
+        }}
+        onPointerCancel={hide}
+        onPointerDown={() => {
+          focusFromPointer.current = true;
+        }}
+        onFocus={() => {
+          // Only a keyboard landing should reveal it.
+          if (focusFromPointer.current) {
+            focusFromPointer.current = false;
+            return;
+          }
+          focused.current = true;
+          sync();
+        }}
+        onBlur={() => {
+          focusFromPointer.current = false;
+          focused.current = false;
+          sync();
+        }}
+        onClick={(e) => {
+          // On anything with a real pointer, hover is already in charge.
+          if (window.matchMedia("(hover: hover)").matches) {
+            e.preventDefault();
+            return;
+          }
+          tapped.current = !tapped.current;
+          sync();
+        }}
         aria-expanded={shown}
         data-on={shown}
         className="swipe cursor-pointer"
