@@ -26,8 +26,8 @@ export default function About() {
       <Wrap className="py-20 md:py-24">
         <Column>
           <Lead>
-            Founding designer, which in practice means I build the brand, design the
-            product, and then write the front end that ships it.
+            Founding designer. I build the brand, design the product, and write the front
+            end that ships it.
           </Lead>
 
           <P>
@@ -45,18 +45,19 @@ export default function About() {
           </Pull>
 
           <P>
-            That&rsquo;s the part I&rsquo;d point at. Most designers hand something over and
-            never learn what it cost. I&rsquo;ve spent seven years living inside my own
-            work, watching which calls held up and which ones quietly made someone
-            else&rsquo;s job harder. It changes what you reach for.
+            That&rsquo;s the part I&rsquo;d point at. Seven years living inside my own work,
+            watching which calls held up and which ones quietly made someone else&rsquo;s
+            job harder. It changes what you reach for.
           </P>
 
           <P>
             I design and I build. Early on I moved our work into Webflow so developers got
-            working code instead of a mockup and a conversation. These days I write
-            production Next.js and React. It keeps the distance between &ldquo;this should
+            working code instead of a mockup and a conversation. These days it is Figma to
+            design, production Next.js and React to ship, with design systems, iOS and
+            Android along the way. That keeps the distance between &ldquo;this should
             change&rdquo; and &ldquo;it&rsquo;s live&rdquo; short, which is most of what a
-            small team actually needs.
+            small team actually needs. AI tooling is part of the working day now, not a
+            novelty I am trying out.
           </P>
 
           <P>
@@ -112,18 +113,15 @@ export default function About() {
           </P>
 
           <P>
-            Figma to design, Next.js and React to ship. Design systems, Webflow, iOS and
-            Android along the way. AI tooling is part of the working day now, not a
-            novelty I am trying out.
+            I live in San Juan because my wife Lorena is Boricua and her parents are
+            getting older. We wanted to be close enough to help, and we are looking for a
+            house here while we settle in.
           </P>
 
           <P>
-            I live in San Juan because my wife Lorena is Boricua and her parents are
-            getting older. We wanted to be close enough to help, and we are looking for a
-            house here while we settle in. Puerto Rico is a US territory, so there is no
-            visa or sponsorship question, and I am bilingual in English and Spanish. I
-            have worked remotely for years and I am looking for fully remote roles with US
-            companies.
+            Puerto Rico is a US territory, so there is no visa or sponsorship question. I
+            am bilingual in English and Spanish, I have worked remotely for years, and I
+            am looking for fully remote roles with US companies.
           </P>
 
           <P>
