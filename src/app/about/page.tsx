@@ -98,16 +98,16 @@ export default function About() {
             Architecture was the second one. I studied architecture, then civil
             engineering, and took longer than I should have to notice that the part I
             liked was the same part in both. Mid century is still where I go first. Paul
-            Rand,{" "}
+            Rand, Charles and Ray Eames, Saul Bass, Massimo Vignelli, Milton Glaser. There
+            are{" "}
             <InlineSticker
               src="/media/eames-elephant.png"
               width={880}
               height={662}
             >
-              Charles and Ray Eames
-            </InlineSticker>
-            , Saul Bass, Massimo Vignelli, Milton Glaser. There are Eames pieces in this
-            apartment I probably should not have bought.
+              Eames pieces
+            </InlineSticker>{" "}
+            in my office I probably should not have bought.
           </P>
 
           <P>
