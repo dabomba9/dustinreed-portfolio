@@ -89,6 +89,39 @@ export function Pull({ children }: { children: ReactNode }) {
   );
 }
 
+/**
+ * Someone else's words, signed.
+ *
+ * Deliberately not `Pull`. A pull quote is me raising my own voice; this is a
+ * client raising his, and the whole value of it is that a reader can tell the
+ * difference at a glance and know who said it. So: a panel rather than a
+ * margin rule, an attribution that cannot be separated from the words, and a
+ * real <cite>.
+ */
+export function Testimonial({
+  children,
+  name,
+  title,
+}: {
+  children: ReactNode;
+  name: string;
+  title: string;
+}) {
+  return (
+    <figure className="my-14 rounded-sm border border-rule bg-raised p-7 md:p-9">
+      <blockquote className="space-y-4 font-display text-xl leading-[1.4] font-semibold tracking-tight text-type md:text-2xl md:leading-[1.35]">
+        {children}
+      </blockquote>
+      <figcaption className="mt-6 border-t border-rule pt-5">
+        <cite className="not-italic">
+          <span className="block text-[0.95rem] font-semibold text-type">{name}</span>
+          <span className="label mt-1 block text-accent">{title}</span>
+        </cite>
+      </figcaption>
+    </figure>
+  );
+}
+
 export function Bullets({ items }: { items: ReactNode[] }) {
   return (
     <ul className="mt-6 space-y-3">

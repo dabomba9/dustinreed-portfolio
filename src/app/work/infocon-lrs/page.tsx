@@ -5,7 +5,7 @@ import CaseHero, { CaseFooter } from "@/components/case-hero";
 import { SpecBlock, Compare } from "@/components/blocks";
 import Band from "@/components/band";
 import WrongBlock from "@/components/wrong-block";
-import { Wrap, Column, H2, P, Lead, Pull, Figure, Bullets } from "@/components/prose";
+import { Wrap, Column, H2, P, Lead, Pull, Figure, Bullets, Testimonial } from "@/components/prose";
 
 export const metadata: Metadata = pageMeta({
   title: "InfoCon + LRS — Why we didn’t merge them",
@@ -315,6 +315,26 @@ export default function InfoConLRS() {
             purchase orders arrive uploaded instead of faxed, and customers check production
             status themselves instead of calling to ask.
           </P>
+
+          <Testimonial name="Aaron Rawlins" title="Owner, InfoCon + LRS">
+            <p>
+              “Since our new site went live, along with the updates and improvements Dustin
+              implemented, our business has increased by threefold. Even more impressive,
+              many of the tasks that our team previously had to handle manually are now
+              being completed by our customers themselves through the website.”
+            </p>
+            <p>
+              “The new site is not only more professional, intuitive, and user-friendly, but
+              it has genuinely changed the way we operate and interact with our customers.”
+            </p>
+          </Testimonial>
+
+          <P>
+            That last part is the one I care about, because it is the thing I argued for and
+            the thing that was hardest to sell. Every self serve step I proposed was a step
+            somebody on his team used to own, and asking a business to hand a job to its own
+            customers is a bigger request than it sounds.
+          </P>
         </Column>
       </Wrap>
 
@@ -329,8 +349,8 @@ export default function InfoConLRS() {
             role: "Backend and integration, the same developer I build CurbNTurf with",
           },
           {
-            name: "Owner",
-            role: "Domain expertise, market knowledge, final call on brand architecture",
+            name: "Aaron Rawlins",
+            role: "Owner. Domain expertise, market knowledge, final call on brand architecture",
           },
         ]}
         next={{
