@@ -1,8 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { gsap, dur, prefersReducedMotion } from "@/lib/motion";
+
+/**
+ * Only one sticker is ever up at a time.
+ *
+ * On a pointer device the hover does this for free - you can only be on one
+ * word. A tap has no such limit, so without this, tapping four words on the
+ * About page leaves four images stacked over the paragraph. Opening one
+ * announces itself and every other instance stands down.
+ */
+const OPENED = "sticker:opened";
 
 /**
  * A sticker that pops out of a phrase.
@@ -25,7 +35,7 @@ import { gsap, dur, prefersReducedMotion } from "@/lib/motion";
  *   readers    the image is decorative and hidden. The sentence already says
  *              the name; the picture adds nothing a screen reader needs.
  *
- * Two things make it disappear reliably, both learned the hard way:
+ * Three things make it disappear reliably, all learned the hard way:
  *
  *   overwrite  every tween kills the one before it. Without this, leaving
  *              quickly starts a 0.22s hide while the 0.5s show is still
@@ -35,9 +45,16 @@ import { gsap, dur, prefersReducedMotion } from "@/lib/motion";
  *              shown when either is true. One boolean gets out of step the
  *              moment a click, a tab-away or a scroll interleaves with a
  *              pointer event.
+ *   one owner  only the button clears hover. The wrapper used to call a full
+ *              hide() on pointerleave, which ran BEFORE click on touch - so a
+ *              tap cleared `tapped` and then toggled it back to true, and the
+ *              sticker could never be dismissed on a phone. The same handler
+ *              also cleared `focused` out from under a keyboard user who
+ *              happened to sweep the mouse past the word.
  *
  * The sticker is `pointer-events-none` so it can never sit between the reader
- * and the text underneath it.
+ * and the text underneath it, and Escape dismisses it without moving the
+ * pointer, which is what WCAG 1.4.13 asks of content shown on hover.
  */
 export default function InlineSticker({
   src,
@@ -57,6 +74,7 @@ export default function InlineSticker({
   tilt?: number;
 }) {
   const [shown, setShown] = useState(false);
+  const id = useId();
   const card = useRef<HTMLSpanElement | null>(null);
   const hovering = useRef(false);
   const focused = useRef(false);
@@ -68,8 +86,22 @@ export default function InlineSticker({
    * the sticker on screen. Asking the button whether it matches
    * :focus-visible does not work here - Chromium has not applied it yet
    * when the focus handler runs, so keyboard users would lose the sticker.
+   *
+   * It is cleared on a timer as well as by the focus it expects, because
+   * Safari and Firefox on macOS do not focus a button on click at all. There
+   * the focus never arrives, and a flag that only a focus can clear stays
+   * true for the life of the component - silently swallowing the reveal for
+   * the next keyboard user who tabs here.
    */
   const focusFromPointer = useRef(false);
+  const clearLatch = useRef<number | null>(null);
+  /**
+   * How the last press arrived. `click` is a MouseEvent and carries no
+   * pointerType of its own, and `(hover: hover)` is the wrong question - a
+   * touchscreen laptop answers yes to it and its finger taps then match
+   * neither branch.
+   */
+  const lastPointer = useRef<string>("mouse");
 
   const sync = useCallback(() => {
     setShown(hovering.current || focused.current || tapped.current);
@@ -141,16 +173,45 @@ export default function InlineSticker({
     };
   }, [shown, hide]);
 
-  /** Unmounting mid-hover must not leave a tween running on a dead node. */
+  /**
+   * Escape dismisses it. WCAG 1.4.13 asks that content shown on hover or
+   * focus be dismissible without moving the pointer, and at 15rem over a
+   * 38rem column this covers the lines you are reading. Captured, and the
+   * event stopped, so one Escape does one thing - otherwise it reaches the
+   * shell and closes the rail while the sticker stays put.
+   */
+  useEffect(() => {
+    if (!shown) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      e.stopPropagation();
+      hide();
+    };
+    window.addEventListener("keydown", onKey, true);
+    return () => window.removeEventListener("keydown", onKey, true);
+  }, [shown, hide]);
+
+  /** Another sticker opening is this one's cue to go. */
+  useEffect(() => {
+    if (!shown) return;
+    const onOther = (e: Event) => {
+      if ((e as CustomEvent<string>).detail !== id) hide();
+    };
+    window.addEventListener(OPENED, onOther);
+    return () => window.removeEventListener(OPENED, onOther);
+  }, [shown, id, hide]);
+
+  /** Unmounting mid-hover must not leave a tween or a timer behind. */
   useEffect(() => {
     const el = card.current;
     return () => {
       if (el) gsap.killTweensOf(el);
+      if (clearLatch.current) window.clearTimeout(clearLatch.current);
     };
   }, []);
 
   return (
-    <span className="relative inline-block" onPointerLeave={hide}>
+    <span className="relative inline">
       <button
         type="button"
         onPointerEnter={(e) => {
@@ -163,8 +224,13 @@ export default function InlineSticker({
           sync();
         }}
         onPointerCancel={hide}
-        onPointerDown={() => {
+        onPointerDown={(e) => {
+          lastPointer.current = e.pointerType;
           focusFromPointer.current = true;
+          if (clearLatch.current) window.clearTimeout(clearLatch.current);
+          clearLatch.current = window.setTimeout(() => {
+            focusFromPointer.current = false;
+          }, 300);
         }}
         onFocus={() => {
           // Only a keyboard landing should reveal it.
@@ -180,18 +246,17 @@ export default function InlineSticker({
           focused.current = false;
           sync();
         }}
-        onClick={(e) => {
+        onClick={() => {
           // On anything with a real pointer, hover is already in charge.
-          if (window.matchMedia("(hover: hover)").matches) {
-            e.preventDefault();
-            return;
-          }
+          if (lastPointer.current !== "touch") return;
           tapped.current = !tapped.current;
+          if (tapped.current) {
+            window.dispatchEvent(new CustomEvent(OPENED, { detail: id }));
+          }
           sync();
         }}
-        aria-expanded={shown}
         data-on={shown}
-        className="swipe cursor-pointer"
+        className="swipe cursor-pointer text-left"
       >
         {children}
       </button>
