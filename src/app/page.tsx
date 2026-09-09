@@ -4,6 +4,7 @@ import CopyEmail from "@/components/copy-email";
 import { Mark, Wrap } from "@/components/prose";
 import InlineSticker from "@/components/inline-sticker";
 import { caseStudies, selectedWork } from "@/content/projects";
+import { PROFILES } from "@/lib/site";
 
 export default function Home() {
   return (
@@ -109,7 +110,7 @@ export default function Home() {
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
               <CopyEmail className="font-display text-2xl font-extrabold tracking-tight text-accent underline decoration-edge/30 decoration-2 underline-offset-[6px] transition-colors hover:decoration-edge md:text-4xl" />
               <a
-                href="https://www.linkedin.com/in/dreeddesign/"
+                href={PROFILES.linkedin}
                 target="_blank"
                 rel="noreferrer"
                 className="draw-link label inline-flex items-center py-3 -my-3 text-soft no-underline transition-colors hover:text-accent"
@@ -117,7 +118,7 @@ export default function Home() {
                 LinkedIn &#8599;
               </a>
               <a
-                href="https://github.com/dabomba9"
+                href={PROFILES.github}
                 target="_blank"
                 rel="noreferrer"
                 className="draw-link label inline-flex items-center py-3 -my-3 text-soft no-underline transition-colors hover:text-accent"

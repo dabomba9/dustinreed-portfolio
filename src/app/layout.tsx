@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import AppShell from "@/components/app-shell";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, PROFILES, EMAIL, HOME_DESCRIPTION } from "@/lib/site";
 import "./globals.css";
 
 /* Fonts are self-hosted variable woff2. No third-party request on load. */
@@ -33,16 +33,20 @@ const jetbrains = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  /* The headline on the page is still "I design products and ship the
+     code" - that is the better line and it stays. But a <title> is a search
+     listing, not a headline, and this one named no role at all: no
+     designer, no design engineer, no portfolio. The domain already wins
+     "Dustin Reed" outright, so the title was spending its whole budget on
+     the one query that was never in doubt. */
   title: {
-    default: "Dustin Reed — I design products and ship the code",
+    default: "Dustin Reed — Founding Designer & Design Engineer",
     template: "%s — Dustin Reed",
   },
-  description:
-    "Founding designer at CurbNTurf. Brand, product, web and native apps, front end. Seven years on the same product.",
+  description: HOME_DESCRIPTION,
   openGraph: {
-    title: "Dustin Reed — I design products and ship the code",
-    description:
-      "Founding designer at CurbNTurf. Brand, product, web and native apps, front end. Seven years on the same product.",
+    title: "Dustin Reed — Founding Designer & Design Engineer",
+    description: HOME_DESCRIPTION,
     url: SITE_URL,
     siteName: "Dustin Reed",
     type: "website",
@@ -51,11 +55,45 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   twitter: {
     card: "summary_large_image",
-    title: "Dustin Reed — I design products and ship the code",
-    description:
-      "Founding designer at CurbNTurf. Brand, product, web and native apps, front end.",
+    title: "Dustin Reed — Founding Designer & Design Engineer",
+    /* One description, not two. The X card used to drop "Seven years on the
+       same product" - the most distinctive clause in the sentence - for a
+       length limit it was nowhere near. */
+    description: HOME_DESCRIPTION,
     images: ["/og.png"],
   },
+};
+
+/**
+ * One Person node, site-wide.
+ *
+ * Without it the portfolio, the LinkedIn profile and the GitHub account are
+ * three unrelated documents. `sameAs` is what reconciles them into one
+ * entity with a job title, an employer and a location - and it is also what
+ * the LLM-shaped candidate searches now read. The visible h1 keeps its
+ * voice; this is where the role is stated in a form a machine can act on.
+ */
+const PERSON = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Dustin Reed",
+  jobTitle: "Founding Designer & Design Engineer",
+  url: SITE_URL,
+  image: `${SITE_URL}/og.png`,
+  email: `mailto:${EMAIL}`,
+  description: HOME_DESCRIPTION,
+  sameAs: [PROFILES.linkedin, PROFILES.github],
+  worksFor: {
+    "@type": "Organization",
+    name: "CurbNTurf",
+    url: "https://www.curbnturf.com",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressRegion: "PR",
+    addressCountry: "US",
+  },
+  knowsLanguage: ["en", "es"],
 };
 
 export const viewport: Viewport = {
@@ -69,6 +107,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${bigShoulders.variable} ${jetbrains.variable}`}>
       <body className="min-h-screen">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON) }}
+        />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:text-ground"

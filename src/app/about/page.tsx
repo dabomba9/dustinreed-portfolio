@@ -4,10 +4,16 @@ import { Wrap, Column, P, Lead, Pull } from "@/components/prose";
 import CopyEmail from "@/components/copy-email";
 import InlineSticker from "@/components/inline-sticker";
 
+/* "About" rendered as "About — Dustin Reed": nineteen characters saying
+   nothing a search result needs, on the one page that actually holds the
+   facts a recruiter screens on - the roles, the remote position, the
+   no-visa-required status, the second language. Its description was also a
+   near-copy of the homepage's, so Google picked one of the two and
+   suppressed the other, and it was never going to pick this one. */
 export const metadata: Metadata = pageMeta({
-  title: "About",
+  title: "About — Product Design, Design Leadership, Design Engineering",
   description:
-    "Founding designer. Brand, product and front end. Seven years on the same product, now working into the backend.",
+    "Seven years as founding designer on one product, from brand through to shipped code and now the backend. Open to product design, design leadership and design engineering. Remote from Puerto Rico, US authorised, bilingual.",
   path: "/about",
 });
 

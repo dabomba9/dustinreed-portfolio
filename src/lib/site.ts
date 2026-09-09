@@ -32,3 +32,25 @@ function resolve(): string {
 }
 
 export const SITE_URL = resolve();
+
+/**
+ * The one place these live.
+ *
+ * Both profile URLs were hardcoded in three files - the footer, the command
+ * palette, and now the Person schema - and a fourth copy is how a portfolio
+ * ends up linking a LinkedIn account it no longer uses.
+ */
+export const PROFILES = {
+  linkedin: "https://www.linkedin.com/in/dreeddesign/",
+  github: "https://github.com/dabomba9",
+} as const;
+
+export const EMAIL = "dr33d9@gmail.com";
+
+/**
+ * Shared so the homepage description cannot drift between the three places
+ * that state it - metadata, Open Graph and the X card each had their own
+ * copy, and the X one had already lost a clause.
+ */
+export const HOME_DESCRIPTION =
+  "Founding designer at CurbNTurf. Brand, product, web and native apps, front end. Seven years on the same product.";

@@ -5,6 +5,7 @@ import { gsap, EASE, T, dur } from "@/lib/motion";
 import { useRouter } from "next/navigation";
 import { pages } from "@/content/nav";
 import { selectedWork, caseStudies } from "@/content/projects";
+import { PROFILES, EMAIL } from "@/lib/site";
 
 type Item = {
   id: string;
@@ -103,9 +104,9 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
       id: "act:email",
       group: "Actions",
       title: "Email Dustin",
-      hint: "dr33d9@gmail.com",
+      hint: EMAIL,
       run: () => {
-        window.location.href = "mailto:dr33d9@gmail.com";
+        window.location.href = `mailto:${EMAIL}`;
       },
     });
     out.push({
@@ -115,7 +116,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
       hint: "in/dreeddesign",
       external: true,
       run: () =>
-        window.open("https://www.linkedin.com/in/dreeddesign/", "_blank", "noreferrer"),
+        window.open(PROFILES.linkedin, "_blank", "noreferrer"),
     });
     out.push({
       id: "act:github",
@@ -123,7 +124,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
       title: "Open GitHub",
       hint: "dabomba9",
       external: true,
-      run: () => window.open("https://github.com/dabomba9", "_blank", "noreferrer"),
+      run: () => window.open(PROFILES.github, "_blank", "noreferrer"),
     });
 
     return out;
