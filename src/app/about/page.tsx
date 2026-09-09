@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/meta";
-import { Wrap, Column, P, Lead, Pull } from "@/components/prose";
+import { Wrap, Column, H2, P, Lead, Pull } from "@/components/prose";
 import CopyEmail from "@/components/copy-email";
 import InlineSticker from "@/components/inline-sticker";
 
@@ -36,6 +36,8 @@ export default function About() {
             end that ships it.
           </Lead>
 
+          <H2>Seven years inside my own work</H2>
+
           <P>
             In December 2018 I joined CurbNTurf as one of three people. A founder, a
             developer, and me. There was a platform that barely worked and no visual
@@ -56,6 +58,8 @@ export default function About() {
             job harder. It changes what you reach for.
           </P>
 
+          <H2>I design and I build</H2>
+
           <P>
             I design and I build. Early on I moved our work into Webflow so developers got
             working code instead of a mockup and a conversation. These days it is Figma to
@@ -65,6 +69,8 @@ export default function About() {
             small team actually needs. AI tooling is part of the working day now, not a
             novelty I am trying out.
           </P>
+
+          <H2>The Tink Tank</H2>
 
           <P>
             The Tink Tank is my studio. It has run since 2018, alongside the day job, for
@@ -87,6 +93,8 @@ export default function About() {
             browsing and already knowing what you want. I didn&rsquo;t plan that. I noticed
             it after the fact, which is usually how the real ones show up.
           </P>
+
+          <H2>Printed on cardboard</H2>
 
           <Pull>
             The first design I ever paid attention to was printed on cardboard and sold
