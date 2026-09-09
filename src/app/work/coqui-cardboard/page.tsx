@@ -184,7 +184,7 @@ export default function Coqui() {
               src="/media/coqui-taino.png"
               width={760}
               height={797}
-              size="8rem"
+              size="6rem"
               tilt={-4}
             >
               Puerto Rico
