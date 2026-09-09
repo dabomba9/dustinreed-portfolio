@@ -92,7 +92,7 @@ export default function InlineSticker({
         onClick={() => setShown((v) => !v)}
         aria-expanded={shown}
         data-on={shown}
-        className="mark swipe cursor-pointer"
+        className="swipe cursor-pointer"
       >
         {children}
       </button>
