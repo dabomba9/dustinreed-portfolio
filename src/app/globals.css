@@ -135,6 +135,42 @@
   /* A highlighter swipe. Ink text keeps its own contrast; the yellow is
      only ever a ground beneath it, which is the one thing a colour this
      light can do honestly. */
+  /* A highlight that asks to be pointed at.
+     Same swipe geometry as .mark, but at rest it is only the thin band
+     under the baseline, so the phrase reads as marked without shouting.
+     Hovering grows the band up over the type and the ink flips to the
+     ground colour, which is the .mark pairing at 14.2:1. background-size
+     animates natively, so the fill is a real transition rather than a
+     snap between two states. */
+  .swipe {
+    background-image: linear-gradient(var(--color-mark), var(--color-mark));
+    background-repeat: no-repeat;
+    background-size: 100% 0.18em;
+    background-position: 0 1.04em;
+    padding-inline: 0.16em;
+    padding-block: 0.05em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    transition:
+      background-size 260ms cubic-bezier(0.16, 1, 0.3, 1),
+      background-position 260ms cubic-bezier(0.16, 1, 0.3, 1),
+      color 180ms ease;
+  }
+
+  .swipe:hover,
+  .swipe:focus-visible,
+  .swipe[data-on="true"] {
+    background-size: 100% 1.1em;
+    background-position: 0 0.2em;
+    color: var(--color-ground);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .swipe {
+      transition: none;
+    }
+  }
+
   /* Drawn as a gradient rather than a background colour so it can be sized
      to the ink instead of to the font's em box. The em box is 1.2em tall
      and the letters only occupy the middle 1.0em of it, so a plain

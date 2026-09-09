@@ -88,7 +88,17 @@ export default function About() {
           </Pull>
 
           <P>
-            I collected Michael Jordan in the nineties, which is when the card companies
+            I collected{" "}
+            <InlineSticker
+              src="/media/mj-sticker.png"
+              width={516}
+              height={900}
+              size="7rem"
+              tilt={4}
+            >
+              Michael Jordan
+            </InlineSticker>{" "}
+            in the nineties, which is when the card companies
             got strange. Foil, die cuts, printing on plastic, techniques nobody needed for
             a photograph of a basketball player. I did not have the word design yet. I
             knew some of them were better than the others and I wanted to know why. Coqui

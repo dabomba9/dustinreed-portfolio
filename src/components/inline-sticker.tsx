@@ -91,7 +91,8 @@ export default function InlineSticker({
         onBlur={() => setShown(false)}
         onClick={() => setShown((v) => !v)}
         aria-expanded={shown}
-        className="cursor-pointer bg-transparent p-0 text-inherit underline decoration-edge/45 decoration-dotted underline-offset-4 transition-colors hover:decoration-edge focus-visible:decoration-edge"
+        data-on={shown}
+        className="swipe cursor-pointer bg-transparent p-0 text-inherit"
       >
         {children}
       </button>
