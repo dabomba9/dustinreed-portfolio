@@ -30,6 +30,25 @@ export function prefersReducedMotion(): boolean {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
+/**
+ * True when the reader has asked their browser to spend less data, or is on a
+ * connection where a megabyte of autoplaying video is an imposition.
+ *
+ * Clips on this site are decoration on top of text that already says the same
+ * thing, so on a metered phone they should stay a poster until tapped. The
+ * poster is a single small JPEG and carries the picture on its own.
+ */
+export function prefersLightData(): boolean {
+  if (typeof navigator === "undefined") return false;
+  const c = (
+    navigator as Navigator & {
+      connection?: { saveData?: boolean; effectiveType?: string };
+    }
+  ).connection;
+  if (!c) return false;
+  return Boolean(c.saveData) || c.effectiveType === "slow-2g" || c.effectiveType === "2g";
+}
+
 /** Duration, collapsed to ~0 when the viewer asked for reduced motion. */
 export function dur(seconds: number): number {
   return prefersReducedMotion() ? 0.001 : seconds;

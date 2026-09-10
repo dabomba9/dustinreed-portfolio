@@ -206,7 +206,11 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       {(
       <nav
         aria-label="Page header"
-        className="sticky top-0 z-30 flex h-14 items-center justify-between border-b border-rule bg-ground/90 px-2 backdrop-blur-md lg:hidden"
+        /* Taller than a chrome bar needs to be, on purpose. The drawing is
+           the only piece of the identity that survives to this width, and at
+           28px it was a favicon. It is also the way back to the home page,
+           which nothing else on a phone offers. */
+        className="sticky top-0 z-30 flex h-[4.5rem] items-center justify-between border-b border-rule bg-ground/90 px-2 backdrop-blur-md lg:hidden"
       >
         <button
           onClick={() => setRailOpen((v) => !v)}
@@ -218,16 +222,20 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         </button>
         <Link
           href="/"
-          className="label flex min-h-11 items-center gap-2 px-3 text-type no-underline"
+          aria-label="Dustin Reed, home"
+          className="group label flex min-h-11 items-center gap-2.5 px-3 text-type no-underline"
         >
           <Image
             src="/media/dustin-portrait-line.png"
             alt=""
             width={606}
             height={640}
-            className="h-7 w-auto"
+            priority
+            className="h-12 w-auto transition-transform duration-200 ease-out group-active:scale-95"
           />
-          Dustin Reed
+          <span aria-hidden className="hidden min-[380px]:inline">
+            Dustin Reed
+          </span>
         </Link>
         <button
           onClick={() => setPaletteOpen(true)}

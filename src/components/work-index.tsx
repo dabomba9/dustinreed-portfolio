@@ -1,8 +1,15 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import {
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react";
 import Image from "next/image";
-import { gsap, EASE, T, dur, prefersReducedMotion } from "@/lib/motion";
+import StickerFrame from "@/components/sticker-frame";
+import { gsap, EASE, T, dur, prefersReducedMotion, prefersLightData } from "@/lib/motion";
 import Link from "next/link";
 import type { CaseStudy } from "@/content/projects";
 
@@ -10,9 +17,81 @@ import type { CaseStudy } from "@/content/projects";
  * Index on the left, detail on the right. Hovering or focusing a row swaps
  * the detail pane instead of floating a card over the list, so nothing is
  * ever occluded and the whole thing behaves like a product view.
- * Below lg the pane is dropped and each row carries its own blurb.
+ *
+ * Below lg the pane cannot follow a pointer that does not exist, so it is
+ * dropped and every row carries its own clip, blurb and facts instead. That
+ * is not a downgrade: on a phone these rows have to outrank Selected work
+ * further down the page, and for a while they did the opposite - a case
+ * study was twenty pixels of text and no picture, sitting above a live site
+ * with a thirty two pixel name and a playing capture. The flagship tier
+ * looked like the afterthought. Here it gets the bigger type and the wider
+ * clip, because it is the more important work.
  */
+const WIDE = "(min-width: 1024px)";
+
+/**
+ * Whether the detail pane is on screen, or null on the server, which cannot
+ * know. Null renders no clip at all, so the markup the server sent and the
+ * markup the client hydrates agree; the clips appear on the pass after.
+ */
+function useHasPane(): boolean | null {
+  return useSyncExternalStore(
+    (onChange) => {
+      const mq = window.matchMedia(WIDE);
+      mq.addEventListener("change", onChange);
+      return () => mq.removeEventListener("change", onChange);
+    },
+    () => window.matchMedia(WIDE).matches,
+    () => null,
+  );
+}
+
+/**
+ * One row's clip, for the layout with no pane. Plays on its way past and
+ * pauses when it leaves, so a loop never runs in a tab nobody is looking at.
+ */
+function RowClip({ study }: { study: CaseStudy }) {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const v = ref.current;
+    if (!v || prefersReducedMotion() || prefersLightData()) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) v.play().catch(() => {});
+          else v.pause();
+        }
+      },
+      { threshold: 0.35 },
+    );
+    io.observe(v);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <span className="col-span-2 mt-6 block md:col-span-3">
+      <StickerFrame tilt={-1.2}>
+        <video
+          ref={ref}
+          poster={study.image}
+          muted
+          loop
+          playsInline
+          preload="none"
+          aria-label={study.imageAlt}
+          className="aspect-[1200/670] w-full rounded-[4px] object-cover"
+        >
+          <source src={`${study.clip}.webm`} type="video/webm" />
+          <source src={`${study.clip}.mp4`} type="video/mp4" />
+        </video>
+      </StickerFrame>
+    </span>
+  );
+}
+
 export default function WorkIndex({ studies }: { studies: CaseStudy[] }) {
+  const hasPane = useHasPane();
   const [activeSlug, setActiveSlug] = useState(studies[0]?.slug);
   const active = studies.find((s) => s.slug === activeSlug) ?? studies[0];
   const paneRef = useRef<HTMLDivElement>(null);
@@ -84,11 +163,31 @@ export default function WorkIndex({ studies }: { studies: CaseStudy[] }) {
 
                 <span>
                   <span className="label block text-mute">{study.client}</span>
-                  <span className="mt-2 block font-display text-xl font-bold leading-tight tracking-tight text-type transition-colors group-hover:text-accent md:text-[1.65rem]">
+                  {/* Bigger below lg than at lg: with the pane on screen the
+                      list is sharing its width and wants smaller type, but on
+                      a phone this headline is the whole tier and has to carry
+                      more weight than a company name further down the page. */}
+                  <span className="mt-2 block font-display text-[1.75rem] font-bold leading-tight tracking-tight text-type transition-colors group-hover:text-accent md:text-[2rem] lg:text-[1.65rem]">
                     {study.title}
                   </span>
                   <span className="mt-3 block max-w-md text-[0.95rem] leading-relaxed text-soft lg:hidden">
                     {study.blurb}
+                  </span>
+
+                  {/* The facts, which only the pane used to show. On a phone
+                      there is no pane, so without these a case study row was
+                      a headline and a sentence while a live site below it
+                      listed its dates, its roles and its domain. */}
+                  <span className="mt-4 block space-y-1.5 lg:hidden">
+                    {study.facts.map((fact) => (
+                      <span key={fact} className="label flex gap-2.5 text-mute">
+                        <span
+                          aria-hidden
+                          className="mt-[0.55em] h-px w-3 shrink-0 bg-rule"
+                        />
+                        {fact}
+                      </span>
+                    ))}
                   </span>
 
                   {/* The detail pane beside this list is aria-hidden, and it
@@ -113,6 +212,10 @@ export default function WorkIndex({ studies }: { studies: CaseStudy[] }) {
                 >
                   &rarr;
                 </span>
+
+                {hasPane === false && study.clip && study.image ? (
+                  <RowClip study={study} />
+                ) : null}
               </Link>
             </li>
           );
