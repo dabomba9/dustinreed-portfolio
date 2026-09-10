@@ -1,12 +1,12 @@
 "use client";
 
+import Art from "@/components/art";
 import GridGuides from "@/components/grid-guides";
 import Appearance from "@/components/appearance";
 
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { gsap, EASE, T, dur } from "@/lib/motion";
 import PuertoRico from "@/components/puerto-rico";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import CommandPalette from "@/components/command-palette";
@@ -238,13 +238,11 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           aria-label="Dustin Reed, home"
           className="group label flex min-h-11 items-center gap-2.5 px-3 text-type no-underline"
         >
-          <Image
-            src="/media/dustin-portrait-line.png"
-            alt=""
+          <Art
+            src="/media/dustin-portrait-line"
             width={606}
             height={640}
-            priority
-            className="h-[3.75rem] w-auto transition-transform duration-200 ease-out group-active:scale-95"
+            className="h-[3.75rem] transition-transform duration-200 ease-out group-active:scale-95"
           />
           <span aria-hidden className="hidden min-[380px]:inline">
             Dustin Reed
@@ -290,12 +288,10 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
               className="group flex min-w-0 flex-1 items-end gap-4 no-underline"
             >
               <span className="flex min-w-0 flex-1 basis-0 flex-col items-center gap-3">
-                <Image
-                  src="/media/dustin-portrait-line.png"
-                  alt=""
+                <Art
+                  src="/media/dustin-portrait-line"
                   width={606}
                   height={640}
-                  priority
                   className="w-full max-w-[9rem] transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-[1.03]"
                 />
                 <span className="label -mr-[0.13em] text-center leading-none text-type">

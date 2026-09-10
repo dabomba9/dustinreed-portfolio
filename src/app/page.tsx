@@ -96,7 +96,7 @@ export default function Home() {
               Product design, design leadership and design engineering roles, at any size
               company. Fully remote with US companies. I&rsquo;m in{" "}
               <InlineSticker
-                src="/media/coqui-taino.png"
+                src="/media/coqui-taino"
                 width={760}
                 height={797}
                 size="6rem"

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Art from "@/components/art";
 import { useCallback, useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { gsap, dur, prefersReducedMotion } from "@/lib/motion";
 
@@ -267,7 +267,7 @@ export default function InlineSticker({
         style={{ width: size, opacity: 0, visibility: "hidden" }}
         className="pointer-events-none absolute bottom-full left-1/2 z-30 mb-3 block drop-shadow-[0_18px_28px_rgba(0,0,0,0.55)]"
       >
-        <Image src={src} alt="" width={width} height={height} className="h-auto w-full" />
+        <Art src={src} width={width} height={height} className="w-full" />
       </span>
     </span>
   );

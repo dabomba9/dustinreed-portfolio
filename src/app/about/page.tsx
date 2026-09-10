@@ -105,7 +105,7 @@ export default function About() {
           <P>
             I collected{" "}
             <InlineSticker
-              src="/media/mj-sticker.png"
+              src="/media/mj-sticker"
               width={516}
               height={900}
               size="7rem"
@@ -125,7 +125,7 @@ export default function About() {
             engineering, and took longer than I should have to notice that the part I
             liked was the same part in both.{" "}
             <InlineSticker
-              src="/media/mcm-house.png"
+              src="/media/mcm-house"
               width={1000}
               height={260}
               size="15rem"
@@ -138,7 +138,7 @@ export default function About() {
             Charles and Ray Eames, Saul Bass, Massimo Vignelli, Milton Glaser. There
             are{" "}
             <InlineSticker
-              src="/media/eames-elephant.png"
+              src="/media/eames-elephant"
               width={880}
               height={662}
             >
@@ -155,7 +155,7 @@ export default function About() {
 
           <P>
             <InlineSticker
-              src="/media/coqui-taino.png"
+              src="/media/coqui-taino"
               width={760}
               height={797}
               size="6rem"

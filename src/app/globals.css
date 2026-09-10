@@ -38,6 +38,15 @@
      in both modes, because the marker is always light. */
   --color-on-mark: #0d2117;
 
+  /* The illustrations. They are all one object - cream paper, dark green
+     ink, die cut - and that used to be baked into the PNG, which made them
+     the only part of the page that could not follow a theme. The files are
+     alpha masks now and these two carry the colour. Not overridden inside
+     .plate, because a sticker dropped into a light band is still a sticker
+     and should not invert. */
+  --color-art-paper: #f1efe3;
+  --color-art-ink: #0d2117;
+
   --color-accent: #c6ff00;   /* 14.20:1 on ground */
   --color-mark: #c6ff00;     /* highlighter ground; dark type sits on it */
   --color-solid: #c6ff00;
@@ -432,3 +441,25 @@
   outline-offset: 2px;
   border-radius: 2px;
 }
+
+/* ---------------------------------------------------------------
+   Two-tone illustrations, coloured by CSS rather than by the file.
+   Paper is the whole cut shape; ink paints on top of it, so the two
+   layers stay in register no matter how the masks were rounded.
+   --------------------------------------------------------------- */
+.art {
+  position: relative;
+  display: block;
+}
+.art > i {
+  position: absolute;
+  inset: 0;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+.art > .art-paper { background-color: var(--color-art-paper); }
+.art > .art-ink { background-color: var(--color-art-ink); }

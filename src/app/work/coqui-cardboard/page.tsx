@@ -99,25 +99,25 @@ export default function Coqui() {
             items={[
               {
                 title: "Michael Jordan",
-                sticker: { src: "/media/mj-sticker.png", width: 516, height: 900, size: "7rem", tilt: -4 },
+                sticker: { src: "/media/mj-sticker", width: 516, height: 900, size: "7rem", tilt: -4 },
                 stat: "12,000+ cards, every issue",
                 body: "The reason I started collecting at all, and still the deepest catalog anyone has.",
               },
               {
                 title: "Kobe Bryant",
-                sticker: { src: "/media/kobe-sticker.png", width: 520, height: 800, size: "7.5rem", tilt: 3.5 },
+                sticker: { src: "/media/kobe-sticker", width: 520, height: 800, size: "7.5rem", tilt: 3.5 },
                 stat: "11,800+ cards, 1996 to now",
                 body: "The other one. His rookie year alone runs 143 cards across 25 different brands, which tells you everything about how that decade operated.",
               },
               {
                 title: "Roberto Clemente",
-                sticker: { src: "/media/clemente-sticker.png", width: 520, height: 836, size: "7.5rem", tilt: -3 },
+                sticker: { src: "/media/clemente-sticker", width: 520, height: 836, size: "7.5rem", tilt: -3 },
                 stat: "256 cards, complete playing-era run",
                 body: "Best Puerto Rican ballplayer who ever lived. My wife is Puerto Rican, and the coquí in the logo is as much hers as mine.",
               },
               {
                 title: "Harmon Killebrew",
-                sticker: { src: "/media/killebrew-sticker.png", width: 520, height: 753, size: "7.5rem", tilt: 4 },
+                sticker: { src: "/media/killebrew-sticker", width: 520, height: 753, size: "7.5rem", tilt: 4 },
                 stat: "252 cards, complete playing-era run",
                 body: "From Payette, Idaho, which is where I’m from. He’s also a relative.",
               },
@@ -185,7 +185,7 @@ export default function Coqui() {
             sans for anything you have to read for more than a second. The mark is a pixel
             art coquí, the tree frog you hear all night in{" "}
             <InlineSticker
-              src="/media/coqui-taino.png"
+              src="/media/coqui-taino"
               width={760}
               height={797}
               size="6rem"

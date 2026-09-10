@@ -193,7 +193,11 @@ for (const t of themes) {
   if (t.i === 0) continue; // stop 0 is what @theme already declares
   css += `[data-theme="${t.i}"] {\n${vars(t.dark, "  ")}\n`;
   css += `  --color-mark: ${t.dark.accent};\n  --color-solid: ${t.dark.accent};\n  --color-edge: ${t.dark.accent};\n`;
-  css += `  --color-on-mark: ${t.dark.ground};\n}\n`;
+  css += `  --color-on-mark: ${t.dark.ground};\n`;
+  // The drawings are cream paper and dark ink, and the colour lives here
+  // rather than in the file so they can follow the theme. Deliberately not
+  // overridden by .plate: a sticker in a light band is still a sticker.
+  css += `  --color-art-paper: ${t.dark.type};\n  --color-art-ink: ${t.dark.ground};\n}\n`;
   css += `[data-theme="${t.i}"] .plate {\n${vars(t.plate, "  ")}\n`;
   css += `  --color-edge: ${t.plate.accent};\n  --color-on-mark: ${t.dark.ground};\n}\n\n`;
 }
