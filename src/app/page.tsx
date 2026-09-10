@@ -15,7 +15,7 @@ export default function Home() {
       <section className="border-b border-rule">
         <Wrap className="py-20 md:py-32">
           <p className="label text-accent">
-            Founding designer &middot; 7 years on one product
+            7 years on one product &middot; San Juan, Puerto Rico
           </p>
 
           <h1 className="display mt-8 text-[3.5rem] sm:text-7xl md:text-[5.75rem] lg:text-[6.75rem]">

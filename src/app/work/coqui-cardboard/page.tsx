@@ -240,7 +240,7 @@ export default function Coqui() {
           </P>
 
           <WrongBlock
-            label="What I’d do differently"
+            label="Where I got ahead of myself"
             claim="I designed the system wide before a single vault survived contact with real data."
           >
             <p>

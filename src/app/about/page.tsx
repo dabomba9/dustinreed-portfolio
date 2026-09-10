@@ -54,7 +54,7 @@ export default function About() {
           </Pull>
 
           <P>
-            That&rsquo;s the part I&rsquo;d point at. Seven years living inside my own work,
+            That&rsquo;s the whole of it. Seven years living inside my own work,
             watching which calls held up and which ones quietly made someone else&rsquo;s
             job harder. It changes what you reach for.
           </P>
@@ -68,7 +68,7 @@ export default function About() {
             Android along the way. That keeps the distance between &ldquo;this should
             change&rdquo; and &ldquo;it&rsquo;s live&rdquo; short, which is most of what a
             small team actually needs. AI tooling is part of the working day now, not a
-            novelty I am trying out.
+            novelty I&rsquo;m trying out.
           </P>
 
           <H2>The Tink Tank</H2>
@@ -76,7 +76,7 @@ export default function About() {
           <P>
             The Tink Tank is my studio. It has run since 2018, alongside the day job, for
             clients across SaaS, healthcare, retail and commerce, from Fortune 500
-            companies down to two person startups. The one I would show you first is a
+            companies down to two person startups. The one I&rsquo;d show you first is a
             large print book manufacturer: two brand identities, and a quoting and
             checkout system that sells into school districts and state contracts. Growth
             has tripled since it launched.
@@ -177,9 +177,8 @@ export default function About() {
 
           <P>
             Product design, design leadership, design engineering. Any size company. If
-            you need one person who can take something from brand all the way through to
-            shipped code, or someone who can step into a team and raise the bar, I would
-            like to talk.
+            that is the person your team is short, or you want somebody who can step in
+            and raise what a team ships, I&rsquo;d like to talk.
           </P>
 
           <footer className="mt-16 border-t border-rule pt-10">

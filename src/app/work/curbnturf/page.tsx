@@ -161,7 +161,7 @@ export default function CurbNTurf() {
             turn on a dime and one that spends its runway in handoff meetings.
           </P>
 
-          <H2>What I got wrong</H2>
+          <H2>A ranch is not a house</H2>
 
           <P>
             I built the first version on Airbnb’s mental model, because it was proven and
@@ -338,9 +338,8 @@ export default function CurbNTurf() {
 
         <Column>
           <P>
-            Seven years on one product is the part I’d point at. Most designers hand
-            something over and never find out what it cost. I’ve had to keep using every
-            decision I made, and rebuild the ones that were wrong.
+            Seven years on one product. Most designers hand something over and never
+            find out what it cost. I’ve had to keep using mine.
           </P>
         </Column>
       </Wrap>

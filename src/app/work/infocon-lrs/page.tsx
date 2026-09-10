@@ -251,7 +251,7 @@ export default function InfoConLRS() {
           />
 
           <P>
-            The order status pipeline is the one I’d point at. These books get made after
+            The order status pipeline is the piece I’d defend. These books get made after
             you order them. There’s no warehouse shelf to pull from. So a librarian who
             ordered forty enlarged textbooks in July needs to know whether they’ll be there
             for the first day of school, and before this the only way to find out was to
@@ -280,7 +280,7 @@ export default function InfoConLRS() {
           </P>
 
           <WrongBlock
-            label="What I’d say now"
+            label="The argument I lost"
             claim="Those aren’t the same quality of evidence, and mine was the weaker one."
           >
             <p>
