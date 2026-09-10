@@ -40,7 +40,8 @@ export default function About() {
           <H2>Seven years inside my own work</H2>
 
           <P>
-            In December 2018 I joined CurbNTurf as one of three people. A founder, a
+            In December 2018 I joined CurbNTurf as one of three people at a bootstrapped
+            company. A founder, a
             developer, and me. There was a platform that barely worked and no visual
             identity at all. I built the brand, the product, the website, and two native
             apps. Today it&rsquo;s 500+ hosts with published listings and a 4.8 host
@@ -75,9 +76,8 @@ export default function About() {
 
           <P>
             The Tink Tank is my studio. It has run since 2018, alongside the day job, for
-            clients across SaaS, healthcare, retail and commerce, from Fortune 500
-            companies down to two person startups. The one I&rsquo;d show you first is a
-            large print book manufacturer: two brand identities, and a quoting and
+            clients across SaaS, healthcare, retail and commerce. Most of the roster is under
+            NDA. The one I&rsquo;d show you first is a large print book manufacturer: two brand identities, and a quoting and
             checkout system that sells into school districts and state contracts. Growth
             has tripled since it launched.
           </P>

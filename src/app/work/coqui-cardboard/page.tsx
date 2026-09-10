@@ -11,7 +11,7 @@ import InlineSticker from "@/components/inline-sticker";
 export const metadata: Metadata = pageMeta({
   title: "Coqui Cardboard — The one nobody asked me to build",
   description:
-    "A catalog for 1990s basketball cards, twenty four thousand of them, designed and built end to end. No client, no brief, no revenue.",
+    "A catalog for twenty four thousand sports cards across four players, designed and built end to end. No client, no brief, no revenue.",
   path: "/work/coqui-cardboard",
   image: "/og-coqui.jpg",
 });
@@ -23,7 +23,7 @@ export default function Coqui() {
         number="02"
         client="Coqui Cardboard"
         title="The one nobody asked me to build"
-        dek="A catalog for 1990s basketball cards, twenty four thousand of them, designed and built by me for a hobby I got pulled back into during the pandemic. No client. No brief. No revenue. That’s sort of the point."
+        dek="A catalog for twenty four thousand sports cards across four players, designed and built by me for a hobby I got pulled back into during the pandemic. No client. No brief. No revenue. That’s sort of the point."
         live={{ label: "coquicardboard.com", href: "https://www.coquicardboard.com" }}
         meta={[
           { label: "Role", value: "All of it" },
