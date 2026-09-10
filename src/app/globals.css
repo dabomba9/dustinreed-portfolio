@@ -24,7 +24,8 @@
      control is different: WCAG 1.4.11 wants 3:1 for anything you have to
      see to know it is operable, and the rail's Search button - the way in
      to the whole palette - had a 1.47:1 border on a 1.13:1 fill and read
-     as a floating label with no button around it. 4.32:1 here. */
+     as a floating label with no button around it. 3.42:1 here, and every
+     generated theme lands between 3.16 and 3.48 against its own ground. */
   --color-control: #4d7a5f;
 
   /* Accent, split by role. On a dark ground the lime finally clears 4.5:1,
@@ -78,7 +79,7 @@
   --color-accent: #566f00; /* 4.96:1 on plate - the lime, darkened until
                               it passes against light */
   --color-edge: #566f00;
-  --color-control: #7c8a72;  /* 3.05:1 on the light ground */
+  --color-control: #7c8a72;  /* 3.17:1 on the light ground */
   color: var(--color-type);
 }
 .plate ::selection { background-color: var(--color-mark); color: var(--color-on-mark); }
