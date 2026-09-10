@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/themes.mjs --check && next build",
+    "themes": "node scripts/themes.mjs",
+    "themes:check": "node scripts/themes.mjs --check",
     "start": "next start",
     "lint": "eslint",
     "nav": "python3 scripts-nav.py",

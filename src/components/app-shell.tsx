@@ -1,5 +1,8 @@
 "use client";
 
+import GridGuides from "@/components/grid-guides";
+import Appearance from "@/components/appearance";
+
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { gsap, EASE, T, dur } from "@/lib/motion";
 import PuertoRico from "@/components/puerto-rico";
@@ -403,6 +406,15 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           ) : null}
         </nav>
 
+        {/* Appearance sits above Search and Email because it is the least
+            of the three: the two below it are how someone contacts me, and
+            this is a toy. It is in the rail rather than floating over the
+            page so it reaches the phone drawer as well, and so there is one
+            less thing parked on top of the work. */}
+        <div className="border-t border-rule">
+          <Appearance />
+        </div>
+
         <div className="border-t border-rule p-3">
           <button
             onClick={() => setPaletteOpen(true)}
@@ -430,6 +442,8 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       ) : null}
 
       {/* ---- content ---- */}
+      <GridGuides />
+
       <div className="lg:pl-[21rem]">
         <main id="main" key={pathname} className="page-in min-h-screen pb-24">
           {children}

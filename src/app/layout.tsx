@@ -106,7 +106,33 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${bigShoulders.variable} ${jetbrains.variable}`}>
+    /* suppressHydrationWarning is load bearing, not noise suppression. The
+       inline script below writes data-theme onto this element before paint,
+       and the server rendered no such attribute - so on hydration React
+       reconciles the difference by deleting it, and the reader's theme
+       disappears the moment the page becomes interactive. Measured: the
+       attribute reads 7 at DOMContentLoaded and undefined a tick later. */
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${bigShoulders.variable} ${jetbrains.variable}`}
+    >
+      <head>
+        {/* Before first paint, not in an effect. An effect runs after the
+            browser has already painted, so a reader who picked a theme would
+            watch the green flash past on every navigation before their own
+            choice landed. Deliberately tiny, deliberately synchronous, and
+            wrapped in try/catch because storage throws outright in some
+            privacy modes rather than merely coming back empty. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var t=localStorage.getItem('dr-theme');" +
+              "if(t&&t!=='0')document.documentElement.dataset.theme=t;" +
+              "if(localStorage.getItem('dr-grid')==='1')document.documentElement.dataset.grid='1';}catch(e){}",
+          }}
+        />
+      </head>
       <body className="min-h-screen">
         <script
           type="application/ld+json"
