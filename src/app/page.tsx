@@ -1,10 +1,10 @@
 import WorkIndex from "@/components/work-index";
 import SelectedWorkList from "@/components/selected-work";
+import ProfileLinks from "@/components/profile-links";
 import CopyEmail from "@/components/copy-email";
 import { Mark, Wrap } from "@/components/prose";
 import InlineSticker from "@/components/inline-sticker";
 import { caseStudies, selectedWork } from "@/content/projects";
-import { PROFILES } from "@/lib/site";
 
 export default function Home() {
   return (
@@ -107,32 +107,13 @@ export default function Home() {
               territory, so there&rsquo;s no visa or sponsorship involved.
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+            {/* Column then row: on a phone the email owns its line and the
+                three links sit under it as one group. Flat wrapping put the
+                email and LinkedIn together and pushed the other two onto a
+                line of their own, which read as two pairs. */}
+            <div className="mt-10 flex flex-col gap-y-7 md:flex-row md:flex-wrap md:items-center md:gap-x-8 md:gap-y-4">
               <CopyEmail className="font-display text-2xl font-extrabold tracking-tight text-accent underline decoration-edge/30 decoration-2 underline-offset-[6px] transition-colors hover:decoration-edge md:text-4xl" />
-              <a
-                href={PROFILES.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="draw-link label inline-flex items-center py-3 -my-3 text-soft no-underline transition-colors hover:text-accent"
-              >
-                LinkedIn &#8599;
-              </a>
-              <a
-                href={PROFILES.github}
-                target="_blank"
-                rel="noreferrer"
-                className="draw-link label inline-flex items-center py-3 -my-3 text-soft no-underline transition-colors hover:text-accent"
-              >
-                GitHub &#8599;
-              </a>
-              <a
-                href="https://thetinktank.com"
-                target="_blank"
-                rel="noreferrer"
-                className="draw-link label inline-flex items-center py-3 -my-3 text-soft no-underline transition-colors hover:text-accent"
-              >
-                The Tink Tank &#8599;
-              </a>
+              <ProfileLinks />
             </div>
 
             <p className="label mt-16 text-mute">

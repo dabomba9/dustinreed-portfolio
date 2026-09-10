@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/meta";
 import { Wrap, Column, H2, P, Lead, Pull } from "@/components/prose";
+import ProfileLinks from "@/components/profile-links";
 import CopyEmail from "@/components/copy-email";
 import InlineSticker from "@/components/inline-sticker";
 
@@ -184,6 +185,7 @@ export default function About() {
           <footer className="mt-16 border-t border-rule pt-10">
             <p className="label text-mute">Get in touch</p>
             <CopyEmail className="mt-4 inline-block font-display text-2xl font-extrabold tracking-tight text-accent underline decoration-edge/30 decoration-2 underline-offset-[6px] transition-colors hover:decoration-edge md:text-3xl" />
+            <ProfileLinks className="mt-7" />
           </footer>
         </Column>
       </Wrap>
