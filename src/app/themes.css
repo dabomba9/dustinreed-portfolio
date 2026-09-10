@@ -15,8 +15,8 @@
   --color-solid: #b4fdb7;
   --color-edge: #b4fdb7;
   --color-on-mark: #07211d;
-  --color-art-paper: #edf0e4;
-  --color-art-ink: #07211d;
+  --color-art-paper: #e7f0cf;
+  --color-art-ink: #023f37;
 }
 [data-theme="1"] .plate {
   --color-ground: #edf0e4;
@@ -44,8 +44,8 @@
   --color-solid: #a9fdda;
   --color-edge: #a9fdda;
   --color-on-mark: #062123;
-  --color-art-paper: #e9f1e7;
-  --color-art-ink: #062123;
+  --color-art-paper: #dbf3d7;
+  --color-art-ink: #023d42;
 }
 [data-theme="2"] .plate {
   --color-ground: #e9f1e7;
@@ -73,8 +73,8 @@
   --color-solid: #9afdf4;
   --color-edge: #9afdf4;
   --color-on-mark: #092028;
-  --color-art-paper: #e5f2eb;
-  --color-art-ink: #092028;
+  --color-art-paper: #d1f5e2;
+  --color-art-ink: #023c4c;
 }
 [data-theme="3"] .plate {
   --color-ground: #e5f2eb;
@@ -102,8 +102,8 @@
   --color-solid: #5f97a0;
   --color-edge: #5f97a0;
   --color-on-mark: #0f1f2b;
-  --color-art-paper: #e3f2ef;
-  --color-art-ink: #0f1f2b;
+  --color-art-paper: #cbf6ee;
+  --color-art-ink: #02385c;
 }
 [data-theme="4"] .plate {
   --color-ground: #e3f2ef;
@@ -131,8 +131,8 @@
   --color-solid: #6695ab;
   --color-edge: #6695ab;
   --color-on-mark: #161d2d;
-  --color-art-paper: #e3f2f3;
-  --color-art-ink: #161d2d;
+  --color-art-paper: #c9f5f9;
+  --color-art-ink: #203263;
 }
 [data-theme="5"] .plate {
   --color-ground: #e3f2f3;
@@ -160,8 +160,8 @@
   --color-solid: #7291b2;
   --color-edge: #7291b2;
   --color-on-mark: #1d1b2c;
-  --color-art-paper: #e4f1f7;
-  --color-art-ink: #1d1b2c;
+  --color-art-paper: #d2f1ff;
+  --color-art-ink: #342c60;
 }
 [data-theme="6"] .plate {
   --color-ground: #e4f1f7;
@@ -189,8 +189,8 @@
   --color-solid: #818db4;
   --color-edge: #818db4;
   --color-on-mark: #221a2a;
-  --color-art-paper: #e6f0f9;
-  --color-art-ink: #221a2a;
+  --color-art-paper: #dceeff;
+  --color-art-ink: #432658;
 }
 [data-theme="7"] .plate {
   --color-ground: #e6f0f9;
@@ -218,8 +218,8 @@
   --color-solid: #9189b1;
   --color-edge: #9189b1;
   --color-on-mark: #271826;
-  --color-art-paper: #eaeffa;
-  --color-art-ink: #271826;
+  --color-art-paper: #e3ebff;
+  --color-art-ink: #4e214b;
 }
 [data-theme="8"] .plate {
   --color-ground: #eaeffa;
@@ -247,8 +247,8 @@
   --color-solid: #9e86aa;
   --color-edge: #9e86aa;
   --color-on-mark: #2a1820;
-  --color-art-paper: #eeeefa;
-  --color-art-ink: #2a1820;
+  --color-art-paper: #eae8ff;
+  --color-art-ink: #561e3b;
 }
 [data-theme="9"] .plate {
   --color-ground: #eeeefa;
@@ -276,8 +276,8 @@
   --color-solid: #a9839e;
   --color-edge: #a9839e;
   --color-on-mark: #2c171a;
-  --color-art-paper: #f3ecf7;
-  --color-art-ink: #2c171a;
+  --color-art-paper: #f3e5ff;
+  --color-art-ink: #5a1d29;
 }
 [data-theme="10"] .plate {
   --color-ground: #f3ecf7;
@@ -305,8 +305,8 @@
   --color-solid: #b08290;
   --color-edge: #b08290;
   --color-on-mark: #2c1814;
-  --color-art-paper: #f6ecf4;
-  --color-art-ink: #2c1814;
+  --color-art-paper: #fee1f9;
+  --color-art-ink: #5b2014;
 }
 [data-theme="11"] .plate {
   --color-ground: #f6ecf4;
@@ -334,8 +334,8 @@
   --color-solid: #b28282;
   --color-edge: #b28282;
   --color-on-mark: #2a190e;
-  --color-art-paper: #f9ebf0;
-  --color-art-ink: #2a190e;
+  --color-art-paper: #ffe2ed;
+  --color-art-ink: #542802;
 }
 [data-theme="12"] .plate {
   --color-ground: #f9ebf0;
@@ -363,8 +363,8 @@
   --color-solid: #b18475;
   --color-edge: #b18475;
   --color-on-mark: #261b0b;
-  --color-art-paper: #faebec;
-  --color-art-ink: #261b0b;
+  --color-art-paper: #ffe4e5;
+  --color-art-ink: #493002;
 }
 [data-theme="13"] .plate {
   --color-ground: #faebec;
@@ -392,8 +392,8 @@
   --color-solid: #ac886b;
   --color-edge: #ac886b;
   --color-on-mark: #211d0a;
-  --color-art-paper: #faece8;
-  --color-art-ink: #211d0a;
+  --color-art-paper: #ffe5de;
+  --color-art-ink: #3f3502;
 }
 [data-theme="14"] .plate {
   --color-ground: #faece8;
@@ -421,8 +421,8 @@
   --color-solid: #a28c65;
   --color-edge: #a28c65;
   --color-on-mark: #1b1f0c;
-  --color-art-paper: #f8ede5;
-  --color-art-ink: #1b1f0c;
+  --color-art-paper: #ffe6d5;
+  --color-art-ink: #323a02;
 }
 [data-theme="15"] .plate {
   --color-ground: #f8ede5;
@@ -450,8 +450,8 @@
   --color-solid: #fcef70;
   --color-edge: #fcef70;
   --color-on-mark: #142011;
-  --color-art-paper: #f5eee3;
-  --color-art-ink: #142011;
+  --color-art-paper: #fce8ca;
+  --color-art-ink: #19400d;
 }
 [data-theme="16"] .plate {
   --color-ground: #f5eee3;

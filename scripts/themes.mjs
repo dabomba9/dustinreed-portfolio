@@ -84,6 +84,52 @@ function lchToHex(L, C, H) {
   return rgbToHex(lchToRgb(L, lo, H));
 }
 
+/** The most saturated colour sRGB can hold at this lightness and hue. */
+function maxChroma(L, H) {
+  let lo = 0, hi = 0.4;
+  for (let i = 0; i < 50; i++) {
+    const mid = (lo + hi) / 2;
+    if (inGamut(lchToRgb(L, mid, H))) lo = mid; else hi = mid;
+  }
+  return lo;
+}
+
+/**
+ * The two tones the illustrations are drawn in.
+ *
+ * These are NOT the page's type and ground, which is what they were at
+ * first, and the reason is worth keeping: #f1efe3 has a chroma of 0.016 and
+ * #0d2117 has 0.033. There is almost no colour in either of them to rotate,
+ * so the drawings barely moved while the rest of the page changed hue.
+ *
+ * The ceiling is not a matter of taste either. At L=0.95 sRGB holds at most
+ * 0.023 of chroma at some hues - a near-white simply cannot be colourful. So
+ * the paper drops to 0.94 and the ink lifts to 0.33, where there is room.
+ *
+ * A FIXED chroma, clamped to what each hue can hold - not a fraction of the
+ * maximum. The maximum swings by a factor of four across hues, and yellow
+ * holds by far the most, so a fraction made stop 0 the most saturated of the
+ * seventeen. Which is exactly backwards: stop 0 is the default and should be
+ * the calm one. A fixed target gives every stop about the same amount of
+ * colour, and the hues that cannot reach it simply come out gentler.
+ *
+ * Each tone keeps its OWN hue rather than borrowing the accent's. Driving
+ * both from the accent turned stop 0 chartreuse and threw away the cream and
+ * dark green the drawings are known by; this way stop 0 stays recognisably
+ * itself and every other stop is unmistakably not.
+ */
+const ART_PAPER_C = 0.045;
+const ART_INK_C = 0.09;
+
+function artTones(delta) {
+  const paperH = (toLch("#f1efe3")[2] + delta) % 360;
+  const inkH = (toLch("#0d2117")[2] + delta) % 360;
+  return {
+    paper: lchToHex(0.94, Math.min(ART_PAPER_C, maxChroma(0.94, paperH) * 0.98), paperH),
+    ink: lchToHex(0.33, Math.min(ART_INK_C, maxChroma(0.33, inkH) * 0.98), inkH),
+  };
+}
+
 /** The colour at this hue whose relative luminance matches the original. */
 function solveForLuminance(targetY, chroma, H) {
   let C = chroma;
@@ -149,6 +195,7 @@ const themes = Array.from({ length: STOPS }, (_, i) => {
     i, name: NAMES[i],
     dark: i ? rotate(DARK, delta) : { ...DARK },
     plate: i ? rotate(PLATE, delta) : { ...PLATE },
+    art: artTones(delta),
   };
 });
 
@@ -170,6 +217,16 @@ function audit() {
     const r = contrast(t.dark.ground, t.dark.accent);
     if (r < 4.5)
       fails.push(`stop ${t.i} ${t.name} on-mark on mark = ${r.toFixed(2)} (need 4.5)`);
+  }
+  // The drawings sit on the page ground and the die-cut edge has to read as
+  // an edge. Not a text pair, so 3:1 rather than 4.5:1.
+  for (const t of themes) {
+    const r = contrast(t.art.paper, t.dark.ground);
+    if (r < 3)
+      fails.push(`stop ${t.i} ${t.name} art paper on ground = ${r.toFixed(2)} (need 3.0)`);
+    const r2 = contrast(t.art.paper, t.art.ink);
+    if (r2 < 4.5)
+      fails.push(`stop ${t.i} ${t.name} art ink on paper = ${r2.toFixed(2)} (need 4.5)`);
   }
   return fails;
 }
@@ -197,7 +254,7 @@ for (const t of themes) {
   // The drawings are cream paper and dark ink, and the colour lives here
   // rather than in the file so they can follow the theme. Deliberately not
   // overridden by .plate: a sticker in a light band is still a sticker.
-  css += `  --color-art-paper: ${t.dark.type};\n  --color-art-ink: ${t.dark.ground};\n}\n`;
+  css += `  --color-art-paper: ${t.art.paper};\n  --color-art-ink: ${t.art.ink};\n}\n`;
   css += `[data-theme="${t.i}"] .plate {\n${vars(t.plate, "  ")}\n`;
   css += `  --color-edge: ${t.plate.accent};\n  --color-on-mark: ${t.dark.ground};\n}\n\n`;
 }

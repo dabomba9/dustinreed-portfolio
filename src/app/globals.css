@@ -43,9 +43,15 @@
      the only part of the page that could not follow a theme. The files are
      alpha masks now and these two carry the colour. Not overridden inside
      .plate, because a sticker dropped into a light band is still a sticker
-     and should not invert. */
-  --color-art-paper: #f1efe3;
-  --color-art-ink: #0d2117;
+     and should not invert.
+
+     Not --color-type and --color-ground, which is what they were at first.
+     Those two have chromas of 0.016 and 0.033 - there is almost no colour in
+     either of them to rotate, so the drawings barely moved while the rest of
+     the page changed hue. These carry real chroma at a lightness where sRGB
+     can hold some. Generated with everything else; see scripts/themes.mjs. */
+  --color-art-paper: #f2ecca;
+  --color-art-ink: #024028;
 
   --color-accent: #c6ff00;   /* 14.20:1 on ground */
   --color-mark: #c6ff00;     /* highlighter ground; dark type sits on it */
