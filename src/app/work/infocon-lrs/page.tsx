@@ -227,7 +227,7 @@ export default function InfoConLRS() {
             src="/media/lrs-clip"
             poster="/media/lrs-clip-poster.jpg"
             label="The LRS homepage scrolled end to end: the black search bar, the yellow rule, the online features panel and the newly added books shelf"
-            caption="LRS. Black, condensed and built around search. Same catalogue, same buyers, the opposite posture. That difference is the reason we kept both."
+            caption="LRS. Black, condensed and built around search. Same catalog, same buyers, the opposite posture. That difference is the reason we kept both."
           />
 
           <H2>The part that isn’t a website</H2>

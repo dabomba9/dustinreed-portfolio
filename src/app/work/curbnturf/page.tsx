@@ -177,7 +177,7 @@ export default function CurbNTurf() {
 
           <WrongBlock
             label="What it cost"
-            claim="I modelled one host, one site. A ranch is five or six."
+            claim="I modeled one host, one site. A ranch is five or six."
           >
             <p>
               Here’s why it took a while to see: it never actually broke. Hosts could

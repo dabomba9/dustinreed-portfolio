@@ -79,7 +79,7 @@ export default function About() {
             companies down to two person startups. The one I would show you first is a
             large print book manufacturer: two brand identities, and a quoting and
             checkout system that sells into school districts and state contracts. Growth
-            has doubled since it launched.
+            has tripled since it launched.
           </P>
 
           <Pull>
@@ -88,7 +88,7 @@ export default function About() {
           </Pull>
 
           <P>
-            Five hundred pieces of private land. Twelve thousand sports cards. A
+            Five hundred pieces of private land. Twenty four thousand sports cards. A
             publisher&rsquo;s full catalog, browsed by a librarian who knows exactly what her
             collection is missing. Search, taxonomy, hierarchy, and the difference between
             browsing and already knowing what you want. I didn&rsquo;t plan that. I noticed

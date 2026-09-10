@@ -39,8 +39,8 @@ export const caseStudies: CaseStudy[] = [
     client: "Coqui Cardboard",
     title: "The one nobody asked me to build.",
     blurb:
-      "Twelve thousand basketball cards, catalogued and designed the way the objects deserve. No client, no brief, no revenue. Designed and built end to end in Next.js.",
-    facts: ["Sole designer and developer", "12,000+ cards", "Command palette search"],
+      "Twenty four thousand basketball cards, catalogued and designed the way the objects deserve. No client, no brief, no revenue. Designed and built end to end in Next.js.",
+    facts: ["Sole designer and developer", "24,000+ cards", "Command palette search"],
     live: { label: "coquicardboard.com", href: "https://www.coquicardboard.com" },
     image: "/media/coqui-clip-poster.jpg",
     clip: "/media/coqui-clip",
