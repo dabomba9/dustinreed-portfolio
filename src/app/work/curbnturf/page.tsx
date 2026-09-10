@@ -342,6 +342,11 @@ export default function CurbNTurf() {
             Seven years on one product. Most designers hand something over and never
             find out what it cost. I’ve had to keep using mine.
           </P>
+          <P>
+            It is not finished. The v2 redesign is underway now, reframing the whole
+            product around the freedom of the trip rather than the mechanics of booking
+            a spot, and I am writing backend alongside the design work to ship it.
+          </P>
         </Column>
       </Wrap>
 
