@@ -282,7 +282,15 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             whole rail it is one. Splitting the block this way is what lets
             the columns be equal without the type paying for it. */}
         <div className="border-b border-rule px-4 pb-5 pt-7">
-          <div className="flex items-start justify-between gap-2">
+          {/* The close button is positioned, not placed. As a flex sibling it
+              was shrink-0 at 48px plus a gap, so it took 56px out of the row
+              and the two halves either side of the hairline split what was
+              left - which pushed the whole identity block off centre by 28px
+              on a phone. It is lg:hidden, so on a desktop it took nothing and
+              the block sat centred, which is why this only ever showed up in
+              the drawer. Out of flow, the halves get the full width back and
+              the button keeps its size and its 48px target. */}
+          <div className="relative flex items-start">
             <Link
               href="/"
               className="group flex min-w-0 flex-1 items-end gap-4 no-underline"
@@ -317,7 +325,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
                 target. */}
             <button
               onClick={() => setRailOpen(false)}
-              className="-mr-1 -mt-3 flex min-h-12 min-w-12 shrink-0 items-center justify-center font-mono text-[1.75rem] leading-none text-mute transition-colors hover:text-type active:text-type lg:hidden"
+              className="absolute -right-2 -top-4 z-10 flex min-h-12 min-w-12 items-center justify-center font-mono text-[1.75rem] leading-none text-mute transition-colors hover:text-type active:text-type lg:hidden"
               aria-label="Close index"
             >
               <span aria-hidden>&times;</span>
