@@ -100,10 +100,10 @@ export const selectedWork: SelectedWork[] = [
   {
     name: "New Smile Dentures",
     href: "https://www.newsmiledentures.com",
-    when: "2022 to 2026",
+    when: "2023 to 2025",
     role: ["Brand", "Site", "SEO", "Google Ads"],
     domain: "newsmiledentures.com",
-    line: "A family denture practice in Idaho: three generations, two clinics, an in house lab, and patients who arrive embarrassed. The identity and the site were built for a business that had outgrown both. I rebuilt them in 2022 and then ran the brand for four years, SEO and Google Ads included. Buying the traffic yourself is how you find out whether the rebrand actually worked.",
+    line: "A family denture practice in Idaho: three generations, two clinics, an in house lab, and patients who arrive embarrassed. The identity and the site were built for a business that had outgrown both. I rebuilt them in spring 2023 and then ran the brand for nearly three years, SEO and Google Ads included. Buying the traffic yourself is how you find out whether the rebrand actually worked.",
     clip: "/media/newsmiledentures-clip",
     poster: "/media/newsmiledentures-clip-poster.jpg",
     clipAlt: "The New Smile Dentures homepage scrolled: the clinic photography, the treatment cards and the booking path",
