@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   description: HOME_DESCRIPTION,
   openGraph: {
-    title: "Dustin Reed — Founding Designer & Design Engineer",
+    title: "Dustin Reed — Founding Product Designer & Design Engineer",
     description: HOME_DESCRIPTION,
     url: SITE_URL,
     siteName: "Dustin Reed",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   twitter: {
     card: "summary_large_image",
-    title: "Dustin Reed — Founding Designer & Design Engineer",
+    title: "Dustin Reed — Founding Product Designer & Design Engineer",
     /* One description, not two. The X card used to drop "Seven years on the
        same product" - the most distinctive clause in the sentence - for a
        length limit it was nowhere near. */

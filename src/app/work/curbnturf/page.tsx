@@ -37,8 +37,9 @@ export default function CurbNTurf() {
           <H2>Three people and a platform that was barely working</H2>
 
           <Lead>
-            I joined CurbNTurf in December 2018 as one of three. Aaron Rawlins was starting
-            the company, Jed Smith was building it, and I was designing it.
+            I joined CurbNTurf in December 2018 as one of three, at a company with no outside
+            funding. Aaron Rawlins was starting the company, Jed Smith was building it,
+            and I was designing it.
           </Lead>
 
           <P>

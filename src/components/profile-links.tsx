@@ -14,6 +14,8 @@ import { PROFILES } from "@/lib/site";
  * three of them clear 360px without breaking.
  */
 const LINKS = [
+  /* First, because it is the thing a recruiter came for. */
+  { label: "Résumé", href: "/dustin-reed-resume.pdf" },
   { label: "LinkedIn", href: PROFILES.linkedin },
   { label: "GitHub", href: PROFILES.github },
   { label: "The Tink Tank", href: "https://thetinktank.com" },
