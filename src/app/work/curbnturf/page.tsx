@@ -109,6 +109,15 @@ export default function CurbNTurf() {
             doing.
           </P>
 
+          <Clip
+            wide
+            tilt={-0.9}
+            src="/media/curbnturf-host"
+            poster="/media/curbnturf-host-poster.jpg"
+            label="The CurbNTurf host landing page scrolled end to end: the earnings headline, the land types that qualify shown as tags, an earnings calculator, the three step explainer, the community map, the host protection panel and the FAQ"
+            caption="The host landing page, captured September 2026. Every block on it answers something a salesperson used to answer on a phone call. What kind of land counts, listed out so a rancher can find his own in it. What it pays, as a calculator rather than a promise. And near the bottom, what happens if a guest damages something, which is a question a landowner has before he has any of the others. This page has to finish the pitch before the onboarding can start the paperwork."
+          />
+
           <Figure tilt={1.2}
             wide
             src="/media/curbnturf-onboarding.png"
@@ -202,7 +211,7 @@ export default function CurbNTurf() {
           <Figure tilt={-0.7}
             wide
             src="/media/curbnturf-explore.png"
-            alt="The explore map with a listing card: amenities and a nightly price range"
+            alt="The explore page: filter chips across the top, listing cards carrying their own amenities and nightly price, and a map of the United States clustered by count and price"
             caption="A listing carries its own amenities and price range. The fix was letting one host hold several of these."
           />
 
