@@ -218,7 +218,12 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           aria-expanded={railOpen}
           aria-controls="index-rail"
         >
-          <span aria-hidden>{railOpen ? "\u00d7" : "\u2261"}</span> Index
+          {/* The glyph reads as an icon, so it is sized like one rather than
+              like the word beside it. */}
+          <span aria-hidden className="text-xl leading-none">
+            {railOpen ? "\u00d7" : "\u2261"}
+          </span>{" "}
+          Index
         </button>
         <Link
           href="/"
@@ -302,12 +307,16 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
               </span>
             </Link>
 
+            {/* Not `label`: that class sets an 11px type size and 0.14em of
+                tracking, which on a single glyph is a small x pushed off its
+                own centre. Sized and centred directly instead, in a 48px
+                target. */}
             <button
               onClick={() => setRailOpen(false)}
-              className="label -mr-2 -mt-3 flex min-h-11 min-w-11 shrink-0 items-center justify-center text-lg text-mute lg:hidden"
+              className="-mr-1 -mt-3 flex min-h-12 min-w-12 shrink-0 items-center justify-center font-mono text-[1.75rem] leading-none text-mute transition-colors hover:text-type active:text-type lg:hidden"
               aria-label="Close index"
             >
-              ×
+              <span aria-hidden>&times;</span>
             </button>
           </div>
 
