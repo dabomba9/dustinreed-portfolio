@@ -209,8 +209,13 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
         /* Taller than a chrome bar needs to be, on purpose. The drawing is
            the only piece of the identity that survives to this width, and at
            28px it was a favicon. It is also the way back to the home page,
-           which nothing else on a phone offers. */
-        className="sticky top-0 z-30 flex h-[4.5rem] items-center justify-between border-b border-rule bg-ground/90 px-2 backdrop-blur-md lg:hidden"
+           which nothing else on a phone offers.
+
+           84px of sticky chrome is 10% of a phone screen, which is a lot to
+           spend on a header. It buys a drawing somebody might actually look
+           at, and the drawing is the brand at this width - there is no
+           wordmark, no rail, and below 380px not even a name beside it. */
+        className="sticky top-0 z-30 flex h-[5.25rem] items-center justify-between border-b border-rule bg-ground/90 px-2 backdrop-blur-md lg:hidden"
       >
         <button
           onClick={() => setRailOpen((v) => !v)}
@@ -236,7 +241,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             width={606}
             height={640}
             priority
-            className="h-12 w-auto transition-transform duration-200 ease-out group-active:scale-95"
+            className="h-[3.75rem] w-auto transition-transform duration-200 ease-out group-active:scale-95"
           />
           <span aria-hidden className="hidden min-[380px]:inline">
             Dustin Reed
