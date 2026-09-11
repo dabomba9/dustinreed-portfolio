@@ -68,8 +68,10 @@ export default function About() {
             design, production Next.js and React to ship, with design systems, iOS and
             Android along the way. That keeps the distance between &ldquo;this should
             change&rdquo; and &ldquo;it&rsquo;s live&rdquo; short, which is most of what a
-            small team actually needs. AI tooling is part of the working day now, not a
-            novelty I&rsquo;m trying out.
+            small team actually needs. AI sits in both halves of that now: it is how I work,
+            agentic coding against the real repo rather than autocomplete in a sidebar, and
+            increasingly it is what I build, LLM and RAG systems running inside a
+            client&rsquo;s own accounts.
           </P>
 
           <H2>The Tink Tank</H2>

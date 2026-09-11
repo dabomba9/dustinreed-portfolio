@@ -92,7 +92,7 @@ export const selectedWork: SelectedWork[] = [
     when: "2026",
     role: ["Founder", "Brand", "Site", "Front end"],
     domain: "stickyflow.com",
-    line: "My own agency, launched early spring 2026. It sells AI workflow automation on a flat monthly subscription instead of an agency retainer, and the whole pitch is that a founder owns the automation outright rather than renting it, so the site could not look like a brochure. It is built as machinery: terminal typography, live telemetry ticking in the header, Next.js and GSAP underneath.",
+    line: "My own agency, launched early spring 2026. It sells AI workflow automation on a flat monthly subscription instead of an agency retainer, and the whole pitch is that a founder owns the automation outright rather than renting it, so the site could not look like a brochure. It is built as machinery: terminal typography, live telemetry ticking in the header, Next.js and GSAP underneath. Behind the brand, the builds themselves are RAG chatbots, LLM API integrations and agent workflows in custom code, deployed into the client's own accounts and keys.",
     clip: "/media/stickyflow-clip",
     poster: "/media/stickyflow-clip-poster.jpg",
     clipAlt: "The StickyFlow homepage scrolled: terminal typography on a dark ground, telemetry counting in the header",
