@@ -93,8 +93,8 @@ export default function Home() {
               through to shipped code.
             </p>
             <p className="mt-8 max-w-xl text-[1.0625rem] leading-relaxed text-soft">
-              Product design, design leadership and design engineering roles, at any size
-              company. Fully remote with US companies. I&rsquo;m in{" "}
+              Founding designer, senior and staff product design, and design engineering
+              roles, at any size company. Fully remote with US companies. I&rsquo;m in{" "}
               <InlineSticker
                 src="/media/coqui-taino"
                 width={760}
