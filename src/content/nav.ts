@@ -27,7 +27,7 @@ export const pages: Page[] = [
       { id: "three-people-and-a-platform-that-was-barely-working", title: "Three people and a platform that was barely working" },
       { id: "one-decision-shaped-every-screen-after-it", title: "One decision shaped every screen after it" },
       { id: "designing-inside-the-thing-we-shipped", title: "Designing inside the thing we shipped" },
-      { id: "what-i-got-wrong", title: "What I got wrong" },
+      { id: "a-ranch-is-not-a-house", title: "A ranch is not a house" },
       { id: "what-the-numbers-actually-say", title: "What the numbers actually say" },
       { id: "version-two", title: "Version two" },
       { id: "the-apps", title: "The apps" },
