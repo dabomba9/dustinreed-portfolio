@@ -333,7 +333,7 @@ export default function CurbNTurf() {
             { value: "500+", label: "Hosts with published listings, from farmland to urban driveways" },
             { value: "4.8", label: "Average host rating" },
             { value: "2", label: "Native apps shipped, iOS and Android, free to use" },
-            { value: "7 yrs", label: "Designing and shipping the same product" },
+            { value: "Since 2018", label: "Designing and shipping the same product" },
           ]}
         />
 
