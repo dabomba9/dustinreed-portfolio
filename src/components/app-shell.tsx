@@ -333,7 +333,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           </div>
 
           <p className="label -mr-[0.13em] mt-5 border-t border-rule pt-4 text-center text-mute">
-            Founding Designer &amp; Design Engineer
+            Founding Product Designer &amp; Design Engineer
           </p>
 
           <p className="label mt-3 flex items-center justify-center gap-2 text-type">

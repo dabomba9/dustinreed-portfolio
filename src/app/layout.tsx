@@ -41,7 +41,7 @@ export const metadata: Metadata = {
      "Dustin Reed" outright, so the title was spending its whole budget on
      the one query that was never in doubt. */
   title: {
-    default: "Dustin Reed — Founding Designer & Design Engineer",
+    default: "Dustin Reed — Founding Product Designer & Design Engineer",
     template: "%s — Dustin Reed",
   },
   description: HOME_DESCRIPTION,
@@ -78,7 +78,7 @@ const PERSON = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Dustin Reed",
-  jobTitle: "Founding Designer & Design Engineer",
+  jobTitle: "Founding Product Designer & Design Engineer",
   url: SITE_URL,
   image: `${SITE_URL}/og.png`,
   email: `mailto:${EMAIL}`,
