@@ -339,7 +339,7 @@ export default function CurbNTurf() {
 
         <Column>
           <P>
-            Seven years on one product. Most designers hand something over and never
+            One product since 2018. Most designers hand something over and never
             find out what it cost. I’ve had to keep using mine.
           </P>
           <P>

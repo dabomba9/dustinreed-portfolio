@@ -14,7 +14,7 @@ import InlineSticker from "@/components/inline-sticker";
 export const metadata: Metadata = pageMeta({
   title: "About — Product Design, Design Leadership, Design Engineering",
   description:
-    "Seven years as founding designer on one product, from brand through to shipped code and now the backend. Open to product design, design leadership and design engineering. Remote from Puerto Rico, US authorised, bilingual.",
+    "Founding designer on one product since 2018, from brand through to shipped code and now the backend. Open to founding designer, senior and staff product design, and design engineering. Remote from Puerto Rico, US authorised, bilingual.",
   path: "/about",
 });
 
@@ -37,7 +37,7 @@ export default function About() {
             end that ships it.
           </Lead>
 
-          <H2>Seven years inside my own work</H2>
+          <H2>Inside my own work since 2018</H2>
 
           <P>
             In December 2018 I joined CurbNTurf as one of three people at a bootstrapped
@@ -45,8 +45,7 @@ export default function About() {
             developer, and me. There was a platform that barely worked and no visual
             identity at all. I built the brand, the product, the website, and two native
             apps. Today it&rsquo;s 500+ hosts with published listings and a 4.8 host
-            rating, and I&rsquo;m still designing it seven years later, now working into
-            the backend.
+            rating, and I&rsquo;m still designing it, now working into the backend.
           </P>
 
           <Pull>
@@ -55,7 +54,7 @@ export default function About() {
           </Pull>
 
           <P>
-            That&rsquo;s the whole of it. Seven years living inside my own work,
+            That&rsquo;s the whole of it. Years of living inside my own work,
             watching which calls held up and which ones quietly made someone else&rsquo;s
             job harder. It changes what you reach for.
           </P>
