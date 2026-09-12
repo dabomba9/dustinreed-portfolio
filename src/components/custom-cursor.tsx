@@ -81,8 +81,13 @@ export default function CustomCursor() {
       const cs = getComputedStyle(cursor);
       tipX = parseFloat(cs.getPropertyValue("--tip-x")) || 0;
       tipY = parseFloat(cs.getPropertyValue("--tip-y")) || 0;
-      xTo(lastX + tipX);
-      yTo(lastY + tipY);
+      /* Snapped, not tweened. The offset is a change of reference point -
+         the arrow reads from its tip, the bar and the hand from their
+         middle - so animating it slides the glyph 12px away from where the
+         pointer actually is, for the 150ms right before a click. quickTo
+         takes the current value as its start, so tracking stays smooth
+         from here. */
+      gsap.set(cursor, { x: lastX + tipX, y: lastY + tipY });
     };
 
     const onMove = (e: MouseEvent) => {
