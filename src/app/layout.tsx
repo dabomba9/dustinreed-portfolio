@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: "Dustin Reed",
     type: "website",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Dustin Reed — I design products and ship the code" }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Dustin Reed. I design it, I ship the code, I build the AI underneath." }],
   },
   alternates: { canonical: "/" },
   twitter: {
