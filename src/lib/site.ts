@@ -53,4 +53,4 @@ export const EMAIL = "dr33d9@gmail.com";
  * copy, and the X one had already lost a clause.
  */
 export const HOME_DESCRIPTION =
-  "Founding designer at CurbNTurf. Brand, product, web and native apps, front end. Seven years on the same product.";
+  "Founding designer at CurbNTurf since 2018. Brand, product, web and native apps, and the production front end. I build the LLM and RAG systems underneath too.";

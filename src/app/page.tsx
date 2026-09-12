@@ -15,7 +15,7 @@ export default function Home() {
       <section className="border-b border-rule">
         <Wrap className="py-20 md:py-32">
           <p className="label text-accent">
-            7 years on one product &middot; San Juan, Puerto Rico
+            On one product since 2018 &middot; San Juan, Puerto Rico
           </p>
 
           <h1 className="display mt-8 text-[3.5rem] sm:text-7xl md:text-[5.75rem] lg:text-[6.75rem]">
@@ -35,8 +35,8 @@ export default function Home() {
               CurbNTurf
             </a>
             . I built the brand, the product, the website and two native apps out of
-            nothing in 2018, and seven years later I&rsquo;m still designing it, and now
-            writing backend too.
+            nothing in 2018, and I&rsquo;m still designing it today, and now writing
+            backend too.
           </p>
 
           {/* Keyboard only. On a phone this is the third thing a visitor reads

@@ -69,7 +69,7 @@ export const pages: Page[] = [
     label: "About",
     kind: "page",
     sections: [
-      { id: "seven-years-inside-my-own-work", title: "Seven years inside my own work" },
+      { id: "inside-my-own-work-since-2018", title: "Inside my own work since 2018" },
       { id: "i-design-and-i-build", title: "I design and I build" },
       { id: "the-tink-tank", title: "The Tink Tank" },
       { id: "printed-on-cardboard", title: "Printed on cardboard" },
