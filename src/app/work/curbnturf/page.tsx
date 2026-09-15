@@ -6,6 +6,7 @@ import Band from "@/components/band";
 import Clip from "@/components/clip";
 import WrongBlock from "@/components/wrong-block";
 import { Wrap, Column, H2, H3, P, Lead, Figure, Results } from "@/components/prose";
+import { RigTypes, Marks, Palette } from "@/components/curbnturf-system";
 
 export const metadata: Metadata = pageMeta({
   title: "CurbNTurf — Onboarding a farmer without a salesperson",
@@ -283,6 +284,21 @@ export default function CurbNTurf() {
             caption="V2 end to end, captured September 2026. Compare it to the v1 homepage at the top of this page: there, a headline and an empty box; here, a query you can actually run, and everything it leads to."
           />
 
+          <Figure tilt={-1.1}
+            wide
+            src="/media/curbnturf-search.webp"
+            alt="The CurbNTurf v2 search results: listing cards on the left, a clustered map of the United States on the right"
+            caption="Search, captured September 2026. The listing card is the object the whole marketplace runs on, so it carries the four things a traveler decides on and nothing else: the photo, the price, the cancellation terms, and the amenities that rule a site in or out. Everything further down the card is a chip, which means the same component holds a driveway with two amenities and a ranch with eleven without ever changing shape. On the map, a price is a pin, because the question on a map is never where is it, it is what does it cost there."
+          />
+
+          <Clip
+            phone
+            src="/media/curbnturf-v2-mobile"
+            poster="/media/curbnturf-v2-mobile-poster.jpg"
+            label="The CurbNTurf v2 mobile app: the account drawer, the host dashboard with its three step setup checklist, and the explore map with clustered pins"
+            caption="The same v2 on a phone, captured September 2026. Note what did not survive the trip: the desktop card grid, the sidebar, the split map. What did survive is the part that matters, which is the vocabulary. Same orange for act, same green for the host side, same chips, same rig types. The bottom bar switches the entire app between hosting and traveling, because a landowner who also camps is one person with two jobs, and asking him to hold two accounts would have been the easy engineering answer and the wrong one."
+          />
+
           <P>
             The onboarding is substantially the same design I made in 2019, with the flow
             tightened rather than rebuilt. We’re extending it now with AI that gathers
@@ -321,9 +337,60 @@ export default function CurbNTurf() {
           </P>
 
           <Figure tilt={-1.1}
-            alt="CurbNTurf iOS and Android app screens"
-            caption="Add: the app screens that have no web equivalent."
+            wide
+            src="/media/curbnturf-appstore.webp"
+            alt="The CurbNTurf listing on the App Store: the app icon and five marketing screens"
+            caption="The App Store listing. The store page is a design surface most product teams hand to marketing, and on a two person build there is nobody to hand it to. The icon is the monogram with nothing else in it. The five screens are illustration rather than screenshots because a cropped map at thumbnail size communicates nothing, and the type is the same Familjen Grotesk as the product."
           />
+
+          <Figure tilt={0.9}
+            wide
+            src="/media/curbnturf-playstore.webp"
+            alt="The same five marketing screens on Google Play, in Android device frames"
+            caption="Google Play, same assets, redrawn in Android frames. Two stores, one system."
+          />
+
+          <H2>The system that held it together</H2>
+
+          <P>
+            Holding consistency at the level of brand rather than layout only
+            works if there is a brand to hold it at. So the actual deliverable
+            underneath eight years of screens is a small one: a mark, a
+            typeface, six colours, and a set of drawings.
+          </P>
+
+          <P>
+            It is deliberately small. I was one designer supporting a web app,
+            two native apps, a marketing site, internal tools for the sales
+            team, and two app store listings. Every component I added was a
+            component I would personally maintain for years, and that is a
+            different incentive than designing a library someone else inherits.
+            The system stayed narrow because I was the one paying for it to be
+            wide.
+          </P>
+
+          <Marks />
+
+          <P>
+            Familjen Grotesk carries all of it. One variable family, which
+            matters more on a phone than it does in a style guide: two families
+            is two font loads on a connection a traveler is using from a field
+            in eastern Oregon.
+          </P>
+
+          <Palette />
+
+          <RigTypes />
+
+          <P>
+            The drawings are the part of the system I would defend hardest.
+            They are not decoration. A rig type is a filter, a badge on a
+            listing card, a step in onboarding, a map pin, and a field in a
+            traveler&rsquo;s garage, and in every one of those places it has to
+            be recognisable at a glance by someone who might have bought their
+            first trailer last week. Words like Class B and fifth wheel do not
+            do that. A picture of the thing in the driveway does.
+          </P>
 
           <H3>Where it stands</H3>
         </Column>
