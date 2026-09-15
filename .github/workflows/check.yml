@@ -1,0 +1,33 @@
+# Lint, build and the behaviour guard, on every push to main.
+#
+# Vercel deploys a push whether or not this passes - it is a signal, not a
+# gate. What it buys is that a fixed bug coming back shows up as a red X on
+# the commit that brought it back, instead of waiting for someone to
+# remember to run `npm run check` by hand.
+#
+# No browser download: check-behaviour.mjs drives the Google Chrome that
+# ubuntu-latest already ships at /usr/bin/google-chrome, and starts its own
+# dev server.
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+      - run: npm run check
