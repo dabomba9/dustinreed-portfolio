@@ -5,9 +5,15 @@ import { gsap, EASE, dur } from "@/lib/motion";
 
 /**
  * A mailto is a dead end for anyone without a mail client configured, which
- * on desktop is most people. Click copies instead; the label confirms it and
- * reverts. The href stays a real mailto so middle-click, right-click and
- * keyboard "open link" all still behave.
+ * on desktop is most people. A mouse click copies instead; the label confirms
+ * it and reverts. The href stays a real mailto so middle-click and
+ * right-click still behave.
+ *
+ * Keyboard and assistive-tech activation follow the link. This control is
+ * announced as a link to the address, and pressing Enter on a link that then
+ * silently copies to the clipboard is a control that does something other
+ * than what it said. Those activations arrive as a click with `detail` 0 -
+ * no pointer was pressed - so they are let through to the mailto.
  */
 export default function CopyEmail({
   email = "dr33d9@gmail.com",
@@ -21,6 +27,7 @@ export default function CopyEmail({
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   async function handle(e: React.MouseEvent<HTMLAnchorElement>) {
+    if (e.detail === 0) return; // keyboard or AT: the link does what it says
     if (!navigator.clipboard) return; // let the mailto happen instead
     e.preventDefault();
     try {
