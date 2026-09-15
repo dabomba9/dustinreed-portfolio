@@ -25,28 +25,44 @@ export default function Scoreboard({
   restLabel: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const stripRef = useRef<HTMLDivElement>(null);
 
+  /* The cells are never parked dim in advance. They used to be set to a
+     quarter height on mount and only restored once 40% of the WHOLE block -
+     headline, strip and labels - was on screen at once. A viewport shorter
+     than about 130px can never show 40% of it, and there the twenty-five
+     cells stayed faded for good, on the one graphic whose entire point is
+     the ratio between them.
+
+     So the entry state is applied inside the tween that immediately undoes
+     it, the way sticker-frame does, and the trigger is the short strip at
+     the moment any of it appears. If that moment never comes, the cells are
+     simply at rest, which is also what a reader without JS sees. */
   useEffect(() => {
     const root = ref.current;
-    if (!root) return;
-    const cells = root.querySelectorAll<HTMLElement>("[data-cell]");
+    const strip = stripRef.current;
+    if (!root || !strip) return;
+    const cells = strip.querySelectorAll<HTMLElement>("[data-cell]");
     const ctx = gsap.context(() => {
-      gsap.set(cells, { scaleY: 0.25, opacity: 0.35, transformOrigin: "bottom" });
       const io = new IntersectionObserver(
         (entries) => {
           if (!entries[0].isIntersecting) return;
           io.disconnect();
-          gsap.to(cells, {
-            scaleY: 1,
-            opacity: 1,
-            duration: dur(0.5),
-            ease: EASE.out,
-            stagger: dur(0.018),
-          });
+          gsap.fromTo(
+            cells,
+            { scaleY: 0.25, opacity: 0.35, transformOrigin: "bottom" },
+            {
+              scaleY: 1,
+              opacity: 1,
+              duration: dur(0.5),
+              ease: EASE.out,
+              stagger: dur(0.018),
+            },
+          );
         },
-        { threshold: 0.4 }
+        { threshold: 0 }
       );
-      io.observe(root);
+      io.observe(strip);
       return () => io.disconnect();
     }, root);
     return () => ctx.revert();
@@ -64,7 +80,7 @@ export default function Scoreboard({
       </div>
 
       {/* Edge to edge. Nothing else on the site does this. */}
-      <div className="mt-8 flex w-full gap-px px-1">
+      <div ref={stripRef} className="mt-8 flex w-full gap-px px-1">
         {Array.from({ length: total }).map((_, i) => (
           <div
             key={i}
