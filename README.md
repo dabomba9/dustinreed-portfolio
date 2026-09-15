@@ -20,7 +20,8 @@ Then open http://localhost:3000
     /             same thing
     j / k         next / previous case study
     g             back to the index
-    ?             shortcuts panel
+    ?             shortcuts panel, and the switches for single-key
+                  shortcuts and the drawn cursor
     esc           close
 
 ## Where things are
@@ -49,19 +50,50 @@ the rail and palette match:
 
     npm run nav
 
-## Images
+## Images and clips
 
-Put files in public/media, then give a `<Figure />` a `src`. See
-public/media/README.md. Every Figure without a src renders a labelled
-placeholder, so nothing looks broken while you gather them.
+Put files in public/media and point at them from the page. A `<Figure />`
+without a `src` renders nothing at all, so a missing image reads as a text
+layout rather than a hole. Clips, illustrations and how to regenerate them are
+in public/media/README.md.
 
 ## Fonts
 
 Self-hosted variable woff2 in src/fonts. No Google Fonts request at runtime.
 
+## Checks
+
+    npm run lint
+    npm run build      also audits every theme colour pair against WCAG AA,
+                       and fails the build if one drops below
+    npm run check      drives the site in Chrome and fails if a fixed bug is back
+
+`npm run check` covers the things lint and build cannot see: the sticker tap
+toggle, focus staying inside the command palette, the closed mobile rail being
+inert, and the drawn cursor never hiding the native pointer when JavaScript has
+not run. It starts its own dev server if nothing is on port 3000, and needs
+Google Chrome or Chromium installed. To run it against the live site:
+
+    CHECK_ORIGIN=https://www.dustinreed.co npm run check
+
+All three run in GitHub Actions on every push to main. A red X there means a
+push broke one of them; it does not stop the deploy.
+
+## Regenerating things
+
+    npm run nav        after changing an <H2> in a case study
+    npm run themes     after changing a colour in globals.css; rewrites
+                       src/app/themes.css, refusing any theme that fails
+    npm run icon       after changing public/media/dustin-portrait-line.png;
+                       rewrites the favicons in src/app
+    python3 scripts/art-masks.py
+                       after changing a two-tone illustration; see
+                       public/media/README.md
+
 ## Deploy
 
-    npx vercel
+Push to main. Vercel builds and deploys it on its own, and GitHub Actions
+runs the checks alongside.
 
 Nothing to set first. The canonical origin resolves itself in src/lib/site.ts:
 the real domain on Vercel production, the deployment's own URL on previews,
