@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import StickerFrame from "@/components/sticker-frame";
-import { prefersReducedMotion } from "@/lib/motion";
+import { useReducedMotion } from "@/lib/motion";
 
 /**
  * A product clip, in the same sticker frame the screenshots use.
@@ -51,15 +51,22 @@ export default function Clip({
 }) {
   const ref = useRef<HTMLVideoElement | null>(null);
   const [playing, setPlaying] = useState(false);
-  const [reduced, setReduced] = useState(false);
+  /* Live, not read once. Switch Reduce Motion on while a clip is looping
+     and this flips, the effect below re-runs, and the loop stops. */
+  const reduced = useReducedMotion();
 
   useEffect(() => {
     const v = ref.current;
     if (!v) return;
 
-    const wantsStill = prefersReducedMotion();
-    setReduced(wantsStill);
-    if (wantsStill) return;
+    /* Reduced motion now, whether or not it was on at load: a loop that is
+       already running stops here rather than carrying on until a reload.
+       The play button still works - the preference is about autoplay, not
+       about refusing to show the clip to someone who asks for it. */
+    if (reduced) {
+      v.pause();
+      return;
+    }
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -72,7 +79,7 @@ export default function Clip({
     );
     io.observe(v);
     return () => io.disconnect();
-  }, []);
+  }, [reduced]);
 
   /* The video is the source of truth for whether it is playing, not the
      call that asked it to. iOS Low Power Mode, a media policy or a decode
