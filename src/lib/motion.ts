@@ -1,3 +1,4 @@
+import { useSyncExternalStore } from "react";
 import { gsap } from "gsap";
 
 /**
@@ -25,9 +26,34 @@ export const T = {
   indicator: 0.34,
 } as const;
 
+const REDUCED = "(prefers-reduced-motion: reduce)";
+
 export function prefersReducedMotion(): boolean {
   if (typeof window === "undefined") return false;
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  return window.matchMedia(REDUCED).matches;
+}
+
+/**
+ * The same preference, but live.
+ *
+ * `prefersReducedMotion()` answers at the moment it is asked, which is right
+ * for a tween about to start. It is wrong for a loop: a clip that started
+ * autoplaying keeps looping after the reader switches Reduce Motion on,
+ * because nothing asks again. This subscribes, so a component re-renders and
+ * its effect re-runs the moment the setting changes - no reload needed.
+ *
+ * False on the server, which is also what the first client paint assumes.
+ */
+export function useReducedMotion(): boolean {
+  return useSyncExternalStore(
+    (onChange) => {
+      const mq = window.matchMedia(REDUCED);
+      mq.addEventListener("change", onChange);
+      return () => mq.removeEventListener("change", onChange);
+    },
+    () => window.matchMedia(REDUCED).matches,
+    () => false,
+  );
 }
 
 /**

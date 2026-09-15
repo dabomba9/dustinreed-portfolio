@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useSyncExternalStore } from "react";
-import { gsap, EASE, T, dur, prefersReducedMotion } from "@/lib/motion";
+import { gsap, EASE, T, dur, prefersReducedMotion, useReducedMotion } from "@/lib/motion";
 import StickerFrame from "@/components/sticker-frame";
 import type { SelectedWork as Item } from "@/content/projects";
 
@@ -66,6 +66,7 @@ export default function SelectedWork({ items }: { items: Item[] }) {
 
 function Row({ item, mode }: { item: Item; mode: "hover" | "inline" | null }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const reduced = useReducedMotion();
   const stickerRef = useRef<HTMLDivElement>(null);
 
   const hasClip = Boolean(item.clip && item.poster);
@@ -101,7 +102,13 @@ function Row({ item, mode }: { item: Item; mode: "hover" | "inline" | null }) {
   useEffect(() => {
     if (mode !== "inline") return;
     const v = videoRef.current;
-    if (!v || prefersReducedMotion()) return;
+    if (!v) return;
+    /* Live: switching Reduce Motion on while this is looping stops it here,
+       instead of the observer carrying on until the page is reloaded. */
+    if (reduced) {
+      v.pause();
+      return;
+    }
 
     const io = new IntersectionObserver(
       (entries) => {
@@ -114,7 +121,7 @@ function Row({ item, mode }: { item: Item; mode: "hover" | "inline" | null }) {
     );
     io.observe(v);
     return () => io.disconnect();
-  }, [mode]);
+  }, [mode, reduced]);
 
   /* A div, not a span: StickerFrame renders a div, and phrasing content cannot
      carry flow content. In hover mode this sits directly under the <li>; in
