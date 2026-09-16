@@ -316,8 +316,10 @@ export default function CurbNTurf() {
 
           <P>
             iOS and Android both shipped, free to download and use. I designed the primary
-            app experience, the core screens and flows. Jed handled the secondary and
-            smaller scale decisions, which I reviewed and approved.
+            app experience, the core screens and flows. Jed started the build, and Scott
+            Henscheid led it once he came on, taking V1 of both apps to the stores. Scott
+            handled the secondary and smaller scale decisions, which I reviewed and
+            approved.
           </P>
 
           <P>
@@ -420,7 +422,11 @@ export default function CurbNTurf() {
       <CaseFooter
         credits={[
           { name: "Aaron Rawlins", role: "Founder" },
-          { name: "Jed Smith", role: "Founding Developer. Platform, apps, secondary app design" },
+          { name: "Jed Smith", role: "Founding Developer. Platform, started the apps" },
+          {
+            name: "Scott Henscheid",
+            role: "Developer. Took the apps over, secondary app design, shipped V1 to both stores",
+          },
           {
             name: "Dustin Reed",
             role: "Founding Designer. Brand, product, web, primary app design, front end",
