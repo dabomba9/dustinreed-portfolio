@@ -2,10 +2,13 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import AppShell from "@/components/app-shell";
 import CustomCursor from "@/components/custom-cursor";
-import { SITE_URL, PROFILES, EMAIL, HOME_DESCRIPTION } from "@/lib/site";
+import Analytics from "@/components/analytics";
+import { SITE_URL, PROFILES, EMAIL, HOME_DESCRIPTION, ANALYTICS_ID } from "@/lib/site";
 import "./globals.css";
 
-/* Fonts are self-hosted variable woff2. No third-party request on load. */
+/* Fonts are self-hosted variable woff2, so no third-party request on load.
+   The only exception anywhere is Google Analytics, and it waits for consent:
+   a reader who has not said yes still never talks to anyone but this site. */
 const inter = localFont({
   src: "../fonts/inter-var.woff2",
   variable: "--font-inter",
@@ -147,7 +150,11 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <AppShell>{children}</AppShell>
+        {/* After the skip link, so that stays the first thing a keyboard
+            reaches, and before the page, so a screen reader meets the
+            consent question near the top rather than after everything. */}
+        <Analytics id={ANALYTICS_ID} />
+        <AppShell analyticsId={ANALYTICS_ID}>{children}</AppShell>
       </body>
     </html>
   );

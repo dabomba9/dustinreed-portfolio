@@ -48,6 +48,32 @@ export const PROFILES = {
 export const EMAIL = "dr33d9@gmail.com";
 
 /**
+ * The Google Analytics measurement ID. Not a secret - it is in the page
+ * source of every site that runs GA - so it lives here with the other
+ * identity constants. Null until there is a real one, and null means off:
+ * a placeholder would put a consent banner in front of real visitors for
+ * an ID that goes nowhere.
+ */
+const GA_MEASUREMENT_ID: string | null = null;
+
+/**
+ * Whether analytics exists on this build, and under which ID.
+ *
+ * Production only. Previews, dev and CI never load it, so the numbers are
+ * visitors rather than me clicking around a branch. NEXT_PUBLIC_GA_ID wins
+ * over the constant, the same escape hatch NEXT_PUBLIC_SITE_URL is above -
+ * which is also how a local production build gets tested with a dummy ID.
+ *
+ * Resolved here, on the server, and handed down as a prop. VERCEL_ENV is not
+ * exposed to client bundles, so a client component asking for itself would
+ * always get undefined and quietly turn analytics off everywhere.
+ */
+export const ANALYTICS_ID: string | null =
+  process.env.VERCEL_ENV === "production"
+    ? process.env.NEXT_PUBLIC_GA_ID || GA_MEASUREMENT_ID
+    : null;
+
+/**
  * Shared so the homepage description cannot drift between the three places
  * that state it - metadata, Open Graph and the X card each had their own
  * copy, and the X one had already lost a clause.

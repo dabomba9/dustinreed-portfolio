@@ -35,6 +35,11 @@ const CHROME = [
 
 const fails = [];
 const passes = [];
+const skipped = [];
+const skip = (name, why) => {
+  skipped.push(name);
+  console.log(`  skip  ${name}  (${why})`);
+};
 const check = (name, ok, detail = "") => {
   (ok ? passes : fails).push(detail ? `${name} — ${detail}` : name);
   console.log(`  ${ok ? "ok  " : "FAIL"}  ${name}${detail && !ok ? `  (${detail})` : ""}`);
@@ -87,7 +92,23 @@ await withServer(async () => {
     process.exit(1);
   }
   const browser = await chromium.launch({ executablePath: CHROME, headless: true });
-  const page = async (opts) => (await browser.newContext(opts)).newPage();
+  /* Every behaviour test answers the analytics question up front. On a build
+     with analytics the consent banner sits along the bottom of the screen,
+     which is exactly where the footer's "Puerto Rico" sticker lands, and a
+     test tapping the banner by accident would fail for a reason that has
+     nothing to do with what it checks. Only set when unanswered, so a test
+     that clears storage and reloads gets the same treatment. */
+  const page = async (opts) => {
+    const ctx = await browser.newContext(opts);
+    await ctx.addInitScript(() => {
+      try {
+        if (localStorage.getItem("analytics") === null) localStorage.setItem("analytics", "off");
+      } catch {
+        /* storage blocked: no banner shows either */
+      }
+    });
+    return ctx.newPage();
+  };
   const settle = (p, ms = 1000) => p.waitForTimeout(ms);
 
   /* ---- stickers ------------------------------------------------------
@@ -292,6 +313,94 @@ await withServer(async () => {
     await p.close();
   }
 
+  /* ---- analytics consent ---------------------------------------------
+     Nothing from Google before the reader says yes, "No thanks" meaning no
+     for good, and the ? switch taking it back. Only runs where analytics is
+     actually on - a production build with an ID - and says so when it
+     skips, rather than quietly passing on a build that never had it.
+
+     Accepting here aborts the Google requests instead of letting them
+     through, so running this against the live site never adds a fake
+     visit to the real numbers. */
+  {
+    const GOOGLE = /google-analytics\.com|googletagmanager\.com|doubleclick\.net/;
+    const fresh = async () => {
+      const ctx = await browser.newContext(DESKTOP);
+      const seen = [];
+      await ctx.route(GOOGLE, (route) => {
+        seen.push(route.request().url());
+        return route.abort();
+      });
+      const p = await ctx.newPage();
+      return { ctx, p, seen };
+    };
+    const banner = (p) => p.locator('section[aria-label="Analytics consent"]');
+
+    let t = await fresh();
+    await t.p.goto(ORIGIN, { waitUntil: "networkidle" });
+    await settle(t.p, 1200);
+    if (!(await banner(t.p).count())) {
+      skip("analytics: consent", "analytics is not enabled on this build");
+      await t.ctx.close();
+    } else {
+      check("analytics: nothing from Google before an answer", t.seen.length === 0, `${t.seen.length} requests`);
+
+      await banner(t.p).getByRole("button", { name: "No thanks" }).click();
+      await settle(t.p, 800);
+      await t.p.reload({ waitUntil: "networkidle" });
+      await settle(t.p, 1200);
+      check("analytics: no thanks sends nothing", t.seen.length === 0, `${t.seen.length} requests`);
+      check("analytics: no thanks is remembered", (await banner(t.p).count()) === 0);
+      await t.ctx.close();
+
+      t = await fresh();
+      await t.ctx.grantPermissions(["clipboard-read", "clipboard-write"], { origin: ORIGIN });
+      await t.p.goto(ORIGIN, { waitUntil: "networkidle" });
+      await settle(t.p, 1200);
+      await banner(t.p).getByRole("button", { name: "Allow" }).click();
+      await settle(t.p, 2000);
+      check("analytics: allow loads it, without a reload", t.seen.some((u) => /googletagmanager\.com\/gtag/.test(u)));
+
+      const email = t.p.locator('footer a[href^="mailto:"]').first();
+      await email.scrollIntoViewIfNeeded();
+      await email.click();
+      await settle(t.p, 600);
+      const counted = await t.p.evaluate(() =>
+        (window.dataLayer || []).some((e) => e && e[0] === "event" && e[1] === "email_contact"),
+      );
+      check("analytics: copying the email is counted", counted);
+
+      /* The GA script is aborted above, so it never wrote a cookie - which
+         would let "the cookies are gone" pass without optOut deleting
+         anything. Plant the two it would have written, so the deletion is
+         actually exercised. */
+      await t.p.evaluate(() => {
+        document.cookie = "_ga=GA1.1.1234567890.1700000000; path=/";
+        document.cookie = "_ga_TEST000000=GS1.1.1700000000.1.1.1700000000.0.0.0; path=/";
+      });
+      const planted = await t.p.evaluate(
+        () => document.cookie.split(";").filter((c) => c.trim().startsWith("_ga")).length,
+      );
+      check("analytics: test cookies planted", planted === 2, `${planted} planted`);
+
+      await t.p.keyboard.press("?");
+      await settle(t.p, 500);
+      await t.p.locator('[role="dialog"] button[aria-label="Turn off analytics"]').click();
+      await settle(t.p, 600);
+      const revoked = await t.p.evaluate(() => ({
+        pref: localStorage.getItem("analytics"),
+        killed: Object.keys(window).some((k) => k.startsWith("ga-disable-") && window[k] === true),
+        cookies: document.cookie.split(";").filter((c) => c.trim().startsWith("_ga")).length,
+      }));
+      check(
+        "analytics: the ? switch takes it back",
+        revoked.pref === "off" && revoked.killed && revoked.cookies === 0,
+        JSON.stringify(revoked),
+      );
+      await t.ctx.close();
+    }
+  }
+
   await browser.close();
 });
 
@@ -301,4 +410,7 @@ if (fails.length) {
   for (const f of fails) console.error("  " + f);
   process.exit(1);
 }
-console.log(`all ${passes.length} behaviour checks pass`);
+console.log(
+  `all ${passes.length} behaviour checks pass` +
+    (skipped.length ? ` (${skipped.length} skipped)` : ""),
+);
