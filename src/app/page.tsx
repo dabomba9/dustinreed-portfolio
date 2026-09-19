@@ -115,7 +115,7 @@ export default function Home() {
                 line of their own, which read as two pairs. */}
             <div className="mt-10 flex flex-col gap-y-7 md:flex-row md:flex-wrap md:items-center md:gap-x-8 md:gap-y-4">
               <CopyEmail className="font-display text-2xl font-extrabold tracking-tight text-accent underline decoration-edge/30 decoration-2 underline-offset-[6px] transition-colors hover:decoration-edge md:text-4xl" />
-              <ProfileLinks />
+              <ProfileLinks from="home" />
             </div>
 
             <p className="label mt-16 text-mute">

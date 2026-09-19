@@ -3,6 +3,7 @@
 import { useEffect, useRef, useSyncExternalStore } from "react";
 import { gsap, EASE, T, dur, prefersReducedMotion, useReducedMotion } from "@/lib/motion";
 import StickerFrame from "@/components/sticker-frame";
+import { track } from "@/lib/analytics";
 import type { SelectedWork as Item } from "@/content/projects";
 
 /**
@@ -169,6 +170,7 @@ function Row({ item, mode }: { item: Item; mode: "hover" | "inline" | null }) {
         href={item.href}
         target="_blank"
         rel="noreferrer"
+        onClick={() => track("work_open", { project: item.name })}
         onMouseEnter={() => reveal(true)}
         onMouseLeave={() => reveal(false)}
         onFocus={() => reveal(true)}

@@ -101,9 +101,17 @@ switch it off in two places: the line at the bottom of the homepage, and the
 reached on a phone. Switching off sets Google's opt-out flag and deletes the
 `_ga` cookies, not just the remembered choice.
 
-GA records page views, outbound links and the résumé download by itself. The
-site adds one event, `email_contact`, whenever a visitor copies or clicks the
-email address.
+GA records page views and outbound links by itself. The site adds its own
+events on top, named so each reads back without a filter:
+
+    email_contact    the email address copied or clicked
+    resume_open      the résumé opened
+    profile_link     LinkedIn, GitHub or The Tink Tank, with which page
+    case_live_link   a case study's live-site link
+    work_open        a Selected work item opened
+
+Each goes through `track()` in src/lib/analytics.ts, which does nothing when
+a visitor has switched analytics off or it isn't on the page.
 
 ## Regenerating things
 

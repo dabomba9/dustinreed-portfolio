@@ -185,7 +185,7 @@ export default function About() {
           <footer className="mt-16 border-t border-rule pt-10">
             <p className="label text-mute">Get in touch</p>
             <CopyEmail className="mt-4 inline-block font-display text-2xl font-extrabold tracking-tight text-accent underline decoration-edge/30 decoration-2 underline-offset-[6px] transition-colors hover:decoration-edge md:text-3xl" />
-            <ProfileLinks className="mt-7" />
+            <ProfileLinks className="mt-7" from="about" />
           </footer>
         </Column>
       </Wrap>

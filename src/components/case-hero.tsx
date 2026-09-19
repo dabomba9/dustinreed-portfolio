@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Wrap, MetaGrid } from "@/components/prose";
+import TrackedLink from "@/components/tracked-link";
 
 export default function CaseHero({
   number,
@@ -31,15 +32,17 @@ export default function CaseHero({
         <p className="mt-8 max-w-2xl text-lg leading-[1.65] text-soft md:text-xl">{dek}</p>
 
         {live ? (
-          <a
+          <TrackedLink
             href={live.href}
+            event="case_live_link"
+            params={{ project: client }}
             target="_blank"
             rel="noreferrer"
             className="label mt-8 -my-3 inline-flex items-center gap-2 py-3 text-type no-underline transition-colors hover:text-accent"
           >
             {live.label}
             <span aria-hidden>&#8599;</span>
-          </a>
+          </TrackedLink>
         ) : null}
 
         <MetaGrid items={meta} />
