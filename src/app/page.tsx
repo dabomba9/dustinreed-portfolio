@@ -4,6 +4,8 @@ import ProfileLinks from "@/components/profile-links";
 import CopyEmail from "@/components/copy-email";
 import { Mark, Wrap } from "@/components/prose";
 import InlineSticker from "@/components/inline-sticker";
+import AnalyticsNotice from "@/components/analytics-notice";
+import { ANALYTICS_ID } from "@/lib/site";
 import { caseStudies, selectedWork } from "@/content/projects";
 
 export default function Home() {
@@ -119,6 +121,9 @@ export default function Home() {
             <p className="label mt-16 text-mute">
               This site is hand built in Next.js. So is everything above.
             </p>
+            {/* Only where GA actually runs. A preview claiming analytics it
+                doesn't have would be a false statement on the page. */}
+            {ANALYTICS_ID ? <AnalyticsNotice id={ANALYTICS_ID} /> : null}
           </div>
         </Wrap>
       </footer>

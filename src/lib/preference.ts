@@ -15,8 +15,6 @@
 export type Preference = {
   subscribe: (cb: () => void) => () => void;
   read: () => boolean;
-  /** Whether the reader has ever answered, as opposed to getting the default. */
-  isSet: () => boolean;
   write: (on: boolean) => void;
 };
 
@@ -44,16 +42,6 @@ export function createPreference(key: string, defaultOn = true): Preference {
         /* Private mode and blocked storage both throw on access, not just
            on write. Fall back to the default rather than to off. */
         return defaultOn;
-      }
-    },
-
-    isSet() {
-      try {
-        return localStorage.getItem(key) !== null;
-      } catch {
-        /* No storage, no memory of an answer. Treated as answered, so a
-           visitor who cannot store a choice is not asked on every page. */
-        return true;
       }
     },
 
@@ -90,9 +78,9 @@ export const shortcutsPref = createPreference("shortcuts");
 export const cursorPref = createPreference("cursor");
 
 /**
- * The third, and the odd one out: it defaults OFF. Analytics is consent, not
- * a feature, so the answer nobody gave is no. `isSet` is what separates a
- * reader who has not been asked from one who said no - only the first sees
- * the banner.
+ * The third. On unless the reader turns it off - there is no banner asking
+ * first, so this switch, the one in the homepage footer and the one in the ?
+ * panel are the whole of the choice. Both of those write here, so turning it
+ * off in either is off in both.
  */
-export const analyticsPref = createPreference("analytics", false);
+export const analyticsPref = createPreference("analytics", true);

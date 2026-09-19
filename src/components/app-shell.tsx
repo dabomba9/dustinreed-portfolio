@@ -12,7 +12,7 @@ import { usePathname, useRouter } from "next/navigation";
 import CommandPalette from "@/components/command-palette";
 import { pages, caseOrder } from "@/content/nav";
 import { shortcutsPref, cursorPref, analyticsPref } from "@/lib/preference";
-import { track, optIn, optOut } from "@/lib/analytics";
+import { track, setAnalytics } from "@/lib/analytics";
 
 /** Whether the rail is docked rather than a drawer. Matches `lg:` in the
     class list; false on the server, which is the safe answer - a drawer
@@ -57,16 +57,13 @@ export default function AppShell({
   const toggleShortcuts = useCallback(() => shortcutsPref.write(!shortcutsPref.read()), []);
   const cursorOn = useSyncExternalStore(cursorPref.subscribe, cursorPref.read, () => true);
   const toggleCursor = useCallback(() => cursorPref.write(!cursorPref.read()), []);
-  /* Consent, changeable as easily as it was given. Turning it off has to do
-     more than flip the flag: the gtag script is already running, so optOut
-     sets Google's kill switch and removes the cookies it left. */
-  const analyticsOn = useSyncExternalStore(analyticsPref.subscribe, analyticsPref.read, () => false);
+  /* On by default; this and the homepage footer are where it goes off.
+     setAnalytics does the whole job either way - the gtag script is already
+     running, so off means Google's kill switch and the cookies removed, not
+     just a flag. */
+  const analyticsOn = useSyncExternalStore(analyticsPref.subscribe, analyticsPref.read, () => true);
   const toggleAnalytics = useCallback(() => {
-    if (!analyticsId) return;
-    const next = !analyticsPref.read();
-    if (next) optIn(analyticsId);
-    else optOut(analyticsId);
-    analyticsPref.write(next);
+    if (analyticsId) setAnalytics(analyticsId, !analyticsPref.read());
   }, [analyticsId]);
   /* Tagged with the path it came from, so a stale value from the previous
      page is simply ignored rather than cleared by an effect. */
