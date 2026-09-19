@@ -76,20 +76,34 @@ Google Chrome or Chromium installed. To run it against the live site:
 
     CHECK_ORIGIN=https://www.dustinreed.co npm run check
 
-The analytics consent checks only run where analytics is on, which is
+The analytics opt-out checks only run where analytics is on, which is
 production builds with a measurement ID (see `ANALYTICS_ID` in
-src/lib/site.ts). Everywhere else they report as skipped. To test consent
+src/lib/site.ts). Everywhere else they report as skipped. To test them
 locally, build and serve production with a dummy ID:
 
     VERCEL_ENV=production NEXT_PUBLIC_GA_ID=G-TEST000000 npm run build
     VERCEL_ENV=production NEXT_PUBLIC_GA_ID=G-TEST000000 npx next start -p 3100
     CHECK_ORIGIN=http://localhost:3100 npm run check
 
-Those checks abort every request to Google, so running them against the live
-site never counts as a visit.
+Those checks abort every request to Google, and every other check runs with
+analytics switched off, so running the suite against the live site never counts
+as a visit.
 
 All three run in GitHub Actions on every push to main. A red X there means a
 push broke one of them; it does not stop the deploy.
+
+## Analytics
+
+Google Analytics loads for every visitor, on production only, once there is a
+measurement ID in src/lib/site.ts. There is no consent banner. Visitors can
+switch it off in two places: the line at the bottom of the homepage, and the
+`?` panel. The homepage one matters most, because the `?` panel can't be
+reached on a phone. Switching off sets Google's opt-out flag and deletes the
+`_ga` cookies, not just the remembered choice.
+
+GA records page views, outbound links and the résumé download by itself. The
+site adds one event, `email_contact`, whenever a visitor copies or clicks the
+email address.
 
 ## Regenerating things
 

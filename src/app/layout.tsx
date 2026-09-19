@@ -7,8 +7,8 @@ import { SITE_URL, PROFILES, EMAIL, HOME_DESCRIPTION, ANALYTICS_ID } from "@/lib
 import "./globals.css";
 
 /* Fonts are self-hosted variable woff2, so no third-party request on load.
-   The only exception anywhere is Google Analytics, and it waits for consent:
-   a reader who has not said yes still never talks to anyone but this site. */
+   The one exception is Google Analytics, which loads for every reader who
+   hasn't switched it off - from the homepage footer, or the ? panel. */
 const inter = localFont({
   src: "../fonts/inter-var.woff2",
   variable: "--font-inter",
@@ -150,9 +150,6 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        {/* After the skip link, so that stays the first thing a keyboard
-            reaches, and before the page, so a screen reader meets the
-            consent question near the top rather than after everything. */}
         <Analytics id={ANALYTICS_ID} />
         <AppShell analyticsId={ANALYTICS_ID}>{children}</AppShell>
       </body>
