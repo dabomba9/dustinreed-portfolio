@@ -50,11 +50,11 @@ export const EMAIL = "dr33d9@gmail.com";
 /**
  * The Google Analytics measurement ID. Not a secret - it is in the page
  * source of every site that runs GA - so it lives here with the other
- * identity constants. Null until there is a real one, and null means off:
- * a placeholder would put a consent banner in front of real visitors for
- * an ID that goes nowhere.
+ * identity constants. Setting it to null switches analytics off everywhere,
+ * footer line and ? switch included - never a placeholder, which would load
+ * Google for real visitors on behalf of an ID that goes nowhere.
  */
-const GA_MEASUREMENT_ID: string | null = null;
+const GA_MEASUREMENT_ID: string | null = "G-WJF9NR27PV";
 
 /**
  * Whether analytics exists on this build, and under which ID.
