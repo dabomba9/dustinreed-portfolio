@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { gsap, EASE, dur } from "@/lib/motion";
+import { track } from "@/lib/analytics";
 
 /**
  * A mailto is a dead end for anyone without a mail client configured, which
@@ -27,8 +28,18 @@ export default function CopyEmail({
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   async function handle(e: React.MouseEvent<HTMLAnchorElement>) {
-    if (e.detail === 0) return; // keyboard or AT: the link does what it says
-    if (!navigator.clipboard) return; // let the mailto happen instead
+    /* Someone reaching for the address is the one thing on this site that
+       most wants counting, and the only one GA cannot see by itself: a copy
+       navigates nowhere. `from` is the page, since this sits on two. */
+    const from = location.pathname;
+    if (e.detail === 0) {
+      track("email_contact", { method: "mailto", from });
+      return; // keyboard or AT: the link does what it says
+    }
+    if (!navigator.clipboard) {
+      track("email_contact", { method: "mailto", from });
+      return; // let the mailto happen instead
+    }
     e.preventDefault();
     try {
       await navigator.clipboard.writeText(email);
@@ -36,6 +47,7 @@ export default function CopyEmail({
       return; // clipboard blocked: fall through, the href still works
     }
     setCopied(true);
+    track("email_contact", { method: "copy", from });
     if (labelRef.current) {
       gsap.fromTo(
         labelRef.current,

@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { pages } from "@/content/nav";
 import { selectedWork, caseStudies } from "@/content/projects";
 import { PROFILES, EMAIL } from "@/lib/site";
+import { track } from "@/lib/analytics";
 
 type Item = {
   id: string;
@@ -106,6 +107,7 @@ export default function CommandPalette({ onClose }: { onClose: () => void }) {
       title: "Email Dustin",
       hint: EMAIL,
       run: () => {
+        track("email_contact", { method: "mailto", from: "palette" });
         window.location.href = `mailto:${EMAIL}`;
       },
     });

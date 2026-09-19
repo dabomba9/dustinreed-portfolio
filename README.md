@@ -76,6 +76,18 @@ Google Chrome or Chromium installed. To run it against the live site:
 
     CHECK_ORIGIN=https://www.dustinreed.co npm run check
 
+The analytics consent checks only run where analytics is on, which is
+production builds with a measurement ID (see `ANALYTICS_ID` in
+src/lib/site.ts). Everywhere else they report as skipped. To test consent
+locally, build and serve production with a dummy ID:
+
+    VERCEL_ENV=production NEXT_PUBLIC_GA_ID=G-TEST000000 npm run build
+    VERCEL_ENV=production NEXT_PUBLIC_GA_ID=G-TEST000000 npx next start -p 3100
+    CHECK_ORIGIN=http://localhost:3100 npm run check
+
+Those checks abort every request to Google, so running them against the live
+site never counts as a visit.
+
 All three run in GitHub Actions on every push to main. A red X there means a
 push broke one of them; it does not stop the deploy.
 

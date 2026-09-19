@@ -11,7 +11,8 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import CommandPalette from "@/components/command-palette";
 import { pages, caseOrder } from "@/content/nav";
-import { shortcutsPref, cursorPref } from "@/lib/preference";
+import { shortcutsPref, cursorPref, analyticsPref } from "@/lib/preference";
+import { track, optIn, optOut } from "@/lib/analytics";
 
 /** Whether the rail is docked rather than a drawer. Matches `lg:` in the
     class list; false on the server, which is the safe answer - a drawer
@@ -28,7 +29,14 @@ function useIsDesktop(): boolean {
   );
 }
 
-export default function AppShell({ children }: { children: React.ReactNode }) {
+export default function AppShell({
+  children,
+  analyticsId = null,
+}: {
+  children: React.ReactNode;
+  /** Set only on a production build with a real ID; see lib/site.ts. */
+  analyticsId?: string | null;
+}) {
   const pathname = usePathname();
   const router = useRouter();
   const [paletteOpen, setPaletteOpen] = useState(false);
@@ -49,6 +57,17 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
   const toggleShortcuts = useCallback(() => shortcutsPref.write(!shortcutsPref.read()), []);
   const cursorOn = useSyncExternalStore(cursorPref.subscribe, cursorPref.read, () => true);
   const toggleCursor = useCallback(() => cursorPref.write(!cursorPref.read()), []);
+  /* Consent, changeable as easily as it was given. Turning it off has to do
+     more than flip the flag: the gtag script is already running, so optOut
+     sets Google's kill switch and removes the cookies it left. */
+  const analyticsOn = useSyncExternalStore(analyticsPref.subscribe, analyticsPref.read, () => false);
+  const toggleAnalytics = useCallback(() => {
+    if (!analyticsId) return;
+    const next = !analyticsPref.read();
+    if (next) optIn(analyticsId);
+    else optOut(analyticsId);
+    analyticsPref.write(next);
+  }, [analyticsId]);
   /* Tagged with the path it came from, so a stale value from the previous
      page is simply ignored rather than cleared by an effect. */
   const [spy, setSpy] = useState<{ path: string; id: string } | null>(null);
@@ -429,6 +448,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           </button>
           <a
             href="mailto:dr33d9@gmail.com"
+            onClick={() => track("email_contact", { method: "mailto", from: "rail" })}
             className="plate label mt-2 block border border-type bg-ground px-3 py-2.5 text-center no-underline transition-colors hover:border-edge hover:bg-solid"
           >
             Email
@@ -492,6 +512,9 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           onToggle={toggleShortcuts}
           cursorOn={cursorOn}
           onToggleCursor={toggleCursor}
+          analyticsEnabled={Boolean(analyticsId)}
+          analyticsOn={analyticsOn}
+          onToggleAnalytics={toggleAnalytics}
         />
       ) : null}
     </>
@@ -543,12 +566,18 @@ function Shortcuts({
   onToggle,
   cursorOn,
   onToggleCursor,
+  analyticsEnabled,
+  analyticsOn,
+  onToggleAnalytics,
 }: {
   onClose: () => void;
   shortcutsOn: boolean;
   onToggle: () => void;
   cursorOn: boolean;
   onToggleCursor: () => void;
+  analyticsEnabled: boolean;
+  analyticsOn: boolean;
+  onToggleAnalytics: () => void;
 }) {
   const panelRef = useRef<HTMLDivElement>(null);
 
@@ -651,6 +680,28 @@ function Shortcuts({
               {cursorOn ? "Turn off" : "Turn on"}
             </button>
           </div>
+
+          {/* Only where analytics exists at all. On a preview or in dev there
+              is nothing to consent to, and a switch for it would be noise. */}
+          {analyticsEnabled ? (
+            <div className="flex items-center justify-between gap-4">
+              <span className="text-[0.9rem] text-soft">
+                Analytics
+                <span className="label mt-1 block text-mute">
+                  {analyticsOn ? "On — Google Analytics" : "Off — nothing is sent"}
+                </span>
+              </span>
+              <button
+                type="button"
+                onClick={onToggleAnalytics}
+                aria-pressed={analyticsOn}
+                aria-label={`${analyticsOn ? "Turn off" : "Turn on"} analytics`}
+                className="label min-h-11 shrink-0 border border-edge px-3 text-type transition-colors hover:bg-raised"
+              >
+                {analyticsOn ? "Turn off" : "Turn on"}
+              </button>
+            </div>
+          ) : null}
         </div>
       </div>
     </div>
