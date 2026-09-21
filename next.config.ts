@@ -13,6 +13,28 @@ const nextConfig: NextConfig = {
     // photographic enough to cost 875KB at 75.
     qualities: [55, 75],
   },
+
+  /**
+   * Keep the résumé out of search results.
+   *
+   * The PDF is public and stays public - a recruiter who wants it should get
+   * it in one click, and the link is unchanged. It just should not be the
+   * thing Google ranks for my name. A flat file competing with the case
+   * studies wins sometimes, and then the first impression of a portfolio
+   * about shipping product is a two page PDF.
+   *
+   * noindex keeps it out of the index; noimageindex stops the page images
+   * inside it being surfaced on their own. Headers are matched before the
+   * filesystem, so this reaches a file in public/ that no route serves.
+   */
+  headers() {
+    return [
+      {
+        source: "/dustin-reed-resume.pdf",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, noimageindex" }],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
