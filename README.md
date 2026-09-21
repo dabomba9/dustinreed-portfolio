@@ -57,6 +57,16 @@ without a `src` renders nothing at all, so a missing image reads as a text
 layout rather than a hole. Clips, illustrations and how to regenerate them are
 in public/media/README.md.
 
+## Résumé
+
+scripts/resume/resume.html is the source; public/dustin-reed-resume.pdf is
+printed from it with `npm run resume`, in the site's own fonts and light
+palette. Edit the HTML, never the PDF.
+
+It carries no phone number on purpose: the file is public at a guessable URL
+and gets scraped. The PDF is also served `noindex` (see next.config.ts), so a
+flat file does not outrank the case studies.
+
 ## Fonts
 
 Self-hosted variable woff2 in src/fonts. No Google Fonts request at runtime.
@@ -120,6 +130,8 @@ a visitor has switched analytics off or it isn't on the page.
                        src/app/themes.css, refusing any theme that fails
     npm run icon       after changing public/media/dustin-portrait-line.png;
                        rewrites the favicons in src/app
+    npm run resume     after editing scripts/resume/resume.html; prints it
+                       to public/dustin-reed-resume.pdf through Chrome
     python3 scripts/art-masks.py
                        after changing a two-tone illustration; see
                        public/media/README.md
