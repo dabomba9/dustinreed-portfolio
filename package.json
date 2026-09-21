@@ -11,6 +11,7 @@
     "lint": "eslint",
     "nav": "python3 scripts-nav.py",
     "icon": "python3 scripts-icon.py",
+    "resume": "node scripts/resume-pdf.mjs",
     "check": "node scripts/check-behaviour.mjs"
   },
   "dependencies": {

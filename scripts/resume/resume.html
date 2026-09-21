@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Dustin Reed — résumé</title>
+<!--
+  The source of public/dustin-reed-resume.pdf.
+
+  The PDF used to be the only copy, exported from somewhere outside the
+  repo, which meant a one word change needed a tool nobody could find and
+  the file drifted from what the site said. This is the source now:
+  `npm run resume` prints it through the same Chrome the behaviour checks
+  drive, and the PDF is a build artifact of it.
+
+  Same fonts and the same .plate palette as the site, so the two read as
+  one thing. Letter, two pages, fixed - a résumé is a fixed document and
+  paginating it by hand beats fighting the printer over widows.
+
+  No phone number, by choice. The file is public at a guessable URL and
+  gets scraped; email is the contact that can be filtered.
+-->
+<style>
+  /* Variable woff2, the same files the site loads. Chrome renders these as
+     Type3 fonts in the PDF, which sounds alarming and is not: the export
+     carries ToUnicode maps, so select-and-copy and the parsers that read
+     résumés get clean text out. Verified, not assumed. */
+  @font-face {
+    font-family: "Inter";
+    src: url("../../src/fonts/inter-var.woff2") format("woff2");
+    font-weight: 100 900;
+    font-display: block;
+  }
+  @font-face {
+    font-family: "JetBrains Mono";
+    src: url("../../src/fonts/jetbrains-mono-var.woff2") format("woff2");
+    font-weight: 100 800;
+    font-display: block;
+  }
+  @font-face {
+    font-family: "Big Shoulders";
+    src: url("../../src/fonts/big-shoulders-var.woff2") format("woff2");
+    font-weight: 100 900;
+    font-display: block;
+  }
+
+  :root {
+    /* .plate from src/app/globals.css - the site's light surface. */
+    --type: #0d2117;
+    --soft: #41474c;
+    --mute: #5c625a;
+    --rule: #d9d5c4;
+    --accent: #566f00;
+  }
+
+  @page { size: Letter; margin: 0; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    color: var(--type);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 8.5in;
+    height: 11in;
+    /* The deep bottom margin is the original's, and it is load bearing on
+       page two: the footer sits on it, so a shallower one would drop the
+       contact line into the very bottom of the sheet. */
+    padding: 0.46in 0.44in 1.16in;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .page + .page { page-break-before: always; }
+
+  /* ---------------------------------------------------------------
+     Masthead
+     --------------------------------------------------------------- */
+  h1 {
+    font-family: "Big Shoulders", "Inter", sans-serif;
+    font-weight: 800;
+    font-size: 44px;
+    line-height: 0.88;
+    letter-spacing: 0.005em;
+    text-transform: uppercase;
+  }
+
+  .label {
+    font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .role-line { margin-top: 7px; }
+
+  .tagline { font-size: 12.6px; margin-top: 9px; }
+
+  .contact {
+    font-size: 11.6px;
+    margin-top: 9px;
+    color: var(--mute);
+  }
+  .contact strong { font-weight: 600; color: var(--type); }
+  .contact .sep { padding: 0 5px; }
+
+  .masthead-rule {
+    border-top: 2.5px solid var(--type);
+    margin-top: 11px;
+  }
+
+  .summary {
+    font-size: 12.4px;
+    line-height: 1.58;
+    margin-top: 13px;
+  }
+
+  /* ---------------------------------------------------------------
+     Section headings: a mono label over a hairline
+     --------------------------------------------------------------- */
+  .section-head {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 5px;
+    margin-bottom: 11px;
+  }
+  .rule-above {
+    border-top: 1px solid var(--rule);
+    padding-top: 13px;
+  }
+
+  .results {
+    font-size: 11.8px;
+    line-height: 1.65;
+  }
+  .results strong { font-weight: 700; }
+  .results .sep { color: var(--mute); padding: 0 3px; }
+
+  /* ---------------------------------------------------------------
+     The two columns. Experience carries the weight; skills, projects
+     and education sit in the narrow one.
+     --------------------------------------------------------------- */
+  .cols {
+    display: grid;
+    grid-template-columns: 1fr 251px;
+    column-gap: 34px;
+    margin-top: 15px;
+    flex: 1;
+  }
+
+  .job + .job {
+    border-top: 1px solid var(--rule);
+    margin-top: 15px;
+    padding-top: 14px;
+  }
+  .job h3 { font-size: 15px; font-weight: 700; letter-spacing: -0.005em; }
+  .job .what {
+    font-size: 11.6px;
+    font-style: italic;
+    color: var(--soft);
+    line-height: 1.45;
+    margin-top: 2px;
+  }
+  .job .title { font-size: 12.8px; font-weight: 700; margin-top: 5px; }
+  .job .when {
+    font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    font-size: 9.6px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mute);
+    margin-top: 3px;
+  }
+
+  ul { list-style: none; margin-top: 9px; }
+  li {
+    font-size: 11.8px;
+    line-height: 1.55;
+    padding-left: 15px;
+    position: relative;
+  }
+  li + li { margin-top: 7px; }
+  li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  li strong, .earlier strong { font-weight: 700; }
+
+  .earlier {
+    border-top: 1px solid var(--rule);
+    margin-top: 15px;
+    padding-top: 12px;
+    font-size: 11.8px;
+    line-height: 1.55;
+    color: var(--soft);
+  }
+
+  /* ---------------------------------------------------------------
+     Narrow column
+     --------------------------------------------------------------- */
+  .skill + .skill { margin-top: 11px; }
+  .skill dt {
+    font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    font-weight: 500;
+    font-size: 9px;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--type);
+  }
+  .skill dd { font-size: 11.8px; line-height: 1.5; margin-top: 3px; }
+
+  .project + .project { margin-top: 13px; }
+  .project h3 { font-size: 14px; font-weight: 700; }
+  .project .url {
+    font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    font-size: 10px;
+    color: var(--accent);
+    margin-top: 2px;
+  }
+  .project p { font-size: 11.8px; line-height: 1.5; margin-top: 4px; }
+
+  .school h3 { font-size: 14px; font-weight: 700; }
+  .school p { font-size: 11.8px; margin-top: 2px; }
+  .school .when {
+    font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    font-size: 9.6px;
+    letter-spacing: 0.1em;
+    color: var(--mute);
+    margin-top: 3px;
+  }
+
+  .foot {
+    border-top: 1px solid var(--rule);
+    margin-top: auto;
+    padding-top: 10px;
+    font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    color: var(--mute);
+  }
+  .foot .sep { padding: 0 7px; }
+</style>
+</head>
+<body>
+
+<!-- ================================ page 1 ================================ -->
+<section class="page">
+  <header>
+    <h1>Dustin Reed</h1>
+    <p class="label role-line">Founding Product Designer &amp; Design Engineer</p>
+    <p class="tagline">I design it, I ship the code, and I build the AI underneath.</p>
+    <p class="contact">
+      <strong>dr33d9@gmail.com</strong><span class="sep">·</span>dustinreed.co<span
+        class="sep">·</span>linkedin.com/in/dreeddesign<span
+        class="sep">·</span>github.com/dabomba9<span class="sep">·</span>San Juan, Puerto Rico
+    </p>
+    <div class="masthead-rule"></div>
+  </header>
+
+  <p class="summary">
+    I take products from no brand and no interface to shipped, and then I keep them:
+    identity, product design, design systems, native apps, and the production front-end
+    code that carries them. Founding designer on one marketplace since 2018, holding
+    creative direction as it grew to ten, plus two companies of my own: the design studio
+    I started that same year, and an AI operations agency since 2026. Both of mine stay
+    small by design; what I want now is one product and a team around it, full time. I
+    came to design from civil engineering, which is still how I think about constraints.
+    Puerto Rico is a US territory, so there is no visa or sponsorship question.
+  </p>
+
+  <div class="rule-above" style="margin-top: 15px">
+    <p class="label section-head">Selected results</p>
+    <p class="results">
+      <strong>279%</strong> YoY marketplace host sign-ups<span class="sep">·</span>
+      <strong>3&times;</strong> growth for a B2B client, per the owner<span class="sep">·</span>
+      <strong>Majority</strong> of B2B quote requests moved to self-serve<span class="sep">·</span>
+      <strong>~8%</strong> lead capture on paid search<span class="sep">·</span>
+      <strong>500+</strong> listings at a 4.8 host rating
+    </p>
+  </div>
+
+  <div class="cols">
+    <div>
+      <p class="label section-head">Experience</p>
+
+      <article class="job">
+        <h3>CurbNTurf</h3>
+        <p class="what">A bootstrapped two-sided marketplace for RV travelers and private landowners.</p>
+        <p class="title">Founding Designer &amp; Product Lead</p>
+        <p class="when">Dec 2018 &mdash; Present &middot; Remote</p>
+        <ul>
+          <li>
+            Joined as the third employee, with a platform that barely worked and no visual
+            identity at all. Built the brand, the marketplace and both native apps into a
+            two-sided RV marketplace now running
+            <strong>500+ published host listings at a 4.8 average host rating</strong>.
+          </li>
+          <li>Owned creative direction company-wide as the team grew to ten people.</li>
+          <li>
+            Owned self-serve host onboarding, the company's central bet: no subscription
+            meant no sales team, so every landowner had to sign themselves up alone. Led
+            the 2023 supply push built on it: <strong>host sign-ups rose 279% year over
+            year, and roughly 90% compound annual growth has held since</strong>.
+          </li>
+          <li>
+            Designed the booking and checkout flow that carries the platform's
+            <strong>15% service fee</strong>. With no subscription, that fee is the whole
+            business, which makes checkout the least forgiving surface on the product.
+          </li>
+          <li>
+            Leading the v2 redesign of the whole product, designed and written through an
+            <strong>AI-assisted build workflow</strong>, and driving where AI belongs
+            inside the product as we scope the next app. Designed the internal tools the
+            field sales team works out of.
+          </li>
+          <li>
+            Drove design into production, first by moving the work into Webflow so
+            developers received working code instead of a mockup, now by writing the front
+            end in Next.js, React and TypeScript and working into the backend.
+          </li>
+        </ul>
+      </article>
+    </div>
+
+    <div>
+      <p class="label section-head">Skills</p>
+      <dl>
+        <div class="skill">
+          <dt>Product design</dt>
+          <dd>zero-to-one &middot; two-sided marketplaces &middot; self-serve onboarding
+            &middot; design systems &middot; iOS and Android &middot; IA and search for
+            large catalogs</dd>
+        </div>
+        <div class="skill">
+          <dt>Front end</dt>
+          <dd>React &middot; Next.js &middot; TypeScript &middot; Tailwind &middot; GSAP
+            &middot; Webflow</dd>
+        </div>
+        <div class="skill">
+          <dt>AI</dt>
+          <dd>LLM APIs (Anthropic, OpenAI, Gemini) &middot; RAG &middot; prompt and agent
+            design &middot; Claude Code &middot; Cursor &middot; Antigravity</dd>
+        </div>
+        <div class="skill">
+          <dt>Design</dt>
+          <dd>Figma &middot; brand and identity &middot; art direction &middot;
+            accessibility (WCAG AA)</dd>
+        </div>
+        <div class="skill">
+          <dt>Growth</dt>
+          <dd>SEO &middot; Google Ads &middot; landing-page conversion</dd>
+        </div>
+        <div class="skill">
+          <dt>Spoken</dt>
+          <dd>English &middot; Spanish</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ================================ page 2 ================================ -->
+<section class="page">
+  <div class="cols" style="margin-top: 0">
+    <div>
+      <article class="job" style="border-top: 1px solid var(--rule); padding-top: 14px">
+        <h3>The Tink Tank</h3>
+        <p class="what">Independent design studio. Most of the roster is under NDA.</p>
+        <p class="title">Principal Designer</p>
+        <p class="when">May 2018 &mdash; Present &middot; Remote &middot; Concurrent</p>
+        <ul>
+          <li>
+            Run the studio for SaaS, healthcare, retail and commerce clients, directing
+            the freelance designers and developers each project needs.
+          </li>
+          <li>
+            <strong>InfoCon + LRS:</strong> two brand identities and a 24/7 quoting and
+            checkout system for <strong>one of the largest independent large-print book
+            manufacturers in the US</strong>. The instant price estimator at its center
+            moved <strong>the majority of incoming B2B book requests to self-serve</strong>.
+            Per the owner, <strong>business has tripled since launch</strong>.
+          </li>
+          <li>
+            <strong>New Smile Dentures (2023&ndash;2025):</strong> rebranded a
+            three-generation denture practice and ran the brand for nearly three years.
+            SEO plus a <strong>~$1,500/month Google Ads program driving 5,000&ndash;10,000
+            monthly visits</strong>, at a <strong>~8% lead-capture rate</strong>.
+          </li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <h3>StickyFlow</h3>
+        <p class="what">My own AI operations agency: LLM-based workflow automation on a
+          flat monthly subscription instead of an agency retainer.</p>
+        <p class="title">Founder &amp; Product Designer</p>
+        <p class="when">2026 &mdash; Present &middot; Remote &middot; Concurrent</p>
+        <ul>
+          <li>
+            Founded it and run every part: positioning, pricing, brand, the automation
+            builds, and the site itself in Next.js and GSAP. The product sells deployable
+            systems rather than meetings, so the site reads as machinery.
+          </li>
+          <li>
+            Build the systems themselves: <strong>RAG chatbots, LLM API integrations and
+            agent workflows in custom code</strong>, CRM syncing and data pipelines
+            &mdash; all inside the client's own accounts and keys, so they keep the
+            architecture and the data.
+          </li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <h3>Ivie</h3>
+        <p class="title">Graphic Designer</p>
+        <p class="when">Mar 2017 &mdash; Dec 2018 &middot; Boise, ID</p>
+        <ul>
+          <li>
+            Designed national in-store campaigns for <strong>Albertsons, a Fortune 500
+            grocery retailer</strong>, from concept through rollout across
+            <strong>2,000 stores</strong>.
+          </li>
+        </ul>
+      </article>
+
+      <p class="earlier">
+        <strong>Earlier:</strong> Graphic Designer at Vital Sign &amp; Graphics
+        (2015&ndash;2016) and Brigham Young University&ndash;Idaho (2014&ndash;2016).
+      </p>
+    </div>
+
+    <div>
+      <p class="label section-head">Selected projects</p>
+
+      <article class="project">
+        <h3>Coqui Cardboard</h3>
+        <p class="url">coquicardboard.com</p>
+        <p>A 24,000-card sports-card catalog with command-palette search, built end to end
+          in Next.js and Supabase. No client, no brief, no revenue.</p>
+      </article>
+
+      <article class="project">
+        <h3>Portfolio</h3>
+        <p class="url">dustinreed.co</p>
+        <p>Hand built. A color control rotates hue in OKLCH at constant relative
+          luminance, so all 340 contrast pairs hold their ratios. The build fails if one
+          drops below WCAG AA.</p>
+      </article>
+
+      <p class="label section-head rule-above" style="margin-top: 17px">Education</p>
+      <div class="school">
+        <h3>Brigham Young University&ndash;Idaho</h3>
+        <p>BA, Graphic Design</p>
+        <p class="when">2014 &mdash; 2016 &middot; GPA 3.7</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="foot">
+    Dustin Reed<span class="sep">·</span>dr33d9@gmail.com<span
+      class="sep">·</span>dustinreed.co<span class="sep">·</span>linkedin.com/in/dreeddesign
+  </p>
+</section>
+
+</body>
+</html>
