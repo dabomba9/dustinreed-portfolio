@@ -10,7 +10,7 @@ import Image from "next/image";
 
    The rig icons are the exception. They are single colour line work,
    so they are drawn as CSS masks over `currentColor` and take whatever
-   ink the theme is using. One file, both themes, 56KB for all eight.
+   ink the theme is using. One file, both themes, 35KB for all eight.
    ------------------------------------------------------------------ */
 
 const PAPER = "#f1efe3";
@@ -61,9 +61,9 @@ export function RigTypes() {
         A rig type is the most consequential fact in the product. It decides
         whether a site fits, whether the approach is drivable, and whether a
         listing should appear in a search at all. It was never going to survive
-        as a dropdown label, so the set is drawn: eight rigs at one stroke
-        weight, on one baseline, at true relative length, so a Class A reads as
-        the largest thing here without anyone saying so. Single colour on
+        as a dropdown label, so the set is drawn: eight rigs on one baseline, at
+        true relative length, so a Class A reads as the largest thing here
+        without anyone saying so. Single colour on
         purpose. The same eight files are a filter, a badge on a listing card,
         a step in onboarding and a row in a traveler&rsquo;s garage, and in half
         of those places they sit on a photograph.
