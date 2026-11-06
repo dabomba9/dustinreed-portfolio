@@ -100,7 +100,7 @@ export default function Appearance() {
         </svg>
 
         <label className="sr-only" htmlFor="hue">
-          Colour
+          Color
         </label>
         <input
           id="hue"

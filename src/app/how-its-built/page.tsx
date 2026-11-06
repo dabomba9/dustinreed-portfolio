@@ -203,7 +203,7 @@ export default function HowItsBuilt() {
             title="npm run check"
             note="a local run, November 2026"
             rows={[
-              { key: "Passed", value: "18 behaviour checks" },
+              { key: "Passed", value: "All 18 checks" },
               { key: "Skipped", value: "analytics: opt-out (analytics is not enabled on this build)" },
             ]}
           />

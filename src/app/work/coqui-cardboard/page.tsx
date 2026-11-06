@@ -29,7 +29,7 @@ export default function Coqui() {
           { label: "Role", value: "All of it" },
           { label: "Scope", value: "Brand, product, front end, data" },
           { label: "Stack", value: "Next.js" },
-          { label: "Scale", value: "24,000+ cards catalogued" },
+          { label: "Scale", value: "24,000+ cards cataloged" },
         ]}
       />
 
@@ -127,7 +127,7 @@ export default function Coqui() {
           <P>
             You can’t fake this kind of specificity with research. The Clemente and
             Killebrew vaults exist because of a marriage and a hometown, and they’re the
-            two runs on the site catalogued completely, start to finish, because that’s
+            two runs on the site cataloged completely, start to finish, because that’s
             what you do when you actually care about something.
           </P>
 

@@ -63,7 +63,7 @@ export function RigTypes() {
         listing should appear in a search at all. It was never going to survive
         as a dropdown label, so the set is drawn: eight rigs on one baseline, at
         true relative length, so a Class A reads as the largest thing here
-        without anyone saying so. Single colour on
+        without anyone saying so. Single color on
         purpose. The same eight files are a filter, a badge on a listing card,
         a step in onboarding and a row in a traveler&rsquo;s garage, and in half
         of those places they sit on a photograph.
@@ -166,7 +166,7 @@ export function Palette() {
       </div>
 
       <figcaption className="mt-3 text-sm leading-relaxed text-mute">
-        Six colours carry the whole product across three platforms. The orange
+        Six colors carry the whole product across three platforms. The orange
         is the only thing that ever means act, which is why the reserve button
         and the price are the two loudest objects on a listing card and nothing
         else is allowed to compete with them. The palette also had to survive

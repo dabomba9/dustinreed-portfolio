@@ -358,7 +358,7 @@ export default function CurbNTurf() {
             Holding consistency at the level of brand rather than layout only
             works if there is a brand to hold it at. So the actual deliverable
             underneath eight years of screens is a small one: a mark, a
-            typeface, six colours, and a set of drawings.
+            typeface, six colors, and a set of drawings.
           </P>
 
           <P>
@@ -389,7 +389,7 @@ export default function CurbNTurf() {
             They are not decoration. A rig type is a filter, a badge on a
             listing card, a step in onboarding, a map pin, and a field in a
             traveler&rsquo;s garage, and in every one of those places it has to
-            be recognisable at a glance by someone who might have bought their
+            be recognizable at a glance by someone who might have bought their
             first trailer last week. Words like Class B and fifth wheel do not
             do that. A picture of the thing in the driveway does.
           </P>

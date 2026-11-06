@@ -14,7 +14,7 @@ import InlineSticker from "@/components/inline-sticker";
 export const metadata: Metadata = pageMeta({
   title: "About — Product Design, Design Leadership, Design Engineering",
   description:
-    "Founding designer on one product since 2018, from brand through to shipped code and now the backend. Open to founding designer, senior and staff product design, and design engineering. Remote from Puerto Rico, US authorised, bilingual.",
+    "Founding designer on one product since 2018, from brand through to shipped code and now the backend. Open to founding designer, senior and staff product design, and design engineering. Remote from Puerto Rico, US authorized, bilingual.",
   path: "/about",
 });
 
