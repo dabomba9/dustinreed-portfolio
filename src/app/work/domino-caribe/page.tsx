@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { pageMeta } from "@/lib/meta";
 import CaseHero, { CaseFooter } from "@/components/case-hero";
+import Clip from "@/components/clip";
 import { SpecBlock } from "@/components/blocks";
 import Band from "@/components/band";
 import WrongBlock from "@/components/wrong-block";
@@ -205,7 +206,16 @@ export default function DominoCaribe() {
             screen comes in Spanish and English, switched from the start screen.
           </P>
 
-          <Figure tilt={-0.9}
+          <Clip
+            wide
+            tilt={-0.7}
+            src="/media/domino-clip"
+            poster="/media/domino-clip-poster.jpg"
+            label="A two versus two game on the live site: the hands are dealt, my partner opens with the double six, the next player passes for a pase de salida, and the line of tiles grows and turns two corners as the bots take their turns"
+            caption="A real game on the live site, recorded November 2026 and played back at one and a half times speed, which mostly shortens the bots’ thinking. My partner opens with the double six, the next player can’t follow it, and that’s a pase de salida: 25 points to us before anyone else has played a tile."
+          />
+
+          <Figure tilt={0.9}
             src="/media/domino-phones.png"
             alt="Two phone screens side by side: a two versus two game and a one on one game with the boneyard showing"
             caption="Phone first. Two versus two with a bot partner, and one on one with the boneyard (el pozo) face down, both fitting one screen with nothing to scroll."
@@ -217,7 +227,7 @@ export default function DominoCaribe() {
             until you turn them on.
           </P>
 
-          <Figure tilt={0.8}
+          <Figure tilt={-0.8}
             src="/media/domino-chuchazo.jpg"
             alt="A celebration burst around the double blank, with a banner reading Chuchazo +100 — Nosotros"
             caption="Another frame from the celebrations design pass. The value on the banner depends on the style: the Dominican preset scores a chuchazo at zero, Puerto Rican 500 scores it at 100."

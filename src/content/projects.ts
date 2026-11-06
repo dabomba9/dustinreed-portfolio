@@ -77,7 +77,8 @@ export const caseStudies: CaseStudy[] = [
       "Online with friends",
     ],
     live: { label: "dominoes-zeta.vercel.app", href: "https://dominoes-zeta.vercel.app" },
-    image: "/media/domino-poster.jpg",
+    image: "/media/domino-clip-poster.jpg",
+    clip: "/media/domino-clip",
     imageAlt: "A two versus two game of Dominican dominoes on a wooden table, the line of tiles turning a corner",
   },
 ];
