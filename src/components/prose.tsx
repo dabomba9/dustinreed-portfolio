@@ -167,7 +167,7 @@ export function Figure({
   if (!src) return null;
 
   return (
-    <figure className={`my-14 ${wide ? "md:-mx-24 lg:-mx-40" : ""}`}>
+    <figure className={`my-14 ${wide ? "min-[52rem]:-mx-24 lg:-mx-40" : ""}`}>
       <StickerFrame tilt={tilt}>
         <Image
           src={src}

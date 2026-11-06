@@ -170,7 +170,7 @@ export default function Clip({
   }
 
   return (
-    <figure className={`my-14 ${wide ? "md:-mx-24 lg:-mx-40" : ""}`}>
+    <figure className={`my-14 ${wide ? "min-[52rem]:-mx-24 lg:-mx-40" : ""}`}>
       <StickerFrame tilt={tilt} className="relative">
         {/* A <video> with no controls is exposed inconsistently, and in
             several engines an aria-label on it is never announced at all -

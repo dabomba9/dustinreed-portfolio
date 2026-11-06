@@ -117,10 +117,10 @@ export default function HowItsBuilt() {
 
           <SpecBlock
             title="Control on raised, dark mode"
-            note="contrast, need 3.00"
+            note="lightness fixed → luminance solved, need 3.00"
             rows={CONTROL_ON_RAISED.map((r) => ({
               key: r.stop,
-              value: `lightness fixed ${r.fixed}   ·   luminance solved ${r.solved}`,
+              value: `${r.fixed} → ${r.solved}`,
             }))}
           />
 
@@ -180,7 +180,7 @@ export default function HowItsBuilt() {
               </>,
               <>
                 <strong className="font-semibold text-type">The sidebar on a phone.</strong>{" "}
-                Closed, it sat off screen with nine links still reachable by keyboard and no
+                Closed, it sat off-screen with nine links still reachable by keyboard and no
                 visible focus. Now closed means unreachable.
               </>,
               <>
