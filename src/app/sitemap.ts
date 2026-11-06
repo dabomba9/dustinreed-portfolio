@@ -21,6 +21,7 @@ const MODIFIED: Record<string, string> = {
   "/work/curbnturf": "2026-09-08",
   "/work/coqui-cardboard": "2026-09-09",
   "/work/infocon-lrs": "2026-09-08",
+  "/work/domino-caribe": "2026-11-06",
   "/about": "2026-09-09",
 };
 

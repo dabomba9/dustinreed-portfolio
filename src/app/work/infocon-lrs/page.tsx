@@ -354,9 +354,9 @@ export default function InfoConLRS() {
           },
         ]}
         next={{
-          slug: "curbnturf",
-          client: "CurbNTurf",
-          title: "Onboarding a farmer without a salesperson.",
+          slug: "domino-caribe",
+          client: "Dominó Caribe",
+          title: "The model had to ask.",
         }}
       />
     </>

@@ -7,6 +7,7 @@ PAGES = [
     ("/work/curbnturf", "src/app/work/curbnturf/page.tsx", "01", "CurbNTurf", "case"),
     ("/work/coqui-cardboard", "src/app/work/coqui-cardboard/page.tsx", "02", "Coqui Cardboard", "case"),
     ("/work/infocon-lrs", "src/app/work/infocon-lrs/page.tsx", "03", "InfoCon + LRS", "case"),
+    ("/work/domino-caribe", "src/app/work/domino-caribe/page.tsx", "04", "Dominó Caribe", "case"),
     ("/about", "src/app/about/page.tsx", "—", "About", "page"),
 ]
 

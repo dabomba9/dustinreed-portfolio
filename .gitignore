@@ -48,3 +48,6 @@ _*.tgz
 
 # Local scratch: previews and specimens, never shipped
 .scratch/
+
+# Claude local settings
+.claude/settings.local.json

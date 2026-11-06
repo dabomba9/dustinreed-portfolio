@@ -31,6 +31,7 @@ export const pages: Page[] = [
       { id: "what-the-numbers-actually-say", title: "What the numbers actually say" },
       { id: "version-two", title: "Version two" },
       { id: "the-apps", title: "The apps" },
+      { id: "the-system-that-held-it-together", title: "The system that held it together" },
     ],
   },
   {
@@ -61,6 +62,20 @@ export const pages: Page[] = [
       { id: "the-part-that-isnt-a-website", title: "The part that isn’t a website" },
       { id: "the-argument-i-lost", title: "The argument I lost" },
       { id: "where-it-stands", title: "Where it stands" },
+    ],
+  },
+  {
+    href: "/work/domino-caribe",
+    number: "04",
+    label: "Dominó Caribe",
+    kind: "case",
+    sections: [
+      { id: "why-dominoes", title: "Why dominoes" },
+      { id: "the-rules-lived-in-a-file-not-in-the-model", title: "The rules lived in a file, not in the model" },
+      { id: "whats-under-the-table", title: "What’s under the table" },
+      { id: "a-table-you-can-hold-in-one-hand", title: "A table you can hold in one hand" },
+      { id: "proving-nobody-cheated", title: "Proving nobody cheated" },
+      { id: "what-id-do-next", title: "What I’d do next" },
     ],
   },
   {

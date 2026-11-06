@@ -63,6 +63,23 @@ export const caseStudies: CaseStudy[] = [
     clip: "/media/infocon-clip",
     imageAlt: "The InfoCon storefront scrolled: the yellow ground, the serif headline and the hexagon photo crops",
   },
+  {
+    slug: "domino-caribe",
+    number: "04",
+    client: "Dominó Caribe",
+    title: "The model had to ask.",
+    blurb:
+      "A web game of Caribbean dominoes, built in about two weeks with Claude Code. The rules came from the people who play, not from the model.",
+    facts: [
+      "Sole designer and developer",
+      "589 automated tests",
+      "Dominican, Puerto Rican and Cuban rules",
+      "Online with friends",
+    ],
+    live: { label: "dominoes-zeta.vercel.app", href: "https://dominoes-zeta.vercel.app" },
+    image: "/media/domino-poster.jpg",
+    imageAlt: "A two versus two game of Dominican dominoes on a wooden table, the line of tiles turning a corner",
+  },
 ];
 
 export type SelectedWork = {
