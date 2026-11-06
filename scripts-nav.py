@@ -9,6 +9,7 @@ PAGES = [
     ("/work/infocon-lrs", "src/app/work/infocon-lrs/page.tsx", "03", "InfoCon + LRS", "case"),
     ("/work/domino-caribe", "src/app/work/domino-caribe/page.tsx", "04", "Dominó Caribe", "case"),
     ("/about", "src/app/about/page.tsx", "—", "About", "page"),
+    ("/how-its-built", "src/app/how-its-built/page.tsx", "—", "How it’s built", "page"),
 ]
 
 def slug(t):

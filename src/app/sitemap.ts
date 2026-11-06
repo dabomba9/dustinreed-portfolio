@@ -23,6 +23,7 @@ const MODIFIED: Record<string, string> = {
   "/work/infocon-lrs": "2026-09-08",
   "/work/domino-caribe": "2026-11-06",
   "/about": "2026-09-09",
+  "/how-its-built": "2026-11-06",
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {

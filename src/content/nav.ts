@@ -90,6 +90,18 @@ export const pages: Page[] = [
       { id: "printed-on-cardboard", title: "Printed on cardboard" },
     ],
   },
+  {
+    href: "/how-its-built",
+    number: "—",
+    label: "How it’s built",
+    kind: "page",
+    sections: [
+      { id: "seventeen-themes-none-of-them-chosen", title: "Seventeen themes, none of them chosen" },
+      { id: "the-first-version-failed-and-the-build-said-so", title: "The first version failed, and the build said so" },
+      { id: "a-browser-that-remembers-every-bug", title: "A browser that remembers every bug" },
+      { id: "where-they-run", title: "Where they run" },
+    ],
+  },
 ];
 
 export const caseOrder = pages.filter((p) => p.kind === "case").map((p) => p.href);

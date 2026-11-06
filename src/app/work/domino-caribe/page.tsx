@@ -70,7 +70,7 @@ export default function DominoCaribe() {
 
           <P>
             The first commit, before any game code, had a document in it:{" "}
-            <code>docs/RULES.md</code>,
+            <code className="font-mono text-[0.9em] text-type">docs/RULES.md</code>,
             the full rules written out in plain language, one section per part of the game,
             with every variant named. The project guide the agent reads first says that file
             is the source of truth, and says what to do when it runs out.

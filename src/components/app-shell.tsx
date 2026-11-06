@@ -388,6 +388,13 @@ export default function AppShell({
             label="About"
             onNavigate={() => setRailOpen(false)}
           />
+          <RailLink
+            href="/how-its-built"
+            active={pathname === "/how-its-built"}
+            number="→"
+            label="How it’s built"
+            onNavigate={() => setRailOpen(false)}
+          />
 
           {current && current.sections.length > 0 ? (
             <>
