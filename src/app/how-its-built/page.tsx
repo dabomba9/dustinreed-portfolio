@@ -153,7 +153,7 @@ export default function HowItsBuilt() {
           <P>
             Lint and the build catch type errors and broken imports. They don’t catch a
             menu that traps your keyboard, because that compiles perfectly. So{" "}
-            <code className="font-mono text-[0.9em] text-type">scripts/check-behaviour.mjs</code> opens the site in a real Chrome, through
+            <code className="font-mono text-[0.9em] text-type">scripts/check-behavior.mjs</code> opens the site in a real Chrome, through
             Playwright, at laptop and phone sizes, and does what a person would: taps, tabs,
             presses Escape, turns JavaScript off.
           </P>
@@ -235,12 +235,12 @@ export default function HowItsBuilt() {
             </a>{" "}
             and the browser check is{" "}
             <a
-              href={`${REPO}/blob/main/scripts/check-behaviour.mjs`}
+              href={`${REPO}/blob/main/scripts/check-behavior.mjs`}
               target="_blank"
               rel="noreferrer"
               className="draw-link text-type"
             >
-              scripts/check-behaviour.mjs
+              scripts/check-behavior.mjs
             </a>
             . Both explain themselves at the top, in more detail than this page.
           </P>

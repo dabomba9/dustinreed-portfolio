@@ -8,7 +8,7 @@
  * now and this is the export step, which makes the PDF a build artifact that
  * happens to be committed - the same arrangement as the generated favicons.
  *
- * Chrome does the printing, the same browser scripts/check-behaviour.mjs
+ * Chrome does the printing, the same browser scripts/check-behavior.mjs
  * drives, for the same reason: playwright-core ships no browser of its own,
  * and the one already installed prints the fonts and the layout the way a
  * reader's browser would.

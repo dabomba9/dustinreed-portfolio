@@ -5,7 +5,7 @@
 # the commit that brought it back, instead of waiting for someone to
 # remember to run `npm run check` by hand.
 #
-# No browser download: check-behaviour.mjs drives the Google Chrome that
+# No browser download: check-behavior.mjs drives the Google Chrome that
 # ubuntu-latest already ships at /usr/bin/google-chrome, and starts its own
 # dev server.
 name: check

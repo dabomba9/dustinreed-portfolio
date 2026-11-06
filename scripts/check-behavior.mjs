@@ -87,7 +87,7 @@ await withServer(async () => {
   if (!CHROME) {
     console.error(
       "No Chrome or Chromium found. Install Google Chrome, or point this at one\n" +
-        "by editing the CHROME list in scripts/check-behaviour.mjs.",
+        "by editing the CHROME list in scripts/check-behavior.mjs.",
     );
     process.exit(1);
   }
@@ -409,6 +409,6 @@ if (fails.length) {
   process.exit(1);
 }
 console.log(
-  `all ${passes.length} behaviour checks pass` +
+  `all ${passes.length} behavior checks pass` +
     (skipped.length ? ` (${skipped.length} skipped)` : ""),
 );
