@@ -21,7 +21,7 @@ export const caseStudies: CaseStudy[] = [
     client: "CurbNTurf",
     title: "Onboarding a farmer without a salesperson.",
     blurb:
-      "A two sided RV marketplace built from no brand and no product, and the bet that landowners would sign themselves up.",
+      "A two-sided RV marketplace built from no brand and a product that barely worked, and the bet that landowners would sign themselves up.",
     facts: [
       "Founding designer",
       "Brand, product, web, native",
@@ -40,7 +40,7 @@ export const caseStudies: CaseStudy[] = [
     client: "Coqui Cardboard",
     title: "The one nobody asked me to build.",
     blurb:
-      "Twenty four thousand sports cards, cataloged and designed the way the objects deserve. No client, no brief, no revenue. Designed and built end to end in Next.js.",
+      "Twenty-four thousand sports cards, cataloged and designed the way the objects deserve. No client, no brief, no revenue. Designed and built end to end in Next.js.",
     facts: ["Sole designer and developer", "24,000+ cards", "Command palette search"],
     live: { label: "coquicardboard.com", href: "https://www.coquicardboard.com" },
     image: "/media/coqui-clip-poster.jpg",
@@ -53,7 +53,7 @@ export const caseStudies: CaseStudy[] = [
     client: "InfoCon + LRS",
     title: "Why we didn’t merge them.",
     blurb:
-      "One owner bought a competitor selling large print books to the same readers. Everyone would tell you to consolidate. I built two identities and two checkouts instead.",
+      "One owner bought a competitor selling large-print books to the same readers. Everyone would tell you to consolidate. I built two identities and two checkouts instead.",
     facts: [
       "Logo and identity, twice",
       "Custom quoting and checkout",
@@ -112,7 +112,7 @@ export const selectedWork: SelectedWork[] = [
     when: "2026",
     role: ["AI systems", "RAG & LLM APIs", "Brand", "Front end"],
     domain: "stickyflow.com",
-    line: "RAG chatbots, LLM API integrations and agent workflows in custom code, deployed into each client's own accounts and keys so they own the architecture rather than rent it. That constraint shaped the brand too: the product sells deployable systems, not meetings, so the site is built as machinery \u2014 terminal typography, live telemetry ticking in the header, Next.js and GSAP underneath. My own company, launched spring 2026.",
+    line: "RAG chatbots, LLM API integrations and agent workflows in custom code, deployed into each client’s own accounts and keys so they own the architecture rather than rent it. That constraint shaped the brand too: the product sells deployable systems, not meetings, so the site is built as machinery \u2014 terminal typography, live telemetry ticking in the header, Next.js and GSAP underneath. My own company, launched spring 2026.",
     clip: "/media/stickyflow-clip",
     poster: "/media/stickyflow-clip-poster.jpg",
     clipAlt: "The StickyFlow homepage scrolled: terminal typography on a dark ground, telemetry counting in the header",
@@ -123,7 +123,7 @@ export const selectedWork: SelectedWork[] = [
     when: "2023 to 2025",
     role: ["Brand", "Site", "SEO", "Google Ads"],
     domain: "newsmiledentures.com",
-    line: "A family denture practice in Idaho: three generations, two clinics, an in house lab, and patients who arrive embarrassed. The identity and the site were built for a business that had outgrown both. I rebuilt them in spring 2023 and then ran the brand for nearly three years, SEO and Google Ads included. Buying the traffic yourself is how you find out whether the rebrand actually worked.",
+    line: "A family denture practice in Idaho: three generations, two clinics, an in-house lab, and patients who arrive embarrassed. The identity and the site were built for a business that had outgrown both. I rebuilt them in spring 2023 and then ran the brand for nearly three years, SEO and Google Ads included. Buying the traffic yourself is how you find out whether the rebrand actually worked.",
     clip: "/media/newsmiledentures-clip",
     poster: "/media/newsmiledentures-clip-poster.jpg",
     clipAlt: "The New Smile Dentures homepage scrolled: the clinic photography, the treatment cards and the booking path",

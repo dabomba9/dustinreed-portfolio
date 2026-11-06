@@ -11,7 +11,7 @@ import { RigTypes, Marks, Palette } from "@/components/curbnturf-system";
 export const metadata: Metadata = pageMeta({
   title: "CurbNTurf — Onboarding a farmer without a salesperson",
   description:
-    "Building a two sided RV marketplace out of nothing, and living with the one decision that made the whole thing possible.",
+    "Building a two-sided RV marketplace out of nothing, and living with the one decision that made the whole thing possible.",
   path: "/work/curbnturf",
   image: "/og-curbnturf.jpg",
 });
@@ -23,10 +23,10 @@ export default function CurbNTurf() {
         number="01"
         client="CurbNTurf"
         title="Onboarding a farmer without a salesperson"
-        dek="Building a two sided RV marketplace out of nothing, and then living with the one decision that made the whole thing possible."
+        dek="Building a two-sided RV marketplace out of nothing, and then living with the one decision that made the whole thing possible."
         live={{ label: "curbnturf.com", href: "https://www.curbnturf.com" }}
         meta={[
-          { label: "Role", value: "Founding Designer" },
+          { label: "Role", value: "Founding designer" },
           { label: "Scope", value: "Brand, product, web, native" },
           { label: "Started", value: "December 2018" },
           { label: "Status", value: "Live, v2 in progress" },
@@ -53,7 +53,7 @@ export default function CurbNTurf() {
           <P>
             The idea itself sits on two problems that happen to cancel each other out.
             There are way more RVers than there are places to put them, and the good
-            campgrounds book out months ahead. Meanwhile landowners and agribusinesses have
+            campgrounds book out months ahead. Meanwhile, landowners and agribusinesses have
             space they aren’t using and margins they’d like to be better. Airbnb had
             already proven people will let strangers onto their property for money. Nobody
             had built it properly for rigs.
@@ -72,7 +72,7 @@ export default function CurbNTurf() {
             quality={55}
             src="/media/curbnturf-v1-home.png"
             alt="CurbNTurf v1 homepage: a headline and an empty search box"
-            caption="V1, captured September 2026. A headline, an empty box, and several paragraphs explaining what a two sided marketplace is."
+            caption="V1, captured September 2026. A headline, an empty box, and several paragraphs explaining what a two-sided marketplace is."
           />
 
           <H2>One decision shaped every screen after it</H2>
@@ -116,7 +116,7 @@ export default function CurbNTurf() {
             tilt={-0.9}
             src="/media/curbnturf-host"
             poster="/media/curbnturf-host-poster.jpg"
-            label="The CurbNTurf host landing page scrolled end to end: the earnings headline, the land types that qualify shown as tags, an earnings calculator, the three step explainer, the community map, the host protection panel and the FAQ"
+            label="The CurbNTurf host landing page scrolled end to end: the earnings headline, the land types that qualify shown as tags, an earnings calculator, the three-step explainer, the community map, the host protection panel and the FAQ"
             caption="The host landing page, captured September 2026. Every block on it answers something a salesperson used to answer on a phone call. What kind of land counts, listed out so a rancher can find his own in it. What it pays, as a calculator rather than a promise. And near the bottom, what happens if a guest damages something, which is a question a landowner has before he has any of the others. This page has to finish the pitch before the onboarding can start the paperwork."
           />
 
@@ -137,7 +137,7 @@ export default function CurbNTurf() {
           { label: "Alone", value: "with nobody on the phone" },
         ]}
       >
-        Self serve onboarding, or no business.
+        Self-serve onboarding, or no business.
       </Band>
 
       <Wrap className="py-4">
@@ -157,7 +157,7 @@ export default function CurbNTurf() {
           </P>
 
           <P>
-            That sounds like a tooling preference. It changed how fast a three person
+            That sounds like a tooling preference. It changed how fast a three-person
             company could move. The distance between “this should change” and “it’s live”
             basically collapsed, and that’s the difference between a small team that can
             turn on a dime and one that spends its runway in handoff meetings.
@@ -183,7 +183,7 @@ export default function CurbNTurf() {
           >
             <p>
               Here’s why it took a while to see: it never actually broke. Hosts could
-              duplicate a listing and edit it, so a multi spot property was possible. It was
+              duplicate a listing and edit it, so a multi-spot property was possible. It was
               just tedious, and in a product with no salespeople, tedious is the thing that
               kills you. Every extra step is one more rancher deciding this isn’t worth his
               afternoon.
@@ -237,8 +237,8 @@ export default function CurbNTurf() {
       <Wrap className="py-4">
         <Column>
           <P>
-            About twenty five hosts start the process every week. About five of them
-            publish a listing inside that week. So the self serve bet is roughly one fifth
+            About twenty-five hosts start the process every week. About five of them
+            publish a listing inside that week. So the self-serve bet is roughly one fifth
             true.
           </P>
 
@@ -251,7 +251,7 @@ export default function CurbNTurf() {
 
           <P>
             That number is why we still have reps out in the field, and why I built them
-            internal tools the host facing product never exposes. The escape hatch isn’t an
+            internal tools the host-facing product never exposes. The escape hatch isn’t an
             admission the bet failed. It’s what you build when a bet is partly working and
             you want the accounts worth a phone call to actually get one.
           </P>
@@ -269,9 +269,9 @@ export default function CurbNTurf() {
           <P>
             But the real shift is what the first screen is for. V1 explained the service.
             V2 lets you use it. The old homepage opened with a headline, an empty search
-            box, and several paragraphs describing what a two sided marketplace is. The new
+            box, and several paragraphs describing what a two-sided marketplace is. The new
             one opens with a working query. Destination, dates, your rig. Plus three ways
-            to start depending on how you’re thinking about it: you know where you’re
+            to start, depending on how you’re thinking about it: you know where you’re
             going, you’re traveling between places, or you’re just looking at the map.
           </P>
 
@@ -288,14 +288,14 @@ export default function CurbNTurf() {
             wide
             src="/media/curbnturf-search.webp"
             alt="The CurbNTurf v2 search results: listing cards on the left, a clustered map of the United States on the right"
-            caption="Search, captured September 2026. The listing card is the object the whole marketplace runs on, so it carries the four things a traveler decides on and nothing else: the photo, the price, the cancellation terms, and the amenities that rule a site in or out. Everything further down the card is a chip, which means the same component holds a driveway with two amenities and a ranch with eleven without ever changing shape. On the map, a price is a pin, because the question on a map is never where is it, it is what does it cost there."
+            caption="Search, captured September 2026. The listing card is the object the whole marketplace runs on, so it carries the four things a traveler decides on and nothing else: the photo, the price, the cancellation terms, and the amenities that rule a site in or out. Everything further down the card is a chip, which means the same component holds a driveway with two amenities and a ranch with eleven without ever changing shape. On the map, a price is a pin, because the question on a map is never “where is it?” but “what does it cost there?”"
           />
 
           <Clip
             phone
             src="/media/curbnturf-v2-mobile"
             poster="/media/curbnturf-v2-mobile-poster.jpg"
-            label="The CurbNTurf v2 mobile app: the account drawer, the host dashboard with its three step setup checklist, and the explore map with clustered pins"
+            label="The CurbNTurf v2 mobile app: the account drawer, the host dashboard with its three-step setup checklist, and the explore map with clustered pins"
             caption="The same v2 on a phone, captured September 2026. Note what did not survive the trip: the desktop card grid, the sidebar, the split map. What did survive is the part that matters, which is the vocabulary. Same orange for act, same green for the host side, same chips, same rig types. The bottom bar switches the entire app between hosting and traveling, because a landowner who also camps is one person with two jobs, and asking him to hold two accounts would have been the easy engineering answer and the wrong one."
           />
 
@@ -308,7 +308,7 @@ export default function CurbNTurf() {
 
           <P>
             Same bet, pushed harder. The less a host has to know, the more hosts you get.
-            Whether that moves five out of twenty five is the open question. I’ll know
+            Whether that moves five out of twenty-five is the open question. I’ll know
             soon.
           </P>
 
@@ -317,8 +317,8 @@ export default function CurbNTurf() {
           <P>
             iOS and Android both shipped, free to download and use. I designed the primary
             app experience, the core screens and flows. Jed started the build, and Scott
-            Henscheid led it once he came on, taking V1 of both apps to the stores. Scott
-            handled the secondary and smaller scale decisions, which I reviewed and
+            Henscheid led it once he came on, taking v1 of both apps to the stores. Scott
+            handled the secondary and smaller-scale decisions, which I reviewed and
             approved.
           </P>
 
@@ -342,7 +342,7 @@ export default function CurbNTurf() {
             wide
             src="/media/curbnturf-appstore.webp"
             alt="The CurbNTurf listing on the App Store: the app icon and five marketing screens"
-            caption="The App Store listing. The store page is a design surface most product teams hand to marketing, and on a two person build there is nobody to hand it to. The icon is the monogram with nothing else in it. The five screens are illustration rather than screenshots because a cropped map at thumbnail size communicates nothing, and the type is the same Familjen Grotesk as the product."
+            caption="The App Store listing. The store page is a design surface most product teams hand to marketing, and on a two-person build there is nobody to hand it to. The icon is the monogram with nothing else in it. The five screens are illustration rather than screenshots because a cropped map at thumbnail size communicates nothing, and the type is the same Familjen Grotesk as the product."
           />
 
           <Figure tilt={0.9}
@@ -375,8 +375,7 @@ export default function CurbNTurf() {
 
           <P>
             Familjen Grotesk carries all of it. One variable family, which
-            matters more on a phone than it does in a style guide: two families
-            is two font loads on a connection a traveler is using from a field
+            matters more on a phone than it does in a style guide: two families means two font loads on a connection a traveler is using from a field
             in eastern Oregon.
           </P>
 
@@ -422,14 +421,14 @@ export default function CurbNTurf() {
       <CaseFooter
         credits={[
           { name: "Aaron Rawlins", role: "Founder" },
-          { name: "Jed Smith", role: "Founding Developer. Platform, started the apps" },
+          { name: "Jed Smith", role: "Founding developer. Platform, started the apps" },
           {
             name: "Scott Henscheid",
-            role: "Developer. Took the apps over, secondary app design, shipped V1 to both stores",
+            role: "Developer. Took the apps over, secondary app design, shipped v1 to both stores",
           },
           {
             name: "Dustin Reed",
-            role: "Founding Designer. Brand, product, web, primary app design, front end",
+            role: "Founding designer. Brand, product, web, primary app design, front end",
           },
         ]}
         next={{

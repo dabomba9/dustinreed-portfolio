@@ -11,7 +11,7 @@ import InlineSticker from "@/components/inline-sticker";
 export const metadata: Metadata = pageMeta({
   title: "Coqui Cardboard — The one nobody asked me to build",
   description:
-    "A catalog for twenty four thousand sports cards across four players, designed and built end to end. No client, no brief, no revenue.",
+    "A catalog for twenty-four thousand sports cards across four players, designed and built end to end. No client, no brief, no revenue.",
   path: "/work/coqui-cardboard",
   image: "/og-coqui.jpg",
 });
@@ -23,7 +23,7 @@ export default function Coqui() {
         number="02"
         client="Coqui Cardboard"
         title="The one nobody asked me to build"
-        dek="A catalog for twenty four thousand sports cards across four players, designed and built by me for a hobby I got pulled back into during the pandemic. No client. No brief. No revenue. That’s sort of the point."
+        dek="A catalog for twenty-four thousand sports cards across four players, designed and built by me for a hobby I got pulled back into during the pandemic. No client. No brief. No revenue. That’s sort of the point."
         live={{ label: "coquicardboard.com", href: "https://www.coquicardboard.com" }}
         meta={[
           { label: "Role", value: "All of it" },
@@ -161,7 +161,7 @@ export default function Coqui() {
 
           <P>
             Putting both of those in one product was the actual design call. If you make
-            either one use the other’s interface you’ve made the site worse for both of
+            either one use the other’s interface, you’ve made the site worse for both of
             them. So the nav splits by player, and every player gives you both doors.
           </P>
 
@@ -180,10 +180,9 @@ export default function Coqui() {
           </P>
 
           <P>
-            So: near black background with a soft green glow, so scans read like objects
+            So: near-black background with a soft green glow, so scans read like objects
             under glass instead of thumbnails in a grid. Pixel type for the headings, clean
-            sans for anything you have to read for more than a second. The mark is a pixel
-            art coquí, the tree frog you hear all night in{" "}
+            sans for anything you have to read for more than a second. The mark is a pixel-art coquí, the tree frog you hear all night in{" "}
             <InlineSticker
               src="/media/coqui-taino"
               width={760}
@@ -206,7 +205,7 @@ export default function Coqui() {
           <P>
             Underneath the aesthetic there’s a real tool. You can track what you own and
             watch each tier’s completion percentage fill in. Log raw or graded copies with
-            PSA, BGS and SGC cert numbers. See eBay sourced values over time instead of
+            PSA, BGS and SGC cert numbers. See eBay-sourced values over time instead of
             somebody’s guess. Build want lists for the cards you’re chasing. Share a public
             profile of your collection. There’s a command palette in the nav for people who
             come back often enough to already know what they’re looking for.
@@ -218,7 +217,7 @@ export default function Coqui() {
             src="/media/coqui-clip"
             poster="/media/coqui-clip-poster.jpg"
             label="Coqui Cardboard: the four legends on the home screen, then into the Jordan hierarchy"
-            caption="For people who come back often enough to already know what they are looking for. Captured September 2026."
+            caption="The home screen, then into the Jordan Hierarchy. Captured September 2026."
           />
 
           <H2>The parts that were hard</H2>
@@ -245,7 +244,7 @@ export default function Coqui() {
           >
             <p>
               Build one vault all the way through before designing four of them.
-              Clemente’s fifties run behaves nothing like Kobe’s twenty year sprawl, and I
+              Clemente’s fifties run behaves nothing like Kobe’s twenty-year sprawl, and I
               figured that out later than I should have.
             </p>
             <p>
@@ -267,7 +266,7 @@ export default function Coqui() {
           <NumberedList
             items={[
               { name: "The Tink Tank", body: "My studio. Brand and site." },
-              { name: "StickyFlow", body: "Brand and site for an AI ops agency." },
+              { name: "StickyFlow", body: "Brand and site for my AI systems company." },
               {
                 name: "CurbNTurf v2",
                 body: "Full product redesign. The most ambitious of the four.",

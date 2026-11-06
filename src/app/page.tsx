@@ -36,9 +36,7 @@ export default function Home() {
             >
               CurbNTurf
             </a>
-            . I built the brand, the product, the website and two native apps out of
-            nothing in 2018, and I&rsquo;m still designing it today, and now writing
-            backend too.
+            . Since joining in 2018, I&rsquo;ve built the brand, the product, the website and two native apps, and I&rsquo;m still designing it today. Now I write backend too.
           </p>
 
           {/* Keyboard only. On a phone this is the third thing a visitor reads
@@ -96,7 +94,7 @@ export default function Home() {
             </p>
             <p className="mt-8 max-w-xl text-[1.0625rem] leading-relaxed text-soft">
               Founding designer, senior and staff product design, and design engineering
-              roles, at any size company. Fully remote with US companies. I&rsquo;m in{" "}
+              roles, at companies of any size. Fully remote with US companies. I&rsquo;m in{" "}
               <InlineSticker
                 src="/media/coqui-taino"
                 width={760}
@@ -119,7 +117,7 @@ export default function Home() {
             </div>
 
             <p className="label mt-16 text-mute">
-              This site is hand built in Next.js. So is everything above.
+              This site is hand-built in Next.js. So is everything above.
             </p>
             {/* Only where GA actually runs. A preview claiming analytics it
                 doesn't have would be a false statement on the page. */}

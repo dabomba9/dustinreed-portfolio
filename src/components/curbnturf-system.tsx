@@ -22,12 +22,12 @@ const SLATE = "#5c625a";
 const RIGS: { slug: string; name: string; note: string }[] = [
   { slug: "class-a", name: "Class A", note: "Coach" },
   { slug: "class-b", name: "Class B", note: "Camper van" },
-  { slug: "class-c", name: "Class C", note: "Cab over" },
+  { slug: "class-c", name: "Class C", note: "Cab-over" },
   { slug: "fifth-wheel", name: "Fifth Wheel", note: "Gooseneck" },
   { slug: "travel-trailer", name: "Travel Trailer", note: "Bumper pull" },
-  { slug: "truck-camper", name: "Truck Camper", note: "Bed mounted" },
+  { slug: "truck-camper", name: "Truck Camper", note: "Bed-mounted" },
   { slug: "teardrop", name: "Teardrop", note: "Compact tow" },
-  { slug: "popup-camper", name: "Popup Camper", note: "Folding" },
+  { slug: "popup-camper", name: "Pop-up Camper", note: "Folding" },
 ];
 
 export function RigTypes() {
@@ -64,9 +64,7 @@ export function RigTypes() {
         as a dropdown label, so the set is drawn: eight rigs on one baseline, at
         true relative length, so a Class A reads as the largest thing here
         without anyone saying so. Single color on
-        purpose. The same eight files are a filter, a badge on a listing card,
-        a step in onboarding and a row in a traveler&rsquo;s garage, and in half
-        of those places they sit on a photograph.
+        purpose, because in half the places they appear, they sit on a photograph.
       </figcaption>
     </figure>
   );

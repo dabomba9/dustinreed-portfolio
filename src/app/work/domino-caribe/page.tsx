@@ -153,7 +153,7 @@ export default function DominoCaribe() {
           </P>
 
           <P>
-            Every style is just settings on that engine. Dominican, Dominican one on one,
+            Every style is just settings on that engine. Dominican, Dominican one-on-one,
             Puerto Rican 200, Puerto Rican 500 and Cuban double-nine are presets, and{" "}
             <em>Mi mesa</em>, “my table,” lets you start from any of them and change the
             rules your family argues about. Nothing about a style is written into the game
@@ -217,8 +217,8 @@ export default function DominoCaribe() {
 
           <Figure tilt={0.9}
             src="/media/domino-phones.png"
-            alt="Two phone screens side by side: a two versus two game and a one on one game with the boneyard showing"
-            caption="Phone first. Two versus two with a bot partner, and one on one with the boneyard (el pozo) face down, both fitting one screen with nothing to scroll."
+            alt="Two phone screens side by side: a two versus two game and a one-on-one game with the boneyard showing"
+            caption="Phone first. Two versus two with a bot partner, and one-on-one with the boneyard (el pozo) face down, both fitting one screen with nothing to scroll."
           />
 
           <P>

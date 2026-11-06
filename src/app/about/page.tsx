@@ -62,7 +62,7 @@ export default function About() {
           <H2>I design and I build</H2>
 
           <P>
-            I design and I build. Early on I moved our work into Webflow so developers got
+            Early on I moved our work into Webflow so developers got
             working code instead of a mockup and a conversation. These days it is Figma to
             design, production Next.js and React to ship, with design systems, iOS and
             Android along the way. That keeps the distance between &ldquo;this should
@@ -78,9 +78,8 @@ export default function About() {
           <P>
             The Tink Tank is my studio. It has run since 2018, alongside the day job, for
             clients across SaaS, healthcare, retail and commerce. Most of the roster is under
-            NDA. The one I&rsquo;d show you first is a large print book manufacturer: two brand identities, and a quoting and
-            checkout system that sells into school districts and state contracts. Growth
-            has tripled since it launched.
+            NDA. The one I&rsquo;d show you first is a large-print book manufacturer: two brand identities, and a quoting and
+            checkout system that sells into school districts and state contracts. Business has tripled since it launched.
           </P>
 
           <Pull>
@@ -89,7 +88,7 @@ export default function About() {
           </Pull>
 
           <P>
-            Five hundred pieces of private land. Twenty four thousand sports cards. A
+            Five hundred pieces of private land. Twenty-four thousand sports cards. A
             publisher&rsquo;s full catalog, browsed by a librarian who knows exactly what her
             collection is missing. Search, taxonomy, hierarchy, and the difference between
             browsing and already knowing what you want. I didn&rsquo;t plan that. I noticed
@@ -132,7 +131,7 @@ export default function About() {
               size="15rem"
               tilt={-2.5}
             >
-              Mid century houses
+              Midcentury houses
             </InlineSticker>{" "}
             are still my favorite thing to look at, and the same period pulled me toward
             its designers. Paul Rand,
@@ -149,7 +148,7 @@ export default function About() {
           </P>
 
           <P>
-            I live in San Juan because my wife Lorena is Boricua and her parents are
+            I live in San Juan because my wife, Lorena, is Boricua and her parents are
             getting older. We wanted to be close enough to help, and we are looking for a
             house here while we settle in.
           </P>

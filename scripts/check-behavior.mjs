@@ -146,7 +146,7 @@ await withServer(async () => {
     await settle(p, 1800);
     const open = () => p.evaluate(() => document.querySelectorAll('button[data-on="true"]').length);
     let most = 0;
-    for (const name of ["Mid century houses", "Eames pieces", "Michael Jordan"]) {
+    for (const name of ["Midcentury houses", "Eames pieces", "Michael Jordan"]) {
       const t = p.locator(`button:text-is("${name}")`).first();
       if (!(await t.count())) continue;
       await t.scrollIntoViewIfNeeded();

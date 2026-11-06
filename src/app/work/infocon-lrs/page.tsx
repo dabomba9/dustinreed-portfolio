@@ -10,7 +10,7 @@ import { Wrap, Column, H2, P, Lead, Pull, Figure, Bullets, Testimonial } from "@
 export const metadata: Metadata = pageMeta({
   title: "InfoCon + LRS — Why we didn’t merge them",
   description:
-    "Two large print brands, one owner, the same customers. Everyone would tell you to consolidate. We built two of everything instead.",
+    "Two large-print brands, one owner, the same customers. Everyone would tell you to consolidate. We built two of everything instead.",
   path: "/work/infocon-lrs",
   image: "/og-infocon.jpg",
 });
@@ -22,7 +22,7 @@ export default function InfoConLRS() {
         number="03"
         client="InfoCon + LRS"
         title="Why we didn’t merge them"
-        dek="Two large print brands, one owner, the same customers. Everyone would tell you to consolidate. We built two of everything instead, and I can tell you exactly why."
+        dek="Two large-print brands, one owner, the same customers. Everyone would tell you to consolidate. We built two of everything instead, and I can tell you exactly why."
         live={{ label: "largeprintbooks.com", href: "https://www.largeprintbooks.com" }}
         meta={[
           { label: "Role", value: "Brand, design, front end" },
@@ -37,7 +37,7 @@ export default function InfoConLRS() {
           <H2>A website from 2003 and an owner who knew exactly what he was doing</H2>
 
           <Lead>
-            Latiker manufactured large print books. The website looked like it belonged in
+            Latiker manufactured large-print books. The website looked like it belonged in
             the early 2000s and there was no recognizable branding of any kind.
           </Lead>
 
@@ -104,8 +104,7 @@ export default function InfoConLRS() {
           <H2>What large print means when you’re the one making it</H2>
 
           <P>
-            Every order gets configured per student. These aren’t presentation options,
-            they’re production decisions.
+            Every order gets configured per student. These aren’t presentation options. They’re production decisions.
           </P>
 
           <SpecBlock
@@ -122,7 +121,7 @@ export default function InfoConLRS() {
           <P>
             Ivory paper cuts glare, which matters a lot for low vision. Spiral binding lets
             a book lie flat so somebody using a magnifier isn’t fighting the spine with one
-            hand. Split page format exists because when you enlarge a textbook page past a
+            hand. Split-page format exists because when you enlarge a textbook page past a
             certain point it stops fitting on one sheet and you have to decide what to do
             about that.
           </P>
@@ -173,7 +172,7 @@ export default function InfoConLRS() {
                   <>
                     <p>
                       “Quality Large Print. Without the Long Wait.” Saturated yellow, black
-                      high contrast serif at display scale, hexagon photo masks, editorial
+                      high-contrast serif at display scale, hexagon photo masks, editorial
                       pacing. Names a benefit and a pain point in six words.
                     </p>
                     <p>
@@ -280,7 +279,7 @@ export default function InfoConLRS() {
           </P>
 
           <WrongBlock
-            label="The argument I lost"
+            label="Where I was wrong"
             claim="Those aren’t the same quality of evidence, and mine was the weaker one."
           >
             <p>
@@ -289,8 +288,7 @@ export default function InfoConLRS() {
               interface. He was reasoning from twenty years of support calls.
             </p>
             <p>
-              What I’d do differently is show up with numbers instead of an opinion. Drop
-              off on the steps I thought were painful, or time to complete a quote. I made a
+              What I’d do differently is show up with numbers instead of an opinion. Drop-off on the steps I thought were painful, or time to complete a quote. I made a
               design argument to somebody who makes business decisions and I never
               translated it.
             </p>
@@ -331,7 +329,7 @@ export default function InfoConLRS() {
 
           <P>
             That last part is the one I care about, because it is the thing I argued for and
-            the thing that was hardest to sell. Every self serve step I proposed was a step
+            the thing that was hardest to sell. Every self-serve step I proposed was a step
             somebody on his team used to own, and asking a business to hand a job to its own
             customers is a bigger request than it sounds.
           </P>
