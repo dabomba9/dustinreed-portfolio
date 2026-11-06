@@ -1,4 +1,5 @@
-# Lint, build and the behaviour guard, on every push to main.
+# Lint, spelling (American English, cspell.json), build and the behavior
+# checks, on every push to main and every pull request.
 #
 # Vercel deploys a push whether or not this passes - it is a signal, not a
 # gate. What it buys is that a fixed bug coming back shows up as a red X on
@@ -29,5 +30,6 @@ jobs:
 
       - run: npm ci
       - run: npm run lint
+      - run: npm run spell
       - run: npm run build
       - run: npm run check
