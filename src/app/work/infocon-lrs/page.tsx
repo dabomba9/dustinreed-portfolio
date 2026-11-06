@@ -49,8 +49,7 @@ export default function InfoConLRS() {
           <P>
             Convincing him to rebuild wasn’t hard. The case was simple. A real brand makes
             you memorable, and a real website can carry articles and content that bring in
-            leads instead of just sitting there being a phone number. I built the logo, the
-            identity and the site, and Latiker became InfoCon, still trading on
+            leads instead of just sitting there being a phone number. I built the logo, the identity, and the site, and Latiker became InfoCon, still trading on
             largeprintbooks.com because the domain says what it sells better than the
             company name does.
           </P>
@@ -135,7 +134,7 @@ export default function InfoConLRS() {
           <Figure tilt={-1}
             wide
             src="/media/lpb-made-to-order.png"
-            alt="The Made to Order section: type size, binding, format and paper"
+            alt="The Made to Order section: type size, binding, format, and paper"
             caption="Four production decisions, made per student. This is the accessibility work, and it lives in the manufacturing spec rather than in an interface widget."
           />
 
@@ -216,7 +215,7 @@ export default function InfoConLRS() {
             tilt={1.2}
             src="/media/infocon-clip"
             poster="/media/infocon-clip-poster.jpg"
-            label="The InfoCon homepage scrolled end to end: the yellow ground, the serif headline, the hexagon photo crops and the quote path"
+            label="The InfoCon homepage scrolled end to end: the yellow ground, the serif headline, the hexagon photo crops, and the quote path"
             caption="InfoCon. Yellow and serif, and a hexagon lifted out of the logo. This one sells speed. Captured September 2026."
           />
 
@@ -225,8 +224,8 @@ export default function InfoConLRS() {
             tilt={-0.9}
             src="/media/lrs-clip"
             poster="/media/lrs-clip-poster.jpg"
-            label="The LRS homepage scrolled end to end: the black search bar, the yellow rule, the online features panel and the newly added books shelf"
-            caption="LRS. Black, condensed and built around search. Same catalog, same buyers, the opposite posture. That difference is the reason we kept both."
+            label="The LRS homepage scrolled end to end: the black search bar, the yellow rule, the online features panel, and the newly added books shelf"
+            caption="LRS. Black, condensed, and built around search. Same catalog, same buyers, the opposite posture. That difference is the reason we kept both."
           />
 
           <H2>The part that isn’t a website</H2>

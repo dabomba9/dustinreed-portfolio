@@ -64,8 +64,7 @@ export default function About() {
           <P>
             Early on I moved our work into Webflow so developers got
             working code instead of a mockup and a conversation. These days it is Figma to
-            design, production Next.js and React to ship, with design systems, iOS and
-            Android along the way. That keeps the distance between &ldquo;this should
+            design, production Next.js and React to ship, with design systems, iOS, and Android along the way. That keeps the distance between &ldquo;this should
             change&rdquo; and &ldquo;it&rsquo;s live&rdquo; short, which is most of what a
             small team actually needs. AI sits in both halves of that now: it is how I work,
             agentic coding against the real repo rather than autocomplete in a sidebar, and
@@ -77,7 +76,7 @@ export default function About() {
 
           <P>
             The Tink Tank is my studio. It has run since 2018, alongside the day job, for
-            clients across SaaS, healthcare, retail and commerce. Most of the roster is under
+            clients across SaaS, healthcare, retail, and commerce. Most of the roster is under
             NDA. The one I&rsquo;d show you first is a large-print book manufacturer: two brand identities, and a quoting and
             checkout system that sells into school districts and state contracts. Business has tripled since it launched.
           </P>

@@ -58,7 +58,7 @@ export default function HowItsBuilt() {
           <P>
             The color dial in the sidebar turns the whole site through seventeen hues. Each
             one has a dark page and light bands, and in every one of them the text, two
-            lighter shades of text, the accent and the outlines on buttons have to stay readable on two
+            lighter shades of text, the accent, and the outlines on buttons have to stay readable on two
             different surfaces. That’s 340 pairs that each have to pass WCAG AA. I didn’t
             choose any of them.
           </P>
@@ -68,7 +68,7 @@ export default function HowItsBuilt() {
           <P>
             <code className="font-mono text-[0.9em] text-type">scripts/themes.mjs</code> starts from the two palettes the site already
             had, the dark page and the light bands, written out as hex. It converts every
-            color to OKLCH, a color space where lightness, colorfulness and hue are separate
+            color to OKLCH, a color space where lightness, colorfulness, and hue are separate
             dials, and turns the hue by a seventeenth of the wheel for each new theme.
           </P>
 

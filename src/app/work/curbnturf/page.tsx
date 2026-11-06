@@ -116,7 +116,7 @@ export default function CurbNTurf() {
             tilt={-0.9}
             src="/media/curbnturf-host"
             poster="/media/curbnturf-host-poster.jpg"
-            label="The CurbNTurf host landing page scrolled end to end: the earnings headline, the land types that qualify shown as tags, an earnings calculator, the three-step explainer, the community map, the host protection panel and the FAQ"
+            label="The CurbNTurf host landing page scrolled end to end: the earnings headline, the land types that qualify shown as tags, an earnings calculator, the three-step explainer, the community map, the host protection panel, and the FAQ"
             caption="The host landing page, captured September 2026. Every block on it answers something a salesperson used to answer on a phone call. What kind of land counts, listed out so a rancher can find his own in it. What it pays, as a calculator rather than a promise. And near the bottom, what happens if a guest damages something, which is a question a landowner has before he has any of the others. This page has to finish the pitch before the onboarding can start the paperwork."
           />
 
@@ -173,7 +173,7 @@ export default function CurbNTurf() {
 
           <P>
             Land doesn’t work like that. A ranch isn’t a house. It’s five or six distinct
-            spots with different sizes, hookups, access and prices. One host, many sites. I
+            spots with different sizes, hookups, access, and prices. One host, many sites. I
             had modeled one host, one site.
           </P>
 
@@ -280,7 +280,7 @@ export default function CurbNTurf() {
             tilt={0.9}
             src="/media/curbnturf-scroll"
             poster="/media/curbnturf-scroll-poster.jpg"
-            label="The CurbNTurf v2 homepage scrolled end to end: the search bar with destination, dates and rig, then the listings, the community map, the reviews and the footer"
+            label="The CurbNTurf v2 homepage scrolled end to end: the search bar with destination, dates, and rig, then the listings, the community map, the reviews, and the footer"
             caption="V2 end to end, captured September 2026. Compare it to the v1 homepage at the top of this page: there, a headline and an empty box; here, a query you can actually run, and everything it leads to."
           />
 
@@ -324,8 +324,7 @@ export default function CurbNTurf() {
 
           <P>
             The hard part wasn’t visual. It was designing inside the framework’s
-            constraints, and the clearest example is navigation. The app’s menu system was
-            built on React, which meant its structure didn’t map onto what we’d built for
+            constraints, and the clearest example is navigation. The app’s menu system was built on React Native, which meant its structure didn’t map onto what we’d built for
             the web. Some layouts exist only in the app and have no web equivalent at all.
           </P>
 
@@ -334,7 +333,7 @@ export default function CurbNTurf() {
             feels consistent and nobody has to think about it twice. I didn’t. Fighting a
             framework to reproduce a web layout on a phone gets you something that feels
             wrong on both, so I let the app keep its own structures where the framework
-            wanted them, and held consistency at the level of brand, language and behavior
+            wanted them, and held consistency at the level of brand, language, and behavior
             instead of layout.
           </P>
 

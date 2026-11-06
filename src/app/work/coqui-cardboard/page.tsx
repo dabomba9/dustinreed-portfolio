@@ -205,7 +205,7 @@ export default function Coqui() {
           <P>
             Underneath the aesthetic there’s a real tool. You can track what you own and
             watch each tier’s completion percentage fill in. Log raw or graded copies with
-            PSA, BGS and SGC cert numbers. See eBay-sourced values over time instead of
+            PSA, BGS, and SGC cert numbers. See eBay-sourced values over time instead of
             somebody’s guess. Build want lists for the cards you’re chasing. Share a public
             profile of your collection. There’s a command palette in the nav for people who
             come back often enough to already know what they’re looking for.
@@ -276,7 +276,7 @@ export default function Coqui() {
           />
 
           <P>
-            Four live sites, all my design, all my code. I bring it up because the useful
+            Four sites, all my design, all my code. Three are live, and CurbNTurf v2 goes public in mid-November 2026. I bring it up because the useful
             fact isn’t any single one of them. It’s that a designer who builds doesn’t have
             to wait on anybody to find out whether an idea works.
           </P>

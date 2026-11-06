@@ -81,7 +81,7 @@ export function Marks() {
         >
           <Image
             src="/media/curbnturf-system/logo/CNT_Logo_V_Orange.svg"
-            alt="The CurbNTurf monogram in orange: CURB, N and TURF stacked into a square"
+            alt="The CurbNTurf monogram in orange: CURB, N, and TURF stacked into a square"
             width={100}
             height={128}
             className="h-28 w-auto"

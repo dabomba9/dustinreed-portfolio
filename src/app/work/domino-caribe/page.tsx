@@ -44,7 +44,7 @@ export default function DominoCaribe() {
 
           <P>
             I also wanted a real project to push Claude Code on. Not a to-do app. Something
-            with enough rules, edge cases and arguments in it that a model left alone would
+            with enough rules, edge cases, and arguments in it that a model left alone would
             confidently get things wrong, so I could find out what it takes to keep it from
             doing that.
           </P>
@@ -125,7 +125,7 @@ export default function DominoCaribe() {
           <P>
             The spec gets corrected too, in the open. The Puerto Rican preset first played
             clockwise. A rules check later found no source for that, every source said
-            counterclockwise, so I changed it, and the file says what changed, when and why.
+            counterclockwise, so I changed it, and the file says what changed, when, and why.
             Clockwise is still there as a house rule for anyone whose family plays it that
             way.
           </P>
@@ -154,7 +154,7 @@ export default function DominoCaribe() {
 
           <P>
             Every style is just settings on that engine. Dominican, Dominican one-on-one,
-            Puerto Rican 200, Puerto Rican 500 and Cuban double-nine are presets, and{" "}
+            Puerto Rican 200, Puerto Rican 500, and Cuban double-nine are presets, and{" "}
             <em>Mi mesa</em>, “my table,” lets you start from any of them and change the
             rules your family argues about. Nothing about a style is written into the game
             itself.
@@ -231,8 +231,8 @@ export default function DominoCaribe() {
             phone
             src="/media/domino-phone"
             poster="/media/domino-phone-poster.jpg"
-            label="The same game on a phone: three bots take their turns, and on my turn the hand grows, the playable tiles are marked and the game asks which end to play on, while the line of tiles folds back and forth to stay on the narrow table"
-            caption="The same live game on a phone, recorded November 2026 at one and a half times speed. On my turn the rack grows, marks what I can play and asks which end it goes on, and the line folds back on itself rather than run off a table this narrow. Like the rest of the game, still a work in progress."
+            label="The same game on a phone: three bots take their turns, and on my turn the hand grows, the playable tiles are marked, and the game asks which end to play on, while the line of tiles folds back and forth to stay on the narrow table"
+            caption="The same live game on a phone, recorded November 2026 at one and a half times speed. On my turn the rack grows, marks what I can play, and asks which end it goes on, and the line folds back on itself rather than run off a table this narrow. Like the rest of the game, still a work in progress."
           />
 
           <Figure tilt={-0.8}
@@ -300,7 +300,7 @@ export default function DominoCaribe() {
               "Friend tables that finish, every time: your own seat back after a drop, and “play again with the same people” that remembers who they were.",
               "The fingerprint at online tables, so Juego limpio means the same thing everywhere.",
               "A partner bot that plays like a partner: doesn’t block you, and holds back a double so you can go out.",
-              "Easy for abuela: arrive from a WhatsApp link, in Spanish, with big tiles, no account and no timers.",
+              "Easy for abuela: arrive from a WhatsApp link, in Spanish, with big tiles, no account, and no timers.",
               "Android and iOS apps, wrapped from the same web game.",
             ]}
           />

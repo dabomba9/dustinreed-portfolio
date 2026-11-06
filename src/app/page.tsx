@@ -36,7 +36,7 @@ export default function Home() {
             >
               CurbNTurf
             </a>
-            . Since joining in 2018, I&rsquo;ve built the brand, the product, the website and two native apps, and I&rsquo;m still designing it today. Now I write backend too.
+            . Since joining in 2018, I&rsquo;ve built the brand, the product, the website, and two native apps, and I&rsquo;m still designing it today. Now I write backend too.
           </p>
 
           {/* Keyboard only. On a phone this is the third thing a visitor reads
