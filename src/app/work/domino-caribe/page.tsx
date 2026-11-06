@@ -22,13 +22,13 @@ export default function DominoCaribe() {
         number="04"
         client="Dominó Caribe"
         title="The model had to ask"
-        dek="A web game of Caribbean dominoes, built in about two weeks with Claude Code. The code came mostly from the model. The rules came from the people who actually play, and the model was told, in writing, not to make any up."
+        dek="A web game of Caribbean dominoes, built in about two weeks with Claude Code. The code came mostly from the model. The rules came from the people who actually play, and the model was told, in writing, not to make any up. It’s live, playable, and still a work in progress."
         live={{ label: "dominoes-zeta.vercel.app", href: "https://dominoes-zeta.vercel.app" }}
         meta={[
           { label: "Role", value: "All of it" },
           { label: "Built with", value: "Claude Code" },
           { label: "Stack", value: "TypeScript, Vite, Vitest, Colyseus" },
-          { label: "Scale", value: "589 tests, 186 commits" },
+          { label: "Status", value: "Work in progress" },
         ]}
       />
 
@@ -226,6 +226,14 @@ export default function DominoCaribe() {
             It installs to the home screen and plays offline against the bots. Sounds are off
             until you turn them on.
           </P>
+
+          <Clip
+            phone
+            src="/media/domino-phone"
+            poster="/media/domino-phone-poster.jpg"
+            label="The same game on a phone: three bots take their turns, and on my turn the hand grows, the playable tiles are marked and the game asks which end to play on, while the line of tiles folds back and forth to stay on the narrow table"
+            caption="The same live game on a phone, recorded November 2026 at one and a half times speed. On my turn the rack grows, marks what I can play and asks which end it goes on, and the line folds back on itself rather than run off a table this narrow. Like the rest of the game, still a work in progress."
+          />
 
           <Figure tilt={-0.8}
             src="/media/domino-chuchazo.jpg"
