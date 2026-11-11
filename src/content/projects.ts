@@ -70,11 +70,11 @@ export const caseStudies: CaseStudy[] = [
     client: "Dominó Caribe",
     title: "The model had to ask.",
     blurb:
-      "A web game of Caribbean dominoes, built in about two weeks with Claude Code. The rules came from the people who play, not from the model.",
+      "A web game of Caribbean dominoes, built in October 2026 with Claude Code. The rules came from the people who play, not from the model.",
     facts: [
       "Work in progress",
       "Sole designer and developer",
-      "589 automated tests",
+      "607 automated tests",
       "Dominican, Puerto Rican, and Cuban rules",
       "Online with friends",
     ],

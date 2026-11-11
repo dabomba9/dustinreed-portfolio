@@ -10,7 +10,7 @@ import { Wrap, Column, H2, P, Lead, Pull, Figure, Bullets, Results } from "@/com
 export const metadata: Metadata = pageMeta({
   title: "Dominó Caribe — The model had to ask",
   description:
-    "A web game of Caribbean dominoes, built in about two weeks with Claude Code. A written rules spec was the source of truth, and the agent was told to ask instead of inventing a rule.",
+    "A web game of Caribbean dominoes, built in October 2026 with Claude Code. A written rules spec was the source of truth, and the agent was told to ask instead of inventing a rule.",
   path: "/work/domino-caribe",
   image: "/og-domino.jpg",
 });
@@ -22,7 +22,7 @@ export default function DominoCaribe() {
         number="04"
         client="Dominó Caribe"
         title="The model had to ask"
-        dek="A web game of Caribbean dominoes, built in about two weeks with Claude Code. The code came mostly from the model. The rules came from the people who actually play, and the model was told, in writing, not to make any up. It’s live, playable, and still a work in progress."
+        dek="A web game of Caribbean dominoes, built in October 2026 with Claude Code. The code came mostly from the model. The rules came from the people who actually play, and the model was told, in writing, not to make any up. It’s live, playable, and still a work in progress."
         live={{ label: "dominoes-zeta.vercel.app", href: "https://dominoes-zeta.vercel.app" }}
         meta={[
           { label: "Role", value: "All of it" },
@@ -171,7 +171,7 @@ export default function DominoCaribe() {
 
           <Results
             items={[
-              { value: "589", label: "automated tests, across 61 test files" },
+              { value: "607", label: "automated tests, across 61 test files" },
               { value: "5", label: "rule presets, plus Mi mesa for house rules" },
               { value: "3", label: "bot levels, all limited to one player’s view" },
               { value: "186", label: "commits, 177 of them co-written with Claude" },
@@ -179,7 +179,7 @@ export default function DominoCaribe() {
           />
 
           <P>
-            The spec says every rule needs a test, and that’s why there are 589 of them.
+            The spec says every rule needs a test, and that’s why there are 607 of them.
             GitHub runs them on every change, and a change doesn’t go into the live game
             until they pass.
           </P>
