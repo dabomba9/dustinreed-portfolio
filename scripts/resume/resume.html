@@ -22,85 +22,80 @@
   @font-face { font-family: "JetBrains Mono"; src: url("../../src/fonts/jetbrains-mono-var.woff2") format("woff2"); font-weight: 100 800; }
   @font-face { font-family: "Big Shoulders"; src: url("../../src/fonts/big-shoulders-var.woff2") format("woff2"); font-weight: 100 900; }
   :root { --type:#0d2117; --soft:#41474c; --mute:#5c625a; --rule:#d9d5c4; --accent:#566f00; }
-  @page { size: Letter; margin: 0.4in 0.55in; }
+  @page { size: Letter; margin: 0.36in 0.55in; }
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { font-family: "Inter", Arial, Helvetica, sans-serif; font-feature-settings:"cv02","cv03","cv04","cv11"; font-size: 9.7px; line-height: 1.33; color: var(--type); -webkit-font-smoothing:antialiased; }
+  html { font-family: "Inter", Arial, Helvetica, sans-serif; font-feature-settings:"cv02","cv03","cv04","cv11"; font-size: 9.5px; line-height: 1.32; color: var(--type); -webkit-font-smoothing:antialiased; }
   h1 { font-family: "Big Shoulders", "Inter", sans-serif; font-size: 28px; font-weight: 800; line-height: 0.95; letter-spacing: 0.005em; text-transform: uppercase; }
   .title { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 9px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-top: 5px; }
   .contact { margin-top: 5px; color: var(--mute); font-size: 9.4px; }
-  h2 { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 8.6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-top: 8px; padding-bottom: 2px; border-bottom: 1px solid var(--rule); margin-bottom: 4px; }
+  h2 { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 8.6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-top: 7px; padding-bottom: 2px; border-bottom: 1px solid var(--rule); margin-bottom: 4px; }
   p { margin-bottom: 3px; }
-  .job { margin-top: 5px; }
+  .job { margin-top: 4px; }
   .job-head { font-weight: 700; }
   .job-meta { color: var(--mute); }
   ul { margin: 2px 0 0 13px; }
   li { margin-bottom: 1.5px; }
   li::marker { color: var(--accent); }
-  .skills p { margin-bottom: 2px; }
+  .skills p { margin-bottom: 1px; }
   .skills b { font-weight: 700; }
+  a { color: inherit; text-decoration: none; }
 </style>
-</head>
-<body>
+</head><body>
 <h1>Dustin Reed</h1>
 <div class="title">Senior Product Designer | Zero-to-One Marketplaces, Design Systems</div>
-<div class="contact">dr33d9@gmail.com | Portfolio: dustinreed.co | LinkedIn: linkedin.com/in/dreeddesign | GitHub: github.com/dabomba9 | San Juan, Puerto Rico</div>
+<div class="contact"><a href="https://www.dustinreed.co">dustinreed.co</a> | <a href="mailto:dr33d9@gmail.com">dr33d9@gmail.com</a> | San Juan, Puerto Rico | <a href="https://www.linkedin.com/in/dreeddesign">linkedin.com/in/dreeddesign</a></div>
 <div style="border-top:2px solid var(--type); margin-top:8px;"></div>
 
 <h2>Summary</h2>
-<p>Senior Product Designer with 8+ years building zero-to-one products that ship and scale. Founding designer at a two-sided RV marketplace since 2018, leading creative direction through 10-person growth and 279% YoY host acquisition. I design end to end: brand identity, native iOS/Android apps, design systems, and production React code. Then I drive products into market through self-serve onboarding and conversion-focused interfaces.</p>
+<p>Senior Product Designer with 8+ years shipping zero-to-one marketplaces and design systems. Founding designer at a two-sided RV platform since 2018, scaling from launch to 500+ listings and 279% YoY host growth. I design end to end: brand, native iOS/Android, design systems, production React. Then I drive adoption through self-serve onboarding that converts. I prototype AI-assisted flows in code against live model output, designing interfaces where users stay in control when models fail.</p>
 
 <h2>Selected Results</h2>
 <p>279% YoY marketplace host sign-ups | InfoCon business tripled after the self-serve quoting launch, as reported by the owner | Majority of B2B quote requests moved to self-serve | About 8% lead capture on paid search | 500+ listings at a 4.8 host rating</p>
 
 <h2>Experience</h2>
-
 <div class="job">
   <div class="job-head">Founding Designer &amp; Product Lead, CurbNTurf</div>
   <div class="job-meta">Remote | Dec 2018 - Present</div>
   <ul>
-    <li>Launched the brand, marketplace, and iOS/Android apps for a two-sided RV platform; now 500+ active listings at a 4.8 host rating.</li>
+    <li>Designed the brand identity, two-sided marketplace, and native iOS/Android apps for an RV and camping stay platform; now 500+ active listings at a 4.8 host rating.</li>
     <li>Drove a 2023 supply push that lifted host sign-ups 279% year over year; roughly 90% compound annual growth has continued since.</li>
-    <li>Designed self-serve host onboarding that enabled landowners to join the marketplace without a sales team.</li>
-    <li>Designed the booking and checkout flow that captures the platform's 15% service fee, the company's only revenue stream.</li>
+    <li>Designed self-serve host onboarding that removed sales dependency: landowners complete listing setup and go live independently.</li>
+    <li>Designed the booking and checkout flow that captures the platform’s 15% service fee, the company’s only revenue stream.</li>
     <li>Led company-wide creative direction as CurbNTurf scaled to a 10-person team.</li>
-    <li>Led the v2 product redesign, using AI-driven workflows to accelerate design-to-code handoff, and defined the AI integration strategy for the <span style="white-space:nowrap">next-generation</span> app.</li>
-    <li>Write the production front end in Next.js, React, and TypeScript and integrate it with the backend; earlier moved design into Webflow so developers received working code instead of mockups.</li>
+    <li>Led v2 redesign with AI-assisted host onboarding: prototyped in Claude Code against live model output, designed correction flows for model errors, and defined AI integration strategy for the platform.</li>
+    <li>Built production front end in Next.js, React, and TypeScript; earlier shipped designs in Webflow to deliver working code to developers, not static mockups.</li>
     <li>Designed the internal tools used by the field sales team.</li>
   </ul>
 </div>
-
 <div class="job">
   <div class="job-head">Principal Designer, The Tink Tank</div>
   <div class="job-meta">Remote | May 2018 - Present</div>
   <ul>
     <li>Run the studio for SaaS, healthcare, retail, and commerce clients, directing the freelance designers and developers each project needs.</li>
-    <li>InfoCon + LRS: Designed two brand identities and a self-serve quoting system for a large-print book manufacturer. Moved most B2B quote requests to self-serve with an instant price estimator; the business tripled after launch.</li>
-    <li>New Smile Dentures: Rebranded a denture practice and designed landing pages optimized for conversion. SEO and paid search drove 5,000 to 10,000 monthly visits at about 8% lead capture.</li>
+    <li>InfoCon + LRS: Designed two brand identities and a self-serve quoting system for a large-print book manufacturer; moved most B2B quote requests to self-serve with an instant price estimator, and the business tripled post-launch.</li>
+    <li>New Smile Dentures: Rebranded a denture practice and designed conversion-optimized landing pages; SEO and paid search drove 5,000-10,000 monthly visits at ~8% lead capture rate.</li>
   </ul>
 </div>
-
 <div class="job">
   <div class="job-head">Founder &amp; Product Designer, StickyFlow</div>
   <div class="job-meta">Remote | Mar 2026 - Present</div>
   <ul>
-    <li>Founded and designed the full product experience: positioning, brand, and a Next.js site built to sell deployed AI systems, not consulting. The interface reflects technical precision over marketing language.</li>
-    <li>Built the systems themselves: RAG chatbots, LLM API integrations, and agent workflows in custom code, CRM syncing, and data pipelines, all within the client's own accounts and keys, so they retain the architecture and data.</li>
+    <li>Designed the full product experience: positioning, brand identity, and a Next.js site built to sell deployed AI systems, not consulting. Interface prioritizes technical precision over marketing language.</li>
+    <li>Built the systems themselves: RAG chatbots, LLM API integrations, and agent workflows in custom code, CRM syncing, and data pipelines, all within the client’s own accounts and keys, so they retain the architecture and data.</li>
+    <li>Design the interface layer for each system: how agents surface reasoning, signal confidence, and recover from errors while keeping users in control.</li>
   </ul>
 </div>
-
 <div class="job">
   <div class="job-head">Graphic Designer, Ivie</div>
   <div class="job-meta">Boise, ID | Mar 2017 - Dec 2018</div>
   <ul>
-    <li>Designed national in-store campaigns for Albertsons, a Fortune 500 grocery retailer, from concept through rollout across 2,000 stores.</li>
+    <li>Designed national in-store campaigns for Albertsons (Fortune 500 grocery retailer), concept through rollout across 2,000 stores.</li>
   </ul>
 </div>
-
 <div class="job">
   <div class="job-head">Graphic Designer, Vital Sign &amp; Graphics</div>
   <div class="job-meta">Rexburg, ID | Jul 2015 - Dec 2016</div>
 </div>
-
 <div class="job">
   <div class="job-head">Graphic Designer, Brigham Young University-Idaho</div>
   <div class="job-meta">Rexburg, ID | Apr 2014 - Jun 2016</div>
@@ -108,19 +103,22 @@
 
 <h2>Skills</h2>
 <div class="skills">
-  <p><b>Product Design:</b> zero-to-one, two-sided marketplaces, self-serve onboarding, design systems, iOS and Android, IA and search for large catalogs, prototyping in Figma and code, user research and usability testing</p>
-  <p><b>Front End:</b> React, Next.js, TypeScript, Tailwind, GSAP, Webflow</p>
+  <p><b>Product Design:</b> zero-to-one, two-sided marketplaces, self-serve onboarding, design systems, iOS and Android, component libraries, IA and search for large catalogs, interactive prototypes, usability testing</p>
+  <p><b>Design Tools:</b> Figma, Adobe Illustrator, Adobe XD, Abstract, Lucidchart</p>
+  <p><b>Front End:</b> React, Next.js, TypeScript, Tailwind, CSS, GSAP, Webflow</p>
   <p><b>AI:</b> LLM APIs (Anthropic, OpenAI, Gemini), RAG, prompt and agent design, Claude Code, Cursor, Antigravity</p>
-  <p><b>Design:</b> Figma, brand and identity, art direction, accessibility (WCAG AA)</p>
-  <p><b>Growth:</b> SEO, Google Ads, landing-page conversion</p>
-  <p><b>Languages:</b> English, Spanish</p>
+  <p><b>Growth &amp; Analytics:</b> SEO, Google Ads, landing-page conversion, Amplitude</p>
+  <p><b>Brand &amp; Creative:</b> brand and identity, art direction, accessibility (WCAG AA)</p>
+  <p><b>Languages:</b> English (Native), Spanish (Fluent)</p>
 </div>
 
 <h2>Education</h2>
 <p><b>Brigham Young University-Idaho</b>, Bachelor of Arts (BA), Graphic Design | Rexburg, ID | 2014 - 2016 | GPA 3.7</p>
 
 <h2>Projects</h2>
-<p><b>Coqui Cardboard</b> (coquicardboard.com): A 24,000-card sports-card catalog with command-palette search, built end to end in Next.js and Supabase. Designed for collectors who need to find specific cards fast: search, filters, and catalog IA built from scratch.</p>
-<p><b>Portfolio</b> (dustinreed.co): Hand built. A color control rotates hue in OKLCH at constant relative luminance, so all 340 contrast pairs hold their ratios. Embedded WCAG AA enforcement in the design system with automated contrast checks that fail below the standard.</p>
+<p><b>Dominó Caribe</b> (<a href="https://dominoes-zeta.vercel.app">dominoes-zeta.vercel.app</a>): A web game of Caribbean dominoes with Dominican, Puerto Rican, and Cuban rules, in Spanish and English, against bots or online with friends. Built in three weeks with Claude Code in strict TypeScript: a pure rules engine, a written rules spec as the source of truth (the model asked when a rule was unclear instead of inventing one), and 589 automated tests.</p>
+  <p><b>Coqui Cardboard</b> (<a href="https://www.coquicardboard.com">coquicardboard.com</a>): A 24,000-card sports-card catalog with command-palette search, built end to end in Next.js and Supabase. Search, filters, and catalog IA built from scratch for collectors who need to find specific cards fast.</p>
+  <p><b>Portfolio</b> (<a href="https://www.dustinreed.co">dustinreed.co</a>): Hand built. Designed a color control that rotates hue in OKLCH at constant relative luminance, preserving all 340 contrast ratios. Embedded WCAG AA enforcement in the design system with automated contrast checks that fail below the standard: accessibility as infrastructure, not audit.</p>
+
 </body>
 </html>
