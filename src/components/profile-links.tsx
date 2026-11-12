@@ -20,8 +20,10 @@ import TrackedLink from "@/components/tracked-link";
  * means reading it back requires a filter every time.
  */
 const LINKS = [
-  /* First, because it is the thing a recruiter came for. */
-  { label: "Résumé", href: "/dustin-reed-resume.pdf", event: "resume_open" },
+  /* First, because it is the thing a recruiter came for. A person clicking
+     here gets the designed version; the plain one stays at
+     /dustin-reed-resume.pdf for application forms and is not linked. */
+  { label: "Résumé", href: "/dustin-reed-resume-designed.pdf", event: "resume_open" },
   { label: "LinkedIn", href: PROFILES.linkedin, event: "profile_link" },
   { label: "GitHub", href: PROFILES.github, event: "profile_link" },
   { label: "The Tink Tank", href: "https://thetinktank.com", event: "profile_link" },

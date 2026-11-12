@@ -28,12 +28,10 @@ const nextConfig: NextConfig = {
    * filesystem, so this reaches a file in public/ that no route serves.
    */
   headers() {
-    return [
-      {
-        source: "/dustin-reed-resume.pdf",
-        headers: [{ key: "X-Robots-Tag", value: "noindex, noimageindex" }],
-      },
-    ];
+    return ["/dustin-reed-resume.pdf", "/dustin-reed-resume-designed.pdf"].map((source) => ({
+      source,
+      headers: [{ key: "X-Robots-Tag", value: "noindex, noimageindex" }],
+    }));
   },
 };
 
