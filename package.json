@@ -13,6 +13,7 @@
     "nav": "python3 scripts-nav.py",
     "icon": "python3 scripts-icon.py",
     "resume": "node scripts/resume-pdf.mjs",
+    "resume:designed": "node scripts/resume-pdf.mjs --designed",
     "check": "node scripts/check-behavior.mjs"
   },
   "dependencies": {

@@ -9,6 +9,10 @@
   `npm run resume` prints it through the same Chrome the behaviour checks
   drive, and the PDF is a build artifact of it. Edit this file, never the PDF.
 
+  No letter-spacing on headings or the title line: parsers read spaced
+  capitals as separate letters ("E X P E R I E N C E") and miss the section.
+  Straight apostrophes for the same reason.
+
   Rebuilt October 2026 as a single-column, one-page layout: plain section
   headings, titles before company names, real text throughout, no tables or
   graphics, so the applicant-tracking systems that parse it before a person
@@ -26,9 +30,9 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   html { font-family: "Inter", Arial, Helvetica, sans-serif; font-feature-settings:"cv02","cv03","cv04","cv11"; font-size: 9.5px; line-height: 1.32; color: var(--type); -webkit-font-smoothing:antialiased; }
   h1 { font-family: "Big Shoulders", "Inter", sans-serif; font-size: 28px; font-weight: 800; line-height: 0.95; letter-spacing: 0.005em; text-transform: uppercase; }
-  .title { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 9px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-top: 5px; }
+  .title { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 9.6px; font-weight: 600; letter-spacing: 0; text-transform: uppercase; color: var(--accent); margin-top: 5px; }
   .contact { margin-top: 5px; color: var(--mute); font-size: 9.4px; }
-  h2 { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 8.6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-top: 7px; padding-bottom: 2px; border-bottom: 1px solid var(--rule); margin-bottom: 4px; }
+  h2 { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 9.4px; font-weight: 700; text-transform: uppercase; letter-spacing: 0; color: var(--accent); margin-top: 7px; padding-bottom: 2px; border-bottom: 1px solid var(--rule); margin-bottom: 4px; }
   p { margin-bottom: 3px; }
   .job { margin-top: 4px; }
   .job-head { font-weight: 700; }
@@ -57,7 +61,7 @@
     <li>Designed the brand identity, two-sided marketplace, and native iOS/Android apps for an RV and camping stay platform; now 500+ active listings at a 4.8 host rating.</li>
     <li>Drove a 2023 supply push that lifted host sign-ups 279% year over year; host growth has averaged about 90% a year since 2023.</li>
     <li>Designed self-serve host onboarding that removed sales dependency: landowners complete listing setup and go live independently.</li>
-    <li>Designed the booking and checkout flow that captures the platform’s 15% service fee, the company’s only revenue stream.</li>
+    <li>Designed the booking and checkout flow that captures the platform's 15% service fee, the company's only revenue stream.</li>
     <li>Rebuilt the design system in code: audited the palette (14 of 17 pairings failed contrast), rebuilt it as OKLCH design tokens, migrated surface by surface, and added a build check that fails below WCAG AA.</li>
     <li>Built production front end in Next.js, React, and TypeScript, shipping through pull requests reviewed by engineers; earlier shipped designs in Webflow so developers got working code, not static mockups.</li>
     <li>Led v2 redesign with AI-assisted host onboarding: prototyped in Claude Code against live model output, designed correction flows for model errors, and defined AI integration strategy for the platform.</li>
@@ -103,7 +107,7 @@
 <p><b>Brigham Young University-Idaho</b>, Bachelor of Arts (BA), Graphic Design | Rexburg, ID | 2014 - 2016</p>
 
 <h2>Projects</h2>
-<p><b>StickyFlow</b> (2026): AI systems built in clients&rsquo; own accounts: RAG chatbots, LLM API integrations, and agent workflows in custom code. Designed the interface layer for each, how agents surface reasoning, signal confidence, and recover from errors while keeping users in control.</p>
+<p><b>StickyFlow</b> (2026): AI systems built in clients' own accounts: RAG chatbots, LLM API integrations, and agent workflows in custom code. Designed the interface layer for each, how agents surface reasoning, signal confidence, and recover from errors while keeping users in control.</p>
 <p><b>Dominó Caribe</b> (<a href="https://dominoes-zeta.vercel.app">dominoes-zeta.vercel.app</a>): A web game of Caribbean dominoes with Dominican, Puerto Rican, and Cuban rules, in Spanish and English, against bots or online with friends. Built in October 2026 with Claude Code in strict TypeScript: a pure rules engine, a written rules spec as the source of truth (the model asked when a rule was unclear instead of inventing one), and 607 automated tests.</p>
   <p><b>Coqui Cardboard</b> (<a href="https://www.coquicardboard.com">coquicardboard.com</a>): A 24,000-card sports-card catalog with command-palette search, built end to end in Next.js and Supabase. Search, filters, and catalog IA built from scratch for collectors who need to find specific cards fast.</p>
   <p><b>Portfolio</b> (<a href="https://www.dustinreed.co">dustinreed.co</a>): Hand built. Designed a color control that rotates hue in OKLCH at constant relative luminance, preserving all 340 contrast ratios. Embedded WCAG AA enforcement in the design system with automated contrast checks that fail below the standard: accessibility as infrastructure, not audit.</p>
