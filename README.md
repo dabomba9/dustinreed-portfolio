@@ -59,9 +59,15 @@ in public/media/README.md.
 
 ## Résumé
 
-scripts/resume/resume.html is the source; public/dustin-reed-resume.pdf is
-printed from it with `npm run resume`, in the site's own fonts and light
-palette. Edit the HTML, never the PDF.
+There are two, with the same words. Edit the HTML, never the PDFs, and keep
+the two in step.
+
+- scripts/resume/resume.html prints to public/dustin-reed-resume.pdf with
+  `npm run resume`: one plain column for application forms, which parsers
+  read cleanly. It is not linked from the site.
+- scripts/resume/resume-brand.html prints to
+  public/dustin-reed-resume-designed.pdf with `npm run resume:designed`: the
+  site's brand, for people. The Résumé link in the profile row points here.
 
 It carries no phone number on purpose: the file is public at a guessable URL
 and gets scraped. The PDF is also served `noindex` (see next.config.ts), so a
@@ -132,6 +138,9 @@ a visitor has switched analytics off or it isn't on the page.
                        rewrites the favicons in src/app
     npm run resume     after editing scripts/resume/resume.html; prints it
                        to public/dustin-reed-resume.pdf through Chrome
+    npm run resume:designed
+                       after editing scripts/resume/resume-brand.html; prints
+                       public/dustin-reed-resume-designed.pdf
     python3 scripts/art-masks.py
                        after changing a two-tone illustration; see
                        public/media/README.md
