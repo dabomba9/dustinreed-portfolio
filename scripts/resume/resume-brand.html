@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dustin Reed · résumé (designed)</title>
+<!--
+  The designed companion to resume.html, printed to
+  public/dustin-reed-resume-designed.pdf by `npm run resume:designed`.
+
+  resume.html stays the plain single-column file for application forms,
+  because applicant-tracking parsers choke on columns and colour. This one
+  is for people: a hiring manager, a portfolio review, an email attachment.
+  Same words, the site's brand: the forest ground, cream type, the lime
+  mark behind the line that matters, Big Shoulders over JetBrains Mono.
+
+  Keep the content in step with resume.html when either changes.
+  PR_PATH below is the outline from src/components/puerto-rico.tsx.
+-->
+<style>
+  @font-face { font-family: "Inter"; src: url("../../src/fonts/inter-var.woff2") format("woff2"); font-weight: 100 900; }
+  @font-face { font-family: "JetBrains Mono"; src: url("../../src/fonts/jetbrains-mono-var.woff2") format("woff2"); font-weight: 100 800; }
+  @font-face { font-family: "Big Shoulders"; src: url("../../src/fonts/big-shoulders-var.woff2") format("woff2"); font-weight: 100 900; }
+
+  /* The live site's default theme. Lime is only ever a background behind
+     ground-coloured ink, never text on cream, which is how the site uses it. */
+  :root {
+    --ground: #0d2117; --raised: #152c21; --rule-dark: #21402f;
+    --cream: #f1efe3; --paper: #f7f5ec; --soft-dark: #c2c6b9; --mute-dark: #8d9387;
+    --ink: #0d2117; --ink-soft: #3a463e; --ink-mute: #5d665d; --rule: #d6d3c2;
+    --lime: #c6ff00; --deep: #024028;
+  }
+  @page { size: Letter; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body {
+    font-family: "Inter", Arial, sans-serif; font-feature-settings: "cv02","cv03","cv04","cv11";
+    font-size: 9.5px; line-height: 1.42; color: var(--ink); background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .sheet { width: 8.5in; height: 11in; overflow: hidden; display: flex; flex-direction: column; background: var(--paper); }
+
+  .mono {
+    font-family: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    font-size: 7.4px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+  }
+
+  /* ---- header band ---- */
+  header {
+    background: var(--ground); color: var(--cream);
+    padding: 0.34in 0.5in 0.3in; display: grid;
+    grid-template-columns: auto 1fr auto; gap: 0 18px; align-items: center;
+  }
+  .portrait { width: 74px; height: auto; display: block; }
+  h1 {
+    font-family: "Big Shoulders", "Inter", sans-serif; font-weight: 800;
+    font-size: 40px; line-height: .9; letter-spacing: .01em; text-transform: uppercase;
+  }
+  .role { color: var(--lime); margin-top: 7px; }
+  .contact { margin-top: 9px; color: var(--soft-dark); font-size: 8.4px; display: flex; flex-wrap: wrap; gap: 3px 12px; }
+  .contact span { white-space: nowrap; }
+  .where { text-align: right; color: var(--mute-dark); }
+  .where svg { width: 112px; height: auto; color: var(--lime); display: block; margin: 0 0 6px auto; }
+  .where .mono { line-height: 1.6; }
+  .where b { color: var(--cream); font-weight: 500; }
+
+  /* ---- lede ---- */
+  .lede { padding: 0.26in 0.5in 0; display: grid; grid-template-columns: 1fr 2.05in; gap: 22px; align-items: end; }
+  .lede h2 {
+    font-family: "Big Shoulders", "Inter", sans-serif; font-weight: 800;
+    font-size: 30px; line-height: 1; letter-spacing: .005em;
+  }
+  mark { background: var(--lime); color: var(--ink); padding: 0 4px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+  .lede p { margin-top: 8px; color: var(--ink-soft); font-size: 9.3px; line-height: 1.45; }
+
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+  .stat { background: var(--cream); padding: 7px 9px 6px; }
+  .stat b {
+    display: block; font-family: "Big Shoulders", "Inter", sans-serif; font-weight: 800;
+    font-size: 22px; line-height: 1; color: var(--ink);
+  }
+  .stat span { display: block; margin-top: 3px; color: var(--ink-mute); font-size: 7.3px; line-height: 1.3; }
+
+  /* ---- body ---- */
+  main { flex: 1; padding: 0.28in 0.5in 0; display: grid; grid-template-columns: 1fr 2.05in; gap: 22px; }
+  h3 {
+    color: var(--deep); padding-bottom: 4px; margin-bottom: 7px;
+    border-bottom: 1.5px solid var(--ink); display: flex; justify-content: space-between;
+  }
+  h3 em { font-style: normal; color: var(--ink-mute); }
+  section + section { margin-top: 16px; }
+
+  .job + .job { margin-top: 12px; }
+  .job-head { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+  .job-title { font-weight: 700; font-size: 9.6px; }
+  .job-title i { font-style: normal; font-weight: 500; color: var(--ink-mute); }
+  .job-when { color: var(--ink-mute); white-space: nowrap; }
+  ul { margin: 4px 0 0 0; list-style: none; }
+  li { position: relative; padding-left: 11px; margin-bottom: 3.4px; color: var(--ink-soft); }
+  li::before { content: ""; position: absolute; left: 0; top: .52em; width: 5px; height: 5px; background: var(--lime); outline: 1px solid var(--ink); }
+  li b { color: var(--ink); font-weight: 600; }
+  .early { color: var(--ink-mute); margin-top: 6px; }
+  .early b { color: var(--ink-soft); font-weight: 600; }
+
+  aside .group + .group { margin-top: 8px; }
+  aside .label { color: var(--ink-mute); margin-bottom: 2px; }
+  aside p { color: var(--ink-soft); }
+  .tags { display: flex; flex-wrap: wrap; gap: 3px; }
+  .tags span { border: 1px solid var(--rule); background: var(--cream); padding: 1.5px 5px; border-radius: 2px; font-size: 8.2px; color: var(--ink); }
+  .proj + .proj { margin-top: 7px; }
+  .proj b { display: block; color: var(--ink); font-size: 9.2px; }
+  .proj .mono { color: var(--deep); font-size: 6.9px; letter-spacing: .08em; text-transform: none; }
+  .proj p { margin-top: 1px; }
+
+  footer {
+    margin-top: auto; background: var(--ground); color: var(--mute-dark);
+    padding: 9px 0.5in; display: flex; justify-content: space-between;
+  }
+  footer b { color: var(--lime); font-weight: 500; }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header>
+  <img class="portrait" src="../../public/media/dustin-portrait-line.png" alt="">
+  <div>
+    <h1>Dustin Reed</h1>
+    <div class="mono role">Founding Product Designer &amp; Design Engineer</div>
+    <div class="contact">
+      <span><a href="https://www.dustinreed.co">dustinreed.co</a></span>
+      <span><a href="mailto:dr33d9@gmail.com">dr33d9@gmail.com</a></span>
+      <span><a href="https://www.linkedin.com/in/dreeddesign">linkedin.com/in/dreeddesign</a></span>
+      <span><a href="https://github.com/dabomba9">github.com/dabomba9</a></span>
+    </div>
+  </div>
+  <div class="where">
+    <svg viewBox="0 0 1110 416" fill="currentColor" role="img" aria-label="Puerto Rico"><path d="M715.3,402.3c-1.5,12.7,9.6,7.7,15,12.9s9.2,3.9,13.5.7c15.9-11.7,23.5-3.5,31.1-10.9,5.2-5.1,10.4-9.4,16.9-12.7,7,4.5,16.9,10.6,24.5,4.4l8.6-7c14.5,1.2,10-7.4,21.5.5,1.7,1.2,4.4,2.3,5.9,1.7,6.2-2.3,3.6-8.6,11.4-6.2,14.1,4.3,12,3.5,21.3.5s12.3,4.6,21.3-7.9c5.7-8,8.4-.2,14.8-3,1.3-.6,2.4-2.8,3.6-4.5,1.9-2.7,4.7-5,7.2-7.5s4.1-6.5,6.2-9.6,7.4-5.6,10-8.8c4.8-5.9,8.5-11.9,12.1-18.6,4,1.6,7.7,2.4,11.8.7,7-2.9,9.2-11.2,9.4-18.4,5.8-2.8,4.5-7.9,5.1-12.6,10.4-14.5.9-15,10.1-26l3.9-12.4c7.9-2.2,12.3-7.9,15.8-14.7,3.5-1.3,8-3.7,11.3-6,3.3,1.6,8.2,4.6,12,4.7,6.3.1,8.2-6.4,12.4-8.7,4.4-2.4,10-3.7,13.7-7.5,3.7,2.2,8,5.8,12.7,4.3,4.2-1.3,8.2-5.4,8.3-10l.2-7.2c0-.3,2.1-1.2,2.2-.9l3.8,8.3c1.9,4.1,6.6,4.3,9.8,1.8,15.4-12.3,2.4-35.4-10.2-45.5,1.1-2.8,2.4-7.2,1.6-9.8-.6-2-3.6-4.1-6-5.9l5.9-5.4c1.6-9.6-2.2-18.2-4.3-27.7,6-7.2,15.5-26,4.1-31.9-3.1-1.6-7.6-.5-10.1,2.4-3.8,4.5-10-4.7-18.4,7.6-4.7.3-9.9-1.4-14.1-3.5-8.9-4.3-5.5,1.4-17.7-5.4s-16.5-6-25.5-7.8-9.9-10.6-16.1-13.1c-7.7-3.1-15.9-4.9-24.1-4.8s-4.4,1.1-6-2.3c-1.2-2.7-3.9-7.2-7.2-8.1-8.6-2.3-24.6-3.5-34-2.9-10.7-7.5-10.7-18.2-25.8-11.1-3.7,1.8-11.9,1.8-15.6.3-7.4-3-23.5-11.6-29.3-1.4-8.3-1.7-10.8.7-20.6,4.7s-4.8,3-7.2,6.2c-3.9-7.4-10.5-9.1-18.3-9s-15.4-14-26.3-7.8c-6,3.4-4.3,11.3-.6,15.7.7.9-2,3.3-3.1,3.1-3-.5-3.1-11.4-20.2-8.1-10.4-12.8-16-8.2-22.7-10.7s-11.2-4.9-17.3-6.6-8.1.9-11.6.6-9.2-.8-13.9-.7c-12.1.3-12.1-8-22.4-10-6.4-1-9.8,8.1-19.1,6.3-18.4-3.5-25.8-11.5-40.8-6.9-9.8,3-24.7-8-34.4-6.9-12,1.4-21.9,8.3-29.7,17.5-7.3-.3-14-2.8-21.1-4.3-18.4-3.7-20.7-1.6-39.6-8.4-4.8-1.7-10.6-3.4-15.5-1.5l-10.4,3.9c-10.6-6.6-22.3-7.3-34.3-7.6-8.8-.2-15.8,2-23.7,4.5s-9.5.4-14.2,3.9l-9.5,7.1c-29.5,2.3-29.5-11-37.3-12.3-34.9-6.2-37.6,2.7-46.8,2.2-12.6-.7-18-11.9-45.9.1-17.1-1.7-26.4-5.7-44.9-7-5.6-.4-10.2-.5-15.1-3.6-21.8-13.9-24.9-5.5-39.1-8.5s-8.3-1.3-12.1-1.3c-11.8.3-23.3,2.2-34.5,4.8-19.8,4.7-19.9,19.8-27.4,24.8s-8.2,4.7-6.2,10l5,12.8c1.6,4.2,1.3,9.2,1.5,13.7s-6.8,11.3-11.1,12.4-8.2,7-12.2,9.2-12.4,1.9-17.9,6.3c-10.1,7.8-19.3,4.9-26.7,12.7-7.7,8,2.4,18.7,7.8,25.2,1.7,2,1.6,6.6,2.6,9.2,4.2,9.8,8.6,8.8,12.9,20.2,2.2,1.8,16.1,4,19.9,4.3s5.1,3.3,5.7,5.8l3.7,16.7c.7,3.3,3.6,5.7,6.9,7l.2,11.6c0,5.6,5,7.6,8.9,10.5,2.3,1.7.9,7.4-.9,9.3l-11.3,11.7c-4.6,4.8-1.2,11.7-.9,16.9-2.6,4.6-4.9,14.7-4.5,19.7s.4,10.6.5,16.4-2.2,4.9-4.4,6.7c-8.1,6.4.9,16.7,1.3,18.3-.3-.9-8.9,7.3-1.7,17.2,4.3,5.9,10.4,7.2,18,7.8-1.4,3.2-3,4.7-5.3,6.8l-2.3,6.7c-5.3-1.5-9.2,1-10.7,5.8l-8.7,4.7c-8.9,4.9-5,14.8-5.7,27.7s3.8,10.1,9.6,10.9c1.7,3.9,3.6,9.4,8.3,10.8s9.4-.5,11.4-3.9,1.1-8.3-1.5-12.5c.4-.8,2.9-2,4-1.7s2.2,1.5,2.9,2.5c3.2,4.5,8.6,2.5,13.4,2.5,12.6-.1,21.1,8.3,32.1,1.5,6.7,2.2,10.1-2.8,14.5-6.3,4.4-3.5,7.8-3.7,8-7.5s1.4-3.1,2.3-3.3,2.4.3,3.6.9c9.5,4.5,14.2-2.3,25.6,5.7,3.4,2.4,7.8,4.8,12,4.6,3.1-.1,4.2-4.4,5.9-7.1,1.3,15.5,10.2,6.7,12.6,15.8s4.9,6.3,9.1,7.9,9.4,3.1,14.6,3.7l12.2,1.3c1.7.2,4.7-2.2,5.3-3.7s-.3-4.4-1.2-6.7c-.4-1.5,2.7-4.4,4.4-4.9,14.7,3.2,14.2-5.2,25.3,1.3,4.2,2.5,6.9-5.8,13.8-3.8,16.8,4.8,19.8-1.5,25.6-5s6-3.2,8.8-5.4,7.6-4.2,10.1-7.1,3.8-8.3.9-12.5c1.3-1.4,3.9-3.2,5.6-4,1.1,5.1,2,9.3,5.6,12.3s8.4,3,11.5,0,5.7-2.3,9.4-1.9c3.6.4,6.5.4,8.3,3.9,3.6,6.9,9,3,14,6,9.1,5.6,19.3,5.1,28.2-.6,5-3.2,10.8-5.7,16.2-6.3-.9,4.7-.4,8.9,2.1,11.4s7.2,2.9,11,1.1c12.7-5.9,10.3,6.6,23.5.6l6.2-2.8c7.1,0,13.3-2.9,20-4.4l10.5-2.4c6-1.4,11.5-4.2,16.1-7.5,7.2,1.1,15.5,2.1,22.8,2.4,1.6,3.9,6,7,9.3,8.7,2.3,5.5,5.4,12.2,13.1,10.9s5.5-.6,7.8.7c6.2,3.6,12.1,8.4,19,10.1,5.4,1.4,10.1-5,9.9-10.5l10.6-3.4c8.7-2.8,8.1-12.3,17.1-8.7,3.9,7.1,10.7,11.5,19,9.3l.4,7.4c.2,4,5.9,7.4,9.4,6,1.8-.7,4.1-1.3,5.8-1.2,4.4,4.5,11,9.1,17.4,7.6,12.6-2.9,12.6.5,17.5-9l7.3-2.5,4.6-5.6,8.3,3.7h-.5Z"/></svg>
+    <div class="mono"><b>Naguabo, Puerto Rico, USA</b><br>US citizen · Remote · Eastern hours</div>
+  </div>
+</header>
+
+<div class="lede">
+  <div>
+    <h2>I design products and <mark>ship the code.</mark></h2>
+    <p>Senior product designer and design engineer with 10+ years in design, the last 8 as founding product designer of CurbNTurf, a two-sided RV-camping marketplace on web, iOS, and Android. I own work end to end, from research and flows to the design system and the production React/Next.js/TypeScript that ships it. I prototype AI features in code against live model output and design how they fail gracefully.</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>279%</b><span>Host sign-ups, year over year (2023)</span></div>
+    <div class="stat"><b>500+</b><span>Live listings at a 4.8 host rating</span></div>
+    <div class="stat"><b>8 yrs</b><span>Founding designer on one product</span></div>
+    <div class="stat"><b>10+ yrs</b><span>In design, web to native</span></div>
+  </div>
+</div>
+
+<main>
+  <div>
+    <section>
+      <h3 class="mono">Experience</h3>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Founding Product Designer <i>· CurbNTurf</i></div>
+          <div class="mono job-when">Dec 2018 – Present · Remote</div>
+        </div>
+        <ul>
+          <li>Designed the brand, the <b>two-sided marketplace</b>, and native <b>iOS/Android apps</b> for an RV and camping stay platform; now 500+ active listings at a 4.8 host rating.</li>
+          <li>Drove a 2023 supply push that lifted <b>host sign-ups 279%</b> year over year; host growth has averaged about 90% a year since 2023.</li>
+          <li>Designed <b>self-serve host onboarding</b> that removed the sales dependency: landowners set up listings and go live on their own.</li>
+          <li>Designed the booking and checkout flow that captures the platform’s 15% service fee, the company’s only revenue stream.</li>
+          <li><b>Rebuilt the design system in code</b>: audited the palette (14 of 17 pairings failed contrast), rebuilt it as OKLCH design tokens, migrated surface by surface, and added a build check that fails below WCAG AA.</li>
+          <li>Built the <b>production front end</b> in Next.js, React, and TypeScript, shipping through pull requests reviewed by engineers.</li>
+          <li>Led the <b>v2 redesign with AI-assisted host onboarding</b>: prototyped in Claude Code against live model output and designed correction flows for model errors.</li>
+          <li>Led creative direction as the company scaled to 10 people, working daily with the founder/CEO, engineers, and the field sales team, whose internal tools I designed.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Principal Designer <i>· The Tink Tank, freelance studio</i></div>
+          <div class="mono job-when">May 2018 – Present · Remote</div>
+        </div>
+        <ul>
+          <li>Product and brand work for SaaS, healthcare, retail, and commerce clients alongside CurbNTurf, directing freelance designers and developers per project.</li>
+          <li><b>InfoCon + LRS</b>: two brand identities and a <b>self-serve quoting system</b> for a large-print book manufacturer; an instant price estimator moved most B2B quotes to self-serve, and the business tripled after launch.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <div class="job-title">Graphic Designer <i>· Ivie</i></div>
+          <div class="mono job-when">Mar 2017 – Dec 2018 · Boise, ID</div>
+        </div>
+        <ul>
+          <li>National in-store campaigns for Albertsons (Fortune 500 grocer), concept through rollout across 2,000 stores.</li>
+        </ul>
+      </div>
+
+      <p class="early"><b>Earlier:</b> Graphic Designer, Vital Sign &amp; Graphics (2015–2016) and Brigham Young University-Idaho (2014–2016), Rexburg, ID.</p>
+    </section>
+
+    <section>
+      <h3 class="mono">Projects <em>Built end to end</em></h3>
+      <div class="proj"><b>StickyFlow</b><p>AI systems built in clients’ own accounts: RAG chatbots, LLM API integrations, and agent workflows in custom code, with an interface layer for how agents surface reasoning, signal confidence, and recover from errors.</p></div>
+      <div class="proj"><b>Dominó Caribe <span class="mono">dominoes-zeta.vercel.app</span></b><p>Caribbean dominoes with Dominican, Puerto Rican, and Cuban rules, in Spanish and English. Strict TypeScript, a written rules spec as the source of truth, and 607 automated tests.</p></div>
+    </section>
+  </div>
+
+  <aside>
+    <section>
+      <h3 class="mono">Skills</h3>
+      <div class="group"><div class="mono label">Product design</div>
+        <div class="tags"><span>Zero-to-one</span><span>Two-sided marketplaces</span><span>Self-serve onboarding</span><span>Design systems</span><span>iOS &amp; Android</span><span>Search &amp; IA</span><span>Prototyping</span><span>Usability testing</span></div></div>
+      <div class="group"><div class="mono label">Front end</div>
+        <div class="tags"><span>React</span><span>Next.js</span><span>TypeScript</span><span>Tailwind</span><span>CSS</span><span>Design tokens</span><span>Playwright</span><span>GSAP</span><span>Webflow</span></div></div>
+      <div class="group"><div class="mono label">AI</div>
+        <div class="tags"><span>Anthropic, OpenAI, Gemini APIs</span><span>RAG</span><span>Agent design</span><span>Claude Code</span><span>Cursor</span></div></div>
+      <div class="group"><div class="mono label">Tools</div>
+        <div class="tags"><span>Figma (variables, libraries)</span><span>Illustrator</span><span>Amplitude</span></div></div>
+      <div class="group"><div class="mono label">Also</div>
+        <div class="tags"><span>Brand &amp; identity</span><span>Art direction</span><span>WCAG AA</span><span>SEO</span><span>Landing-page conversion</span></div></div>
+    </section>
+
+    <section>
+      <h3 class="mono">More work</h3>
+      <div class="proj"><b>Coqui Cardboard <span class="mono">coquicardboard.com</span></b><p>A 24,000-card sports-card catalog with command-palette search, built in Next.js and Supabase.</p></div>
+      <div class="proj"><b>This portfolio <span class="mono">dustinreed.co</span></b><p>Hand built. A colour control rotates hue in OKLCH at constant luminance, keeping all 340 contrast ratios, with WCAG AA checks that fail the build.</p></div>
+    </section>
+
+    <section>
+      <h3 class="mono">Education</h3>
+      <p><b style="color:var(--ink)">BA, Graphic Design</b><br>Brigham Young University-Idaho, 2016</p>
+    </section>
+
+    <section>
+      <h3 class="mono">Languages</h3>
+      <p>English (native) · Spanish (fluent)</p>
+    </section>
+  </aside>
+</main>
+
+<footer class="mono">
+  <span>Dustin Reed · Résumé · November 2026</span>
+  <span>Case studies at <b>dustinreed.co</b></span>
+</footer>
+
+</div>
+</body>
+</html>

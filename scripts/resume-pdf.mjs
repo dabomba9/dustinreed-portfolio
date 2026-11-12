@@ -19,8 +19,11 @@ import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
 const here = dirname(fileURLToPath(import.meta.url));
-const SOURCE = resolve(here, "resume/resume.html");
-const OUT = resolve(here, "../public/dustin-reed-resume.pdf");
+/* `npm run resume` prints the plain file for application forms;
+   `npm run resume:designed` prints the branded one for people. */
+const designed = process.argv.includes("--designed");
+const SOURCE = resolve(here, designed ? "resume/resume-brand.html" : "resume/resume.html");
+const OUT = resolve(here, designed ? "../public/dustin-reed-resume-designed.pdf" : "../public/dustin-reed-resume.pdf");
 
 const CHROME = [
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
