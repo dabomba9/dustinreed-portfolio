@@ -44,7 +44,7 @@ export default function About() {
             company. A founder, a
             developer, and me. There was a platform that barely worked and no visual
             identity at all. I built the brand, the product, the website, and two native
-            apps. Today it&rsquo;s 500+ hosts with published listings and a 4.8 host
+            apps. Today it has 500+ active listings and a 4.8 host
             rating, and I&rsquo;m still designing it, now working into the backend.
           </P>
 
