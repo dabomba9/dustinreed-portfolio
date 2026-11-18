@@ -26,7 +26,7 @@ export const caseStudies: CaseStudy[] = [
       "Founding designer",
       "Brand, product, web, native",
       "2018 to now",
-      "500+ hosts with published listings",
+      "500+ active listings",
       "279% YoY host sign-ups",
     ],
     live: { label: "curbnturf.com", href: "https://www.curbnturf.com" },
