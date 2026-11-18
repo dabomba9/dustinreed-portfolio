@@ -14,7 +14,7 @@
  * reader's browser would.
  */
 import { chromium } from "playwright-core";
-import { existsSync } from "node:fs";
+import { existsSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
@@ -22,8 +22,18 @@ const here = dirname(fileURLToPath(import.meta.url));
 /* `npm run resume` prints the plain file for application forms;
    `npm run resume:designed` prints the branded one for people. */
 const designed = process.argv.includes("--designed");
-const SOURCE = resolve(here, designed ? "resume/resume-brand.html" : "resume/resume.html");
-const OUT = resolve(here, designed ? "../public/dustin-reed-resume-designed.pdf" : "../public/dustin-reed-resume.pdf");
+/* `npm run resume:variants` prints the role-specific versions, which are
+   for applications only and are not published, into scripts/resume/out/. */
+const variants = process.argv.includes("--variants");
+const JOBS = variants
+  ? ["design-engineer", "creative-director"].map((v) => [
+      resolve(here, `resume/resume-${v}.html`),
+      resolve(here, `resume/out/dustin-reed-resume-${v}.pdf`),
+    ])
+  : [[
+      resolve(here, designed ? "resume/resume-brand.html" : "resume/resume.html"),
+      resolve(here, designed ? "../public/dustin-reed-resume-designed.pdf" : "../public/dustin-reed-resume.pdf"),
+    ]];
 
 const CHROME = [
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
@@ -40,21 +50,24 @@ if (!CHROME) {
 
 const browser = await chromium.launch({ executablePath: CHROME, headless: true });
 const page = await browser.newPage();
+mkdirSync(resolve(here, "resume/out"), { recursive: true });
 
-/* file:// so the @font-face rules can reach ../../src/fonts. */
-await page.goto(`file://${SOURCE}`, { waitUntil: "load" });
-/* The fonts are font-display: block, so a page that has not finished
-   loading them prints blank text rather than fallback text. */
-await page.evaluate(() => document.fonts.ready);
+for (const [SOURCE, OUT] of JOBS) {
+  /* file:// so the @font-face rules can reach ../../src/fonts. */
+  await page.goto(`file://${SOURCE}`, { waitUntil: "load" });
+  /* The fonts are font-display: block, so a page that has not finished
+     loading them prints blank text rather than fallback text. */
+  await page.evaluate(() => document.fonts.ready);
 
-await page.pdf({
-  path: OUT,
-  format: "Letter",
-  printBackground: true,
-  /* The page boxes carry their own padding; a printer margin on top of it
-     would shrink the layout and push the second page onto a third. */
-  margin: { top: "0", right: "0", bottom: "0", left: "0" },
-});
+  await page.pdf({
+    path: OUT,
+    format: "Letter",
+    printBackground: true,
+    /* The page boxes carry their own padding; a printer margin on top of it
+       would shrink the layout and push the second page onto a third. */
+    margin: { top: "0", right: "0", bottom: "0", left: "0" },
+  });
+  console.log(`wrote ${OUT}`);
+}
 
 await browser.close();
-console.log(`wrote ${OUT}`);

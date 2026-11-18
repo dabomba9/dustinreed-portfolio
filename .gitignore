@@ -51,3 +51,6 @@ _*.tgz
 
 # Claude local settings
 .claude/settings.local.json
+
+# role-specific résumés, printed for applications, not published
+/scripts/resume/out/
