@@ -14,6 +14,7 @@
     "icon": "python3 scripts-icon.py",
     "resume": "node scripts/resume-pdf.mjs",
     "resume:designed": "node scripts/resume-pdf.mjs --designed",
+    "resume:variants": "node scripts/resume-pdf.mjs --variants",
     "check": "node scripts/check-behavior.mjs"
   },
   "dependencies": {

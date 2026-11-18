@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dustin Reed · résumé (design engineer)</title>
+<!--
+  The Design Engineer version, for roles that want a designer who codes.
+  `npm run resume:variants` prints it to scripts/resume/out/. Not published
+  on the site. Same layout and parsing rules as resume.html; keep the shared
+  facts (titles, dates, numbers, location) in step with it.
+
+  `npm run resume` prints it through the same Chrome the behaviour checks
+  drive, and the PDF is a build artifact of it. Edit this file, never the PDF.
+
+  No letter-spacing on headings or the title line: parsers read spaced
+  capitals as separate letters ("E X P E R I E N C E") and miss the section.
+  Straight apostrophes for the same reason.
+
+  Rebuilt October 2026 as a single-column, one-page layout: plain section
+  headings, titles before company names, real text throughout, no tables or
+  graphics, so the applicant-tracking systems that parse it before a person
+  sees it get clean fields out. Same fonts and .plate palette as the site.
+
+  No phone number, by choice. The file is public at a guessable URL and
+  gets scraped; email is the contact that can be filtered.
+-->
+<style>
+  @font-face { font-family: "Inter"; src: url("../../src/fonts/inter-var.woff2") format("woff2"); font-weight: 100 900; }
+  @font-face { font-family: "JetBrains Mono"; src: url("../../src/fonts/jetbrains-mono-var.woff2") format("woff2"); font-weight: 100 800; }
+  @font-face { font-family: "Big Shoulders"; src: url("../../src/fonts/big-shoulders-var.woff2") format("woff2"); font-weight: 100 900; }
+  :root { --type:#0d2117; --soft:#41474c; --mute:#5c625a; --rule:#d9d5c4; --accent:#566f00; }
+  @page { size: Letter; margin: 0.36in 0.55in; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { font-family: "Inter", Arial, Helvetica, sans-serif; font-feature-settings:"cv02","cv03","cv04","cv11"; font-size: 9.5px; line-height: 1.32; color: var(--type); -webkit-font-smoothing:antialiased; }
+  h1 { font-family: "Big Shoulders", "Inter", sans-serif; font-size: 28px; font-weight: 800; line-height: 0.95; letter-spacing: 0.005em; text-transform: uppercase; }
+  .title { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 9.6px; font-weight: 600; letter-spacing: 0; text-transform: uppercase; color: var(--accent); margin-top: 5px; }
+  .contact { margin-top: 5px; color: var(--mute); font-size: 9.4px; }
+  h2 { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 9.4px; font-weight: 700; text-transform: uppercase; letter-spacing: 0; color: var(--accent); margin-top: 7px; padding-bottom: 2px; border-bottom: 1px solid var(--rule); margin-bottom: 4px; }
+  p { margin-bottom: 3px; }
+  .job { margin-top: 4px; }
+  .job-head { font-weight: 700; }
+  .job-meta { color: var(--mute); }
+  ul { margin: 2px 0 0 13px; }
+  li { margin-bottom: 1.5px; }
+  li::marker { color: var(--accent); }
+  .skills p { margin-bottom: 1px; }
+  .skills b { font-weight: 700; }
+  a { color: inherit; text-decoration: none; }
+</style>
+</head><body>
+<h1>Dustin Reed</h1>
+<div class="title">Design Engineer | AI-Native Product Design, Design Systems, React/Next.js</div>
+<div class="contact"><a href="https://www.dustinreed.co">dustinreed.co</a> | <a href="mailto:dr33d9@gmail.com">dr33d9@gmail.com</a> | Naguabo, Puerto Rico, USA | US citizen, remote, Eastern-time hours | <a href="https://www.linkedin.com/in/dreeddesign">linkedin.com/in/dreeddesign</a> | <a href="https://github.com/dabomba9">github.com/dabomba9</a></div>
+<div style="border-top:2px solid var(--type); margin-top:8px;"></div>
+
+<h2>Summary</h2>
+<p>I help product teams ship AI-native interfaces by designing and building in the same loop: Next.js, React, TypeScript, and design systems that scale across web and native. 10+ years in design, the last 8 owning product design and front-end development at CurbNTurf, a two-sided RV-camping marketplace, where I prototyped AI-assisted onboarding in Claude Code before specs existed and designed the recovery paths when the model fails. I also build deployed agent systems where the interface shows reasoning, signals confidence, and keeps a person in control.</p>
+
+<h2>Experience</h2>
+<div class="job">
+  <div class="job-head">Founding Product Designer, CurbNTurf</div>
+  <div class="job-meta">Remote | Dec 2018 - Present</div>
+  <ul>
+    <li>Ship production features in Next.js, React, and TypeScript, integrating directly with the backend; earlier moved design handoff into Webflow, eliminating the mockup-to-code translation step.</li>
+    <li>Built and maintained the design system across the web dashboard and both native apps, in Figma and in code.</li>
+    <li>Led v2 redesign with AI-assisted host onboarding: prototyped in Claude Code before specs existed, tested against live model output, and designed correction flows for model errors. Defined the AI integration strategy for the next-generation platform.</li>
+    <li>Designed and built the booking and checkout flow that captures the platform's 15% service fee, the company's only revenue stream.</li>
+    <li>Launched the brand, marketplace, and iOS/Android apps for a two-sided RV platform; now 500+ active listings at a 4.8 host rating.</li>
+    <li>Drove a 2023 supply push that lifted host sign-ups 279% year over year; host growth has averaged about 90% a year since 2023.</li>
+    <li>Designed internal tools for the field sales team; shipped multisite hosting after a rep found a ranch with five sites and a product that supported only one.</li>
+  </ul>
+</div>
+<div class="job">
+  <div class="job-head">Principal Designer, The Tink Tank (freelance studio, alongside CurbNTurf)</div>
+  <div class="job-meta">Remote | May 2018 - Present</div>
+  <ul>
+    <li>Client product and brand work for SaaS, healthcare, retail, and commerce companies, directing freelance designers and developers per project.</li>
+    <li>InfoCon + LRS: Designed two brand identities and a self-serve quoting system for a large-print book manufacturer; an instant price estimator moved most B2B quote requests to self-serve, and the business tripled after launch, per the owner.</li>
+  </ul>
+</div>
+<div class="job">
+  <div class="job-head">Graphic Designer, Ivie</div>
+  <div class="job-meta">Boise, ID | Mar 2017 - Dec 2018</div>
+  <ul>
+    <li>Designed national in-store campaigns for Albertsons (Fortune 500 grocery retailer), concept through rollout across 2,000 stores.</li>
+  </ul>
+</div>
+<div class="job">
+  <div class="job-head">Graphic Designer, Vital Sign &amp; Graphics</div>
+  <div class="job-meta">Rexburg, ID | Jul 2015 - Dec 2016</div>
+</div>
+<div class="job">
+  <div class="job-head">Graphic Designer, Brigham Young University-Idaho</div>
+  <div class="job-meta">Rexburg, ID | Apr 2014 - Jun 2016</div>
+</div>
+
+<h2>Skills</h2>
+<div class="skills">
+  <p><b>AI:</b> Claude Code and Cursor daily, LLM APIs (Anthropic, OpenAI, Gemini), RAG, prompt and agent design, prototyping against real model output, designing failure and recovery states, Antigravity</p>
+  <p><b>Front End:</b> React, Next.js, TypeScript, Tailwind, GSAP, Playwright, Webflow, GitHub pull requests and code review</p>
+  <p><b>Design Systems:</b> design tokens and theming, OKLCH color, WCAG AA contrast gating, ARIA patterns, keyboard and focus management, prefers-reduced-motion</p>
+  <p><b>Product Design:</b> zero-to-one, two-sided marketplaces, self-serve onboarding, iOS and Android, IA and search for large catalogs, prototyping in Figma and code</p>
+  <p><b>Design:</b> Figma (components, variables, libraries), brand and identity, art direction | <b>Languages:</b> English (Native), Spanish (Fluent)</p>
+</div>
+
+<h2>Education</h2>
+<p><b>Brigham Young University-Idaho</b>, Bachelor of Arts (BA), Graphic Design | Rexburg, ID | 2014 - 2016</p>
+
+<h2>Projects</h2>
+<p><b>StickyFlow</b> (2026): Production AI systems built for clients on their own infrastructure and keys: RAG chatbots, LLM API integrations, agent workflows, CRM syncing, and data pipelines. Owned the interface side of each, from the model layer up: how an agent shows its reasoning, signals confidence, and recovers when it fails, with a person kept in control.</p>
+<p><b>Portfolio</b> (<a href="https://www.dustinreed.co">dustinreed.co</a>, code at <a href="https://github.com/dabomba9">github.com/dabomba9</a>): Built in Next.js. A generator converts one palette to OKLCH and solves lightness per theme so relative luminance holds across 17 themes and 340 contrast pairs; the same script runs as a build gate and fails on any pair under WCAG AA. A Playwright suite drives the site in a real browser and fails if a fixed bug returns.</p>
+<p><b>Dominó Caribe</b> (<a href="https://dominoes-zeta.vercel.app">dominoes-zeta.vercel.app</a>): A web game of Caribbean dominoes, Dominican rules by default with Puerto Rican and Cuban presets and editable house rules, in Spanish and English; 1 vs 1 or 2 vs 2 against three levels of bots, or online with friends. Built in October 2026 with Claude Code in strict TypeScript: a pure rules engine with seeded randomness, a written rules spec as the source of truth (the model asked when a rule was unclear instead of inventing one), 607 automated tests, and a Colyseus game server.</p>
+<p><b>Coqui Cardboard</b> (<a href="https://www.coquicardboard.com">coquicardboard.com</a>): A 24,000-card sports-card catalog with command-palette search, built end to end in Next.js and Supabase.</p>
+</body>
+</html>

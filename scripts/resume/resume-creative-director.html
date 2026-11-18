@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dustin Reed · résumé (creative director)</title>
+<!--
+  The Creative Director version, for brand and creative-lead roles.
+  `npm run resume:variants` prints it to scripts/resume/out/. Not published
+  on the site. Same layout and parsing rules as resume.html; keep the shared
+  facts (titles, dates, numbers, location) in step with it.
+
+  `npm run resume` prints it through the same Chrome the behaviour checks
+  drive, and the PDF is a build artifact of it. Edit this file, never the PDF.
+
+  No letter-spacing on headings or the title line: parsers read spaced
+  capitals as separate letters ("E X P E R I E N C E") and miss the section.
+  Straight apostrophes for the same reason.
+
+  Rebuilt October 2026 as a single-column, one-page layout: plain section
+  headings, titles before company names, real text throughout, no tables or
+  graphics, so the applicant-tracking systems that parse it before a person
+  sees it get clean fields out. Same fonts and .plate palette as the site.
+
+  No phone number, by choice. The file is public at a guessable URL and
+  gets scraped; email is the contact that can be filtered.
+-->
+<style>
+  @font-face { font-family: "Inter"; src: url("../../src/fonts/inter-var.woff2") format("woff2"); font-weight: 100 900; }
+  @font-face { font-family: "JetBrains Mono"; src: url("../../src/fonts/jetbrains-mono-var.woff2") format("woff2"); font-weight: 100 800; }
+  @font-face { font-family: "Big Shoulders"; src: url("../../src/fonts/big-shoulders-var.woff2") format("woff2"); font-weight: 100 900; }
+  :root { --type:#0d2117; --soft:#41474c; --mute:#5c625a; --rule:#d9d5c4; --accent:#566f00; }
+  @page { size: Letter; margin: 0.36in 0.55in; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { font-family: "Inter", Arial, Helvetica, sans-serif; font-feature-settings:"cv02","cv03","cv04","cv11"; font-size: 9.5px; line-height: 1.32; color: var(--type); -webkit-font-smoothing:antialiased; }
+  h1 { font-family: "Big Shoulders", "Inter", sans-serif; font-size: 28px; font-weight: 800; line-height: 0.95; letter-spacing: 0.005em; text-transform: uppercase; }
+  .title { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 9.6px; font-weight: 600; letter-spacing: 0; text-transform: uppercase; color: var(--accent); margin-top: 5px; }
+  .contact { margin-top: 5px; color: var(--mute); font-size: 9.4px; }
+  h2 { font-family: "JetBrains Mono", ui-monospace, Menlo, monospace; font-size: 9.4px; font-weight: 700; text-transform: uppercase; letter-spacing: 0; color: var(--accent); margin-top: 7px; padding-bottom: 2px; border-bottom: 1px solid var(--rule); margin-bottom: 4px; }
+  p { margin-bottom: 3px; }
+  .job { margin-top: 4px; }
+  .job-head { font-weight: 700; }
+  .job-meta { color: var(--mute); }
+  ul { margin: 2px 0 0 13px; }
+  li { margin-bottom: 1.5px; }
+  li::marker { color: var(--accent); }
+  .skills p { margin-bottom: 1px; }
+  .skills b { font-weight: 700; }
+  a { color: inherit; text-decoration: none; }
+</style>
+</head><body>
+<h1>Dustin Reed</h1>
+<div class="title">Creative Director | Brand, Product, and AI-Driven Creative Systems</div>
+<div class="contact"><a href="https://www.dustinreed.co">dustinreed.co</a> | <a href="mailto:dr33d9@gmail.com">dr33d9@gmail.com</a> | Naguabo, Puerto Rico, USA | US citizen, remote, Eastern-time hours | <a href="https://www.linkedin.com/in/dreeddesign">linkedin.com/in/dreeddesign</a> | <a href="https://github.com/dabomba9">github.com/dabomba9</a></div>
+<div style="border-top:2px solid var(--type); margin-top:8px;"></div>
+
+<h2>Summary</h2>
+<p>I help companies build brand and product systems that scale. Over 8 years, I've led creative direction for a two-sided marketplace (founding designer through a 10-person team, 279% YoY host growth), directed teams through my studio for SaaS and healthcare clients, and shipped national campaigns across 2,000 Albertsons stores. I build with AI (agent workflows, LLM integrations, RAG systems) and code the front end myself in React and Next.js so the vision ships as designed.</p>
+
+<h2>Experience</h2>
+<div class="job">
+  <div class="job-head">Founding Product Designer, CurbNTurf</div>
+  <div class="job-meta">Remote | Dec 2018 - Present</div>
+  <ul>
+    <li>Directed brand, product, and marketing creative across cross-functional teams as CurbNTurf scaled from 3 to 10 people.</li>
+    <li>Launched the brand, marketplace, and iOS/Android apps for a two-sided RV platform; now 500+ active listings at a 4.8 host rating.</li>
+    <li>Designed self-serve host onboarding that eliminated the need for a sales team; the 2023 supply push built on it lifted host sign-ups 279% year over year and drove the platform's revenue model.</li>
+    <li>Led the v2 product redesign using AI-driven workflows to accelerate design-to-code handoff by over 90%, and defined the AI integration strategy for the next-generation app.</li>
+    <li>Designed the booking and checkout flow that captures the platform's 15% service fee, the company's only revenue stream.</li>
+    <li>Drove design into production, first through Webflow and now by writing the front end in Next.js, React, and TypeScript, so the creative vision ships as designed.</li>
+  </ul>
+</div>
+<div class="job">
+  <div class="job-head">Principal Designer, The Tink Tank (freelance studio, alongside CurbNTurf)</div>
+  <div class="job-meta">Remote | May 2018 - Present</div>
+  <ul>
+    <li>Direct freelance designers and developers for SaaS, healthcare, retail, and commerce clients, assembling agile teams for each engagement.</li>
+    <li>InfoCon + LRS: Designed two brand identities and a self-serve quoting system for a large-print book manufacturer. Moved most B2B quote requests to self-serve with an instant price estimator; the business tripled after launch.</li>
+    <li>New Smile Dentures: Rebranded a denture practice and designed landing pages optimized for conversion rate. SEO and paid search drove 5,000 to 10,000 monthly visits at an 8% lead capture rate.</li>
+  </ul>
+</div>
+<div class="job">
+  <div class="job-head">Graphic Designer, Ivie</div>
+  <div class="job-meta">Boise, ID | Mar 2017 - Dec 2018</div>
+  <ul>
+    <li>Art directed national in-store campaigns for Albertsons from concept through rollout across 2,000 stores, managing production timelines and vendor coordination.</li>
+  </ul>
+</div>
+<div class="job">
+  <div class="job-head">Graphic Designer, Vital Sign &amp; Graphics</div>
+  <div class="job-meta">Rexburg, ID | Jul 2015 - Dec 2016</div>
+</div>
+<div class="job">
+  <div class="job-head">Graphic Designer, Brigham Young University-Idaho</div>
+  <div class="job-meta">Rexburg, ID | Apr 2014 - Jun 2016</div>
+</div>
+
+<h2>Skills</h2>
+<div class="skills">
+  <p><b>Creative Direction:</b> brand and identity, art direction, campaign design, creative strategy, directing freelance designers and developers, client presentation</p>
+  <p><b>AI:</b> agent workflows, prompt systems, LLM APIs (Anthropic, OpenAI, Gemini), RAG, CRM and API integrations, Claude Code, Cursor, Antigravity</p>
+  <p><b>Product Design:</b> zero-to-one, two-sided marketplaces, self-serve onboarding, design systems, iOS and Android, prototyping in Figma and code</p>
+  <p><b>Front End:</b> React, Next.js, TypeScript, Tailwind, GSAP, Webflow</p>
+  <p><b>Growth:</b> SEO, Google Ads, landing-page conversion</p>
+  <p><b>Languages:</b> English (Native), Spanish (Fluent)</p>
+</div>
+
+<h2>Education</h2>
+<p><b>Brigham Young University-Idaho</b>, Bachelor of Arts (BA), Graphic Design | Rexburg, ID | 2014 - 2016</p>
+
+<h2>Projects</h2>
+<p><b>StickyFlow</b> (2026): Positioning, brand, and a Next.js site for an AI systems practice, plus the systems themselves: RAG chatbots, LLM API integrations, and agent workflows built in clients' own accounts, so they keep the architecture and data.</p>
+<p><b>Coqui Cardboard</b> (<a href="https://www.coquicardboard.com">coquicardboard.com</a>): A 24,000-card sports-card catalog with command-palette search, built end to end in Next.js and Supabase. Search, filters, and catalog IA built from scratch for collectors who need to find specific cards fast.</p>
+<p><b>Portfolio</b> (<a href="https://www.dustinreed.co">dustinreed.co</a>): Hand built. A color control rotates hue in OKLCH at constant relative luminance, so all 340 contrast pairs hold their ratios. Embedded WCAG AA enforcement in the design system with automated contrast checks that fail below the standard.</p>
+</body>
+</html>
