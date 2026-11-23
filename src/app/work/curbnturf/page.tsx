@@ -29,7 +29,7 @@ export default function CurbNTurf() {
           { label: "Role", value: "Founding designer" },
           { label: "Scope", value: "Brand, product, web, native" },
           { label: "Started", value: "December 2018" },
-          { label: "Status", value: "Live, v2 in progress" },
+          { label: "Status", value: "Live; v2 in beta at new.curbnturf.com" },
         ]}
       />
 

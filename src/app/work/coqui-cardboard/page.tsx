@@ -276,7 +276,7 @@ export default function Coqui() {
           />
 
           <P>
-            Four sites, all my design, all my code. Three are live, and CurbNTurf v2 goes public in mid-November 2026. I bring it up because the useful
+            Four sites, all my design, all my code. All four are live, and CurbNTurf v2 runs at new.curbnturf.com until it replaces the current site. I bring it up because the useful
             fact isn’t any single one of them. It’s that a designer who builds doesn’t have
             to wait on anybody to find out whether an idea works.
           </P>
