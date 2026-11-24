@@ -35,21 +35,8 @@ export const caseStudies: CaseStudy[] = [
     imageAlt: "CurbNTurf marketplace, host onboarding, and listing pages",
   },
   {
-    slug: "coqui-cardboard",
-    number: "02",
-    client: "Coqui Cardboard",
-    title: "The one nobody asked me to build.",
-    blurb:
-      "Twenty-four thousand sports cards, cataloged and designed the way the objects deserve. No client, no brief, no revenue. Designed and built end to end in Next.js.",
-    facts: ["Sole designer and developer", "24,000+ cards", "Command palette search"],
-    live: { label: "coquicardboard.com", href: "https://www.coquicardboard.com" },
-    image: "/media/coqui-clip-poster.jpg",
-    clip: "/media/coqui-clip",
-    imageAlt: "Coqui Cardboard catalog and command palette search",
-  },
-  {
     slug: "infocon-lrs",
-    number: "03",
+    number: "02",
     client: "InfoCon + LRS",
     title: "Why we didn’t merge them.",
     blurb:
@@ -63,6 +50,19 @@ export const caseStudies: CaseStudy[] = [
     image: "/media/infocon-clip-poster.jpg",
     clip: "/media/infocon-clip",
     imageAlt: "The InfoCon storefront scrolled: the yellow ground, the serif headline, and the hexagon photo crops",
+  },
+  {
+    slug: "coqui-cardboard",
+    number: "03",
+    client: "Coqui Cardboard",
+    title: "The one nobody asked me to build.",
+    blurb:
+      "Twenty-four thousand sports cards, cataloged and designed the way the objects deserve. No client, no brief, no revenue. Designed and built end to end in Next.js.",
+    facts: ["Sole designer and developer", "24,000+ cards", "Command palette search"],
+    live: { label: "coquicardboard.com", href: "https://www.coquicardboard.com" },
+    image: "/media/coqui-clip-poster.jpg",
+    clip: "/media/coqui-clip",
+    imageAlt: "Coqui Cardboard catalog and command palette search",
   },
   {
     slug: "domino-caribe",

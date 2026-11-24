@@ -431,9 +431,9 @@ export default function CurbNTurf() {
           },
         ]}
         next={{
-          slug: "coqui-cardboard",
-          client: "Coqui Cardboard",
-          title: "The one nobody asked me to build.",
+          slug: "infocon-lrs",
+          client: "InfoCon + LRS",
+          title: "Why we didn’t merge them.",
         }}
       />
     </>
