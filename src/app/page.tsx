@@ -17,7 +17,7 @@ export default function Home() {
       <section className="border-b border-rule">
         <Wrap className="py-20 md:py-32">
           <p className="label text-accent">
-            On one product since 2018 &middot; San Juan, Puerto Rico
+            Senior Product Designer &amp; Design Engineer &middot; San Juan, Puerto Rico
           </p>
 
           <h1 className="display mt-8 text-[3.5rem] sm:text-7xl md:text-[5.75rem] lg:text-[6.75rem]">
@@ -28,8 +28,10 @@ export default function Home() {
 
           <p className="mt-10 max-w-2xl text-lg leading-[1.65] text-soft md:text-xl">
             Founding designer at{" "}
+            {/* v2 runs at new.curbnturf.com until it replaces the current
+                site; point this back at www.curbnturf.com after the switch. */}
             <a
-              href="https://www.curbnturf.com"
+              href="https://new.curbnturf.com"
               target="_blank"
               rel="noreferrer"
               className="text-type underline decoration-edge/40 decoration-2 transition-colors hover:decoration-edge"
