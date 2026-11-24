@@ -5,8 +5,8 @@ import re, os
 PAGES = [
     ("/", "src/app/page.tsx", "Index", "Home", "index"),
     ("/work/curbnturf", "src/app/work/curbnturf/page.tsx", "01", "CurbNTurf", "case"),
-    ("/work/coqui-cardboard", "src/app/work/coqui-cardboard/page.tsx", "02", "Coqui Cardboard", "case"),
-    ("/work/infocon-lrs", "src/app/work/infocon-lrs/page.tsx", "03", "InfoCon + LRS", "case"),
+    ("/work/infocon-lrs", "src/app/work/infocon-lrs/page.tsx", "02", "InfoCon + LRS", "case"),
+    ("/work/coqui-cardboard", "src/app/work/coqui-cardboard/page.tsx", "03", "Coqui Cardboard", "case"),
     ("/work/domino-caribe", "src/app/work/domino-caribe/page.tsx", "04", "Dominó Caribe", "case"),
     ("/about", "src/app/about/page.tsx", "—", "About", "page"),
     ("/how-its-built", "src/app/how-its-built/page.tsx", "—", "How it’s built", "page"),

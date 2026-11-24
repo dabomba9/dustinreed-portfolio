@@ -19,7 +19,7 @@ export default function InfoConLRS() {
   return (
     <>
       <CaseHero
-        number="03"
+        number="02"
         client="InfoCon + LRS"
         title="Why we didn’t merge them"
         dek="Two large-print brands, one owner, the same customers. Everyone would tell you to consolidate. We built two of everything instead, and I can tell you exactly why."
@@ -351,9 +351,9 @@ export default function InfoConLRS() {
           },
         ]}
         next={{
-          slug: "domino-caribe",
-          client: "Dominó Caribe",
-          title: "The model had to ask.",
+          slug: "coqui-cardboard",
+          client: "Coqui Cardboard",
+          title: "The one nobody asked me to build.",
         }}
       />
     </>

@@ -35,23 +35,8 @@ export const pages: Page[] = [
     ],
   },
   {
-    href: "/work/coqui-cardboard",
-    number: "02",
-    label: "Coqui Cardboard",
-    kind: "case",
-    sections: [
-      { id: "let-me-be-upfront-about-this-one", title: "Let me be upfront about this one" },
-      { id: "why-nineties-cards", title: "Why nineties cards" },
-      { id: "four-vaults-four-reasons", title: "Four vaults, four reasons" },
-      { id: "two-ways-in", title: "Two ways in" },
-      { id: "the-look-is-the-argument", title: "The look is the argument" },
-      { id: "the-parts-that-were-hard", title: "The parts that were hard" },
-      { id: "what-it-was-part-of", title: "What it was part of" },
-    ],
-  },
-  {
     href: "/work/infocon-lrs",
-    number: "03",
+    number: "02",
     label: "InfoCon + LRS",
     kind: "case",
     sections: [
@@ -62,6 +47,21 @@ export const pages: Page[] = [
       { id: "the-part-that-isnt-a-website", title: "The part that isn’t a website" },
       { id: "the-argument-i-lost", title: "The argument I lost" },
       { id: "where-it-stands", title: "Where it stands" },
+    ],
+  },
+  {
+    href: "/work/coqui-cardboard",
+    number: "03",
+    label: "Coqui Cardboard",
+    kind: "case",
+    sections: [
+      { id: "let-me-be-upfront-about-this-one", title: "Let me be upfront about this one" },
+      { id: "why-nineties-cards", title: "Why nineties cards" },
+      { id: "four-vaults-four-reasons", title: "Four vaults, four reasons" },
+      { id: "two-ways-in", title: "Two ways in" },
+      { id: "the-look-is-the-argument", title: "The look is the argument" },
+      { id: "the-parts-that-were-hard", title: "The parts that were hard" },
+      { id: "what-it-was-part-of", title: "What it was part of" },
     ],
   },
   {

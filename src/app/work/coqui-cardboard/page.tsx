@@ -20,7 +20,7 @@ export default function Coqui() {
   return (
     <>
       <CaseHero
-        number="02"
+        number="03"
         client="Coqui Cardboard"
         title="The one nobody asked me to build"
         dek="A catalog for twenty-four thousand sports cards across four players, designed and built by me for a hobby I got pulled back into during the pandemic. No client. No brief. No revenue. That’s sort of the point."
@@ -295,9 +295,9 @@ export default function Coqui() {
           },
         ]}
         next={{
-          slug: "infocon-lrs",
-          client: "InfoCon + LRS",
-          title: "Why we didn’t merge them.",
+          slug: "domino-caribe",
+          client: "Dominó Caribe",
+          title: "The model had to ask.",
         }}
       />
     </>
